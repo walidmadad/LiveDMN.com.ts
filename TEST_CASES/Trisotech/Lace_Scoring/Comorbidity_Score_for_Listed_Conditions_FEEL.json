@@ -1,0 +1,18 @@
+{
+  "action": "FEEL",
+  "data": [
+    {
+      "Comorbidity Score": "function(x) x.value * 2/3",
+      "List of Conditions": [
+        {
+          "condition": "...",
+          "value": 2
+        },
+        {
+          "condition": "...",
+          "value": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "action": "PREDICT",
+  "data": [
+    {
+      "Issue Type": "Flat tire",
+      "Send to Shop Assessment": false
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "action": "FEEL",
+  "data": [
+    {
+      "Applicable Promotions": {
+        "Price": 5
+      },
+      "Daily Price": 2,
+      "Discount Percent": 10,
+      "Weekly Price": 3
+    },
+    {
+      "Applicable Promotions": {
+        "Price": 1
+      },
+      "Daily Price": 2,
+      "Discount Percent": 10,
+      "Weekly Price": 3
+    }
+  ]
+}

@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<semantic:definitions xmlns:semantic="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:feel="https://www.omg.org/spec/DMN/20191111/FEEL/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"       xmlns:triso="http://www.trisotech.com/2015/triso/modeling"  xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn"  xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase"  xmlns:drools="http://www.drools.org/kie/dmn/1.1"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:rss="http://purl.org/rss/2.0/"  xmlns:openapi="https://openapis.org/omg/extension/1.0"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:boxedext="https://www.trisotech.com/spec/DMN/20191111/EXT/"   xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns="http://www.trisotech.com/definitions/_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa" id="_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa" name="Upgrade Based On Promotions" namespace="http://www.trisotech.com/definitions/_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa" exporter="Decision Modeler" exporterVersion="8.11.0" xml:lang="en" triso:logoChoice="Default" triso:version="1.2" triso:state="Published">
+    <semantic:extensionElements>
+        <tc:testCases>
+            <tc:testCase id="_4702a036-a569-46c1-9d7c-1d3730daa5b6" name="Test case 1">
+                <tc:inputNode name="Membership Level">
+                    <tc:value xsi:type="xsd:string">Gold</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Promotions Code">
+                    <tc:value xsi:type="xsd:string">Promo A</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Requested Vehicle Class">
+                    <tc:value xsi:type="xsd:string">Economy</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Calendar Promotion">
+                    <tc:value xsi:type="xsd:string">Victoria Day</tc:value>
+                </tc:inputNode>
+                <tc:resultNode name="Upgrade Based On Promotion Code">
+                    <tc:expected>
+                        <tc:value xsi:type="xsd:string">Compact</tc:value>
+                    </tc:expected>
+                </tc:resultNode>
+                <tc:resultNode name="Upgrade Based On Promotions">
+                    <tc:expected>
+                        <tc:value xsi:type="xsd:string">Compact</tc:value>
+                    </tc:expected>
+                </tc:resultNode>
+                <tc:resultNode name="Upgrade Base on Calendar Promotion">
+                    <tc:expected>
+                        <tc:value xsi:type="xsd:string">Compact</tc:value>
+                    </tc:expected>
+                </tc:resultNode>
+            </tc:testCase>
+            <tc:testCase id="_56ca7f92-cdfe-43bd-934b-54e3c4ae9dd4" name="Test case 2">
+                <tc:inputNode name="Membership Level">
+                    <tc:value xsi:type="xsd:string">None</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Promotions Code">
+                    <tc:value xsi:type="xsd:string">Promo A</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Requested Vehicle Class">
+                    <tc:value xsi:type="xsd:string">Economy</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Calendar Promotion">
+                    <tc:value xsi:type="xsd:string">Canada Day</tc:value>
+                </tc:inputNode>
+                <tc:resultNode name="Upgrade Based On Promotion Code">
+                    <tc:expected>
+                        <tc:value xsi:type="xsd:string">Economy</tc:value>
+                    </tc:expected>
+                </tc:resultNode>
+                <tc:resultNode name="Upgrade Based On Promotions">
+                    <tc:expected>
+                        <tc:value xsi:type="xsd:string">Full Size</tc:value>
+                    </tc:expected>
+                </tc:resultNode>
+                <tc:resultNode name="Upgrade Base on Calendar Promotion">
+                    <tc:expected>
+                        <tc:value xsi:type="xsd:string">Full Size</tc:value>
+                    </tc:expected>
+                </tc:resultNode>
+            </tc:testCase>
+        </tc:testCases>
+    </semantic:extensionElements>
+    <semantic:itemDefinition name="tVehicleClass" label="tVehicleClass">
+        <semantic:typeRef>string</semantic:typeRef>
+        <semantic:allowedValues>
+            <semantic:extensionElements>
+                <triso:constraintDetails id="_51164a99-d66d-4a08-91d0-3a05dba9425e" constraintsType="enumeration">
+                    <triso:value>"Economy","Compact","Full Size"</triso:value>
+                    <triso:display>"Economy", "Compact", "Full Size"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Economy"</triso:value>
+                        <triso:display>"Economy"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Compact"</triso:value>
+                        <triso:display>"Compact"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Full Size"</triso:value>
+                        <triso:display>"Full Size"</triso:display>
+                    </triso:choices>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>"Economy","Compact","Full Size"</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="tMembershipLevel" label="tMembershipLevel">
+        <semantic:typeRef>string</semantic:typeRef>
+        <semantic:allowedValues>
+            <semantic:extensionElements>
+                <triso:constraintDetails id="_050b46b5-da04-490a-a4e3-c42e79ec4d91" constraintsType="enumeration">
+                    <triso:value>"Gold","Silver","None"</triso:value>
+                    <triso:display>"Gold", "Silver", "None"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Gold"</triso:value>
+                        <triso:display>"Gold"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Silver"</triso:value>
+                        <triso:display>"Silver"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"None"</triso:value>
+                        <triso:display>"None"</triso:display>
+                    </triso:choices>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>"Gold","Silver","None"</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="tPromotionsCode" label="tPromotionsCode">
+        <semantic:typeRef>string</semantic:typeRef>
+        <semantic:allowedValues>
+            <semantic:extensionElements>
+                <triso:constraintDetails id="_ccba8f19-5917-4998-8689-5c4c68ce8bcf" constraintsType="enumeration">
+                    <triso:value>"Promo A","Promo B"</triso:value>
+                    <triso:display>"Promo A", "Promo B"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Promo A"</triso:value>
+                        <triso:display>"Promo A"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Promo B"</triso:value>
+                        <triso:display>"Promo B"</triso:display>
+                    </triso:choices>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>"Promo A","Promo B"</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="tCalendarPromotion" label="tCalendarPromotion">
+        <semantic:typeRef>string</semantic:typeRef>
+        <semantic:allowedValues>
+            <semantic:extensionElements>
+                <triso:constraintDetails id="_359f1927-56b6-4845-9791-601039e2887a" constraintsType="enumeration">
+                    <triso:value>"Victoria Day","Canada Day","Christmas"</triso:value>
+                    <triso:display>"Victoria Day", "Canada Day", "Christmas"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Victoria Day"</triso:value>
+                        <triso:display>"Victoria Day"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Canada Day"</triso:value>
+                        <triso:display>"Canada Day"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Christmas"</triso:value>
+                        <triso:display>"Christmas"</triso:display>
+                    </triso:choices>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>"Victoria Day","Canada Day","Christmas"</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:decisionService id="_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_DS" name="Whole Model Decision Service" triso:dynamicDecisionService="true" triso:wholeModelService="true">
+        <semantic:variable name="Whole Model Decision Service" id="_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_60e11f1c-98af-4d53-8872-7ff8c13a07ca"/>
+        <semantic:encapsulatedDecision href="#_d06e5b70-796f-4e64-ae05-b983c11eda46"/>
+        <semantic:encapsulatedDecision href="#_89b59ab0-43d0-450d-90b8-7d97afaba1be"/>
+        <semantic:inputData href="#_a396d1ca-dfc1-4ed6-bef1-e696ec1967a0"/>
+        <semantic:inputData href="#_65c86ddb-155e-4133-80b7-7f393b3fe10e"/>
+        <semantic:inputData href="#_1b6ee42f-0959-462e-8bdc-ef869af2c2f4"/>
+        <semantic:inputData href="#_2e8e8b6f-3147-4451-9447-73044c7d73b4"/>
+    </semantic:decisionService>
+    <semantic:decisionService id="_a76f3816-7d56-43d7-97ba-a9b9c4586bc9_DS" name="Diagram Untitled Diagram" triso:dynamicDecisionService="true">
+        <semantic:variable name="Diagram Untitled Diagram" id="_a76f3816-7d56-43d7-97ba-a9b9c4586bc9_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_60e11f1c-98af-4d53-8872-7ff8c13a07ca"/>
+        <semantic:encapsulatedDecision href="#_d06e5b70-796f-4e64-ae05-b983c11eda46"/>
+        <semantic:encapsulatedDecision href="#_89b59ab0-43d0-450d-90b8-7d97afaba1be"/>
+        <semantic:inputData href="#_a396d1ca-dfc1-4ed6-bef1-e696ec1967a0"/>
+        <semantic:inputData href="#_65c86ddb-155e-4133-80b7-7f393b3fe10e"/>
+        <semantic:inputData href="#_1b6ee42f-0959-462e-8bdc-ef869af2c2f4"/>
+        <semantic:inputData href="#_2e8e8b6f-3147-4451-9447-73044c7d73b4"/>
+    </semantic:decisionService>
+    <semantic:knowledgeSource id="_601981b2-d94d-41c9-bb31-d6069751f6e8" name="Member Reservation System">
+        <semantic:authorityRequirement id="_7a6cf0b2-6066-4c7c-b517-6b5d3ac0c3ac">
+            <semantic:requiredInput href="#_65c86ddb-155e-4133-80b7-7f393b3fe10e"/>
+        </semantic:authorityRequirement>
+    </semantic:knowledgeSource>
+    <semantic:decision id="_d06e5b70-796f-4e64-ae05-b983c11eda46" name="Upgrade Based On Promotion Code">
+        <semantic:variable name="Upgrade Based On Promotion Code" id="_6311ebba-dcc4-42e0-a022-d52db3bca6f0" typeRef="string"/>
+        <semantic:informationRequirement id="_71453eb9-1660-40d0-87bd-bca7906cdcd0">
+            <semantic:requiredInput href="#_a396d1ca-dfc1-4ed6-bef1-e696ec1967a0"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_b6892953-56d2-43a4-be86-c1e87b8b0992">
+            <semantic:requiredInput href="#_1b6ee42f-0959-462e-8bdc-ef869af2c2f4"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_b596a655-b719-493b-8281-cecf2c692272">
+            <semantic:requiredInput href="#_2e8e8b6f-3147-4451-9447-73044c7d73b4"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_c12304db-a202-4ded-a0e1-a8f1eede498a" hitPolicy="PRIORITY" outputLabel="Upgrade Based On Promotion Code" typeRef="string" triso:expressionId="_3433eac9-9b99-4e51-bb66-0dd38baab349">
+            <semantic:input id="_1e95b7dc-502b-4c99-9289-33a25b2f8763" label="Requested Vehicle Class">
+                <semantic:inputExpression typeRef="tVehicleClass">
+                    <semantic:text>Requested Vehicle Class</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Economy","Compact","Full Size"</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:input id="_5436e245-33dc-4584-8b2b-859d8c7371fd" label="Membership Level">
+                <semantic:inputExpression typeRef="tMembershipLevel">
+                    <semantic:text>Membership Level</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Gold","Silver","None"</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:input id="_a5c9ecdd-5e8b-4de4-ac55-3fd557f230e4" label="Promotions Code">
+                <semantic:inputExpression typeRef="tPromotionsCode">
+                    <semantic:text>Promotions Code</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Promo A","Promo B"</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:output id="_af563eac-7397-44ba-9357-ecb2e644566d">
+                <semantic:outputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Compact","Economy","Full Size"</semantic:text>
+                </semantic:outputValues>
+            </semantic:output>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_bf75bce2-08b5-4430-8c59-06c403cda991">
+                <semantic:inputEntry id="_d5694b3e-cc29-4236-8761-8902ec02f0ec">
+                    <semantic:text>"Economy"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_71eb6a15-f519-45bf-bef5-fe0ae55329ea" triso:mergeKey="_813fcb38-3464-4079-8c6d-ad4c63c02c78">
+                    <semantic:text>"Gold"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_185bcccb-c407-4250-b5e1-59f87dd9af74">
+                    <semantic:text>"Promo A"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_40ad85e3-12e3-4cb3-b420-6a6fd28f020b">
+                    <semantic:text>"Compact"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_7d883000-678d-469e-b783-f840278647a0">
+                <semantic:inputEntry id="_7e5d11a0-1068-4ce8-9e6c-6263a3f05bae">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_83b18945-d6af-4024-b89a-9a2269f6de41" triso:mergeKey="_813fcb38-3464-4079-8c6d-ad4c63c02c78">
+                    <semantic:text>"Gold"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_9148d260-461b-4034-baa6-857217b4447a">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_f455b75d-2f0a-4d5a-b0dd-2a3838af2efc">
+                    <semantic:text>"Full Size"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_77f5f603-fb7e-4d80-8eb8-fb9f91216fc8">
+                <semantic:inputEntry id="_c5001b7a-e36d-4941-b897-3c22ebf0a40f">
+                    <semantic:text>"Economy"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_14a0bb34-c899-40da-9a76-75c5e5b708bb" triso:mergeKey="_b6e90094-7212-4a46-827a-88cca2733731">
+                    <semantic:text>"Silver"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_c0f11234-3c1e-412a-8e2a-76e40ff4586c" triso:mergeKey="_384bc3ea-b080-43cc-8ca9-2ecc0a75eaa2">
+                    <semantic:text>"Promo A"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_2dea424c-48f5-4b95-8b18-c0008f7c5128">
+                    <semantic:text>"Compact"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_ee0943db-34f4-4b71-a20f-70aa0dab223d">
+                <semantic:inputEntry id="_1a86c6f8-3c66-40ef-9b0c-3256966b7246">
+                    <semantic:text>"Compact"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_bdc0c72b-6899-40c4-a3c0-913661af121b" triso:mergeKey="_b6e90094-7212-4a46-827a-88cca2733731">
+                    <semantic:text>"Silver"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_4fc423b2-f613-4dee-ad4d-244e4364cb5e" triso:mergeKey="_384bc3ea-b080-43cc-8ca9-2ecc0a75eaa2">
+                    <semantic:text>"Promo A"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_19833b5d-1dff-42de-bb89-0dc1577e69b4">
+                    <semantic:text>"Compact"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_e0e042bc-e2e3-4b75-8b4e-06239e985611">
+                <semantic:inputEntry id="_1db5a0fe-6f9b-478d-81a0-8fb09cdf5936">
+                    <semantic:text>"Full Size"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_807eb202-f7bb-4a74-8e9f-26dd1ba11720" triso:mergeKey="_b6e90094-7212-4a46-827a-88cca2733731">
+                    <semantic:text>"Silver"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_d6193435-4e6b-43b2-8689-b9731517d259" triso:mergeKey="_384bc3ea-b080-43cc-8ca9-2ecc0a75eaa2">
+                    <semantic:text>"Promo A"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_0bdeaff9-f4e7-4aa8-9220-cd265ae48003">
+                    <semantic:text>"Full Size"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_044a5fea-59ee-402b-9ba7-c32d6041da23">
+                <semantic:inputEntry id="_120f84bc-1d40-4b3c-8480-02f8df53de27">
+                    <semantic:text>"Economy"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_d0494f15-7c27-4598-b8bc-fb0cae14a502" triso:mergeKey="_b6e90094-7212-4a46-827a-88cca2733731">
+                    <semantic:text>"Silver"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_5256b1a4-aac0-4024-93c9-15af578fc73e" triso:mergeKey="_ba9702ec-92fa-4d88-a9ed-aaf530378a63">
+                    <semantic:text>"Promo B"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_b2fdd38b-9717-4666-b403-61da34e01dc8">
+                    <semantic:text>"Compact"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_44a9187a-3765-464a-a68d-399186662f01">
+                <semantic:inputEntry id="_2fa3142b-0df2-4076-a607-57f340ca90b2">
+                    <semantic:text>"Compact"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_7a2a6e2f-e4b3-42a6-9290-d283da38df96" triso:mergeKey="_b6e90094-7212-4a46-827a-88cca2733731">
+                    <semantic:text>"Silver"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_a4f07097-9c0e-4973-a8a3-cc1814f63e31" triso:mergeKey="_ba9702ec-92fa-4d88-a9ed-aaf530378a63">
+                    <semantic:text>"Promo B"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_19f15cff-7f81-4644-8030-f6fb1c7012db">
+                    <semantic:text>"Full Size"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_16cfce38-91d8-4cf6-a3e3-51eb34eea578">
+                <semantic:inputEntry id="_a6274c79-98ba-4d91-af3e-cb058d26ee3d">
+                    <semantic:text>"Full Size"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_d4e0d990-0612-48d7-9e83-c3c15a484c64" triso:mergeKey="_b6e90094-7212-4a46-827a-88cca2733731">
+                    <semantic:text>"Silver"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_70be00cf-74c3-47e8-abeb-26c3ebaf1f67" triso:mergeKey="_ba9702ec-92fa-4d88-a9ed-aaf530378a63">
+                    <semantic:text>"Promo B"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_a8785595-19f3-4d82-aff1-e94a96b35d94">
+                    <semantic:text>"Full Size"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_0029e871-b2b2-4c7e-8438-bf050c7e7307">
+                <semantic:inputEntry id="_42a9702f-f9c7-4483-8746-103e28ec99d3">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_cd20a2b1-9d48-41e9-9efc-50a71de3880c">
+                    <semantic:text>"None"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_714b5cf7-b67a-4487-bc11-9d72211d34b7">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_5d089879-5208-40b8-83d1-074c76d05100">
+                    <semantic:text>Requested Vehicle Class</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:inputData id="_a396d1ca-dfc1-4ed6-bef1-e696ec1967a0" name="Membership Level">
+        <semantic:variable name="Membership Level" id="_932307b8-6777-44a4-a187-47aeb8c9424b" typeRef="tMembershipLevel"/>
+    </semantic:inputData>
+    <semantic:knowledgeSource id="_4c5a456d-a8fd-43b9-966d-e85b91adb394" name="Member Database">
+        <semantic:authorityRequirement id="_7568a99e-5fb1-487e-b978-c56550a1e100">
+            <semantic:requiredInput href="#_a396d1ca-dfc1-4ed6-bef1-e696ec1967a0"/>
+        </semantic:authorityRequirement>
+    </semantic:knowledgeSource>
+    <semantic:inputData id="_65c86ddb-155e-4133-80b7-7f393b3fe10e" name="Calendar Promotion">
+        <semantic:variable name="Calendar Promotion" id="_5fb0434f-aa77-4364-9c1a-feb616cb5e23" typeRef="tCalendarPromotion"/>
+    </semantic:inputData>
+    <semantic:decision id="_89b59ab0-43d0-450d-90b8-7d97afaba1be" name="Upgrade Base on Calendar Promotion">
+        <semantic:variable name="Upgrade Base on Calendar Promotion" id="_b0fdcf17-69e2-45e8-b5d6-78b8b90f74c2" typeRef="string"/>
+        <semantic:informationRequirement id="_c6ee000d-603d-401d-86d6-1e49e33f95cc">
+            <semantic:requiredInput href="#_a396d1ca-dfc1-4ed6-bef1-e696ec1967a0"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_519a2b47-b27f-4036-a195-52eaaf26c7f5">
+            <semantic:requiredInput href="#_65c86ddb-155e-4133-80b7-7f393b3fe10e"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_9662094a-d3c0-4ebc-af6c-74d880ac86df">
+            <semantic:requiredInput href="#_2e8e8b6f-3147-4451-9447-73044c7d73b4"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_4203dadc-1037-43e5-af2b-37e60c26b304" hitPolicy="PRIORITY" outputLabel="Upgrade Base on Calendar Promotion" typeRef="string" triso:expressionId="_d94e854f-f8a1-44fa-aef7-5e98e9189070">
+            <semantic:input id="_716c3c3d-69bf-4e00-8c44-f506ff095b8e" label="Requested Vehicle Class">
+                <semantic:inputExpression typeRef="tVehicleClass">
+                    <semantic:text>Requested Vehicle Class</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Economy","Compact","Full Size"</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:input id="_d6d60962-45a5-4e85-bb2e-118726ab4de4" label="Calendar Promotion">
+                <semantic:inputExpression typeRef="tCalendarPromotion">
+                    <semantic:text>Calendar Promotion</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Victoria Day","Canada Day","Christmas"</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:output id="_d953594d-db14-426c-9473-cdff2925ca92">
+                <semantic:outputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Economy","Compact","Full Size"</semantic:text>
+                </semantic:outputValues>
+            </semantic:output>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_56ee7908-3da2-4533-b122-9a98a63eae15">
+                <semantic:inputEntry id="_ceabc920-5960-437b-b026-2fd7a8f90bc6" triso:mergeKey="_369d5a1c-36e2-42ad-b5c6-94ccc0a2cf88">
+                    <semantic:text>"Economy"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_e9914731-1fc1-43fb-bf1d-f1ddbd5291ba">
+                    <semantic:text>"Victoria Day"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_b865cb50-80bb-4489-ae6b-96b25daa2546">
+                    <semantic:text>"Compact"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_2291659b-d389-4311-bd84-fc3fb3e796aa">
+                <semantic:inputEntry id="_4e5e240d-d153-4676-ae33-4d57658b3caa" triso:mergeKey="_369d5a1c-36e2-42ad-b5c6-94ccc0a2cf88">
+                    <semantic:text>"Economy"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_72987438-6fd3-4b83-98e0-625034cf3707">
+                    <semantic:text>"Christmas"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_ec5d9e81-9e44-40a4-a8d6-63a7f671197f">
+                    <semantic:text>"Full Size"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_3503770f-6001-4b7b-8a93-e33d3fc961e1">
+                <semantic:inputEntry id="_c34e3e64-6b9b-4e1d-b093-ecab2fa18a93" triso:mergeKey="_369d5a1c-36e2-42ad-b5c6-94ccc0a2cf88">
+                    <semantic:text>"Economy"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_67be1b74-6a34-49e7-b2f8-faa1f2358d27">
+                    <semantic:text>"Canada Day"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_5431763b-e6cd-4f33-aaa0-d70f905339c0">
+                    <semantic:text>"Full Size"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_aa6468c1-4cec-4213-b29a-ac57dfe96092">
+                <semantic:inputEntry id="_9a80cacb-1160-4b2d-8d33-25a625b2ef76" triso:mergeKey="_147de364-39d5-4700-8621-16e0c6561245">
+                    <semantic:text>"Compact"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_46e38ec7-2b18-4809-a409-483364a262bc">
+                    <semantic:text>"Victoria Day"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_1cebd3b5-9f2f-40ee-a3e9-d2dbece384e1">
+                    <semantic:text>"Compact"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_3aaa7427-5d9a-47bc-8e3e-b72aeeb13296">
+                <semantic:inputEntry id="_aa7a8f4d-16db-4a4a-840c-bae22ed91f34" triso:mergeKey="_147de364-39d5-4700-8621-16e0c6561245">
+                    <semantic:text>"Compact"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_cdda44c7-4540-4d12-b0c9-d0270a9d43e1">
+                    <semantic:text>"Canada Day", "Christmas"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_cafb5093-6d54-4c4b-bfac-f42c1dbf22d9">
+                    <semantic:text>"Full Size"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_93a5a6cc-91b2-4d92-afb4-a307e755673e">
+                <semantic:inputEntry id="_9a4de129-7f77-4fb8-94b0-a636e26ecda6">
+                    <semantic:text>"Full Size"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_afd84c0c-c95e-43ea-9dcb-40bebb88ac81">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_dd28d5f7-3db7-4303-b870-76914228c628">
+                    <semantic:text>"Full Size"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:inputData id="_1b6ee42f-0959-462e-8bdc-ef869af2c2f4" name="Promotions Code">
+        <semantic:variable name="Promotions Code" id="_e02f6fb9-d37f-4e3f-94c8-496e1f1941bb" typeRef="tPromotionsCode"/>
+    </semantic:inputData>
+    <semantic:decision id="_60e11f1c-98af-4d53-8872-7ff8c13a07ca" name="Upgrade Based On Promotions">
+        <semantic:variable name="Upgrade Based On Promotions" id="_3e790fcb-507a-485a-bcee-46c28ad9430e" typeRef="tVehicleClass"/>
+        <semantic:informationRequirement id="_4f1b7c8f-ec90-4bbc-b704-6fff1c4b5e60">
+            <semantic:requiredDecision href="#_89b59ab0-43d0-450d-90b8-7d97afaba1be"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_3411ce14-cf4c-4063-b87f-cea314f115fc">
+            <semantic:requiredDecision href="#_d06e5b70-796f-4e64-ae05-b983c11eda46"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_1d0af804-e3b8-4830-9793-098830c394be" hitPolicy="UNIQUE" outputLabel="Upgrade Based On Promotions" typeRef="tVehicleClass" triso:expressionId="_0db97acc-bc29-40d2-815c-983a9840a895">
+            <semantic:input id="_983e879e-4c15-4a49-a26f-b5b417ccf5cc" label="Upgrade Based On Promotion Code">
+                <semantic:inputExpression typeRef="string">
+                    <semantic:text>Upgrade Based On Promotion Code</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Compact","Economy","Full Size"</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:input id="_0b09d457-30d5-4da5-8bad-d488baeb7aa8" label="Upgrade Base on Calendar Promotion">
+                <semantic:inputExpression typeRef="string">
+                    <semantic:text>Upgrade Base on Calendar Promotion</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Economy","Compact","Full Size"</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:output id="_3aa95f55-c58f-4868-98ee-c129a8131f46">
+                <semantic:outputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Economy","Compact","Full Size"</semantic:text>
+                </semantic:outputValues>
+            </semantic:output>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_d6c8dbd1-6227-4752-9931-8e33e3118ef0">
+                <semantic:inputEntry id="_14bc7553-806a-41a3-ae7a-b005e65c1b64">
+                    <semantic:text>"Economy"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_6a49c664-fa74-47c7-8b66-baeb772ea328">
+                    <semantic:text>"Economy"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_ef126e39-614a-4081-b682-bbdd24dea83d">
+                    <semantic:text>"Economy"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_5e0a00ee-f7d1-4f27-b293-36f5099c18e9">
+                <semantic:inputEntry id="_d4421a17-6a7a-4506-ac2c-98c30874ba3b">
+                    <semantic:text>"Compact"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_c20a05e4-d0de-4d07-b464-6368f9c08067">
+                    <semantic:text>"Economy", "Compact"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_256ea9e6-63d2-405c-960a-ed6fb0609a15">
+                    <semantic:text>"Compact"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_354e549f-ad2c-483e-b34f-1302247eb9de">
+                <semantic:inputEntry id="_9c6f9525-c3f0-471d-9439-6cdb3e38d123">
+                    <semantic:text>"Full Size"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_f1139931-14da-49e6-9ebc-701fff1651a0">
+                    <semantic:text>"Economy","Compact"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_4bb266b2-0b01-4e01-a3bf-e849485b1f91">
+                    <semantic:text>"Full Size"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_a1b5df53-a53c-487f-8dfb-b9a5eb479f62">
+                <semantic:inputEntry id="_1d38bbd3-c7da-40f4-9952-0cfa4f73b401">
+                    <semantic:text>"Economy"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_7b57dd46-ecec-4dd3-891b-f26efa54b0b7">
+                    <semantic:text>"Compact"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_72c4e768-edec-4a5b-8fdc-e8c5eb2ff6bc">
+                    <semantic:text>"Compact"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_486565cb-4b41-47cb-a605-f477fa5f7d87">
+                <semantic:inputEntry id="_2ff2d021-9ec3-451d-a08b-f731c0b5cb9e">
+                    <semantic:text>"Economy", "Compact", "Full Size"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_50ee0959-4081-4d26-9b7f-a772e90a355d">
+                    <semantic:text>"Full Size"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_b0af7b4e-dbfe-417a-b052-8de306151ad8">
+                    <semantic:text>"Full Size"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:inputData id="_2e8e8b6f-3147-4451-9447-73044c7d73b4" name="Requested Vehicle Class">
+        <semantic:variable name="Requested Vehicle Class" id="_55e3562f-2e17-4de4-bc30-dd76b84efed6" typeRef="tVehicleClass"/>
+    </semantic:inputData>
+    <semantic:textAnnotation id="_ea85f603-20b9-418b-9c7e-0f5be4ba0a99">
+        <semantic:text>Question: Which Car Category to Offer?
+Answers: Economy, Compact, Full Size</semantic:text>
+    </semantic:textAnnotation>
+    <semantic:association id="_b30b8298-d459-4614-bf07-a5ce32c896df">
+        <semantic:sourceRef href="#_60e11f1c-98af-4d53-8872-7ff8c13a07ca"/>
+        <semantic:targetRef href="#_ea85f603-20b9-418b-9c7e-0f5be4ba0a99"/>
+    </semantic:association>
+    <dmndi:DMNDI>
+        <dmndi:DMNDiagram id="_a76f3816-7d56-43d7-97ba-a9b9c4586bc9" triso:modelElementRef="_59c7b789-b6e9-4676-9889-e5f87b624880" name="Untitled Diagram">
+            <di:extension/>
+            <dmndi:Size height="552.9785270690918" width="1057.5"/>
+            <dmndi:DMNShape id="_1e251f2d-ecfa-4d6a-8596-818262946c04" dmnElementRef="_601981b2-d94d-41c9-bb31-d6069751f6e8">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="204" green="255" blue="255"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="907.5" y="223.5214729309082" width="100" height="69.9570541381836"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_67d6bdcf-40b7-4835-9806-dbdebc93deda" dmnElementRef="_d06e5b70-796f-4e64-ae05-b983c11eda46">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="153"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="267" y="221.5" width="164" height="74"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_18ac42b9-3d38-4fae-a9ce-6d0def6cfa69" dmnElementRef="_a396d1ca-dfc1-4ed6-bef1-e696ec1967a0">
+                <dc:Bounds x="493.25905179977417" y="427" width="135.48189640045166" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_4f9650b7-f26d-4cca-98e7-aecae0e81f9b" dmnElementRef="_4c5a456d-a8fd-43b9-966d-e85b91adb394">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="204" green="255" blue="255"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="750.4818964004517" y="433.0214729309082" width="100" height="69.9570541381836"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_73026615-d8ff-4d08-9819-4c259baab710" dmnElementRef="_65c86ddb-155e-4133-80b7-7f393b3fe10e">
+                <dc:Bounds x="715" y="228.5" width="135.48189640045166" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_f0f4df49-c09d-4063-84f6-d581dbe8d172" dmnElementRef="_89b59ab0-43d0-450d-90b8-7d97afaba1be">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="153"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="477" y="225" width="168" height="67"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_5c42ae7c-a33d-4329-867a-49855c5aca6a" dmnElementRef="_1b6ee42f-0959-462e-8bdc-ef869af2c2f4">
+                <dc:Bounds x="50" y="228.49999618530273" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_e80433c8-c9d0-43b2-8c78-b2c8e8e15c46" dmnElementRef="_60e11f1c-98af-4d53-8872-7ff8c13a07ca">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="153"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="370.24094820022583" y="50" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_d01dcfdd-6241-4bef-95fe-b8bffcac17e0" dmnElementRef="_ea85f603-20b9-418b-9c7e-0f5be4ba0a99">
+                <dc:Bounds x="549" y="61.5" width="218" height="36.80000305175781"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_d7b50d37-c5b2-4d68-b4f8-5968bd5220bf" dmnElementRef="_2e8e8b6f-3147-4451-9447-73044c7d73b4">
+                <dc:Bounds x="281.2588291168213" y="426.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="_dcef5548-fdc5-42df-89b2-a4a96efe2f8c" dmnElementRef="_7568a99e-5fb1-487e-b978-c56550a1e100" sourceElement="_18ac42b9-3d38-4fae-a9ce-6d0def6cfa69" targetElement="_4f9650b7-f26d-4cca-98e7-aecae0e81f9b">
+                <di:waypoint x="629.5333523750305" y="457"/>
+                <di:waypoint x="750.4818964004517" y="457.56682183672274"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_083b036b-445a-44b1-8a4d-75b8ed3253a8" dmnElementRef="_c6ee000d-603d-401d-86d6-1e49e33f95cc" sourceElement="_18ac42b9-3d38-4fae-a9ce-6d0def6cfa69" targetElement="_f0f4df49-c09d-4063-84f6-d581dbe8d172">
+                <di:waypoint x="560.9968013868574" y="427"/>
+                <di:waypoint x="561" y="292"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_3ed343ba-0d6c-450d-b002-c16f145fd07f" dmnElementRef="_71453eb9-1660-40d0-87bd-bca7906cdcd0" sourceElement="_18ac42b9-3d38-4fae-a9ce-6d0def6cfa69" targetElement="_67d6bdcf-40b7-4835-9806-dbdebc93deda">
+                <di:waypoint x="535.4968852120295" y="427"/>
+                <di:waypoint x="391.875816993464" y="295.5"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_ff76a028-4115-4d65-89e4-9a2e6f88f30d" dmnElementRef="_b6892953-56d2-43a4-be86-c1e87b8b0992" sourceElement="_5c42ae7c-a33d-4329-867a-49855c5aca6a" targetElement="_67d6bdcf-40b7-4835-9806-dbdebc93deda">
+                <di:waypoint x="185.48234176635742" y="258.5"/>
+                <di:waypoint x="267" y="258.5"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_142beab5-b99c-4a1c-a6a3-295e3c1b75d5" dmnElementRef="_519a2b47-b27f-4036-a195-52eaaf26c7f5" sourceElement="_73026615-d8ff-4d08-9819-4c259baab710" targetElement="_f0f4df49-c09d-4063-84f6-d581dbe8d172">
+                <di:waypoint x="715" y="258.5"/>
+                <di:waypoint x="645" y="258.5"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_4ed8b25f-8dba-45f0-a40a-5e1be794924a" dmnElementRef="_4f1b7c8f-ec90-4bbc-b704-6fff1c4b5e60" sourceElement="_f0f4df49-c09d-4063-84f6-d581dbe8d172" targetElement="_e80433c8-c9d0-43b2-8c78-b2c8e8e15c46">
+                <di:waypoint x="561" y="225"/>
+                <di:waypoint x="460.24094820022583" y="110"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_22c793a4-bd4e-4f4a-8ce8-c9abef560b57" dmnElementRef="_b30b8298-d459-4614-bf07-a5ce32c896df" sourceElement="_e80433c8-c9d0-43b2-8c78-b2c8e8e15c46" targetElement="_d01dcfdd-6241-4bef-95fe-b8bffcac17e0">
+                <di:waypoint x="523.2409482002258" y="80"/>
+                <di:waypoint x="551" y="81.47999999999999"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_4133e397-2ec9-4370-8b49-7516ef00615b" dmnElementRef="_3411ce14-cf4c-4063-b87f-cea314f115fc" sourceElement="_67d6bdcf-40b7-4835-9806-dbdebc93deda" targetElement="_e80433c8-c9d0-43b2-8c78-b2c8e8e15c46">
+                <di:waypoint x="354.39473684210526" y="221.5"/>
+                <di:waypoint x="387.31784252116563" y="165.74999999999955"/>
+                <di:waypoint x="420.24094820022583" y="110"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_e9b3ecfa-73fc-4569-a67e-79c4e36e2310" dmnElementRef="_7a6cf0b2-6066-4c7c-b517-6b5d3ac0c3ac" sourceElement="_73026615-d8ff-4d08-9819-4c259baab710" targetElement="_1e251f2d-ecfa-4d6a-8596-818262946c04">
+                <di:waypoint x="851.2375268936157" y="258.4999961853032"/>
+                <di:waypoint x="907.5" y="257.92132286739843"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_e2b3db22-c3ef-4274-a80e-969cf5fbad17" dmnElementRef="_b596a655-b719-493b-8281-cecf2c692272" sourceElement="_d7b50d37-c5b2-4d68-b4f8-5968bd5220bf" targetElement="_67d6bdcf-40b7-4835-9806-dbdebc93deda">
+                <di:waypoint x="348.9968013763428" y="426.99999618530273"/>
+                <di:waypoint x="349" y="295.5"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_cb9fecbf-a7e8-4c61-b0c4-6828ab1a5f9f" dmnElementRef="_9662094a-d3c0-4ebc-af6c-74d880ac86df" sourceElement="_d7b50d37-c5b2-4d68-b4f8-5968bd5220bf" targetElement="_f0f4df49-c09d-4063-84f6-d581dbe8d172">
+                <di:waypoint x="368.9968013763428" y="426.99999618530273"/>
+                <di:waypoint x="506.0980392156863" y="292"/>
+                <dmndi:DMNLabel sharedStyle="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0"/>
+            </dmndi:DMNEdge>
+        </dmndi:DMNDiagram>
+        <dmndi:DMNStyle id="LS_0d38ad8f-b4b8-43ae-a3d0-f3a80015b0fa_0" fontFamily="arial,helvetica,sans-serif" fontSize="11" fontBold="false" fontItalic="false" fontUnderline="false" fontStrikeThrough="false"/>
+    </dmndi:DMNDI>
+</semantic:definitions>

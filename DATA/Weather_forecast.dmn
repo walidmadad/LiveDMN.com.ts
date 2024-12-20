@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1b4jada" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.19.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.4.0">
+  <decision id="Decision_08186us" name="Weather forecast">
+    <decisionTable id="DecisionTable_0jufpq9">
+      <input id="Input_1" label="City name">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0ke6v0o" label="Time">
+        <inputExpression id="LiteralExpression_0thc3cb" typeRef="date">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Weather forecast day + 1" name="data[0].weather.main" typeRef="string">
+        <outputValues id="UnaryTests_0f62jv0">
+          <text>"Rain","Clear","Clouds","Snow"</text>
+        </outputValues>
+      </output>
+      <output id="OutputClause_10ap08y" label="Weather forecast day + 2" name="data[1].weather.main" typeRef="string">
+        <outputValues id="UnaryTests_06n88wz">
+          <text>"Rain","Clear","Clouds","Snow"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_1wwuz88">
+        <description>https://bulk.openweathermap.org/sample/daily_16.json.gz</description>
+        <inputEntry id="UnaryTests_0a44qja">
+          <text>Hurzuf</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1knnawv">
+          <text>date( "1970-01-18" )</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13wb4bo">
+          <text>"Rain"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0x76d8z">
+          <text>"Rain"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_08186us">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<semantic:definitions xmlns:semantic="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:feel="https://www.omg.org/spec/DMN/20191111/FEEL/" xmlns:triso="http://www.trisotech.com/2015/triso/modeling" xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn" xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase" xmlns:drools="http://www.drools.org/kie/dmn/1.1" xmlns:rss="http://purl.org/rss/2.0/" xmlns:openapi="https://openapis.org/omg/extension/1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:boxedext="https://www.trisotech.com/spec/DMN/20191111/EXT/" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns="http://www.trisotech.com/definitions/_a199c656-4291-4f10-9941-e2b53cd52efc" id="_a199c656-4291-4f10-9941-e2b53cd52efc" name="Determine the Repair Location" namespace="http://www.trisotech.com/definitions/_a199c656-4291-4f10-9941-e2b53cd52efc" exporter="Camunda Modeler" exporterVersion="5.19.0" xml:lang="en" triso:logoChoice="Default" triso:version="1.2" triso:state="Published">
+    <semantic:extensionElements>
+        <tc:testCases>
+            <tc:testCase id="_414c7677-2261-4729-89db-be09ad2fca75" name="Always Garage 1">
+                <tc:inputNode name="Issue Type">
+                    <tc:value>Single Vehicle Accident</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Send to Shop Assessment">
+                    <tc:value>false</tc:value>
+                </tc:inputNode>
+                <tc:resultNode name="Repair Location Identification">
+                    <tc:expected>
+                        <tc:value>Shop</tc:value>
+                    </tc:expected>
+                </tc:resultNode>
+            </tc:testCase>
+            <tc:testCase id="_a9f8c959-27a6-4ca1-b907-ab2b0dc6c83b" name="Always Garage 2">
+                <tc:inputNode name="Issue Type">
+                    <tc:value>Out of gas</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Send to Shop Assessment">
+                    <tc:value>false</tc:value>
+                </tc:inputNode>
+                <tc:resultNode name="Repair Location Identification">
+                    <tc:expected>
+                        <tc:value>Road</tc:value>
+                    </tc:expected>
+                </tc:resultNode>
+            </tc:testCase>
+            <tc:testCase id="_045c3d5e-83a6-4687-9dba-0051b2c1a705" name="Employee Judgement 1">
+                <tc:inputNode name="Issue Type">
+                    <tc:value>Flat tire</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Send to Shop Assessment">
+                    <tc:value>true</tc:value>
+                </tc:inputNode>
+                <tc:resultNode name="Repair Location Identification">
+                    <tc:expected>
+                        <tc:value>Shop</tc:value>
+                    </tc:expected>
+                </tc:resultNode>
+            </tc:testCase>
+            <tc:testCase id="_c7757e78-e1c5-4b21-9253-a93892b888da" name="Employee Judgement 2">
+                <tc:inputNode name="Issue Type">
+                    <tc:value>Car does not start</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Send to Shop Assessment">
+                    <tc:value>false</tc:value>
+                </tc:inputNode>
+                <tc:resultNode name="Repair Location Identification">
+                    <tc:expected>
+                        <tc:value>Road</tc:value>
+                    </tc:expected>
+                </tc:resultNode>
+            </tc:testCase>
+        </tc:testCases>
+    </semantic:extensionElements>
+    <semantic:itemDefinition label="tIssueType" name="tIssueType">
+        <semantic:typeRef>string</semantic:typeRef>
+        <semantic:allowedValues>
+            <semantic:extensionElements>
+                <triso:constraintDetails id="_fb37839b-9998-40ed-8c79-81840d2b16fe" constraintsType="enumeration">
+                    <triso:value>"Single Vehicle Accident","Multiple Vehicle Accident","Out of gas","Flat tire","Key lost","Car does not start","Out of Charge"</triso:value>
+                    <triso:display>"Single Vehicle Accident", "Multiple Vehicle Accident", "Out of gas", "Flat tire", "Key lost", "Car does not start", "Out of Charge"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Single Vehicle Accident"</triso:value>
+                        <triso:display>"Single Vehicle Accident"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Multiple Vehicle Accident"</triso:value>
+                        <triso:display>"Multiple Vehicle Accident"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Out of gas"</triso:value>
+                        <triso:display>"Out of gas"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Flat tire"</triso:value>
+                        <triso:display>"Flat tire"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Key lost"</triso:value>
+                        <triso:display>"Key lost"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Car does not start"</triso:value>
+                        <triso:display>"Car does not start"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Out of Charge"</triso:value>
+                        <triso:display>"Out of Charge"</triso:display>
+                    </triso:choices>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>"Single Vehicle Accident","Multiple Vehicle Accident","Out of gas","Flat tire","Key lost","Car does not start","Out of Charge"</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition label="tRepairLocation" name="tRepairLocation">
+        <semantic:typeRef>string</semantic:typeRef>
+        <semantic:allowedValues>
+            <semantic:extensionElements>
+                <triso:constraintDetails id="_cf8309f2-a8d6-4278-8596-6be42b23da1f" constraintsType="enumeration">
+                    <triso:value>"Road","Shop"</triso:value>
+                    <triso:display>"Road","Shop"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Road"</triso:value>
+                        <triso:display>"Road"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Shop"</triso:value>
+                        <triso:display>"Shop"</triso:display>
+                    </triso:choices>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>"Road","Shop"</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:decisionService id="_a199c656-4291-4f10-9941-e2b53cd52efc_DS" name="Whole Model Decision Service" triso:dynamicDecisionService="true" triso:wholeModelService="true">
+        <semantic:variable id="_a199c656-4291-4f10-9941-e2b53cd52efc_DS_VAR" name="Whole Model Decision Service" typeRef="Any" />
+        <semantic:outputDecision href="#_0689acf2-b29c-41bf-bc7d-ff6a355054e6" />
+        <semantic:inputData href="#_d2962399-c4cf-4411-a90b-b7c93beebea4" />
+        <semantic:inputData href="#_48b48ed7-9dda-425c-8b61-882a603c8c34" />
+    </semantic:decisionService>
+    <semantic:decisionService id="_2df8eb28-fa16-4f4c-aaea-91a00f4bcf94_DS" name="Diagram DRD" triso:dynamicDecisionService="true">
+        <semantic:variable id="_2df8eb28-fa16-4f4c-aaea-91a00f4bcf94_DS_VAR" name="Diagram DRD" typeRef="Any" />
+        <semantic:outputDecision href="#_0689acf2-b29c-41bf-bc7d-ff6a355054e6" />
+        <semantic:inputData href="#_d2962399-c4cf-4411-a90b-b7c93beebea4" />
+        <semantic:inputData href="#_48b48ed7-9dda-425c-8b61-882a603c8c34" />
+    </semantic:decisionService>
+    <semantic:inputData id="_d2962399-c4cf-4411-a90b-b7c93beebea4" name="Issue Type">
+        <semantic:variable id="_c343efb9-8b4f-4f31-aef7-60ff1eb3d1a2" name="Issue Type" typeRef="tIssueType" />
+    </semantic:inputData>
+    <semantic:decision id="_0689acf2-b29c-41bf-bc7d-ff6a355054e6" name="Repair Location Identification">
+        <semantic:variable id="_49a477c9-0ef6-4eb1-bf81-16ef7ba5bfa6" name="Repair Location Identification" typeRef="tRepairLocation" />
+        <semantic:informationRequirement id="_351d1b23-d23f-4644-834f-c84fe97d95dd">
+            <semantic:requiredInput href="#_d2962399-c4cf-4411-a90b-b7c93beebea4" />
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_7960ca11-6d80-463b-bb19-d4ccb8dc614a">
+            <semantic:requiredInput href="#_48b48ed7-9dda-425c-8b61-882a603c8c34" />
+        </semantic:informationRequirement>
+        <semantic:decisionTable id="_41d5ede9-f37f-4074-9732-e3f791978bc7" typeRef="tRepairLocation" outputLabel="Repair Location Identification" triso:descriptionVisible="false" triso:expressionId="_40615828-e469-49e2-99e4-81181a5ce2dd">
+            <semantic:input id="_9f1c4a6c-df45-433f-82ee-9f3c039654c0" label="Issue Type">
+                <semantic:inputExpression typeRef="tIssueType">
+                    <semantic:text>Issue Type</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Single Vehicle Accident","Multiple Vehicle Accident","Out of gas","Flat tire","Key lost","Car does not start","Out of Charge"</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:input id="_b5e451c5-21e9-4886-abbc-3a20ad7220bb" label="Send to Shop Assessment">
+                <semantic:inputExpression typeRef="boolean">
+                    <semantic:text>Send to Shop Assessment</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:output id="_dcd0ed3a-356f-4342-ae2b-9fb882bc35ed" typeRef="string">
+                <semantic:outputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Road","Shop"</semantic:text>
+                </semantic:outputValues>
+            </semantic:output>
+            <semantic:annotation name="Description" />
+            <semantic:rule id="_2ba0c743-ae98-430f-adcd-126dfdf5cfbe">
+                <semantic:inputEntry id="_3b303107-b82d-4912-a85f-a9c17b27697d">
+                    <semantic:text>"Single Vehicle Accident", "Multiple Vehicle Accident"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_fb59f078-9b97-4314-8225-938a1bb22691">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_1896eab9-b488-4a21-aa26-f31580185846">
+                    <semantic:text>"Shop"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text>When an accident occurs, we always send the car to the shop</semantic:text>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_c15b722b-93cf-492c-9600-be80796eaa4c">
+                <semantic:inputEntry id="_b9ceb16a-e1b5-4e48-8bc2-6712fbaa6fff">
+                    <semantic:text>"Out of gas", "Out of Charge"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_444cf3c4-66ad-4f82-8839-861c6afb1172">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_2275ace8-848a-4058-ba85-246c847a1fb3">
+                    <semantic:text>"Road"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text>Refill or recharge on the road</semantic:text>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_13dae399-06b4-43e4-9152-a7e146b30837">
+                <semantic:inputEntry id="_367a78d7-c9ea-47d8-8664-9041e06e1dea">
+                    <semantic:text>"Flat tire", "Key lost", "Car does not start"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_563bb9e3-ac8a-45f2-bcac-595d87efb937">
+                    <semantic:text>true</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_bc24debd-54e1-46c9-b00d-b2d6736422f5">
+                    <semantic:text>"Shop"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text>On minor report, the employee assessment is considered</semantic:text>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_46e52112-3466-41ad-99a9-c70cc59700af">
+                <semantic:inputEntry id="_bcbff291-fa30-417b-8f31-f2ba2559d234">
+                    <semantic:text>"Flat tire", "Key lost", "Car does not start"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_3a944bf8-0682-453f-bf0c-a48df7b7b778">
+                    <semantic:text>false</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_6b0829f3-01bc-4ef6-91bc-6013b36977c5">
+                    <semantic:text>"Road"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text>On minor report, the employee assessment is considered</semantic:text>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:knowledgeSource id="_e8f260d4-e46c-41d1-86d5-d14083525c76" name="Issue Report">
+        <semantic:authorityRequirement id="_60b2a17a-0c7a-479e-8f95-7e686ff16fc4">
+            <semantic:requiredInput href="#_d2962399-c4cf-4411-a90b-b7c93beebea4" />
+        </semantic:authorityRequirement>
+    </semantic:knowledgeSource>
+    <semantic:inputData id="_48b48ed7-9dda-425c-8b61-882a603c8c34" name="Send to Shop Assessment">
+        <semantic:variable id="_d255cff1-c472-4799-80fc-495b65ed7a95" name="Send to Shop Assessment" typeRef="boolean" />
+    </semantic:inputData>
+    <semantic:knowledgeSource id="_34f1dedd-7295-4e08-8f54-b8f9b2c0730e" name="Roadside Assistance Employee">
+        <semantic:authorityRequirement id="_347870c6-667e-492a-9a93-681bbe9fb018">
+            <semantic:requiredInput href="#_48b48ed7-9dda-425c-8b61-882a603c8c34" />
+        </semantic:authorityRequirement>
+    </semantic:knowledgeSource>
+    <dmndi:DMNDI>
+        <dmndi:DMNDiagram id="_2df8eb28-fa16-4f4c-aaea-91a00f4bcf94" name="DRD" triso:modelElementRef="_539ed254-b16b-4909-9a22-f289981f62bb">
+            <di:extension />
+            <dmndi:Size width="669.7411708831787" height="458.9786796569824" />
+            <dmndi:DMNShape id="_42659b73-db8e-43ea-9a62-1859001d939e" dmnElementRef="_d2962399-c4cf-4411-a90b-b7c93beebea4">
+                <dc:Bounds height="60.00000762939453" width="135.48234176635742" x="90.25882911682129" y="189.51065635681152" />
+                <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_963ac54a-f1e7-40d1-9c74-6b86d7297035" dmnElementRef="_0689acf2-b29c-41bf-bc7d-ff6a355054e6">
+                <dc:Bounds height="60" width="153" x="151.5" y="68" />
+                <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_1059e48c-c274-4d8a-8664-74c68b6e1b72" dmnElementRef="_e8f260d4-e46c-41d1-86d5-d14083525c76">
+                <dc:Bounds height="69.95735931396484" width="100" x="108" y="339.0213203430176" />
+                <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_e1c2578e-7690-48e6-8cbf-cf3e350e4e18" dmnElementRef="_48b48ed7-9dda-425c-8b61-882a603c8c34">
+                <dc:Bounds height="60.00000762939453" width="135.48234176635742" x="244.2588291168213" y="189.51065635681152" />
+                <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_3a6747e8-d335-42fd-9725-d34eaaf8efe6" dmnElementRef="_34f1dedd-7295-4e08-8f54-b8f9b2c0730e">
+                <dc:Bounds height="69.95735931396484" width="100" x="262" y="339.0213203430176" />
+                <dmndi:DMNLabel trisodmn:defaultBounds="true">
+                    <dmndi:Text>Roadside Assistance
+                        Employee</dmndi:Text>
+                </dmndi:DMNLabel>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="_b5e41098-9bf2-42f7-a0f3-da5f0d291afe" dmnElementRef="_351d1b23-d23f-4644-834f-c84fe97d95dd" sourceElement="_42659b73-db8e-43ea-9a62-1859001d939e" targetElement="_963ac54a-f1e7-40d1-9c74-6b86d7297035">
+                <di:waypoint x="157.99680137634277" y="189.51065635681152" />
+                <di:waypoint x="188" y="128" />
+                <dmndi:DMNLabel />
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_87881ae0-c2ac-444b-aa27-6c9fae7c84cc" dmnElementRef="_60b2a17a-0c7a-479e-8f95-7e686ff16fc4" sourceElement="_42659b73-db8e-43ea-9a62-1859001d939e" targetElement="_1059e48c-c274-4d8a-8664-74c68b6e1b72">
+                <di:waypoint x="157.99680137634277" y="249.51065635681152" />
+                <di:waypoint x="158" y="339.0213203430176" />
+                <dmndi:DMNLabel />
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_b0b6b63c-60f1-4343-9f45-b244e90b715d" dmnElementRef="_7960ca11-6d80-463b-bb19-d4ccb8dc614a" sourceElement="_e1c2578e-7690-48e6-8cbf-cf3e350e4e18" targetElement="_963ac54a-f1e7-40d1-9c74-6b86d7297035">
+                <di:waypoint x="311.9968013763428" y="189.51065635681152" />
+                <di:waypoint x="268" y="128" />
+                <dmndi:DMNLabel />
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_d0282127-4af9-4c9a-a6d4-e9f69b501d83" dmnElementRef="_347870c6-667e-492a-9a93-681bbe9fb018" sourceElement="_e1c2578e-7690-48e6-8cbf-cf3e350e4e18" targetElement="_3a6747e8-d335-42fd-9725-d34eaaf8efe6">
+                <di:waypoint x="311.9968013763428" y="249.51065635681152" />
+                <di:waypoint x="312" y="339.0213203430176" />
+                <dmndi:DMNLabel />
+            </dmndi:DMNEdge>
+        </dmndi:DMNDiagram>
+        <dmndi:DMNStyle id="LS_a199c656-4291-4f10-9941-e2b53cd52efc_0" fontSize="11" fontFamily="arial,helvetica,sans-serif" fontItalic="false" fontBold="false" fontUnderline="false" fontStrikeThrough="false" />
+    </dmndi:DMNDI>
+</semantic:definitions>

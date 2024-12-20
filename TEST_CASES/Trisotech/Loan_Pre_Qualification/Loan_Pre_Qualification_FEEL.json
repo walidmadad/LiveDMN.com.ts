@@ -1,0 +1,25 @@
+{
+  "action": "FEEL",
+  "data": [
+    {
+      "Credit Score Rating": "Bad",
+      "Back End Ratio": "-",
+      "Front End Ratio": "-"
+    },
+    {
+      "Credit Score Rating": "-",
+      "Back End Ratio": "Insufficient",
+      "Front End Ratio": "Sufficient"
+    },
+    {
+      "Credit Score Rating": "Fair",
+      "Back End Ratio": "Sufficient",
+      "Front End Ratio": "Sufficient"
+    },
+    {
+      "Credit Score Rating": "Fair",
+      "Back End Ratio": "Sufficient",
+      "Front End Ratio": "Insufficient"
+    }
+  ]
+}

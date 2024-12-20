@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn11:definitions xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dmn11="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:xml_1="http://www.w3.org/XML/1998/namespace" xmlns:triso="http://www.trisotech.com/2015/triso/modeling" xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn" xmlns:feel="https://www.omg.org/spec/DMN/20191111/FEEL/" xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase" xmlns:drools="http://www.drools.org/kie/dmn/1.1" xmlns:openapi="https://openapis.org/omg/extension/1.0" xmlns:boxedext="https://www.trisotech.com/spec/DMN/20191111/EXT/" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns:rss="http://purl.org/rss/2.0/" xmlns:trisofeed="http://trisotech.com/feed" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.trisotech.com/definitions/_e2dbe072-b5eb-47dd-9bf4-41933f0afccd" id="_e2dbe072-b5eb-47dd-9bf4-41933f0afccd" name="Sprinkler watering time" namespace="http://www.trisotech.com/definitions/_e2dbe072-b5eb-47dd-9bf4-41933f0afccd" exporter="Decision Modeler" exporterVersion="8.11.0" xml_1:lang="en" triso:translationLanguages="" triso:logoChoice="Default" triso:version="1.0" triso:state="Published">
+  <dmn11:description>&lt;p&gt;City Geolocation for reference:&lt;/p&gt;
+&lt;p&gt;Montreal: 45.5017, -73.5673&lt;/p&gt;
+&lt;p&gt;Tempa: 27.9506, -82.4572&lt;/p&gt;
+&lt;p&gt;Paris: 48.8566, 2.3522&lt;/p&gt;
+&lt;p&gt;Sydney: -33.8688, 151.2093&lt;/p&gt;</dmn11:description>
+  <dmn11:extensionElements>
+    <triso:message id="_15ef0bf3-b4fb-4e94-9426-30b37e801709">
+      <dmn11:extensionElements>
+        <openapi:parameter name="lat" itemRef="feel:number" in="query" style="application/json" required="true" explode="false" id="_b44b4e0d-b6f3-4da8-9a72-1e227a54d78f" />
+        <openapi:parameter name="lon" itemRef="feel:number" in="query" style="application/json" required="true" explode="false" id="_e70d40ae-5050-4323-ba5b-5133e2b267e2" />
+        <openapi:parameter name="exclude" itemRef="feel:string" in="query" defaultValue="hourly,minutely" style="application/json" required="true" explode="false" id="_3f9182df-f480-4ce6-b13b-a6d10a80b0f8" />
+        <openapi:parameter name="units" itemRef="feel:string" in="query" defaultValue="imperial" style="application/json" required="true" explode="false" id="_4e3479bf-733c-4787-b29a-531810a8535e" />
+      </dmn11:extensionElements>
+    </triso:message>
+    <triso:message name="Forecast" itemRef="tForecast" openapi:in="body" id="_f5047dfe-f04f-4155-bd6e-ccae63b35efc">
+      <dmn11:extensionElements />
+    </triso:message>
+    <triso:interface name="OpenWeatherMap" openapi:server="https://api.openweathermap.org/data/2.5" openapi:version="2.5" id="_182da581-247d-45fd-9d08-6ec05b1d773c">
+      <dmn11:extensionElements>
+        <openapi:securityScheme name="appid" type="apiKey" />
+      </dmn11:extensionElements>
+      <triso:operation name="Get Hourly Forecasts" openapi:path="/onecall" operation="true" id="_b9579029-d18a-40d3-bc53-e0f85ac193e5">
+        <triso:inMessageRef>_15ef0bf3-b4fb-4e94-9426-30b37e801709</triso:inMessageRef>
+        <triso:outMessageRef>_f5047dfe-f04f-4155-bd6e-ccae63b35efc</triso:outMessageRef>
+      </triso:operation>
+    </triso:interface>
+  </dmn11:extensionElements>
+  <dmn11:itemDefinition id="ItemDefinition_1e6b8gs" label="tForecast" name="tForecast" isCollection="false">
+    <dmn11:itemComponent id="_6393675b-46d0-4a68-a5d1-707cba8327d1" name="daily" isCollection="true">
+      <dmn11:itemComponent id="_cec305aa-2f83-4fc1-8cac-619589dae3ce" name="dt" isCollection="false">
+        <dmn11:typeRef>number</dmn11:typeRef>
+      </dmn11:itemComponent>
+      <dmn11:itemComponent id="_250c9baa-b5ad-4f6b-ad42-d603fc9f5054" name="temp" isCollection="false">
+        <dmn11:itemComponent id="_bb6e6471-c86a-4db0-a271-90c03c47625b" name="day" isCollection="false">
+          <dmn11:typeRef>number</dmn11:typeRef>
+        </dmn11:itemComponent>
+        <dmn11:itemComponent id="_81d666be-5558-49f0-9ad1-715a8a031d53" name="min" isCollection="false">
+          <dmn11:typeRef>number</dmn11:typeRef>
+        </dmn11:itemComponent>
+        <dmn11:itemComponent id="_c992e725-5da0-4014-be43-4ef0a87a8606" name="max" isCollection="false">
+          <dmn11:typeRef>number</dmn11:typeRef>
+        </dmn11:itemComponent>
+        <dmn11:itemComponent id="_fd2094b0-5998-4ffa-a3d3-045d74c52ea0" name="night" isCollection="false">
+          <dmn11:typeRef>number</dmn11:typeRef>
+        </dmn11:itemComponent>
+        <dmn11:itemComponent id="_9e70af64-da9c-416c-b442-7d2437956d1f" name="eve" isCollection="false">
+          <dmn11:typeRef>number</dmn11:typeRef>
+        </dmn11:itemComponent>
+        <dmn11:itemComponent id="_4a42ce02-28db-4839-8894-422e8e135492" name="morn" isCollection="false">
+          <dmn11:typeRef>number</dmn11:typeRef>
+        </dmn11:itemComponent>
+      </dmn11:itemComponent>
+      <dmn11:itemComponent id="_06c4b331-ad47-4367-8f66-883b8b57a0ad" name="pop" isCollection="false">
+        <dmn11:typeRef>number</dmn11:typeRef>
+      </dmn11:itemComponent>
+      <dmn11:itemComponent id="_71219898-8e61-433d-81f0-0e1ac8ef160f" name="rain" isCollection="false">
+        <dmn11:typeRef>number</dmn11:typeRef>
+      </dmn11:itemComponent>
+    </dmn11:itemComponent>
+  </dmn11:itemDefinition>
+  <dmn11:itemDefinition id="ItemDefinition_1ngxk21" label="tGPSLocation" name="tGPSLocation" isCollection="false">
+    <dmn11:itemComponent id="_eb260fe4-843c-48e6-acd9-bbdf3075098e" name="latitude" isCollection="false">
+      <dmn11:typeRef>number</dmn11:typeRef>
+    </dmn11:itemComponent>
+    <dmn11:itemComponent id="_7abf1bd9-b923-47f2-b9c3-2dc5d9adfd31" name="longitude" isCollection="false">
+      <dmn11:typeRef>number</dmn11:typeRef>
+    </dmn11:itemComponent>
+  </dmn11:itemDefinition>
+  <dmn11:decisionService id="_e2dbe072-b5eb-47dd-9bf4-41933f0afccd_DS" name="Whole Model Decision Service" triso:dynamicDecisionService="true" triso:wholeModelService="true">
+    <dmn11:variable id="_e2dbe072-b5eb-47dd-9bf4-41933f0afccd_DS_VAR" name="Whole Model Decision Service" typeRef="Any" />
+    <dmn11:outputDecision href="#_9a94012d-dcf8-4d3f-b254-559cf23f37f4" />
+    <dmn11:encapsulatedDecision href="#_60e6861c-6884-4bdf-a4d5-a65fc3390665" />
+    <dmn11:encapsulatedDecision href="#_ef16b0d6-84c5-4063-8344-1282f1ccd50d" />
+    <dmn11:encapsulatedDecision href="#_717259be-adf2-4e31-bfe9-722fdb4b4a54" />
+    <dmn11:encapsulatedDecision href="#_5a1d03a9-5a60-4194-b1ee-b1cb4f87ab9c" />
+    <dmn11:encapsulatedDecision href="#_2f5df7c3-39b6-45a3-b894-6d60694e8e1b" />
+    <dmn11:inputData href="#_5f895a94-7525-4c24-8e68-fb2e06697de6" />
+    <dmn11:inputData href="#_c0192806-f2e8-43d0-87de-7bf5347ca242" />
+  </dmn11:decisionService>
+  <dmn11:decisionService id="_ed51db7e-b0ff-4deb-a6ef-816e25466984_DS" name="Diagram Watering Duration" triso:dynamicDecisionService="true">
+    <dmn11:variable id="_ed51db7e-b0ff-4deb-a6ef-816e25466984_DS_VAR" name="Diagram Watering Duration" typeRef="Any" />
+    <dmn11:outputDecision href="#_9a94012d-dcf8-4d3f-b254-559cf23f37f4" />
+    <dmn11:encapsulatedDecision href="#_60e6861c-6884-4bdf-a4d5-a65fc3390665" />
+    <dmn11:encapsulatedDecision href="#_ef16b0d6-84c5-4063-8344-1282f1ccd50d" />
+    <dmn11:encapsulatedDecision href="#_717259be-adf2-4e31-bfe9-722fdb4b4a54" />
+    <dmn11:encapsulatedDecision href="#_5a1d03a9-5a60-4194-b1ee-b1cb4f87ab9c" />
+    <dmn11:encapsulatedDecision href="#_2f5df7c3-39b6-45a3-b894-6d60694e8e1b" />
+    <dmn11:inputData href="#_5f895a94-7525-4c24-8e68-fb2e06697de6" />
+    <dmn11:inputData href="#_c0192806-f2e8-43d0-87de-7bf5347ca242" />
+  </dmn11:decisionService>
+  <dmn11:decision id="_60e6861c-6884-4bdf-a4d5-a65fc3390665" name="Forecasts" triso:readOnly="false" triso:useOutputTypeAsAnswer="false">
+    <dmn11:description>&lt;p&gt;Forecasts for the next few days based on a given location&lt;/p&gt;</dmn11:description>
+    <dmn11:variable id="_9a164d50-4fb9-4c13-8adc-63207159987f" name="Forecasts" typeRef="tForecast" />
+    <dmn11:informationRequirement id="_1edff021-500c-4dff-84a5-5e0a18ce7fbc" triso:readOnly="false">
+      <dmn11:requiredInput href="#_5f895a94-7525-4c24-8e68-fb2e06697de6" />
+    </dmn11:informationRequirement>
+    <dmn11:knowledgeRequirement id="_50e95a9a-99ba-4db5-a371-bf08bc2bb4c7" triso:readOnly="false">
+      <dmn11:requiredKnowledge href="#_f8e2f06f-e699-4ca9-81c3-36334cd78690" />
+    </dmn11:knowledgeRequirement>
+  </dmn11:decision>
+  <dmn11:businessKnowledgeModel id="_f8e2f06f-e699-4ca9-81c3-36334cd78690" name="Get hourly forecasts" triso:readOnly="false">
+    <dmn11:description>&lt;p&gt;Make a REST Call to the weather service to retrieve todays weather forecasts.&lt;/p&gt;</dmn11:description>
+    <dmn11:variable id="_e2541030-3585-4f78-90e4-65d6c2a369b4" name="Get hourly forecasts" typeRef="tForecast" />
+    <dmn11:authorityRequirement id="_45414cf4-7148-4662-b2a3-7b700c9fb571" triso:readOnly="false">
+      <dmn11:requiredAuthority href="#_f13ab182-6caa-4f89-9992-4b80b29a1bf5" />
+    </dmn11:authorityRequirement>
+  </dmn11:businessKnowledgeModel>
+  <dmn11:decision id="_ef16b0d6-84c5-4063-8344-1282f1ccd50d" name="Average temperature for today in fahrenheit" triso:readOnly="false" triso:useOutputTypeAsAnswer="false">
+    <dmn11:description>&lt;p&gt;Calculated from the average of the maximum and the minimum temperature. Expressed in Fahrenheit&lt;/p&gt;</dmn11:description>
+    <dmn11:variable id="_848da51a-ae27-4697-aca2-ec4ed4882a68" name="Average temperature for today in fahrenheit" typeRef="number" />
+    <dmn11:informationRequirement id="_bdb69226-33a2-4f96-9b0a-b49ed34bdc97" triso:readOnly="false">
+      <dmn11:requiredDecision href="#_60e6861c-6884-4bdf-a4d5-a65fc3390665" />
+    </dmn11:informationRequirement>
+    <dmn11:literalExpression id="_23fbb490-ffaa-4183-980e-3a0f0b3286dc" typeRef="number" triso:expressionId="_6e4d8866-a568-4f97-b863-771fe5517497" triso:descriptionVisible="false">
+      <dmn11:text>( Forecasts.daily[1].temp.min + Forecasts.daily[1].temp.max ) / 2</dmn11:text>
+    </dmn11:literalExpression>
+  </dmn11:decision>
+  <dmn11:decision id="_717259be-adf2-4e31-bfe9-722fdb4b4a54" name="Probability of precipitations" triso:readOnly="false" triso:useOutputTypeAsAnswer="false">
+    <dmn11:description>&lt;p&gt;Possibility of precipitation (POP) from 0 (none) to 100 (certain)&lt;/p&gt;</dmn11:description>
+    <dmn11:variable id="_ee7e197d-1362-45d8-bbc1-77c04f5fbe15" name="Probability of precipitations" typeRef="number" />
+    <dmn11:informationRequirement id="_9bd926f5-da4c-447e-a607-8ac3bff30ce0" triso:readOnly="false">
+      <dmn11:requiredDecision href="#_60e6861c-6884-4bdf-a4d5-a65fc3390665" />
+    </dmn11:informationRequirement>
+    <dmn11:literalExpression id="_ce646af5-0894-466b-bfd6-340154b9fcbc" typeRef="number" triso:expressionId="_cb73649f-5262-4f23-b9ad-3c5e5cf686e8" triso:descriptionVisible="false">
+      <dmn11:text>Forecasts.daily[1].pop</dmn11:text>
+    </dmn11:literalExpression>
+  </dmn11:decision>
+  <dmn11:decision id="_5a1d03a9-5a60-4194-b1ee-b1cb4f87ab9c" name="Expected rain in millimeters" triso:readOnly="false" triso:useOutputTypeAsAnswer="false">
+    <dmn11:description>&lt;p&gt;Amount of expected rain during the day. Expressed in millimeters.&lt;/p&gt;</dmn11:description>
+    <dmn11:variable id="_01835b82-92d1-443b-93e1-22116db5ba6f" name="Expected rain in millimeters" typeRef="number" />
+    <dmn11:informationRequirement id="_045ba86a-34f6-4e48-a6e5-be3a786ca6ff" triso:readOnly="false">
+      <dmn11:requiredDecision href="#_60e6861c-6884-4bdf-a4d5-a65fc3390665" />
+    </dmn11:informationRequirement>
+    <dmn11:literalExpression id="_20ef5f8a-efec-42c7-b962-fb12e66f69fb" typeRef="number" triso:expressionId="_a2896eb1-61bf-4610-9bae-271fe1bbd9d5" triso:descriptionVisible="false">
+      <dmn11:text>if Forecasts.daily[1].rain != null 
+then Forecasts.daily[1].rain 
+else 0</dmn11:text>
+    </dmn11:literalExpression>
+  </dmn11:decision>
+  <dmn11:inputData id="_5f895a94-7525-4c24-8e68-fb2e06697de6" name="Location" triso:readOnly="false">
+    <dmn11:description>&lt;p&gt;GPS Coordinates of the client&lt;/p&gt;</dmn11:description>
+    <dmn11:variable id="_51d72a04-ba16-484f-9c03-1ee84573dc0a" name="Location" typeRef="tGPSLocation" />
+  </dmn11:inputData>
+  <dmn11:knowledgeSource id="_f13ab182-6caa-4f89-9992-4b80b29a1bf5" name="openweathermap.org Data Service" triso:readOnly="false">
+    <dmn11:extensionElements>
+      <triso:attachment id="_01c2a5ed-ff56-4414-ab45-4d3ea135ce67" name="OpenWeather" play="true" type="link" url="https://openweathermap.org/" />
+    </dmn11:extensionElements>
+  </dmn11:knowledgeSource>
+  <dmn11:inputData id="_c0192806-f2e8-43d0-87de-7bf5347ca242" name="Soil humidity sensor reading" triso:readOnly="false">
+    <dmn11:description>&lt;p&gt;Reading from a soil humidity sensor that ranges from 0 (dry) to 100 (wet)&lt;/p&gt;</dmn11:description>
+    <dmn11:variable id="_2dd43d64-6ec6-470a-8fb5-0becb2d4bce3" name="Soil humidity sensor reading" typeRef="number" />
+  </dmn11:inputData>
+  <dmn11:decision id="_9a94012d-dcf8-4d3f-b254-559cf23f37f4" name="Sprinkler watering time in minutes" triso:readOnly="false" triso:useOutputTypeAsAnswer="false">
+    <dmn11:description>&lt;p&gt;Calculate the time that the sprinkler system should water the lawn in minutes based on a maximum time of 4 hours (240 minutes). That value is adjusted based on the expected temperature, rainfall and the current soil humidity reading from a sensor.&lt;/p&gt;</dmn11:description>
+    <dmn11:variable id="_f8407b31-42c5-4f1e-b414-07f9f00f772b" name="Sprinkler watering time in minutes" typeRef="number" />
+    <dmn11:informationRequirement id="_57dc3811-d5ba-4362-b83a-779240167818" triso:readOnly="false">
+      <dmn11:requiredInput href="#_c0192806-f2e8-43d0-87de-7bf5347ca242" />
+    </dmn11:informationRequirement>
+    <dmn11:informationRequirement id="_6522004f-856d-475c-8687-3ac409673cbd" triso:readOnly="false">
+      <dmn11:requiredDecision href="#_ef16b0d6-84c5-4063-8344-1282f1ccd50d" />
+    </dmn11:informationRequirement>
+    <dmn11:informationRequirement id="_26875b2a-c4a9-4978-9e5c-8f69d1848fa9" triso:readOnly="false">
+      <dmn11:requiredDecision href="#_2f5df7c3-39b6-45a3-b894-6d60694e8e1b" />
+    </dmn11:informationRequirement>
+    <dmn11:decisionTable id="_020c4ba3-3301-47c5-9a33-7e95f34cbe0e" typeRef="number" outputLabel="Sprinkler watering time in minutes" triso:descriptionVisible="false" triso:expressionId="_fe0d2056-f654-4c48-84ca-fe2500a9b983">
+      <dmn11:input id="_864f07f1-7a20-40eb-9456-9a1873f9ffc6" label="Average temperature for today in fahrenheit">
+        <dmn11:inputExpression id="LiteralExpression_051i6yc" typeRef="number">
+          <dmn11:text>Average temperature for today in fahrenheit</dmn11:text>
+        </dmn11:inputExpression>
+      </dmn11:input>
+      <dmn11:input id="_395b4caa-6cec-48a6-86f1-b31a4ec04f5a" label="Soil humidity sensor reading">
+        <dmn11:inputExpression id="LiteralExpression_1yrdqu6" typeRef="number">
+          <dmn11:text>Soil humidity sensor reading</dmn11:text>
+        </dmn11:inputExpression>
+      </dmn11:input>
+      <dmn11:input id="_f0aa7751-6e13-4369-8f36-f577388deaef" label="Probable rain in millimeters" triso:allowNull="true">
+        <dmn11:inputExpression id="LiteralExpression_0ykowgo" typeRef="number">
+          <dmn11:text>Probable rain in millimeters</dmn11:text>
+        </dmn11:inputExpression>
+      </dmn11:input>
+      <dmn11:output id="_7ccc21d0-5d8c-4ab7-b215-27beea98adea" triso:allowNull="true" />
+      <dmn11:annotation name="Description" />
+      <dmn11:rule id="_4213d501-03d4-4098-a10c-f48a080ea431">
+        <dmn11:inputEntry id="_f37e1a6a-1dd1-4745-bae8-d8779717a8e4">
+          <dmn11:text>&lt;= 40</dmn11:text>
+        </dmn11:inputEntry>
+        <dmn11:inputEntry id="_13d4e69c-178a-44b1-ba6f-1b4dfe453fce">
+          <dmn11:text>-</dmn11:text>
+        </dmn11:inputEntry>
+        <dmn11:inputEntry id="_421031ff-19e7-44b6-b8ac-8954050cbe5b">
+          <dmn11:text>-</dmn11:text>
+        </dmn11:inputEntry>
+        <dmn11:outputEntry id="_995f6ed5-063d-40b3-b7d7-86a58c340478">
+          <dmn11:text>0</dmn11:text>
+        </dmn11:outputEntry>
+        <dmn11:annotationEntry>
+          <dmn11:text>Too cold to water</dmn11:text>
+        </dmn11:annotationEntry>
+      </dmn11:rule>
+      <dmn11:rule id="_11684cc5-5f7b-4ff6-b969-e9558b048115">
+        <dmn11:inputEntry id="_d17cdd46-4645-4c16-b042-1c62f5d1820a">
+          <dmn11:text>&gt; 40</dmn11:text>
+        </dmn11:inputEntry>
+        <dmn11:inputEntry id="_f1e3c662-dd75-4783-9cb8-c1d027c29a43">
+          <dmn11:text>&gt; 80</dmn11:text>
+        </dmn11:inputEntry>
+        <dmn11:inputEntry id="_e649165c-e952-4f64-bab0-7a6287063b5e">
+          <dmn11:text>-</dmn11:text>
+        </dmn11:inputEntry>
+        <dmn11:outputEntry id="_abf47445-254a-4b96-89bc-0e97e1e67bb7">
+          <dmn11:text>0</dmn11:text>
+        </dmn11:outputEntry>
+        <dmn11:annotationEntry>
+          <dmn11:text>Soil is already humid</dmn11:text>
+        </dmn11:annotationEntry>
+      </dmn11:rule>
+      <dmn11:rule id="_bfd765f3-a58f-495e-8ea9-d45b5024726b">
+        <dmn11:inputEntry id="_7f094871-f774-4b82-942c-558fb41dc066">
+          <dmn11:text>&gt; 40</dmn11:text>
+        </dmn11:inputEntry>
+        <dmn11:inputEntry id="_7f845e35-4d9f-4bb6-8350-94be1366555a">
+          <dmn11:text>[35..80]</dmn11:text>
+        </dmn11:inputEntry>
+        <dmn11:inputEntry id="_ef8bcb0b-5914-487d-b484-64d23e100451">
+          <dmn11:text>&lt; 30</dmn11:text>
+        </dmn11:inputEntry>
+        <dmn11:outputEntry id="_0826d99f-89d7-4a78-9fa9-fbeb1fc61b2c">
+          <dmn11:text>240 *  (1-(Probable rain in millimeters/30))</dmn11:text>
+        </dmn11:outputEntry>
+        <dmn11:annotationEntry>
+          <dmn11:text>Reduce the maximum length based on the expected rain</dmn11:text>
+        </dmn11:annotationEntry>
+      </dmn11:rule>
+      <dmn11:rule id="_52433efc-b09d-4b6b-9dd0-bca6629bd883">
+        <dmn11:inputEntry id="_f24338d1-289f-412b-862b-e51062ea2476">
+          <dmn11:text>&gt;40</dmn11:text>
+        </dmn11:inputEntry>
+        <dmn11:inputEntry id="_a2506464-10e4-4b96-ba8e-9f225c7add3a">
+          <dmn11:text>[35..80]</dmn11:text>
+        </dmn11:inputEntry>
+        <dmn11:inputEntry id="_945e6bb4-ccf6-4fc5-854d-fcbf657267dd">
+          <dmn11:text>&gt;= 30</dmn11:text>
+        </dmn11:inputEntry>
+        <dmn11:outputEntry id="_87d5f5b6-c922-4c4b-8408-4ae76b6518c2">
+          <dmn11:text>0</dmn11:text>
+        </dmn11:outputEntry>
+        <dmn11:annotationEntry>
+          <dmn11:text>Natural rain expected</dmn11:text>
+        </dmn11:annotationEntry>
+      </dmn11:rule>
+      <dmn11:rule id="_7db2a217-c3ce-4eaf-9cae-48e679738e21">
+        <dmn11:inputEntry id="_35898fcb-b3ff-4660-ab8b-3ae7ff293100">
+          <dmn11:text>&gt; 40</dmn11:text>
+        </dmn11:inputEntry>
+        <dmn11:inputEntry id="_cbac524b-d33f-4d09-89d7-d47e19754660">
+          <dmn11:text>&lt; 35</dmn11:text>
+        </dmn11:inputEntry>
+        <dmn11:inputEntry id="_1a000167-8dbb-4398-be74-1c8aeee3e466">
+          <dmn11:text>&lt; 50</dmn11:text>
+        </dmn11:inputEntry>
+        <dmn11:outputEntry id="_245f1ea4-0cf6-4376-8d46-015db6546ea8">
+          <dmn11:text>240</dmn11:text>
+        </dmn11:outputEntry>
+        <dmn11:annotationEntry>
+          <dmn11:text>Dry soil, maximum length</dmn11:text>
+        </dmn11:annotationEntry>
+      </dmn11:rule>
+      <dmn11:rule id="_68307368-e085-4e85-aa9f-fc2f1d10cebc">
+        <dmn11:inputEntry id="_0eb8212b-a3dc-4e47-bb15-04fdd580836c">
+          <dmn11:text>&gt; 40</dmn11:text>
+        </dmn11:inputEntry>
+        <dmn11:inputEntry id="_555ad2d2-17bb-4c54-8b82-85dc0415d601">
+          <dmn11:text>&lt; 35</dmn11:text>
+        </dmn11:inputEntry>
+        <dmn11:inputEntry id="_21bc0e3a-429a-4582-927e-4b43c8d64bd1">
+          <dmn11:text>&gt;= 50</dmn11:text>
+        </dmn11:inputEntry>
+        <dmn11:outputEntry id="_ed0ef54f-d94c-4132-9e98-2c97aa8f637a">
+          <dmn11:text>0</dmn11:text>
+        </dmn11:outputEntry>
+        <dmn11:annotationEntry>
+          <dmn11:text>Natural rain expected</dmn11:text>
+        </dmn11:annotationEntry>
+      </dmn11:rule>
+    </dmn11:decisionTable>
+  </dmn11:decision>
+  <dmn11:decision id="_2f5df7c3-39b6-45a3-b894-6d60694e8e1b" name="Probable rain in millimeters" triso:readOnly="false" triso:useOutputTypeAsAnswer="false">
+    <dmn11:description>&lt;p&gt;Based on the probability of precipitation and the amount of precipitation, this decision approximate the amount of rain (in millimeters) that is expected to fall on average.&lt;/p&gt;</dmn11:description>
+    <dmn11:variable id="_bb13961f-49ec-4580-a445-6556294f6449" name="Probable rain in millimeters" typeRef="number" />
+    <dmn11:informationRequirement id="_d81b028b-c079-4056-98ca-9bd8e32a3bce" triso:readOnly="false">
+      <dmn11:requiredDecision href="#_717259be-adf2-4e31-bfe9-722fdb4b4a54" />
+    </dmn11:informationRequirement>
+    <dmn11:informationRequirement id="_ff0c94d7-2f88-437d-b58a-03dd79fb9910" triso:readOnly="false">
+      <dmn11:requiredDecision href="#_5a1d03a9-5a60-4194-b1ee-b1cb4f87ab9c" />
+    </dmn11:informationRequirement>
+    <dmn11:literalExpression id="_d2650620-5125-496b-ac15-7725d933f7e8" typeRef="number" triso:expressionId="_5ea26deb-66b7-4187-940a-10c3c526bfe8" triso:descriptionVisible="false">
+      <dmn11:text>Expected rain in millimeters * Probability of precipitations</dmn11:text>
+    </dmn11:literalExpression>
+  </dmn11:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_ed51db7e-b0ff-4deb-a6ef-816e25466984" name="Watering Duration" triso:modelElementRef="_01c05778-33b4-487c-a646-0d83e8f7d61a">
+      <dmndi:Size width="1086.7411708831787" height="1033" />
+      <dmndi:DMNShape id="_4d95b91d-4687-49fd-b451-09449bd85017" dmnElementRef="_60e6861c-6884-4bdf-a4d5-a65fc3390665">
+        <dc:Bounds height="60" width="153" x="458.2411708831787" y="420" />
+        <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_26cad8b6-047c-4d8c-8e8f-3ce2a10ea9dc" dmnElementRef="_f8e2f06f-e699-4ca9-81c3-36334cd78690">
+        <dc:Bounds height="60" width="153" x="666.2411708831787" y="420" />
+        <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_8d06708d-f1e5-445b-8e69-c05a9fa262c4" dmnElementRef="_ef16b0d6-84c5-4063-8344-1282f1ccd50d">
+        <dc:Bounds height="60" width="153" x="273.2411708831787" y="277" />
+        <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_6c2337ac-91bf-4850-b194-00b2462e5415" dmnElementRef="_717259be-adf2-4e31-bfe9-722fdb4b4a54">
+        <dc:Bounds height="60" width="153" x="479.2411708831787" y="277" />
+        <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_edf74d26-2697-497e-8b49-890c2ecb8782" dmnElementRef="_5a1d03a9-5a60-4194-b1ee-b1cb4f87ab9c">
+        <dc:Bounds height="60" width="153" x="682.2411708831787" y="277" />
+        <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_07bf2e93-bb17-4726-aa1b-182166c18ffb" dmnElementRef="_5f895a94-7525-4c24-8e68-fb2e06697de6">
+        <dc:Bounds height="60.00000762939453" width="135.48234176635742" x="467" y="588.9999961853027" />
+        <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_9ef35640-f12f-4321-bdd1-b037c3ead8ad" dmnElementRef="_f13ab182-6caa-4f89-9992-4b80b29a1bf5">
+        <dc:Bounds height="86.95735931396484" width="124.30051701023376" x="933.7411708831787" y="406.5213203430176" />
+        <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_f108a1d2-d61e-440e-bcaf-1e6be9dbc4b9" dmnElementRef="_c0192806-f2e8-43d0-87de-7bf5347ca242">
+        <dc:Bounds height="60.00000762939453" width="135.48234176635742" x="50" y="588.9999961853027" />
+        <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_3afcdc9f-aaaf-47e8-9600-11e7b6ad128a" dmnElementRef="_9a94012d-dcf8-4d3f-b254-559cf23f37f4">
+        <dc:Bounds height="60" width="153" x="178.2411708831787" y="89" />
+        <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_bed8899b-3a31-447e-b7e8-64e3ed790b22" dmnElementRef="_2f5df7c3-39b6-45a3-b894-6d60694e8e1b">
+        <dc:Bounds height="60" width="153" x="510.875" y="164" />
+        <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_a9cab3ca-aae7-4010-8f33-b5d1bd86135f" dmnElementRef="_50e95a9a-99ba-4db5-a371-bf08bc2bb4c7" sourceElement="_26cad8b6-047c-4d8c-8e8f-3ce2a10ea9dc" targetElement="_4d95b91d-4687-49fd-b451-09449bd85017">
+        <di:waypoint x="666.2411708831787" y="450" />
+        <di:waypoint x="611.2411708831787" y="450" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_47818cd2-1d9b-4375-a4ea-07a9c5ac8cce" dmnElementRef="_bdb69226-33a2-4f96-9b0a-b49ed34bdc97" sourceElement="_4d95b91d-4687-49fd-b451-09449bd85017" targetElement="_8d06708d-f1e5-445b-8e69-c05a9fa262c4">
+        <di:waypoint x="534.7411708831787" y="420" />
+        <di:waypoint x="349.7411708831787" y="337" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_291da5dc-6d94-4a9f-b701-bc55b8c8145d" dmnElementRef="_9bd926f5-da4c-447e-a607-8ac3bff30ce0" sourceElement="_4d95b91d-4687-49fd-b451-09449bd85017" targetElement="_6c2337ac-91bf-4850-b194-00b2462e5415">
+        <di:waypoint x="534.7411708831787" y="420" />
+        <di:waypoint x="555.7411708831787" y="337" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_42904481-36ab-4702-bc55-d918887195cc" dmnElementRef="_045ba86a-34f6-4e48-a6e5-be3a786ca6ff" sourceElement="_4d95b91d-4687-49fd-b451-09449bd85017" targetElement="_edf74d26-2697-497e-8b49-890c2ecb8782">
+        <di:waypoint x="554.7411708831787" y="420" />
+        <di:waypoint x="738.7411708831787" y="337" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_00bca31e-0c63-4081-805f-92e146f70fa0" dmnElementRef="_1edff021-500c-4dff-84a5-5e0a18ce7fbc" sourceElement="_07bf2e93-bb17-4726-aa1b-182166c18ffb" targetElement="_4d95b91d-4687-49fd-b451-09449bd85017">
+        <di:waypoint x="534.7379722595215" y="588.9999961853027" />
+        <di:waypoint x="534.7411708831787" y="480" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_0e0c4641-5557-4b66-b160-5fd3dca363a8" dmnElementRef="_45414cf4-7148-4662-b2a3-7b700c9fb571" sourceElement="_9ef35640-f12f-4321-bdd1-b037c3ead8ad" targetElement="_26cad8b6-047c-4d8c-8e8f-3ce2a10ea9dc">
+        <di:waypoint x="933.7411708831787" y="449.28069819453776" />
+        <di:waypoint x="819.2411708831787" y="450" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_93f66866-1961-4c8a-8fe3-56e203327fb8" dmnElementRef="_57dc3811-d5ba-4362-b83a-779240167818" sourceElement="_f108a1d2-d61e-440e-bcaf-1e6be9dbc4b9" targetElement="_3afcdc9f-aaaf-47e8-9600-11e7b6ad128a">
+        <di:waypoint x="117.73797225952148" y="588.9999961853027" />
+        <di:waypoint x="234.7411708831787" y="149" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_c66fa815-240a-4a5e-adf8-ac3250e04ca3" dmnElementRef="_6522004f-856d-475c-8687-3ac409673cbd" sourceElement="_8d06708d-f1e5-445b-8e69-c05a9fa262c4" targetElement="_3afcdc9f-aaaf-47e8-9600-11e7b6ad128a">
+        <di:waypoint x="349.7411708831787" y="277" />
+        <di:waypoint x="254.7411708831787" y="149" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_119ee04a-1104-4ec6-ac48-d527e4766a09" dmnElementRef="_d81b028b-c079-4056-98ca-9bd8e32a3bce" sourceElement="_6c2337ac-91bf-4850-b194-00b2462e5415" targetElement="_bed8899b-3a31-447e-b7e8-64e3ed790b22">
+        <di:waypoint x="545.7411708831787" y="277" />
+        <di:waypoint x="577.375" y="224" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_ebfc862f-1f12-4537-8136-1b859f666a92" dmnElementRef="_ff0c94d7-2f88-437d-b58a-03dd79fb9910" sourceElement="_edf74d26-2697-497e-8b49-890c2ecb8782" targetElement="_bed8899b-3a31-447e-b7e8-64e3ed790b22">
+        <di:waypoint x="748.7411708831787" y="277" />
+        <di:waypoint x="597.375" y="224" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_4696490a-e9a2-49e4-9b99-c57e5be79c3b" dmnElementRef="_26875b2a-c4a9-4978-9e5c-8f69d1848fa9" sourceElement="_bed8899b-3a31-447e-b7e8-64e3ed790b22" targetElement="_3afcdc9f-aaaf-47e8-9600-11e7b6ad128a">
+        <di:waypoint x="510.875" y="194" />
+        <di:waypoint x="331.2411708831787" y="109" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+    <dmndi:DMNStyle id="LS_e2dbe072-b5eb-47dd-9bf4-41933f0afccd_0" fontSize="11" fontFamily="arial,helvetica,sans-serif" fontItalic="false" fontBold="false" fontUnderline="false" fontStrikeThrough="false" />
+  </dmndi:DMNDI>
+</dmn11:definitions>

@@ -1,0 +1,98 @@
+@keyframes blinking {
+    0% {
+        opacity: 0.25;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.25;
+    }
+}
+
+strong {
+    color: red;
+}
+
+.DROP {
+    animation: contour 5s linear forwards infinite;
+    stroke: black !important;
+    stroke-dasharray: 5;
+    stroke-dashoffset: 100;
+}
+
+.RANDOMIZE:not(.djs-connection) .djs-visual > :nth-child(1) {
+    animation: blinking 1s ease-out infinite;
+    /* '!important' overrides *ALL* previous styling rules: */
+    fill: #DAF9DA !important;
+    stroke: black !important;
+}
+
+.FEEL:not(.djs-connection) .djs-visual > :nth-child(1) {
+    animation: blinking 1s ease-out infinite;
+    /* '!important' overrides *ALL* previous styling rules: */
+    fill: lightblue !important;
+    stroke: blue !important;
+}
+
+.MENU:not(.djs-connection) .djs-visual > :nth-child(1) {
+    fill: blanchedalmond !important;
+    stroke: burlywood !important;
+}
+
+.PREDICT:not(.djs-connection) .djs-visual > :nth-child(1) {
+    animation: blinking 0.25s ease-out infinite;
+    /* '!important' overrides *ALL* previous styling rules: */
+    fill: #FFD580 !important;
+    stroke: orange !important;
+}
+
+.TRAIN:not(.djs-connection) .djs-visual > :nth-child(1) {
+    animation: contour 5s linear forwards infinite;
+    /* '!important' overrides *ALL* previous styling rules: */
+    fill: #DAF9DA !important;
+    stroke: black !important;
+    stroke-dasharray: 5;
+    stroke-dashoffset: 100;
+}
+
+.VISUALIZE:not(.djs-connection) .djs-visual > :nth-child(1) {
+    animation: blinking 1s ease-out infinite;
+    /* '!important' overrides *ALL* previous styling rules: */
+    fill: lightyellow !important;
+    stroke: yellow !important;
+}
+
+.TRAINED:not(.djs-connection) .djs-visual > :nth-child(1) {
+    /* '!important' overrides *ALL* previous styling rules: */
+    fill: lightyellow !important;
+    stroke: yellow !important;
+}
+
+@keyframes contour {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* End of flows */
+
+.Warning {
+    animation: blinking 2.5s ease infinite;
+    background-color: tomato;
+    font-size: small;
+    /*z-index: 1;*/
+    /*https: / / developer . mozilla . org /fr/ docs /Web/ CSS / pointer-events:*/
+    pointer-events: none; /* no reaction */
+}
+
+html, body, #LiveDMN {
+    background-color: #F2F8F1;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.tippy-box[data-theme~="DMiNer"] {
+    background-color: lawngreen;
+}

@@ -1,0 +1,20 @@
+{
+  "action": "TRAIN",
+  "data": [
+    {
+      "Eligibility": "INELIGIBLE",
+      "Bureau call type": "-",
+      "Strategy": "DECLINE"
+    },
+    {
+      "Eligibility": "ELIGIBLE",
+      "Bureau call type": "-",
+      "Strategy": "DECLINE"
+    },
+    {
+      "Eligibility": "ELIGIBLE",
+      "Bureau call type": "MINI",
+      "Strategy": "DECLINE"
+    }
+  ]
+}

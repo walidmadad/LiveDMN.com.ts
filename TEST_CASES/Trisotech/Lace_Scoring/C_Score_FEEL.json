@@ -1,0 +1,14 @@
+{
+  "action": "FEEL",
+  "data": [
+    {
+      "Comorbidity Score for Listed Conditions": -1
+    },
+    {
+      "Comorbidity Score for Listed Conditions": 1
+    },
+    {
+      "Comorbidity Score for Listed Conditions": 5
+    }
+  ]
+}

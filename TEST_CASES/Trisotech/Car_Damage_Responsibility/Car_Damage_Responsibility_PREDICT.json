@@ -1,0 +1,45 @@
+{
+  "action": "PREDICT",
+  "data": [
+    {
+      "Membership Level": "Silver",
+      "Responsibility": "Driver",
+      "Damage Types": "Tires"
+    },
+    {
+      "Membership Level": "Silver",
+      "Responsibility": "Driver",
+      "Damage Types": "Glass"
+    },
+    {
+      "Membership Level": "Silver",
+      "Responsibility": "Driver",
+      "Damage Types": "Body"
+    },
+    {
+      "Membership Level": "Silver",
+      "Responsibility": "Driver",
+      "Damage Types": "Engine"
+    },
+    {
+      "Membership Level": "Silver",
+      "Responsibility": "3rd Party",
+      "Damage Types": "Tires"
+    },
+    {
+      "Membership Level": "Silver",
+      "Responsibility": "3rd Party",
+      "Damage Types": "Glass"
+    },
+    {
+      "Membership Level": "Silver",
+      "Responsibility": "3rd Party",
+      "Damage Types": "Body"
+    },
+    {
+      "Membership Level": "Silver",
+      "Responsibility": "3rd Party",
+      "Damage Types": "Engine"
+    }
+  ]
+}

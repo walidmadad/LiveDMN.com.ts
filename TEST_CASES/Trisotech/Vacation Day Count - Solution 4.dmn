@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<semantic:definitions xmlns:semantic="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:feel="https://www.omg.org/spec/DMN/20191111/FEEL/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"       xmlns:triso="http://www.trisotech.com/2015/triso/modeling"  xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn"  xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase"  xmlns:drools="http://www.drools.org/kie/dmn/1.1"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:rss="http://purl.org/rss/2.0/"  xmlns:openapi="https://openapis.org/omg/extension/1.0"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:boxedext="https://www.trisotech.com/spec/DMN/20191111/EXT/"   xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns="http://www.trisotech.com/definitions/_6c4708ae-e4f2-4ead-a822-c2e955873734" id="_6c4708ae-e4f2-4ead-a822-c2e955873734" name="Vacation Day Count - Solution 4" namespace="http://www.trisotech.com/definitions/_6c4708ae-e4f2-4ead-a822-c2e955873734" exporter="Decision Modeler" exporterVersion="8.11.0" xml:lang="en" triso:logoChoice="Default" triso:version="1.1" triso:state="Published">
+    <semantic:description>&lt;p&gt;&lt;span style="color: #000000; text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: #ffffff; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"&gt;The Decision Management Community (DMCommunity.org) provides resources for DM practitioners, listing tools, news, providing examples and also giving monthly challenge. As a vendor that always seek improvement, Trisotech took January challenge using Trisotech DMN Modeler (Trisotech.com)&lt;/span&gt;&lt;/p&gt;</semantic:description>
+    <semantic:extensionElements>
+        <triso:scope>&lt;p style="color: #000000; text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"&gt;The January challenge is to create the best possible decision tables to represent the following statements, provided by Prof. Jan Vanthienen who is one of the best known experts in decision tables and a member of the DMN Task Force.&lt;/p&gt;
+&lt;p style="color: #000000; text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"&gt;&lt;img src="https://dmcommunity.files.wordpress.com/2016/01/vacationdaysproblem.jpg?w=640" alt="VacationDaysProblem" /&gt;&lt;/p&gt;</triso:scope>
+        <triso:notes>&lt;p&gt;&lt;strong&gt;Challenges&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;/ul&gt;</triso:notes>
+        <triso:graphRelations/>
+    </semantic:extensionElements>
+    <semantic:decisionService id="_6c4708ae-e4f2-4ead-a822-c2e955873734_DS" name="Whole Model Decision Service" triso:dynamicDecisionService="true" triso:wholeModelService="true">
+        <semantic:variable name="Whole Model Decision Service" id="_6c4708ae-e4f2-4ead-a822-c2e955873734_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_f79ccc99-9f7c-4cca-9369-fd914f93b691"/>
+        <semantic:encapsulatedDecision href="#_e1c51467-b447-4c36-af82-b00cd4cb8ea8"/>
+        <semantic:encapsulatedDecision href="#_d9da47b4-f14b-41a0-ac67-2a7f579d2ad2"/>
+        <semantic:encapsulatedDecision href="#_8c4b1d18-194e-4eef-bd15-d921bbab8e1f"/>
+        <semantic:encapsulatedDecision href="#_97ac2bfd-bda2-4507-8b95-539ccab60db0"/>
+        <semantic:inputData href="#_0a24705f-bea1-453c-99fb-73e6155e8bc9"/>
+        <semantic:inputData href="#_a944f817-3749-49c3-a9b1-ba301787c1e0"/>
+    </semantic:decisionService>
+    <semantic:decisionService id="_6bef8697-e793-4c98-9805-c2e2bb483801_DS" name="Diagram Solution 4" triso:dynamicDecisionService="true">
+        <semantic:variable name="Diagram Solution 4" id="_6bef8697-e793-4c98-9805-c2e2bb483801_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_f79ccc99-9f7c-4cca-9369-fd914f93b691"/>
+        <semantic:encapsulatedDecision href="#_e1c51467-b447-4c36-af82-b00cd4cb8ea8"/>
+        <semantic:encapsulatedDecision href="#_d9da47b4-f14b-41a0-ac67-2a7f579d2ad2"/>
+        <semantic:encapsulatedDecision href="#_8c4b1d18-194e-4eef-bd15-d921bbab8e1f"/>
+        <semantic:encapsulatedDecision href="#_97ac2bfd-bda2-4507-8b95-539ccab60db0"/>
+        <semantic:inputData href="#_0a24705f-bea1-453c-99fb-73e6155e8bc9"/>
+        <semantic:inputData href="#_a944f817-3749-49c3-a9b1-ba301787c1e0"/>
+    </semantic:decisionService>
+    <semantic:inputData id="_0a24705f-bea1-453c-99fb-73e6155e8bc9" name="Age">
+        <semantic:variable name="Age" id="_2b5d2c74-1624-4fd3-b1db-7f6b7c7798dd" typeRef="number"/>
+    </semantic:inputData>
+    <semantic:inputData id="_a944f817-3749-49c3-a9b1-ba301787c1e0" name="Years of Service">
+        <semantic:variable name="Years of Service" id="_895db999-e87b-480c-9c4e-a0378f9763bc" typeRef="number"/>
+    </semantic:inputData>
+    <semantic:decision id="_f79ccc99-9f7c-4cca-9369-fd914f93b691" name="Total Vacation Days">
+        <semantic:description>&lt;p&gt;After each decision is evaluated, this will add them up to calculate the total amount. Rule 1 and 3 are not compatible so a max is used to give the most days to the employee.&lt;/p&gt;</semantic:description>
+        <semantic:variable name="Total Vacation Days" id="_d78965d2-3faa-41e1-8af0-3802a6579281" typeRef="number"/>
+        <semantic:informationRequirement id="_7ce2b0aa-c838-430c-b9b9-a4a869c30f5a">
+            <semantic:requiredDecision href="#_97ac2bfd-bda2-4507-8b95-539ccab60db0"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_369aec7e-4408-4078-973e-68ddb9239384">
+            <semantic:requiredDecision href="#_e1c51467-b447-4c36-af82-b00cd4cb8ea8"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_144e3aac-880b-4134-a5cd-b2b3ee64fce1">
+            <semantic:requiredDecision href="#_d9da47b4-f14b-41a0-ac67-2a7f579d2ad2"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_56ea0182-fb24-4ac2-bebc-3a4fee18dd0d">
+            <semantic:requiredDecision href="#_8c4b1d18-194e-4eef-bd15-d921bbab8e1f"/>
+        </semantic:informationRequirement>
+        <semantic:literalExpression id="_97d2c817-78ea-44f8-914c-6a3ef624ee78" triso:descriptionVisible="false" typeRef="number" triso:expressionId="_c025b999-117e-4230-b999-52f45b221385">
+            <semantic:text>Base Vacation Days 
+    + max( Extra days Case 1, Extra days Case 3 ) 
+    + Extra days Case 2</semantic:text>
+        </semantic:literalExpression>
+    </semantic:decision>
+    <semantic:decision id="_e1c51467-b447-4c36-af82-b00cd4cb8ea8" name="Extra days Case 1">
+        <semantic:description>&lt;p&gt;To reflect that statement:&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Only employees younger than 18 or at least 60 years, &lt;strong&gt;or&lt;/strong&gt; employees with at least 30 years of service will receive 5 extra days.&lt;/p&gt;
+&lt;p&gt;An "Any" decision table is used, meaning that more then one rule can hit but they all give the same result. Rules listed&amp;nbsp;the three cases mentioned above. If the inputs don't fit in those rules, the decision will evaluate to 0, the default value.&lt;/p&gt;</semantic:description>
+        <semantic:variable name="Extra days Case 1" id="_ffebfd8c-0427-4793-bb17-398a9818ec0e" typeRef="number"/>
+        <semantic:informationRequirement id="_8b793f17-b492-46c9-9179-05f47799832b">
+            <semantic:requiredInput href="#_0a24705f-bea1-453c-99fb-73e6155e8bc9"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_30061bca-b089-4889-8b80-bc4d731dbffa">
+            <semantic:requiredInput href="#_a944f817-3749-49c3-a9b1-ba301787c1e0"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_ec09a7bf-306f-4c6b-812e-293a04fa1dbb" hitPolicy="ANY" outputLabel="Extra days Case 1" typeRef="number" triso:expressionId="_b5c0d17f-0749-4986-b1b1-881ea479f60b">
+            <semantic:input id="_472680d9-8965-4b89-8025-ce95b7b4b177" label="Age">
+                <semantic:inputExpression typeRef="number">
+                    <semantic:text>Age</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="simple">
+                    <semantic:text>&gt;=14</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:input id="_f9c1b8bf-4698-4b87-b2d7-6b63ae6d2074" label="Years of Service">
+                <semantic:inputExpression typeRef="number">
+                    <semantic:text>Years of Service</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="simple">
+                    <semantic:text>&gt;=0</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:output id="_c50d6445-66e0-4e43-a5cf-138409481cff">
+                <semantic:defaultOutputEntry>
+                    <semantic:text>0</semantic:text>
+                </semantic:defaultOutputEntry>
+            </semantic:output>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_6b948d93-d4f6-4f1b-a3ed-1539040cbbf3">
+                <semantic:inputEntry id="_54cdaea7-ebe0-4d5a-bffc-391e506d76e5">
+                    <semantic:text>&lt;18</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_88cfc24f-9093-4874-933e-7bfb0b48f6dd">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_eddcd4c6-752f-42cd-bfb6-2e337b41a81c">
+                    <semantic:text>5</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_7bf982c3-e77d-4024-94a7-9141edc0f111">
+                <semantic:inputEntry id="_3052cf9f-eaaa-459a-b18b-0eaaf5dfba5e">
+                    <semantic:text>&gt;=60</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_0a6ca02d-99fa-4396-80ad-847dd47fde8a">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_fec3a36f-a4a5-46cc-9d8c-1d05b85a3db7">
+                    <semantic:text>5</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_1bf7aeb5-07d3-46d6-a2a3-2cf7887bde2f">
+                <semantic:inputEntry id="_519470ae-3d69-4c3d-a66d-ebfa40e8a28c">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_d5bd74a9-7284-4b12-b05e-a394984b7c88">
+                    <semantic:text>&gt;=30</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_7149a7fb-c960-477f-9d20-63b66382f863">
+                    <semantic:text>5</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:decision id="_d9da47b4-f14b-41a0-ac67-2a7f579d2ad2" name="Extra days Case 2">
+        <semantic:description>&lt;p&gt;To reflect that statement:&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Employees with at least 30 years of service and also employees of age 60 or more, receive 3 extra days, on top of possible additional days already given.&lt;/p&gt;
+&lt;p&gt;An "Any" decision table is used, meaning that more then one rule can hit but they all give the same result. Rules listed the two&amp;nbsp;cases mentioned above. If the inputs don't fit in those rules, the decision will evaluate to 0, the default value.&lt;/p&gt;</semantic:description>
+        <semantic:variable name="Extra days Case 2" id="_380275f1-7bd0-4696-8d02-5552b66a915f" typeRef="number"/>
+        <semantic:informationRequirement id="_9f8d3d17-fd21-4452-a644-01348e93b49c">
+            <semantic:requiredInput href="#_0a24705f-bea1-453c-99fb-73e6155e8bc9"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_a99aa362-3bd2-4f78-8d18-88a43e602b49">
+            <semantic:requiredInput href="#_a944f817-3749-49c3-a9b1-ba301787c1e0"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_c83aac4f-1d48-4a45-adf4-58437e2427f7" hitPolicy="ANY" outputLabel="Extra days Case 2" typeRef="number" triso:expressionId="_bd093da2-423e-4ea5-901e-a994f5850670">
+            <semantic:input id="_2e1c22bb-8a8a-45ff-8958-dbcbeb65a7b7" label="Age">
+                <semantic:inputExpression typeRef="number">
+                    <semantic:text>Age</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="simple">
+                    <semantic:text>&gt;=14</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:input id="_4e72a18b-cfc4-48e2-9b12-04da783e73c9" label="Years of Service">
+                <semantic:inputExpression typeRef="number">
+                    <semantic:text>Years of Service</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="simple">
+                    <semantic:text>&gt;=0</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:output id="_fcda7fea-7dad-418d-898a-f60c01eff558">
+                <semantic:defaultOutputEntry>
+                    <semantic:text>0</semantic:text>
+                </semantic:defaultOutputEntry>
+            </semantic:output>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_670742a2-af2b-42e0-973c-65c33e6c2619">
+                <semantic:inputEntry id="_5d47bbfc-76b4-4b15-8c1d-5475b3989bc3">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_9f82b68a-06ca-466d-ab08-be8720309f03">
+                    <semantic:text>&gt;=30</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_7f0a122a-c0bc-4aed-982c-94e6edc1561a">
+                    <semantic:text>3</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_c5c4e643-1a2c-47b2-8b9a-a34b5d21ae71">
+                <semantic:inputEntry id="_d0dbf1e2-a787-4ebc-bfc1-6c57caa9cd87">
+                    <semantic:text>&gt;=60</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_73139cf6-ce69-4337-b389-9b84aa80e4b3">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_2e588cbd-54dd-4824-87d1-75996d9a8b9e">
+                    <semantic:text>3</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:decision id="_8c4b1d18-194e-4eef-bd15-d921bbab8e1f" name="Extra days Case 3">
+        <semantic:description>&lt;p&gt;To reflect that statement:&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;If an employee has at least 15 but less than 30 years of service, 2 extra days are given. These 2 days are also provided for employees of age 45 or more.&lt;/p&gt;
+&lt;p&gt;An "Any" decision table is used, meaning that more then one rule can hit but they all give the same result. Rules listed&amp;nbsp;the two cases mentioned above. If the inputs don't fit in those rules, the decision will evaluate to 0, the default value.&lt;/p&gt;</semantic:description>
+        <semantic:variable name="Extra days Case 3" id="_33316592-2728-418b-a836-70800107cd58" typeRef="number"/>
+        <semantic:informationRequirement id="_c40fa9b5-cc52-4c14-afaa-3708969aa33e">
+            <semantic:requiredInput href="#_0a24705f-bea1-453c-99fb-73e6155e8bc9"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_bbd5b534-f9e3-4c92-90b0-2645a259728b">
+            <semantic:requiredInput href="#_a944f817-3749-49c3-a9b1-ba301787c1e0"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_c4ca7d6b-7a51-48df-bef8-9da3d4bd5ab0" hitPolicy="ANY" outputLabel="Extra days Case 3" typeRef="number" triso:expressionId="_d45b1b9d-2896-4ec1-8568-bc518e5b7def">
+            <semantic:input id="_15ced5da-0caf-45e5-b6b2-9f7f2ab90af5" label="Age">
+                <semantic:inputExpression typeRef="number">
+                    <semantic:text>Age</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="simple">
+                    <semantic:text>&gt;=14</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:input id="_50617d34-60a0-4636-8903-e7abd8dae7b2" label="Years of Service">
+                <semantic:inputExpression typeRef="number">
+                    <semantic:text>Years of Service</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="simple">
+                    <semantic:text>&gt;=0</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:output id="_a1cd42e7-3b3c-43e9-9f5d-8fe8e5631125">
+                <semantic:defaultOutputEntry>
+                    <semantic:text>0</semantic:text>
+                </semantic:defaultOutputEntry>
+            </semantic:output>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_bdafd1a6-772a-4c4b-9881-eb6d896b0ba2">
+                <semantic:inputEntry id="_3d04a763-304c-497d-943b-384c75bde07b">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_43df4989-d4ea-4367-982a-ef0111f6a723">
+                    <semantic:text>[15..30)</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_23187647-9cbc-417a-b167-4e47798cb26a">
+                    <semantic:text>2</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_c67b36eb-8964-4404-97ed-7285013ececd">
+                <semantic:inputEntry id="_e5e8a825-3287-412e-95e5-b431a3ff34a3">
+                    <semantic:text>&gt;=45</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_9a17d9e9-4165-4304-9956-2555e3fb6b29">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_ddf1b8bd-df6d-40b5-a10c-e78b595abbd6">
+                    <semantic:text>2</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:decision id="_97ac2bfd-bda2-4507-8b95-539ccab60db0" name="Base Vacation Days">
+        <semantic:description>&lt;p&gt;Every employee receives at least 22 days.&lt;/p&gt;</semantic:description>
+        <semantic:variable name="Base Vacation Days" id="_afe48c8a-51ff-424f-91ad-9dbc5abfccc5" typeRef="number"/>
+        <semantic:literalExpression id="_f1d202f6-7f9d-4442-9ba5-f574081e4ca8" triso:descriptionVisible="false" typeRef="number" triso:expressionId="_7b4873cf-919c-4cb9-8a6c-c8cc5056eaa1">
+            <semantic:text>22</semantic:text>
+        </semantic:literalExpression>
+    </semantic:decision>
+    <semantic:textAnnotation id="_374d43f0-4bc4-4b58-a784-ace20aa6609a">
+        <semantic:text>Problem Statements:
+The number of vacation days depends on age and years of service.
+
+Every employee receives at least 22 days.
+Additional days are provided according the following criteria:
+
+1) Only employees younger than 18 or at least 60 years, or employees with at least 30 years of service will receive 5 extra days.
+
+2) Employees with at least 30 years of service and also employees of age 60 or more, receive 3 extra days, on top of possible additional days already given.
+
+3) If an employee has at least 15 but less than 30 years of service, 2 extra days are given. These 2 days are also provided for employees of age 45 or more. these 2 extra days cannot be combined with the 5 extra days.
+</semantic:text>
+    </semantic:textAnnotation>
+    <semantic:association id="_53758cbd-4562-4510-9a5a-492ae1307ce3">
+        <semantic:sourceRef href="#_374d43f0-4bc4-4b58-a784-ace20aa6609a"/>
+        <semantic:targetRef href="#_f79ccc99-9f7c-4cca-9369-fd914f93b691"/>
+    </semantic:association>
+    <dmndi:DMNDI>
+        <dmndi:DMNDiagram id="_6bef8697-e793-4c98-9805-c2e2bb483801" triso:modelElementRef="_0c55d6c7-a0d7-414b-b461-9b51641f6ab1" name="Solution 4" documentation="&lt;p&gt;&lt;span style=&quot;font-size: 8pt;&quot;&gt;The fourth solution doesn't fully respect the problem constraints as it takes a greater use of DMN expressions. It keeps the philosophy of the first approach by mapping one decision to a rule (Extra Days case 1, 2 and 3) and the Total Vacation Days combine all those information.&lt;/span&gt;&lt;/p&gt;&#xA;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#xA;&lt;p&gt;&lt;span style=&quot;font-size: 8pt;&quot;&gt;Pro:&lt;/span&gt;&lt;/p&gt;&#xA;&lt;div class=&quot;O1&quot; style=&quot;color: #000000; text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;&quot;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;span style=&quot;font-size: 8pt;&quot;&gt;If each policy statement is based on a specific logic. It makes changes easier. A change in one policy = a change in one table.&lt;/span&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#xA;&lt;p&gt;&amp;nbsp;&lt;span style=&quot;font-size: 8pt;&quot;&gt;Con:&lt;/span&gt; &lt;/p&gt;&#xA;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#xA;&lt;div class=&quot;O1&quot; style=&quot;color: #000000; text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;&quot;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;span style=&quot;font-size: 8pt;&quot;&gt;As documentation it is complex read as you need to go through&amp;nbsp;5 different decisions to understand how to come to the decision.&lt;/span&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;span style=&quot;font-size: 8pt;&quot;&gt;Since it use more advanced DMN concept, it requires more knowledge to understand and edit those rules.&lt;/span&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;">
+            <di:extension/>
+            <dmndi:Size height="692" width="1246"/>
+            <dmndi:DMNShape id="_a941153f-f13a-46ec-b014-b603c03d183a" dmnElementRef="_0a24705f-bea1-453c-99fb-73e6155e8bc9">
+                <dc:Bounds x="418.5" y="605" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_6c4708ae-e4f2-4ead-a822-c2e955873734_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_cac41242-266f-425f-b671-00052832f7bc" dmnElementRef="_a944f817-3749-49c3-a9b1-ba301787c1e0">
+                <dc:Bounds x="631.5" y="605" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_6c4708ae-e4f2-4ead-a822-c2e955873734_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_456cb449-f656-406c-8578-c506e7b511b0" dmnElementRef="_f79ccc99-9f7c-4cca-9369-fd914f93b691">
+                <dc:Bounds x="412.5" y="245" width="154" height="61"/>
+                <dmndi:DMNLabel sharedStyle="LS_6c4708ae-e4f2-4ead-a822-c2e955873734_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_5f94bb35-f403-4e37-9f17-02562612575d" dmnElementRef="_e1c51467-b447-4c36-af82-b00cd4cb8ea8">
+                <dc:Bounds x="310.5" y="424" width="154" height="61"/>
+                <dmndi:DMNLabel sharedStyle="LS_6c4708ae-e4f2-4ead-a822-c2e955873734_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_6d1a9316-9566-4de8-bbf1-f31061fd8f32" dmnElementRef="_d9da47b4-f14b-41a0-ac67-2a7f579d2ad2">
+                <dc:Bounds x="524.5" y="424" width="154" height="61"/>
+                <dmndi:DMNLabel sharedStyle="LS_6c4708ae-e4f2-4ead-a822-c2e955873734_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_7732e587-7d55-4c71-ad18-f8efb3d4cf8c" dmnElementRef="_8c4b1d18-194e-4eef-bd15-d921bbab8e1f">
+                <dc:Bounds x="738.5" y="424" width="154" height="61"/>
+                <dmndi:DMNLabel sharedStyle="LS_6c4708ae-e4f2-4ead-a822-c2e955873734_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_511883c8-e7fc-4b51-a1db-6f121b9a59ea" dmnElementRef="_97ac2bfd-bda2-4507-8b95-539ccab60db0">
+                <dc:Bounds x="99.5" y="426" width="154" height="61"/>
+                <dmndi:DMNLabel sharedStyle="LS_6c4708ae-e4f2-4ead-a822-c2e955873734_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_a0fb0c1f-e6fc-409a-9795-2fe257d847c2" dmnElementRef="_374d43f0-4bc4-4b58-a784-ace20aa6609a">
+                <dc:Bounds x="713" y="114" width="402" height="237"/>
+                <dmndi:DMNLabel sharedStyle="LS_6c4708ae-e4f2-4ead-a822-c2e955873734_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="_7176d814-ccfb-4b27-a83b-bb75efce7a3c" dmnElementRef="_7ce2b0aa-c838-430c-b9b9-a4a869c30f5a" sourceElement="_511883c8-e7fc-4b51-a1db-6f121b9a59ea" targetElement="_456cb449-f656-406c-8578-c506e7b511b0">
+                <di:waypoint x="176.5" y="426"/>
+                <di:waypoint x="489.5" y="306"/>
+                <dmndi:DMNLabel sharedStyle="LS_6c4708ae-e4f2-4ead-a822-c2e955873734_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_319af78b-54cf-458b-9439-6f6baf729550" dmnElementRef="_369aec7e-4408-4078-973e-68ddb9239384" sourceElement="_5f94bb35-f403-4e37-9f17-02562612575d" targetElement="_456cb449-f656-406c-8578-c506e7b511b0">
+                <di:waypoint x="387.5" y="424"/>
+                <di:waypoint x="489.5" y="306"/>
+                <dmndi:DMNLabel sharedStyle="LS_6c4708ae-e4f2-4ead-a822-c2e955873734_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_5092de10-e155-46dd-84b0-2f3690fd6e2a" dmnElementRef="_144e3aac-880b-4134-a5cd-b2b3ee64fce1" sourceElement="_6d1a9316-9566-4de8-bbf1-f31061fd8f32" targetElement="_456cb449-f656-406c-8578-c506e7b511b0">
+                <di:waypoint x="601.5" y="424"/>
+                <di:waypoint x="489.5" y="306"/>
+                <dmndi:DMNLabel sharedStyle="LS_6c4708ae-e4f2-4ead-a822-c2e955873734_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_8197ba78-0e63-46c0-ba8f-f4fa2462f776" dmnElementRef="_56ea0182-fb24-4ac2-bebc-3a4fee18dd0d" sourceElement="_7732e587-7d55-4c71-ad18-f8efb3d4cf8c" targetElement="_456cb449-f656-406c-8578-c506e7b511b0">
+                <di:waypoint x="815.5" y="424"/>
+                <di:waypoint x="489.5" y="306"/>
+                <dmndi:DMNLabel sharedStyle="LS_6c4708ae-e4f2-4ead-a822-c2e955873734_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_2509f54b-21fe-459e-b36b-e0ba2ceb7623" dmnElementRef="_8b793f17-b492-46c9-9179-05f47799832b" sourceElement="_a941153f-f13a-46ec-b014-b603c03d183a" targetElement="_5f94bb35-f403-4e37-9f17-02562612575d">
+                <di:waypoint x="494.5" y="605"/>
+                <di:waypoint x="387.5" y="485"/>
+                <dmndi:DMNLabel sharedStyle="LS_6c4708ae-e4f2-4ead-a822-c2e955873734_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_dfd787ce-897a-4437-a88f-cee14ed01da6" dmnElementRef="_30061bca-b089-4889-8b80-bc4d731dbffa" sourceElement="_cac41242-266f-425f-b671-00052832f7bc" targetElement="_5f94bb35-f403-4e37-9f17-02562612575d">
+                <di:waypoint x="707.5" y="605"/>
+                <di:waypoint x="387.5" y="485"/>
+                <dmndi:DMNLabel sharedStyle="LS_6c4708ae-e4f2-4ead-a822-c2e955873734_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_566876c2-e775-47a5-9981-37a0695b5056" dmnElementRef="_9f8d3d17-fd21-4452-a644-01348e93b49c" sourceElement="_a941153f-f13a-46ec-b014-b603c03d183a" targetElement="_6d1a9316-9566-4de8-bbf1-f31061fd8f32">
+                <di:waypoint x="494.5" y="605"/>
+                <di:waypoint x="601.5" y="485"/>
+                <dmndi:DMNLabel sharedStyle="LS_6c4708ae-e4f2-4ead-a822-c2e955873734_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_f11cc7f5-2427-48e1-8dee-bce9cab2e2f2" dmnElementRef="_a99aa362-3bd2-4f78-8d18-88a43e602b49" sourceElement="_cac41242-266f-425f-b671-00052832f7bc" targetElement="_6d1a9316-9566-4de8-bbf1-f31061fd8f32">
+                <di:waypoint x="707.5" y="605"/>
+                <di:waypoint x="601.5" y="485"/>
+                <dmndi:DMNLabel sharedStyle="LS_6c4708ae-e4f2-4ead-a822-c2e955873734_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_93fafa13-5cba-4ddf-9c98-eee0435737a4" dmnElementRef="_c40fa9b5-cc52-4c14-afaa-3708969aa33e" sourceElement="_a941153f-f13a-46ec-b014-b603c03d183a" targetElement="_7732e587-7d55-4c71-ad18-f8efb3d4cf8c">
+                <di:waypoint x="494.5" y="605"/>
+                <di:waypoint x="815.5" y="485"/>
+                <dmndi:DMNLabel sharedStyle="LS_6c4708ae-e4f2-4ead-a822-c2e955873734_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_04db4f61-ee2d-4595-8b41-68f6c8b3d117" dmnElementRef="_bbd5b534-f9e3-4c92-90b0-2645a259728b" sourceElement="_cac41242-266f-425f-b671-00052832f7bc" targetElement="_7732e587-7d55-4c71-ad18-f8efb3d4cf8c">
+                <di:waypoint x="707.5" y="605"/>
+                <di:waypoint x="815.5" y="485"/>
+                <dmndi:DMNLabel sharedStyle="LS_6c4708ae-e4f2-4ead-a822-c2e955873734_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_5746dcde-1cf8-4934-af42-d4583f0e162b" dmnElementRef="_53758cbd-4562-4510-9a5a-492ae1307ce3" sourceElement="_a0fb0c1f-e6fc-409a-9795-2fe257d847c2" targetElement="_456cb449-f656-406c-8578-c506e7b511b0">
+                <di:waypoint x="715" y="231.71999999999997"/>
+                <di:waypoint x="566.5" y="275.5"/>
+                <dmndi:DMNLabel sharedStyle="LS_6c4708ae-e4f2-4ead-a822-c2e955873734_0"/>
+            </dmndi:DMNEdge>
+        </dmndi:DMNDiagram>
+        <dmndi:DMNStyle id="LS_6c4708ae-e4f2-4ead-a822-c2e955873734_0" fontFamily="arial,helvetica,sans-serif" fontSize="11" fontBold="false" fontItalic="false" fontUnderline="false" fontStrikeThrough="false"/>
+    </dmndi:DMNDI>
+</semantic:definitions>

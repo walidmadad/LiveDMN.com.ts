@@ -1,0 +1,12 @@
+{ // backend
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "outDir": "../../dist",
+    "rootDir": ".." // ".." pour récuperer des fichiers source en dehors du rép. 'frontend'
+  },
+  "include": [
+    "./**/*"
+  ]
+}

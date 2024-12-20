@@ -1,0 +1,1653 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<semantic:definitions xmlns:semantic="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:feel="https://www.omg.org/spec/DMN/20191111/FEEL/" xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rss="http://purl.org/rss/2.0/" xmlns:trisofeed="http://trisotech.com/feed" xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:triso="http://www.trisotech.com/2015/triso/modeling" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"              xmlns:drools="http://www.drools.org/kie/dmn/1.1"  xmlns:openapi="https://openapis.org/omg/extension/1.0"  xmlns:boxedext="https://www.trisotech.com/spec/DMN/20191111/EXT/"   xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns="http://www.trisotech.com/definitions/_27188a19-403f-471c-8ac3-843c270f8065" id="_27188a19-403f-471c-8ac3-843c270f8065" name="Preterm Delivery" namespace="http://www.trisotech.com/definitions/_27188a19-403f-471c-8ac3-843c270f8065" exporter="Decision Modeler" exporterVersion="8.11.0" xml:lang="en" triso:logoChoice="Default" triso:version="1.2" triso:state="Published">
+    <semantic:description>&lt;p&gt;This Decision Model example was created for the Antenatal pilot use case of the BPM Health project at OMG.&lt;/p&gt;
+&lt;p&gt;Contributors: Steve Hasley, Steve White, Denis Gagne&lt;/p&gt;</semantic:description>
+    <semantic:extensionElements>
+        <tc:testCases>
+            <tc:testCase name="Test out of bounds" id="_ec63623e-6121-4bf1-983d-ad666eec63f1">
+                <tc:inputNode name="Patient Questionnaire">
+                    <tc:component name="Height Inches">
+                        <tc:value xsi:type="xsd:double">64</tc:value>
+                    </tc:component>
+                    <tc:component name="Weight Lbs">
+                        <tc:value xsi:type="xsd:double">125</tc:value>
+                    </tc:component>
+                    <tc:component name="Pregnancy type">
+                        <tc:value xsi:type="xsd:string">Singleton</tc:value>
+                    </tc:component>
+                    <tc:component name="Week of pregnancy">
+                        <tc:value xsi:type="xsd:double">32</tc:value>
+                    </tc:component>
+                    <tc:component name="Previous Pregnancies">
+                        <tc:list>
+                            <tc:item>
+                                <tc:component name="Date of delivery">
+                                    <tc:value xsi:type="xsd:date">1991-09-22</tc:value>
+                                </tc:component>
+                                <tc:component name="Number of weeks to delivery">
+                                    <tc:value xsi:type="xsd:double">41</tc:value>
+                                </tc:component>
+                                <tc:component name="OHP shots used">
+                                    <tc:value xsi:type="xsd:boolean">false</tc:value>
+                                </tc:component>
+                                <tc:component name="Cervical procedure">
+                                    <tc:value xsi:type="xsd:string">None</tc:value>
+                                </tc:component>
+                                <tc:component name="Pregnancy outcome">
+                                    <tc:value xsi:nil="true"/>
+                                </tc:component>
+                            </tc:item>
+                            <tc:item>
+                                <tc:component name="Date of delivery">
+                                    <tc:value xsi:type="xsd:date">1992-12-03</tc:value>
+                                </tc:component>
+                                <tc:component name="Number of weeks to delivery">
+                                    <tc:value xsi:type="xsd:double">37</tc:value>
+                                </tc:component>
+                                <tc:component name="OHP shots used">
+                                    <tc:value xsi:type="xsd:boolean">false</tc:value>
+                                </tc:component>
+                                <tc:component name="Cervical procedure">
+                                    <tc:value xsi:type="xsd:string">None</tc:value>
+                                </tc:component>
+                                <tc:component name="Pregnancy outcome">
+                                    <tc:value xsi:nil="true"/>
+                                </tc:component>
+                            </tc:item>
+                            <tc:item>
+                                <tc:component name="Date of delivery">
+                                    <tc:value xsi:type="xsd:date">1995-06-01</tc:value>
+                                </tc:component>
+                                <tc:component name="Number of weeks to delivery">
+                                    <tc:value xsi:type="xsd:double">37</tc:value>
+                                </tc:component>
+                                <tc:component name="OHP shots used">
+                                    <tc:value xsi:type="xsd:boolean">false</tc:value>
+                                </tc:component>
+                                <tc:component name="Cervical procedure">
+                                    <tc:value xsi:type="xsd:string">None</tc:value>
+                                </tc:component>
+                                <tc:component name="Pregnancy outcome">
+                                    <tc:value xsi:nil="true"/>
+                                </tc:component>
+                            </tc:item>
+                        </tc:list>
+                    </tc:component>
+                    <tc:component name="Tobacco use">
+                        <tc:value xsi:type="xsd:boolean">false</tc:value>
+                    </tc:component>
+                    <tc:component name="Uterine malformation">
+                        <tc:value xsi:type="xsd:boolean">false</tc:value>
+                    </tc:component>
+                    <tc:component name="Symptoms">
+                        <tc:list>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">Uterine contractions</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">Vaginal spotting</tc:value>
+                            </tc:item>
+                        </tc:list>
+                    </tc:component>
+                </tc:inputNode>
+                <tc:inputNode name="Ultrasound readings">
+                    <tc:component name="Cervical length">
+                        <tc:value xsi:type="xsd:double">24</tc:value>
+                    </tc:component>
+                </tc:inputNode>
+                <tc:resultNode name="Prior OHP Shot Given">
+                    <tc:expected>
+                        <tc:value xsi:type="xsd:boolean">false</tc:value>
+                    </tc:expected>
+                </tc:resultNode>
+                <tc:resultNode name="Prior Cervical Procedures">
+                    <tc:expected>
+                        <tc:value xsi:type="xsd:boolean">false</tc:value>
+                    </tc:expected>
+                </tc:resultNode>
+                <tc:resultNode name="Determine Presence of Preterm Labor PTL">
+                    <tc:expected>
+                        <tc:value>2</tc:value>
+                    </tc:expected>
+                </tc:resultNode>
+                <tc:resultNode name="Preterm Delivery History">
+                    <tc:expected>
+                        <tc:value xsi:type="xsd:boolean">false</tc:value>
+                    </tc:expected>
+                </tc:resultNode>
+                <tc:resultNode name="PTD Risk Factor Index">
+                    <tc:expected>
+                        <tc:value xsi:type="xsd:double">0</tc:value>
+                    </tc:expected>
+                </tc:resultNode>
+                <tc:resultNode name="Determine BMI Category">
+                    <tc:expected>
+                        <tc:value xsi:type="xsd:string">Normal weight</tc:value>
+                    </tc:expected>
+                </tc:resultNode>
+                <tc:resultNode name="Determine if Cervical length is Required">
+                    <tc:expected>
+                        <tc:value xsi:type="xsd:boolean">false</tc:value>
+                    </tc:expected>
+                </tc:resultNode>
+                <tc:resultNode name="Determine Actions to Prevent Preterm Delivery">
+                    <tc:expected>
+                        <tc:list>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">S</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">e</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">n</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">d</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string" xsi:nil="true"/>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">t</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">o</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string" xsi:nil="true"/>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">h</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">o</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">s</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">p</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">i</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">t</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">a</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">l</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string" xsi:nil="true"/>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">f</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">o</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">r</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string" xsi:nil="true"/>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">f</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">u</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">r</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">t</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">h</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">e</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">r</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string" xsi:nil="true"/>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">e</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">v</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">a</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">l</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">u</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">a</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">t</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">i</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">o</tc:value>
+                            </tc:item>
+                            <tc:item>
+                                <tc:value xsi:type="xsd:string">n</tc:value>
+                            </tc:item>
+                        </tc:list>
+                    </tc:expected>
+                </tc:resultNode>
+            </tc:testCase>
+        </tc:testCases>
+        <triso:graphRelations/>
+    </semantic:extensionElements>
+    <semantic:itemDefinition name="BMI_Category" label="BMI Category" isCollection="false">
+        <semantic:typeRef>string</semantic:typeRef>
+        <semantic:allowedValues>
+            <semantic:extensionElements>
+                <triso:constraintDetails id="_0d9bd9be-2733-4831-a312-07be91998c20" constraintsType="enumeration">
+                    <triso:value>"Underweight","Normal weight","Overweight","Obese"</triso:value>
+                    <triso:display>"Underweight", "Normal weight", "Overweight", "Obese"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Underweight"</triso:value>
+                        <triso:display>"Underweight"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Normal weight"</triso:value>
+                        <triso:display>"Normal weight"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Overweight"</triso:value>
+                        <triso:display>"Overweight"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Obese"</triso:value>
+                        <triso:display>"Obese"</triso:display>
+                    </triso:choices>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>"Underweight","Normal weight","Overweight","Obese"</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="Exam_Data" label="Exam Data" isCollection="false">
+        <semantic:itemComponent id="_a2538888-6655-40e3-908d-590ad9e51b41" name="Date of Exam" isCollection="false">
+            <semantic:typeRef>date</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_aa104e2d-89d3-482a-950f-0327322252c6" name="Exam Notes" isCollection="false">
+            <semantic:typeRef>string</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_abb762f8-d4cb-4687-be9f-8fa23160ee3f" name="Antenatal Exam Number" isCollection="false">
+            <semantic:typeRef>number</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_b4bd136b-2853-4fc5-93f9-3de0d79da12d" name="Gestational Age" isCollection="false">
+            <semantic:typeRef>number</semantic:typeRef>
+            <semantic:allowedValues>
+                <semantic:extensionElements>
+                    <triso:constraintDetails id="_4fc8eb79-76c9-486e-8cc2-65645a15d531" constraintsType="expression">
+                        <triso:value>&gt;=0</triso:value>
+                        <triso:display>&gt;=0</triso:display>
+                    </triso:constraintDetails>
+                </semantic:extensionElements>
+                <semantic:text>&gt;=0</semantic:text>
+            </semantic:allowedValues>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_aeb23dfa-0a92-4f95-9daa-1c16e8a8932d" name="Baby" isCollection="true">
+            <semantic:itemComponent id="_3f4ecc06-4a3e-4a5a-81e3-c0934b8a42dc" name="Baby Number" isCollection="false">
+                <semantic:typeRef>number</semantic:typeRef>
+            </semantic:itemComponent>
+            <semantic:itemComponent id="_39c8e93c-2915-454f-b44e-06d3c0cfa137" name="Presentation" isCollection="false">
+                <semantic:typeRef>string</semantic:typeRef>
+            </semantic:itemComponent>
+            <semantic:itemComponent id="_e7e03933-92d8-4eca-bc91-bb232b05d0c7" name="Fetal Movement" isCollection="false">
+                <semantic:typeRef>string</semantic:typeRef>
+            </semantic:itemComponent>
+            <semantic:itemComponent id="_a2952e91-0660-40ab-9c97-bf2f7f8a89c9" name="Fetal Heart Rate" isCollection="false">
+                <semantic:typeRef>number</semantic:typeRef>
+            </semantic:itemComponent>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_3b2c09bd-59f1-4b32-b98b-4b91d5b2da68" name="Mother" isCollection="false">
+            <semantic:itemComponent id="_c3195c8e-3ac4-4246-84c3-3458e992a86a" name="Blood Pressure" isCollection="false">
+                <semantic:itemComponent id="_f7bd9a26-8c49-470d-86f0-bd4546112bfb" name="Systolic" isCollection="false">
+                    <semantic:typeRef>number</semantic:typeRef>
+                </semantic:itemComponent>
+                <semantic:itemComponent id="_d5ed1715-0c3f-4928-8099-9c190fe8ba5b" name="Diastolic" isCollection="false">
+                    <semantic:typeRef>number</semantic:typeRef>
+                </semantic:itemComponent>
+            </semantic:itemComponent>
+            <semantic:itemComponent id="_5ff5f5cf-a454-46f4-afc0-3cb161302aa4" name="Heart Rate" isCollection="false">
+                <semantic:typeRef>number</semantic:typeRef>
+            </semantic:itemComponent>
+            <semantic:itemComponent id="_bcc19579-a660-4548-9f9a-aeaeba24c363" name="Weight" isCollection="false">
+                <semantic:typeRef>number</semantic:typeRef>
+            </semantic:itemComponent>
+            <semantic:itemComponent id="_73571cb9-d998-4d19-a098-e0dd3f3c34d0" name="Edema" isCollection="false">
+                <semantic:typeRef>string</semantic:typeRef>
+            </semantic:itemComponent>
+            <semantic:itemComponent id="_bd95662c-74fe-4e09-bdf5-c294bea6baf4" name="Pain maternal" isCollection="false">
+                <semantic:typeRef>string</semantic:typeRef>
+            </semantic:itemComponent>
+            <semantic:itemComponent id="_5c869870-bba1-4234-9084-2812465398ae" name="Cx Exam" isCollection="false">
+                <semantic:itemComponent id="_65606d99-e0ca-48d8-97fc-05ae64b1ebab" name="Cervical Dilation" isCollection="false">
+                    <semantic:typeRef>number</semantic:typeRef>
+                </semantic:itemComponent>
+            </semantic:itemComponent>
+            <semantic:itemComponent id="_162f9407-7000-4d73-b03b-bd35209f046c" name="Status Update" isCollection="false">
+                <semantic:typeRef>string</semantic:typeRef>
+            </semantic:itemComponent>
+            <semantic:itemComponent id="_95eed48b-6de9-48dc-b853-cd3715bdf7bc" name="Patient Complaints" isCollection="false">
+                <semantic:typeRef>string</semantic:typeRef>
+            </semantic:itemComponent>
+        </semantic:itemComponent>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="Previous_Pregnancies" label="Previous Pregnancies" isCollection="true">
+        <semantic:itemComponent id="_256a75d8-f2fd-4152-ae1f-18632e46ed03" name="Date of Delivery" isCollection="false">
+            <semantic:typeRef>date</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_cf6476c9-9b50-426c-9851-959288e07385" name="Weeks to Delivery" isCollection="false">
+            <semantic:typeRef>number</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_0f931ec4-007f-40a9-92f5-ee8e57cbddfc" name="Pregnancy achieved by ART" isCollection="false">
+            <semantic:typeRef>boolean</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_161e6a67-94d5-4e07-adc1-0640495fd6ee" name="Pre-Pregnancy Weight" isCollection="false">
+            <semantic:typeRef>number</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_2f18c049-56f4-496a-a6c0-556b16f5dfec" name="Gestational Weight Gain" isCollection="false">
+            <semantic:typeRef>number</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_45521e6a-feb9-448c-b62d-f0e0c1e793d8" name="OHP Shots Used" isCollection="false">
+            <semantic:typeRef>boolean</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_2faf24f4-54d7-44de-9ac0-d9850663a1ba" name="Cervical Procedure" isCollection="false">
+            <semantic:typeRef>string</semantic:typeRef>
+            <semantic:allowedValues>
+                <semantic:extensionElements>
+                    <triso:constraintDetails id="_7b12b16d-7fe4-4821-b050-c37c4997664e" constraintsType="enumeration">
+                        <triso:value>"None","LEEP","Cone Biopsy"</triso:value>
+                        <triso:display>"None", "LEEP", "Cone Biopsy"</triso:display>
+                        <triso:choices>
+                            <triso:value>"None"</triso:value>
+                            <triso:display>"None"</triso:display>
+                        </triso:choices>
+                        <triso:choices>
+                            <triso:value>"LEEP"</triso:value>
+                            <triso:display>"LEEP"</triso:display>
+                        </triso:choices>
+                        <triso:choices>
+                            <triso:value>"Cone Biopsy"</triso:value>
+                            <triso:display>"Cone Biopsy"</triso:display>
+                        </triso:choices>
+                    </triso:constraintDetails>
+                </semantic:extensionElements>
+                <semantic:text>"None","LEEP","Cone Biopsy"</semantic:text>
+            </semantic:allowedValues>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_a0b5d7d2-d9ac-4b0d-afb9-1526152b1f2d" name="Pregnancy Outcome" isCollection="false">
+            <semantic:typeRef>string</semantic:typeRef>
+            <semantic:allowedValues>
+                <semantic:extensionElements>
+                    <triso:constraintDetails id="_5ae097ed-52a4-4ecd-904e-351e1fa7b89d" constraintsType="enumeration">
+                        <triso:value>"Induced Abortion","Spontaneous Abortion","Ectopic Pregnancy","Vaginal Delivery","Cesarean Delivery"</triso:value>
+                        <triso:display>"Induced Abortion", "Spontaneous Abortion", "Ectopic Pregnancy", "Vaginal Delivery", "Cesarean Delivery"</triso:display>
+                        <triso:choices>
+                            <triso:value>"Induced Abortion"</triso:value>
+                            <triso:display>"Induced Abortion"</triso:display>
+                        </triso:choices>
+                        <triso:choices>
+                            <triso:value>"Spontaneous Abortion"</triso:value>
+                            <triso:display>"Spontaneous Abortion"</triso:display>
+                        </triso:choices>
+                        <triso:choices>
+                            <triso:value>"Ectopic Pregnancy"</triso:value>
+                            <triso:display>"Ectopic Pregnancy"</triso:display>
+                        </triso:choices>
+                        <triso:choices>
+                            <triso:value>"Vaginal Delivery"</triso:value>
+                            <triso:display>"Vaginal Delivery"</triso:display>
+                        </triso:choices>
+                        <triso:choices>
+                            <triso:value>"Cesarean Delivery"</triso:value>
+                            <triso:display>"Cesarean Delivery"</triso:display>
+                        </triso:choices>
+                    </triso:constraintDetails>
+                </semantic:extensionElements>
+                <semantic:text>"Induced Abortion","Spontaneous Abortion","Ectopic Pregnancy","Vaginal Delivery","Cesarean Delivery"</semantic:text>
+            </semantic:allowedValues>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_611b6527-8515-49cd-8430-3998738919ce" name="Type of Pregnancy" isCollection="false">
+            <semantic:typeRef>string</semantic:typeRef>
+            <semantic:allowedValues>
+                <semantic:extensionElements>
+                    <triso:constraintDetails id="_ff9d7347-e974-4b2f-833c-a6508b14ede8" constraintsType="enumeration">
+                        <triso:value>"Singleton","Multiple"</triso:value>
+                        <triso:display>"Singleton", "Multiple"</triso:display>
+                        <triso:choices>
+                            <triso:value>"Singleton"</triso:value>
+                            <triso:display>"Singleton"</triso:display>
+                        </triso:choices>
+                        <triso:choices>
+                            <triso:value>"Multiple"</triso:value>
+                            <triso:display>"Multiple"</triso:display>
+                        </triso:choices>
+                    </triso:constraintDetails>
+                </semantic:extensionElements>
+                <semantic:text>"Singleton","Multiple"</semantic:text>
+            </semantic:allowedValues>
+        </semantic:itemComponent>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="Patient_Complaints" label="Patient Complaints" isCollection="true">
+        <semantic:typeRef>string</semantic:typeRef>
+        <semantic:allowedValues>
+            <semantic:extensionElements>
+                <triso:constraintDetails id="_37803e5a-9fb6-4ce5-9e49-037356262e72" constraintsType="enumeration">
+                    <triso:value>"Possible Labor","Possible Ruptured Membranes","Bleeding","Headache","Baby not moving","Pelvic Pressure","Vaginal Spotting","Mucus Vaginal Discharge","Ulterine Contractions","Backache","Other"</triso:value>
+                    <triso:display>"Possible Labor", "Possible Ruptured Membranes", "Bleeding", "Headache", "Baby not moving", "Pelvic Pressure", "Vaginal Spotting", "Mucus Vaginal Discharge", "Ulterine Contractions", "Backache", "Other"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Possible Labor"</triso:value>
+                        <triso:display>"Possible Labor"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Possible Ruptured Membranes"</triso:value>
+                        <triso:display>"Possible Ruptured Membranes"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Bleeding"</triso:value>
+                        <triso:display>"Bleeding"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Headache"</triso:value>
+                        <triso:display>"Headache"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Baby not moving"</triso:value>
+                        <triso:display>"Baby not moving"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Pelvic Pressure"</triso:value>
+                        <triso:display>"Pelvic Pressure"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Vaginal Spotting"</triso:value>
+                        <triso:display>"Vaginal Spotting"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Mucus Vaginal Discharge"</triso:value>
+                        <triso:display>"Mucus Vaginal Discharge"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Ulterine Contractions"</triso:value>
+                        <triso:display>"Ulterine Contractions"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Backache"</triso:value>
+                        <triso:display>"Backache"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Other"</triso:value>
+                        <triso:display>"Other"</triso:display>
+                    </triso:choices>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>"Possible Labor","Possible Ruptured Membranes","Bleeding","Headache","Baby not moving","Pelvic Pressure","Vaginal Spotting","Mucus Vaginal Discharge","Ulterine Contractions","Backache","Other"</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="Vital_Signs___Measurements" label="Vital Signs &amp; Measurements" isCollection="false">
+        <semantic:itemComponent id="_e6b3f9f6-61ff-481f-b6c7-24592ce1d388" name="Height" isCollection="false">
+            <semantic:typeRef>number</semantic:typeRef>
+            <semantic:allowedValues>
+                <semantic:extensionElements>
+                    <triso:constraintDetails id="_f24f569b-bb1f-4d54-a522-767b77ec52f6" constraintsType="expression">
+                        <triso:value>&gt;=0</triso:value>
+                        <triso:display>&gt;=0</triso:display>
+                    </triso:constraintDetails>
+                </semantic:extensionElements>
+                <semantic:text>&gt;=0</semantic:text>
+            </semantic:allowedValues>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_0a0c686a-6bb3-4e63-ae7e-9d2234a4302b" name="Pre-Pregnancy Weight" isCollection="false">
+            <semantic:typeRef>number</semantic:typeRef>
+            <semantic:allowedValues>
+                <semantic:extensionElements>
+                    <triso:constraintDetails id="_b1098f54-d177-4fae-9b71-cf041f709c99" constraintsType="expression">
+                        <triso:value>&gt;=0</triso:value>
+                        <triso:display>&gt;=0</triso:display>
+                    </triso:constraintDetails>
+                </semantic:extensionElements>
+                <semantic:text>&gt;=0</semantic:text>
+            </semantic:allowedValues>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_1e7b3b14-b46e-487b-87c1-5eb9231770aa" name="Body Mass Index" isCollection="false">
+            <semantic:typeRef>number</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_0d1c56f5-bddd-4d63-b6ca-d0142b4475d6" name="Uterine Size or Fundal Height" isCollection="false">
+            <semantic:typeRef>number</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_beaa9b91-7921-4eb5-ad0c-a6f58ef75194" name="Cervical Length" isCollection="false">
+            <semantic:typeRef>number</semantic:typeRef>
+            <semantic:allowedValues>
+                <semantic:extensionElements>
+                    <triso:constraintDetails id="_81b97e5d-6695-4e22-b75a-059220d5f26c" constraintsType="expression">
+                        <triso:value>&gt;=0</triso:value>
+                        <triso:display>&gt;=0</triso:display>
+                    </triso:constraintDetails>
+                </semantic:extensionElements>
+                <semantic:text>&gt;=0</semantic:text>
+            </semantic:allowedValues>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_571a14d8-9498-4b44-8e3b-99f955b647fd" name="Number of Pregnancies" isCollection="false">
+            <semantic:typeRef>number</semantic:typeRef>
+            <semantic:allowedValues>
+                <semantic:extensionElements>
+                    <triso:constraintDetails id="_21432368-5a90-4159-85f1-1e60ab255ee2" constraintsType="expression">
+                        <triso:value>&gt;=0</triso:value>
+                        <triso:display>&gt;=0</triso:display>
+                    </triso:constraintDetails>
+                </semantic:extensionElements>
+                <semantic:text>&gt;=0</semantic:text>
+            </semantic:allowedValues>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_f38666f5-9326-4188-8a87-0493024ce5de" name="Pregnancy achieved by ART" isCollection="false">
+            <semantic:typeRef>boolean</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_cf00963f-d55d-4ecc-9f21-985961ad0b3e" name="Type of Pregnancy" isCollection="false">
+            <semantic:typeRef>string</semantic:typeRef>
+            <semantic:allowedValues>
+                <semantic:extensionElements>
+                    <triso:constraintDetails id="_37d1ca9f-cf76-41c6-b219-b452ea1787b6" constraintsType="enumeration">
+                        <triso:value>"Singleton","Multiple"</triso:value>
+                        <triso:display>"Singleton", "Multiple"</triso:display>
+                        <triso:choices>
+                            <triso:value>"Singleton"</triso:value>
+                            <triso:display>"Singleton"</triso:display>
+                        </triso:choices>
+                        <triso:choices>
+                            <triso:value>"Multiple"</triso:value>
+                            <triso:display>"Multiple"</triso:display>
+                        </triso:choices>
+                    </triso:constraintDetails>
+                </semantic:extensionElements>
+                <semantic:text>"Singleton","Multiple"</semantic:text>
+            </semantic:allowedValues>
+        </semantic:itemComponent>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="Sonagram_Report" label="Sonagram Report" isCollection="false">
+        <semantic:itemComponent id="_170af204-2878-442c-b610-f76944578791" name="Sonogram Type" isCollection="false">
+            <semantic:typeRef>string</semantic:typeRef>
+            <semantic:allowedValues>
+                <semantic:extensionElements>
+                    <triso:constraintDetails id="_bc2c19eb-7c38-489a-9e7d-09f46dc9e1dc" constraintsType="enumeration">
+                        <triso:value>"Sonogram for Cervical Length","Sonogram for growth","Sonogram 18-20 weeks for anatomy","Sonogram first trimester"</triso:value>
+                        <triso:display>"Sonogram for Cervical Length", "Sonogram for growth", "Sonogram 18-20 weeks for anatomy", "Sonogram first trimester"</triso:display>
+                        <triso:choices>
+                            <triso:value>"Sonogram for Cervical Length"</triso:value>
+                            <triso:display>"Sonogram for Cervical Length"</triso:display>
+                        </triso:choices>
+                        <triso:choices>
+                            <triso:value>"Sonogram for growth"</triso:value>
+                            <triso:display>"Sonogram for growth"</triso:display>
+                        </triso:choices>
+                        <triso:choices>
+                            <triso:value>"Sonogram 18-20 weeks for anatomy"</triso:value>
+                            <triso:display>"Sonogram 18-20 weeks for anatomy"</triso:display>
+                        </triso:choices>
+                        <triso:choices>
+                            <triso:value>"Sonogram first trimester"</triso:value>
+                            <triso:display>"Sonogram first trimester"</triso:display>
+                        </triso:choices>
+                    </triso:constraintDetails>
+                </semantic:extensionElements>
+                <semantic:text>"Sonogram for Cervical Length","Sonogram for growth","Sonogram 18-20 weeks for anatomy","Sonogram first trimester"</semantic:text>
+            </semantic:allowedValues>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_01f589cb-1ecd-4419-9ee4-6df37456b044" name="Sonogram Recording" isCollection="false">
+            <semantic:typeRef>string</semantic:typeRef>
+        </semantic:itemComponent>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="Social_History" label="Social History" isCollection="false">
+        <semantic:itemComponent id="_c2a802bf-9f62-45c0-b5ac-58684f4f3aee" name="Employment" isCollection="false">
+            <semantic:typeRef>boolean</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_f400497b-e402-4265-bbf0-9b8365be9671" name="Exposures" isCollection="false">
+            <semantic:itemComponent id="_8c9597f7-bee3-4f34-a323-31035f70967a" name="Environmental" isCollection="false">
+                <semantic:typeRef>boolean</semantic:typeRef>
+            </semantic:itemComponent>
+            <semantic:itemComponent id="_10d99bd5-634b-4905-9d34-7ef8c76ff7bc" name="Recent travel outside the US" isCollection="false">
+                <semantic:typeRef>boolean</semantic:typeRef>
+            </semantic:itemComponent>
+            <semantic:itemComponent id="_c7cb6b8f-5e68-4d08-9902-3b70cf291002" name="Occupational" isCollection="false">
+                <semantic:typeRef>boolean</semantic:typeRef>
+            </semantic:itemComponent>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_51cb79b1-a3c9-4387-8212-48c7bb0b3c4d" name="Street drugs" isCollection="false">
+            <semantic:itemComponent id="_e51d57b4-0cee-4796-8996-1734a799998f" name="Opiate/Opioid abuse" isCollection="false">
+                <semantic:typeRef>boolean</semantic:typeRef>
+            </semantic:itemComponent>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_8cb7b667-8d81-4f25-a510-6e310c037523" name="Alcohol" isCollection="false">
+            <semantic:typeRef>boolean</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_56741683-2573-44b7-9e8f-579710e3b535" name="Tobacco use" isCollection="false">
+            <semantic:typeRef>boolean</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_496b584a-7093-4046-9c13-7589ac4ab1eb" name="Domestic violence" isCollection="false">
+            <semantic:typeRef>boolean</semantic:typeRef>
+        </semantic:itemComponent>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="Past_GYN_History" label="Past GYN History" isCollection="false">
+        <semantic:itemComponent id="_6bae9027-3265-4ad4-a85c-31a1aeeacd76" name="Hx of Genital Herpes" isCollection="false">
+            <semantic:typeRef>boolean</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_4378726b-96d2-4436-819c-4f3104947d82" name="Hx Abn PAP" isCollection="false">
+            <semantic:typeRef>boolean</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_09eaa688-5cef-4e7a-8d5b-660923e10ce3" name="Hx Infertility" isCollection="false">
+            <semantic:typeRef>boolean</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_1d3836fc-92ca-4c5f-83e6-db611815c89d" name="Hx Chlamydia" isCollection="false">
+            <semantic:typeRef>boolean</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_ae200ed4-f5a2-454f-bb97-7c3a2a2dee4c" name="Recurrent Pregnancy loss" isCollection="false">
+            <semantic:typeRef>boolean</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_0ab0980e-52c1-4471-9022-d9dff418d64b" name="Hx HPV" isCollection="false">
+            <semantic:typeRef>boolean</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_4ddcf00d-8d25-4ead-b1c3-da4ea1d76d14" name="Hx PID" isCollection="false">
+            <semantic:typeRef>boolean</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_ebe6d95c-8578-4903-a05b-fe64d08ae2ce" name="Hx GC" isCollection="false">
+            <semantic:typeRef>boolean</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_006a1b9e-85f7-48f8-a99b-6c2a87f3c82b" name="Risk factors for STDs" isCollection="false">
+            <semantic:typeRef>boolean</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_fc925f20-7571-4070-a3cf-c60985b7788d" name="Uterine Malformation" isCollection="false">
+            <semantic:typeRef>boolean</semantic:typeRef>
+        </semantic:itemComponent>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="Actions_to_Prevent_Preterm_Delivery" label="Actions to Prevent Preterm Delivery" isCollection="false">
+        <semantic:typeRef>string</semantic:typeRef>
+        <semantic:allowedValues>
+            <semantic:extensionElements>
+                <triso:constraintDetails id="_d0e71f53-c3d9-4978-ac54-d8be67df4adb" constraintsType="enumeration">
+                    <triso:value>"Send to hospital for further evaluation","Give shot of Progesterone","Deal with Short Cervix"</triso:value>
+                    <triso:display>"Send to hospital for further evaluation", "Give shot of Progesterone", "Deal with Short Cervix"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Send to hospital for further evaluation"</triso:value>
+                        <triso:display>"Send to hospital for further evaluation"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Give shot of Progesterone"</triso:value>
+                        <triso:display>"Give shot of Progesterone"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Deal with Short Cervix"</triso:value>
+                        <triso:display>"Deal with Short Cervix"</triso:display>
+                    </triso:choices>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>"Send to hospital for further evaluation","Give shot of Progesterone","Deal with Short Cervix"</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="Actions_for_Short_Cervix" label="Actions for Short Cervix" isCollection="false">
+        <semantic:typeRef>string</semantic:typeRef>
+        <semantic:allowedValues>
+            <semantic:extensionElements>
+                <triso:constraintDetails id="_910d1358-ce66-41c2-aa1f-2e26ecf9be53" constraintsType="enumeration">
+                    <triso:value>"Prescribe Vaginal Progesterone","PerformCervical Cerclage"</triso:value>
+                    <triso:display>"Prescribe Vaginal Progesterone", "PerformCervical Cerclage"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Prescribe Vaginal Progesterone"</triso:value>
+                        <triso:display>"Prescribe Vaginal Progesterone"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"PerformCervical Cerclage"</triso:value>
+                        <triso:display>"PerformCervical Cerclage"</triso:display>
+                    </triso:choices>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>"Prescribe Vaginal Progesterone","PerformCervical Cerclage"</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="Boolean_collection" label="Boolean collection" isCollection="true">
+        <semantic:typeRef>boolean</semantic:typeRef>
+    </semantic:itemDefinition>
+    <semantic:decisionService id="_27188a19-403f-471c-8ac3-843c270f8065_DS" name="Whole Model Decision Service" triso:dynamicDecisionService="true" triso:wholeModelService="true">
+        <semantic:variable name="Whole Model Decision Service" id="_27188a19-403f-471c-8ac3-843c270f8065_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_096c830b-5523-4dd5-97c2-5700a3e5460e"/>
+        <semantic:outputDecision href="#_6fa03841-69c0-40b6-a597-20338418261d"/>
+        <semantic:outputDecision href="#_3a627bbf-87cd-46ef-abbf-2c7f6f32655e"/>
+        <semantic:encapsulatedDecision href="#_42ef4eb1-c0f7-4809-bdf5-f262af3d2301"/>
+        <semantic:encapsulatedDecision href="#_c97e5398-f40a-4a5f-b2f8-e96793a39c64"/>
+        <semantic:encapsulatedDecision href="#_83a3469b-f7ad-4557-bb37-1ce734460af2"/>
+        <semantic:encapsulatedDecision href="#_d6f7c7e1-7040-4ac4-9b59-40828c544f1b"/>
+        <semantic:encapsulatedDecision href="#_05159b60-200b-45ad-8d8a-49a29b1fe578"/>
+        <semantic:encapsulatedDecision href="#_622f1264-914b-4b0a-b1d4-615c245ab902"/>
+        <semantic:inputData href="#_c51216cf-5f4a-45a6-997b-23812ea76181"/>
+        <semantic:inputData href="#_d970c3b7-db38-4a70-9af3-c70791615cea"/>
+        <semantic:inputData href="#_59c380d7-a221-4d5d-b7cd-f8646c3e3652"/>
+        <semantic:inputData href="#_b4f2f9ed-2f75-453f-99ef-66933b229add"/>
+        <semantic:inputData href="#_a2d30c31-d2cc-414b-bccc-bd9a2e15b87e"/>
+        <semantic:inputData href="#_e6bcc198-edd9-447f-9e05-5dc758ae2126"/>
+    </semantic:decisionService>
+    <semantic:decisionService id="_45a4f945-b5c6-497b-a620-eded70b61c8b_DS" name="Diagram Prevent PTD DRD" triso:dynamicDecisionService="true">
+        <semantic:variable name="Diagram Prevent PTD DRD" id="_45a4f945-b5c6-497b-a620-eded70b61c8b_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_096c830b-5523-4dd5-97c2-5700a3e5460e"/>
+        <semantic:outputDecision href="#_6fa03841-69c0-40b6-a597-20338418261d"/>
+        <semantic:outputDecision href="#_3a627bbf-87cd-46ef-abbf-2c7f6f32655e"/>
+        <semantic:encapsulatedDecision href="#_42ef4eb1-c0f7-4809-bdf5-f262af3d2301"/>
+        <semantic:encapsulatedDecision href="#_c97e5398-f40a-4a5f-b2f8-e96793a39c64"/>
+        <semantic:encapsulatedDecision href="#_83a3469b-f7ad-4557-bb37-1ce734460af2"/>
+        <semantic:encapsulatedDecision href="#_d6f7c7e1-7040-4ac4-9b59-40828c544f1b"/>
+        <semantic:encapsulatedDecision href="#_05159b60-200b-45ad-8d8a-49a29b1fe578"/>
+        <semantic:encapsulatedDecision href="#_622f1264-914b-4b0a-b1d4-615c245ab902"/>
+        <semantic:inputData href="#_c51216cf-5f4a-45a6-997b-23812ea76181"/>
+        <semantic:inputData href="#_d970c3b7-db38-4a70-9af3-c70791615cea"/>
+        <semantic:inputData href="#_59c380d7-a221-4d5d-b7cd-f8646c3e3652"/>
+        <semantic:inputData href="#_b4f2f9ed-2f75-453f-99ef-66933b229add"/>
+        <semantic:inputData href="#_a2d30c31-d2cc-414b-bccc-bd9a2e15b87e"/>
+        <semantic:inputData href="#_e6bcc198-edd9-447f-9e05-5dc758ae2126"/>
+    </semantic:decisionService>
+    <semantic:decision id="_096c830b-5523-4dd5-97c2-5700a3e5460e" name="Determine Actions to Prevent Preterm Delivery">
+        <semantic:description>&lt;p&gt;Prior to 34 weeks, a patient has persistent painful contractions (or change in vaginal DC, increased pelvic pressure), she should be evaluated for possible preterm labor. If this is the case (protocols for determining this are notoriously imprecise) she should be given a course of steroid shots, and an attempt to stop her labor for at least 48 hours (again, not in the situation of infection).&lt;/p&gt;
+&lt;p&gt;If they have had a spontaneous (not medically indicated) delivery prior to 37 weeks in a past pregnancy, AND the current pregnancy is a singleton (no twins), then they should receive 17-OH progesterone shots weekly from 16-36 weeks.&lt;/p&gt;</semantic:description>
+        <semantic:question>What next action should be taken to prevent preterm delivery?</semantic:question>
+        <semantic:allowedAnswers>Send to hospital for further evaluation
+Give shot of Progesterone
+Deal with short cervix</semantic:allowedAnswers>
+        <semantic:variable name="Determine Actions to Prevent Preterm Delivery" id="_97b3aab0-63a1-4ac0-b870-6ea002619d81" typeRef="Actions_to_Prevent_Preterm_Delivery"/>
+        <semantic:informationRequirement id="_8ae83307-0ecd-48f2-91c9-1dc87c8dd3cc">
+            <semantic:requiredDecision href="#_42ef4eb1-c0f7-4809-bdf5-f262af3d2301"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_1135be1e-87af-45b1-8311-00cc94bb1141">
+            <semantic:requiredDecision href="#_05159b60-200b-45ad-8d8a-49a29b1fe578"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_84da2c00-e307-4680-9e99-50eb030ace64">
+            <semantic:requiredInput href="#_c51216cf-5f4a-45a6-997b-23812ea76181"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_0943dc36-4891-45d9-9abf-68693923291e">
+            <semantic:requiredInput href="#_b4f2f9ed-2f75-453f-99ef-66933b229add"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_7eaf8b1f-cd25-40b2-9b68-ee446f75805a" hitPolicy="FIRST" outputLabel="Determine Actions to Prevent Preterm Delivery" typeRef="Actions_to_Prevent_Preterm_Delivery" triso:expressionId="_84515c2b-441b-43b0-a32c-5e1c5ca5096f">
+            <semantic:input id="_0427de54-33f0-404e-bc7d-33e7fc3254f9" label="Determine Presence of Preterm Labor PTL">
+                <semantic:inputExpression typeRef="boolean">
+                    <semantic:text>Determine Presence of Preterm Labor PTL</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:input id="_4a6a9314-f0ac-4483-9da2-94d621e45f37" label="Preterm Delivery History">
+                <semantic:inputExpression typeRef="boolean">
+                    <semantic:text>Preterm Delivery History</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:input id="_98a39de0-3036-4300-bd76-9fdb02f10224" label="Vital Signs Measurements.Type of Pregnancy">
+                <semantic:inputExpression typeRef="string">
+                    <semantic:text>Vital Signs Measurements.Type of Pregnancy</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Singleton","Multiple"</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:input id="_7c4031ef-35a0-4cf1-88dd-edde5d2717bb" label="Exam Data.Gestational Age">
+                <semantic:inputExpression typeRef="number">
+                    <semantic:text>Exam Data.Gestational Age</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="expression">
+                    <semantic:text>&gt;=0</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:input id="_e9c46fdd-5308-4fa8-ade6-d4b86c89baff" label="Vital Signs Measurements.Cervical Length">
+                <semantic:inputExpression typeRef="number">
+                    <semantic:text>Vital Signs Measurements.Cervical Length</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="expression">
+                    <semantic:text>&gt;=0</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:output id="_79f46703-3aa4-41f7-baeb-fb509496d6e0">
+                <semantic:outputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Send to hospital for further evaluation","Give shot of Progesterone","Deal with Short Cervix"</semantic:text>
+                </semantic:outputValues>
+                <semantic:defaultOutputEntry>
+                    <semantic:text>"Send to hospital for further evaluation"</semantic:text>
+                </semantic:defaultOutputEntry>
+            </semantic:output>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_60ea4666-dd85-4bcd-8bc4-1bbde4851793">
+                <semantic:inputEntry id="_0b04698c-c4e0-4611-a9bf-ad32e8513496">
+                    <semantic:text>true</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_53b0ba0c-6da3-47c0-8e1b-e29a58601ffd">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_9ddaf1dd-aa90-4c7d-8843-75b2214d8ec2">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_e7abd5ff-2217-4668-ab0a-a12be428320d">
+                    <semantic:text>&lt;34</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_1ed4c6c8-c5aa-4e8c-a000-4f215bd9ae51">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_14ed2924-7727-4d39-a273-8c8dc5ec73ab">
+                    <semantic:text>"Send to hospital for further evaluation"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_0fe89ac9-3179-4083-9de9-b24cad14cdaf">
+                <semantic:inputEntry id="_d04536a2-23d6-4ddb-81c8-a7a53053e7ff">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_cd003705-a1a4-4e6e-ad70-3a273ba5221e">
+                    <semantic:text>true</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_1ab76a12-6a1a-49d5-81b4-165204300d4d">
+                    <semantic:text>"Singleton"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_cb45c218-3738-4b30-ab01-4a650e5f0720">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_fc67f5e4-b582-4fae-8220-791bb0c34f50">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_72654564-9165-4732-b603-64b4d76cec4d">
+                    <semantic:text>"Give shot of Progesterone"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_cc7cf402-2431-425e-bbdb-0eff154e0343">
+                <semantic:inputEntry id="_85820edc-b9a3-4754-8270-c5600ae82069">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_614a07d9-d7f6-4889-8ee7-52ae85a67c95">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_8b292350-cbc7-4e32-81cd-7e316e633492">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_8cd1d059-239f-4d98-8283-6020ba8ced8b">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_63d9cf2e-fb3d-43ba-94d9-12260c68378d">
+                    <semantic:text>&lt;25</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_e735c176-e7d9-4e7d-8769-e8983bcf71df">
+                    <semantic:text>"Deal with Short Cervix"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:decision id="_42ef4eb1-c0f7-4809-bdf5-f262af3d2301" name="Determine Presence of Preterm Labor PTL">
+        <semantic:question>Does the patient exhibit any known Preterm Labor (PTL) symptoms?</semantic:question>
+        <semantic:allowedAnswers>True
+False</semantic:allowedAnswers>
+        <semantic:variable name="Determine Presence of Preterm Labor PTL" id="_0137224c-d9f7-48e9-8f5f-11b0e8dc9629" typeRef="boolean"/>
+        <semantic:informationRequirement id="_6510c1aa-a34f-4ed5-a2b3-983cb581afc5">
+            <semantic:requiredInput href="#_59c380d7-a221-4d5d-b7cd-f8646c3e3652"/>
+        </semantic:informationRequirement>
+        <semantic:literalExpression expressionLanguage="https://www.omg.org/spec/DMN/20191111/FEEL/" triso:unparsed="true" id="_3179f48f-9c06-49ee-82d4-89239013189c" triso:descriptionVisible="false" typeRef="boolean" triso:expressionId="_b64841d2-26ce-46ba-8004-b066285e98d8">
+            <semantic:text>any(
+        list contains( Patient Complaints, "Possible Labor" ),
+        list contains( Patient Complaints, "Ulterine Contractions" ),
+        list contains( Patient Complaints, "Backache" ), 
+        list contains( Patient Complaints, "Pelvic Pressure"), 
+        list contains( Patient Complaints, "Vaginal Spotting" ), 
+        list contains( Patient Complaints, "Mucus Vaginal Discharge")
+        )</semantic:text>
+        </semantic:literalExpression>
+    </semantic:decision>
+    <semantic:decision id="_c97e5398-f40a-4a5f-b2f8-e96793a39c64" name="Determine BMI Category">
+        <semantic:description>&lt;p&gt;BMI is a useful measure of overweight and obesity. It is calculated from your height and weight. BMI is an estimate of body fat and a good gauge of the risk for diseases that can occur with more body fat. The higher the BMI, the higher the risk for certain diseases such as heart disease, high blood pressure, type 2 diabetes, gallstones, breathing problems, and certain cancer.&lt;/p&gt;</semantic:description>
+        <semantic:question>What is the BMI Category of the patient?</semantic:question>
+        <semantic:allowedAnswers>Underweight
+Normal weight 
+Overweight
+Obesity</semantic:allowedAnswers>
+        <semantic:variable name="Determine BMI Category" id="_371c8af5-e488-499d-904a-7cb2ff4f9f90" typeRef="BMI_Category"/>
+        <semantic:informationRequirement id="_f77382f4-ae77-49c1-9b7c-8f87accc493a">
+            <semantic:requiredInput href="#_b4f2f9ed-2f75-453f-99ef-66933b229add"/>
+        </semantic:informationRequirement>
+        <semantic:knowledgeRequirement id="_71b4d8a5-8c92-4b09-9f49-cb8c6ac1f446">
+            <semantic:requiredKnowledge href="#_7f0c35e8-0494-43f4-a643-6d747fc43078"/>
+        </semantic:knowledgeRequirement>
+        <semantic:context id="_06d64849-99b9-4759-9776-19da16acb7e8" triso:descriptionVisible="false" typeRef="BMI_Category" triso:expressionId="_692df929-a520-4946-a888-27e76f90e4e1">
+            <semantic:contextEntry id="_3da352fe-9078-4229-aa06-99e0ba5ddc3d">
+                <semantic:variable name="BMI Score" id="_fa3d6459-252d-4769-bc75-5120df74bfcf" typeRef="number"/>
+                <semantic:invocation id="_9c87303c-ae25-4cc6-aade-d8caf1c9cef0" triso:descriptionVisible="false">
+                    <semantic:literalExpression id="literal__9c87303c-ae25-4cc6-aade-d8caf1c9cef0">
+                        <semantic:text>Determine English System Body Mass Index BMI</semantic:text>
+                    </semantic:literalExpression>
+                    <semantic:binding>
+                        <semantic:parameter id="_2af969d4-f034-476f-8c76-b8b36020f873" name="Height"/>
+                        <semantic:literalExpression id="_41b3c299-2ab4-4891-aa13-fb964957cbe4" triso:descriptionVisible="false">
+                            <semantic:text>Vital Signs Measurements.Height</semantic:text>
+                        </semantic:literalExpression>
+                    </semantic:binding>
+                    <semantic:binding>
+                        <semantic:parameter id="_ea47ba96-5a53-4da1-9989-67f490e92f32" name="Weight"/>
+                        <semantic:literalExpression id="_2a3ab52b-79aa-41ce-a5ac-5eb35561ee10" triso:descriptionVisible="false">
+                            <semantic:text>Vital Signs Measurements.Pre-Pregnancy Weight</semantic:text>
+                        </semantic:literalExpression>
+                    </semantic:binding>
+                </semantic:invocation>
+            </semantic:contextEntry>
+            <semantic:contextEntry id="_0bbb2cee-6c12-4190-a57a-c7ca28263faa">
+                <semantic:variable name="BMI Category" id="_ce9b1d42-1262-42a3-99ed-17dcb2d4e23e" typeRef="BMI_Category"/>
+                <semantic:decisionTable triso:descriptionVisible="false" id="_a8955ba2-9211-45eb-8552-31ef2e3d11c7" hitPolicy="UNIQUE" outputLabel="BMI Category">
+                    <semantic:input id="_592cbdba-9b9c-4582-905c-55188a1e8e80" label="BMI Score">
+                        <semantic:inputExpression typeRef="number">
+                            <semantic:text>BMI Score</semantic:text>
+                        </semantic:inputExpression>
+                    </semantic:input>
+                    <semantic:output id="_51c50963-8322-4333-8fb3-a7357ebb489e">
+                        <semantic:outputValues triso:constraintsType="enumeration">
+                            <semantic:text>"Underweight","Normal weight","Overweight","Obese"</semantic:text>
+                        </semantic:outputValues>
+                    </semantic:output>
+                    <semantic:annotation name="Description"/>
+                    <semantic:rule id="_f80534eb-c596-4eaa-9033-69cbe6278922">
+                        <semantic:inputEntry id="_7ee17bff-136d-4e6a-9aba-b180296651e0">
+                            <semantic:text>&lt;18.5</semantic:text>
+                        </semantic:inputEntry>
+                        <semantic:outputEntry id="_c1ef9d6f-a9e7-49b1-80fd-0ac07edc3de6">
+                            <semantic:text>"Underweight"</semantic:text>
+                        </semantic:outputEntry>
+                        <semantic:annotationEntry>
+                            <semantic:text/>
+                        </semantic:annotationEntry>
+                    </semantic:rule>
+                    <semantic:rule id="_9183a04c-fe70-4fa1-882f-ed0ad07a03fc">
+                        <semantic:inputEntry id="_c3dfa3c3-a8ac-4e85-bd19-3c5485c34631">
+                            <semantic:text>[18.5..25)</semantic:text>
+                        </semantic:inputEntry>
+                        <semantic:outputEntry id="_276fd144-bb5f-4574-8deb-66cdc642dc70">
+                            <semantic:text>"Normal weight"</semantic:text>
+                        </semantic:outputEntry>
+                        <semantic:annotationEntry>
+                            <semantic:text/>
+                        </semantic:annotationEntry>
+                    </semantic:rule>
+                    <semantic:rule id="_f8b63b4d-3cea-498c-854c-af8d747f88f3">
+                        <semantic:inputEntry id="_44b9f11a-fd58-4630-a774-d2fd12a944be">
+                            <semantic:text>[25..30)</semantic:text>
+                        </semantic:inputEntry>
+                        <semantic:outputEntry id="_30739b16-6033-4bde-89f6-726bad40583a">
+                            <semantic:text>"Overweight"</semantic:text>
+                        </semantic:outputEntry>
+                        <semantic:annotationEntry>
+                            <semantic:text/>
+                        </semantic:annotationEntry>
+                    </semantic:rule>
+                    <semantic:rule id="_5806da4e-34e5-45b1-8ad2-74482c0e16a1">
+                        <semantic:inputEntry id="_a9d3f224-5647-487a-920f-17db6332c65c">
+                            <semantic:text>&gt;=30</semantic:text>
+                        </semantic:inputEntry>
+                        <semantic:outputEntry id="_04fb6ed7-fbe1-436a-9f8c-a2c021a15e0d">
+                            <semantic:text>"Obese"</semantic:text>
+                        </semantic:outputEntry>
+                        <semantic:annotationEntry>
+                            <semantic:text/>
+                        </semantic:annotationEntry>
+                    </semantic:rule>
+                </semantic:decisionTable>
+            </semantic:contextEntry>
+            <semantic:contextEntry id="_8a3615ad-a2c1-45b6-9454-787a8cac2dea">
+                <semantic:literalExpression id="_439fe973-3c9e-479e-b793-f728a2b98fe4">
+                    <semantic:text>BMI Category</semantic:text>
+                </semantic:literalExpression>
+            </semantic:contextEntry>
+        </semantic:context>
+    </semantic:decision>
+    <semantic:businessKnowledgeModel id="_7f0c35e8-0494-43f4-a643-6d747fc43078" name="Determine English System Body Mass Index BMI">
+        <semantic:description>&lt;p&gt;Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women.&amp;nbsp; This function uses the English system using Height in inches and Weight in lbs.&lt;/p&gt;</semantic:description>
+        <semantic:variable name="Determine English System Body Mass Index BMI" id="_ab27ce68-283b-4d8c-a6ff-416984ae16bf" typeRef="number"/>
+        <semantic:encapsulatedLogic id="_bd39e58d-1355-4f66-a663-a95888c04eb7" kind="FEEL" triso:descriptionVisible="false" typeRef="number" triso:expressionId="_da704b73-2d07-42d2-9241-73a3c44c9a9f">
+            <semantic:formalParameter name="Height" typeRef="number" id="_1b303dfe-3215-4169-a2ad-85a7e3c187ce"/>
+            <semantic:formalParameter name="Weight" typeRef="number" id="_d77a1e80-a648-406d-915d-b9fa11c4a57e"/>
+            <semantic:literalExpression id="_4924efc8-e7a2-49f8-952f-b0330e74dae1" typeRef="number">
+                <semantic:text>decimal( ( Weight/Height**2 ) * 703, 1 )</semantic:text>
+            </semantic:literalExpression>
+        </semantic:encapsulatedLogic>
+    </semantic:businessKnowledgeModel>
+    <semantic:decision id="_83a3469b-f7ad-4557-bb37-1ce734460af2" name="PTD Risk Factor Index">
+        <semantic:question>How many Preterm Delivery (PTD) factors do this patient exhibit? </semantic:question>
+        <semantic:allowedAnswers>0 or more</semantic:allowedAnswers>
+        <semantic:variable name="PTD Risk Factor Index" id="_ecedce36-fb6e-478c-89cf-cd16880f7141" typeRef="number"/>
+        <semantic:informationRequirement id="_96ffa4d3-31ec-4234-9bb7-5bf823d80e5c">
+            <semantic:requiredDecision href="#_c97e5398-f40a-4a5f-b2f8-e96793a39c64"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_4ef74d71-4b21-4587-8341-c9e55a08febe">
+            <semantic:requiredDecision href="#_d6f7c7e1-7040-4ac4-9b59-40828c544f1b"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_154262a9-9d4d-4a36-b3d6-d2e6b5b6f59d">
+            <semantic:requiredDecision href="#_622f1264-914b-4b0a-b1d4-615c245ab902"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_f1abd66a-af85-4d7e-86ca-55c13127e3f2">
+            <semantic:requiredDecision href="#_05159b60-200b-45ad-8d8a-49a29b1fe578"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_3032bba7-0015-4971-9953-61a118d636a1">
+            <semantic:requiredInput href="#_a2d30c31-d2cc-414b-bccc-bd9a2e15b87e"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_1dde7c37-6ac8-406c-a59f-0616655e81ec">
+            <semantic:requiredInput href="#_e6bcc198-edd9-447f-9e05-5dc758ae2126"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_cd361837-3906-488d-be98-72bfcf5d12f4" hitPolicy="COLLECT" outputLabel="PTD Risk Factor Index" aggregation="SUM" typeRef="number" triso:expressionId="_633870e1-3c1d-4c04-92f0-4560742c8d58">
+            <semantic:input id="_dcf32d87-a1e9-4205-ab4e-1b1e0189ada5" label="Determine BMI Category">
+                <semantic:inputExpression typeRef="BMI_Category">
+                    <semantic:text>Determine BMI Category</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Underweight","Normal weight","Overweight","Obese"</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:input id="_9eb27beb-269b-47d2-89a3-794a000bb9cb" label="Social History.Tobacco use">
+                <semantic:inputExpression typeRef="boolean">
+                    <semantic:text>Social History.Tobacco use</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:input id="_2684f7cf-bd28-4bc3-8808-a922a3d9fd28" label="Past GYN History.Uterine Malformation">
+                <semantic:inputExpression typeRef="boolean">
+                    <semantic:text>Past GYN History.Uterine Malformation</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:input id="_fff736ea-4a7d-4f25-a133-b0b8cf1a3aae" label="Prior OHP Shot Given">
+                <semantic:inputExpression typeRef="boolean">
+                    <semantic:text>Prior OHP Shot Given</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:input id="_79bf2c86-9c16-45ad-a1e0-43d5a2b607c1" label="Preterm Delivery History">
+                <semantic:inputExpression typeRef="boolean">
+                    <semantic:text>Preterm Delivery History</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:input id="_1edbbeb6-7202-4caf-9fbc-7270f07f8151" label="Prior Cervical Procedures">
+                <semantic:inputExpression typeRef="boolean">
+                    <semantic:text>Prior Cervical Procedures</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:output id="_874bde06-a2e4-4c82-864a-d082dcd792cb">
+                <semantic:defaultOutputEntry>
+                    <semantic:text>0</semantic:text>
+                </semantic:defaultOutputEntry>
+            </semantic:output>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_f494b14c-b1c4-44ca-a4ed-e8aea27ea105">
+                <semantic:inputEntry id="_d40eba89-4e1c-46f0-87f0-86fa64956911">
+                    <semantic:text>"Underweight"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_7f48dfbd-015d-415b-9aa3-3899dc0c367d">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_566ae208-b4c7-4dab-adf4-6aa56d562836">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_fdd517cc-f71c-4eba-9e18-81edd5ff10cb">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_a071baba-b20c-4798-ba5d-1b5ccef44609">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_e03adf18-d637-423b-8ac3-76956a64d6ed">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_d78c6ba8-1f5c-4413-aea6-9c4f0594c524">
+                    <semantic:text>1</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_9a71325a-4c27-42a4-bb9a-c98561f2d296">
+                <semantic:inputEntry id="_7742874c-b9e2-497d-aac2-ceba8a503bae">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_651864fc-ea56-427e-b69a-33761477fb63">
+                    <semantic:text>true</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_3e03300d-7678-4670-99ed-2bb5eb216a6f">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_c046ac94-5285-4d5c-a7bc-ccfed78c858b">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_56ced74f-eccd-44f2-9325-41dd0ffad7d0">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_8d5e732b-8d98-4f0b-8c2e-26714857f4a6">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_0d406c2a-e303-4341-b4af-e810b17f1b1d">
+                    <semantic:text>1</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_ac99a5d9-aa6c-4495-99a6-6913df0d1c31">
+                <semantic:inputEntry id="_42c11ae9-7c9b-4dcd-9271-939ac67b725a">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_cb81f4b2-b5c8-4f0d-86f4-9e4936fcb184">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_040aefd5-d9d7-4ef5-be09-aa6038c29ba7">
+                    <semantic:text>true</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_fe7cd097-a24b-4885-89b4-336dfcf74735">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_023a7c9b-1e53-41f8-b598-deabdd1d3267">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_a7772c53-4842-407c-8085-8f215d3ac8a3">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_8cce36ee-53de-4263-a25c-dad6a56cd6fd">
+                    <semantic:text>1</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_7c0cdac4-2f70-4fb6-abfd-ab5b00ccd4ff">
+                <semantic:inputEntry id="_5c29a520-bba3-4102-b498-62d8c1cd95b8">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_f11e17ef-25f8-4bb9-8904-36783b7f51d9">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_cdc8e189-5b12-46a1-8d82-1c205bdb159a">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_6c1e4dd5-5705-4b19-bc2c-04cec366c31a">
+                    <semantic:text>true</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_994ba7aa-8398-45a4-8408-78ac8e3fe0b0">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_a4baa8a5-ff08-41b8-aa03-a8dc1b08847a">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_1c16dd3e-4ef7-48b4-9c30-6d4e8a8f7835">
+                    <semantic:text>1</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_3e714cc2-242a-4ab9-a09a-546b85ba40bb">
+                <semantic:inputEntry id="_0993e5c7-f147-4c3f-8872-2d073497d2ad">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_ef553416-13e3-4a4d-8bbf-897e97ae75bd">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_f3f11625-1486-46db-a512-6656229162d5">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_dcca6da0-dea4-4114-9815-dbc99a740128">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_48463919-21c3-48e6-8964-9692c0cc7fcd">
+                    <semantic:text>true</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_bbc67cc4-877e-4bb5-9b29-0d41beb901b1">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_1c606977-87be-4068-b84a-6804644e94fb">
+                    <semantic:text>1</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_ee45c6ca-521f-4a86-b36d-a671b2c56521">
+                <semantic:inputEntry id="_ba65a54f-13f0-4d89-bf5f-d0d99e9173ca">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_52f584b6-5023-4a91-b17b-cf9c09678685">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_6e26f451-b2bf-43a9-9702-c2d94e5a2b86">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_9fb367e9-3d4d-411b-90a1-5cbe1107c8f4">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_d01f3cc5-9879-467f-b538-f4392dd17af2">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_ac095527-3639-408f-97fa-9d7c8c5bd6f9">
+                    <semantic:text>true</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_8c580869-1408-4918-bb54-b384c621f963">
+                    <semantic:text>1</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:decision id="_d6f7c7e1-7040-4ac4-9b59-40828c544f1b" name="Prior OHP Shot Given">
+        <semantic:question>Has the patient received OHP shot in the past?</semantic:question>
+        <semantic:allowedAnswers>True
+False</semantic:allowedAnswers>
+        <semantic:variable name="Prior OHP Shot Given" id="_4b1e8128-9a63-4062-b470-293ea1a37a2b" typeRef="boolean"/>
+        <semantic:informationRequirement id="_175cd26e-9078-4973-ac13-7b4a79b44b0e">
+            <semantic:requiredInput href="#_d970c3b7-db38-4a70-9af3-c70791615cea"/>
+        </semantic:informationRequirement>
+        <semantic:literalExpression id="_1e1bb505-48ab-4192-b52c-6749edd8cb64" triso:descriptionVisible="false" typeRef="boolean" triso:expressionId="_6a4b0245-493e-4dfa-97f8-138fd9745412">
+            <semantic:text>list contains(Previous Pregnancies.OHP Shots Used, true)</semantic:text>
+        </semantic:literalExpression>
+    </semantic:decision>
+    <semantic:decision id="_05159b60-200b-45ad-8d8a-49a29b1fe578" name="Preterm Delivery History">
+        <semantic:description>&lt;p&gt;Look at the list of &lt;em&gt;Previous Pregnancies&lt;/em&gt; to identify the &lt;em&gt;Length of previous delivery &lt;/em&gt;then&amp;nbsp;verify if any previous delivery was between 22 and 34 weeks.&lt;/p&gt;</semantic:description>
+        <semantic:question>Has the patient experienced preterm delivery in the past?</semantic:question>
+        <semantic:allowedAnswers>True
+False</semantic:allowedAnswers>
+        <semantic:variable name="Preterm Delivery History" id="_7b0c88c4-5af5-43ae-b68a-bf85cb2da274" typeRef="boolean"/>
+        <semantic:informationRequirement id="_36d77fa4-c068-4317-9fbf-3d4119324477">
+            <semantic:requiredInput href="#_d970c3b7-db38-4a70-9af3-c70791615cea"/>
+        </semantic:informationRequirement>
+        <semantic:context id="_a317d0b8-b084-42a3-97ab-aa06e1c742a1" triso:descriptionVisible="false" typeRef="boolean" triso:expressionId="_6a371431-39d1-4d06-a2f1-260b075aa449">
+            <semantic:contextEntry id="_62e5af30-347b-4180-bf59-5ec3240361c3">
+                <semantic:variable name="Length of previous delivery" id="_c0f8f3ec-b044-4232-877d-fe7fc0480f1e" typeRef="number"/>
+                <semantic:literalExpression expressionLanguage="https://www.omg.org/spec/DMN/20191111/FEEL/" id="_57280967-6062-4a71-b442-c646dfd34dc5" triso:descriptionVisible="false">
+                    <semantic:text>for i in Previous Pregnancies return i.Weeks to Delivery</semantic:text>
+                </semantic:literalExpression>
+            </semantic:contextEntry>
+            <semantic:contextEntry id="_bfd6c4bf-00a5-4a3c-940c-145e3cffaab8">
+                <semantic:variable name="Previous PTD" id="_3835d7dc-5c79-4c2a-8bb2-01919f6a1913" typeRef="Boolean_collection"/>
+                <semantic:literalExpression id="_64904f79-6d59-41a9-8154-b62372d5f5b1" triso:descriptionVisible="false">
+                    <semantic:text>for i in Length of previous delivery return i between 22 and 34</semantic:text>
+                </semantic:literalExpression>
+            </semantic:contextEntry>
+            <semantic:contextEntry id="_7a03d576-4402-4248-a8de-6934896164f7">
+                <semantic:literalExpression id="_bc0ea868-aa04-4795-97a6-a96b39777172">
+                    <semantic:text>list contains( Previous PTD, true )</semantic:text>
+                </semantic:literalExpression>
+            </semantic:contextEntry>
+        </semantic:context>
+    </semantic:decision>
+    <semantic:decision id="_622f1264-914b-4b0a-b1d4-615c245ab902" name="Prior Cervical Procedures">
+        <semantic:question>Has the patient received cervical procedures (either LEEP or Cone Biopsy)  in the past?</semantic:question>
+        <semantic:allowedAnswers>True
+False</semantic:allowedAnswers>
+        <semantic:variable name="Prior Cervical Procedures" id="_bd980259-f5e9-4109-960f-9026325dac40" typeRef="boolean"/>
+        <semantic:informationRequirement id="_9487270e-d7f8-4c24-bdd9-53bf138011b3">
+            <semantic:requiredInput href="#_d970c3b7-db38-4a70-9af3-c70791615cea"/>
+        </semantic:informationRequirement>
+        <semantic:literalExpression expressionLanguage="https://www.omg.org/spec/DMN/20191111/FEEL/" triso:unparsed="true" id="_2d2ebab8-61f5-4865-8e7e-ece9dad2b6e1" triso:descriptionVisible="false" typeRef="boolean" triso:expressionId="_8c1f90a6-080c-4f10-8ef2-5e51d4f476c3">
+            <semantic:text>any( 
+        list contains( Previous Pregnancies.Cervical Procedure, "LEEP" ), 
+        list contains( Previous Pregnancies.Cervical Procedure, "Cone Biopsy" )
+        )</semantic:text>
+        </semantic:literalExpression>
+    </semantic:decision>
+    <semantic:decision id="_6fa03841-69c0-40b6-a597-20338418261d" name="Determine if Cervical length is Required">
+        <semantic:description>&lt;p&gt;To save cost a Sonogram to determine cervical length should only be performed if Preterm Delivery (PTD) factors are observed.&lt;/p&gt;</semantic:description>
+        <semantic:question>Is there a need for a Sonogram to determine the cervical length?</semantic:question>
+        <semantic:allowedAnswers>True
+False</semantic:allowedAnswers>
+        <semantic:variable name="Determine if Cervical length is Required" id="_3856c551-5da0-49da-807e-fc2d4f8ec26b" typeRef="boolean"/>
+        <semantic:informationRequirement id="_c52044b9-acf5-4e8e-8d3a-dd454bf82bc9">
+            <semantic:requiredDecision href="#_83a3469b-f7ad-4557-bb37-1ce734460af2"/>
+        </semantic:informationRequirement>
+        <semantic:literalExpression id="_4a126757-48bf-4176-bc02-f38cfc35f268" triso:descriptionVisible="false" typeRef="boolean" triso:expressionId="_881ecd29-d344-4e69-99d2-6061670f10e3">
+            <semantic:text>if PTD Risk Factor Index &gt;=1 then true else false</semantic:text>
+        </semantic:literalExpression>
+    </semantic:decision>
+    <semantic:decision id="_3a627bbf-87cd-46ef-abbf-2c7f6f32655e" name="Determine Actions for Short Cervix">
+        <semantic:description>&lt;p&gt;If at 20 weeks, a patient is noted to have a cervical length on Ultrasound &amp;lt; 2.5 cm, then that patient should be given vaginal progesterone weekly for the remainder of the pregnancy. This should not be done in the situation of infection or active contractions.&lt;/p&gt;</semantic:description>
+        <semantic:question>What next action(s) should be taken to deal with the fact the patient has a short cervix?</semantic:question>
+        <semantic:allowedAnswers>Prescribe Vaginal Progesterone
+Perform Cervical Cerclage</semantic:allowedAnswers>
+        <semantic:variable name="Determine Actions for Short Cervix" id="_0eeeb699-5536-4129-be81-835d83920d40" typeRef="Actions_for_Short_Cervix"/>
+        <semantic:informationRequirement id="_15ae6659-283d-42f8-b743-4f99693844c1">
+            <semantic:requiredDecision href="#_05159b60-200b-45ad-8d8a-49a29b1fe578"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_000aa213-9817-4298-a8f0-ce4b35024292">
+            <semantic:requiredInput href="#_b4f2f9ed-2f75-453f-99ef-66933b229add"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_7d814893-e80a-431b-8db4-4776f23caea4">
+            <semantic:requiredInput href="#_c51216cf-5f4a-45a6-997b-23812ea76181"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_a2950fa1-9a3d-4107-b8cf-ffbff666b46d" hitPolicy="COLLECT" outputLabel="Determine Actions for Short Cervix" typeRef="Actions_for_Short_Cervix" triso:expressionId="_8bb295d5-cbb6-4b0d-84a0-0de1fbaa086b">
+            <semantic:input id="_53b50fdd-f6f9-48c3-85d2-73080d3cd6bb" label="Preterm Delivery History">
+                <semantic:inputExpression typeRef="boolean">
+                    <semantic:text>Preterm Delivery History</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:input id="_d4af29bb-c14f-4a5c-b631-c9381fa30055" label="Vital Signs Measurements.Type of Pregnancy">
+                <semantic:inputExpression typeRef="string">
+                    <semantic:text>Vital Signs Measurements.Type of Pregnancy</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Singleton","Multiple"</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:input id="_5b760a47-a487-43e7-bedb-bede07ca6983" label="Exam Data.Gestational Age">
+                <semantic:inputExpression typeRef="number">
+                    <semantic:text>Exam Data.Gestational Age</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="expression">
+                    <semantic:text>&gt;=0</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:input id="_7d0f7a70-912f-4e62-a3eb-71617e76a8c7" label="Vital Signs Measurements.Cervical Length">
+                <semantic:inputExpression typeRef="number">
+                    <semantic:text>Vital Signs Measurements.Cervical Length</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="expression">
+                    <semantic:text>&gt;=0</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:output id="_4c092605-73ce-4666-b463-7b94654929f5">
+                <semantic:outputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Prescribe Vaginal Progesterone","PerformCervical Cerclage"</semantic:text>
+                </semantic:outputValues>
+            </semantic:output>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_655e69b0-2b22-4d59-9b8f-8d60bda84136">
+                <semantic:inputEntry id="_f77e26ee-3cbf-4494-aec6-eef9980e39d1">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_d0593627-d11d-4ca7-8276-3e84ec7d48e7">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_47073dcb-ecc9-45d1-a0e3-dfa525fb728a">
+                    <semantic:text>&lt;24</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_180fd0bf-5141-4aea-bda7-fd41d5ee3a1c">
+                    <semantic:text>&lt;25</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_c2e51bd5-6951-4b7d-ad16-715856a5feb7">
+                    <semantic:text>"Prescribe Vaginal Progesterone"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_d9a77caa-9f4a-4776-9995-46cc2242bcf5">
+                <semantic:inputEntry id="_a5aaada7-c6e3-441e-b5d3-ab4c8d996856">
+                    <semantic:text>true</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_1167cfff-ad59-420f-ada6-c75f9384db1d">
+                    <semantic:text>"Singleton"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_815ececd-111d-4e0a-bb45-e8162b9560db">
+                    <semantic:text>&lt;24</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_c4336d12-04c7-41a3-8584-c79ab3084d88">
+                    <semantic:text>&lt;25</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_170182d1-ee76-4536-b749-6a8dffac1a8c">
+                    <semantic:text>"PerformCervical Cerclage"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:inputData id="_c51216cf-5f4a-45a6-997b-23812ea76181" name="Exam Data">
+        <semantic:variable name="Exam Data" id="_e1735c35-6a02-40c2-8382-6e65c1bd529d" typeRef="Exam_Data"/>
+    </semantic:inputData>
+    <semantic:inputData id="_d970c3b7-db38-4a70-9af3-c70791615cea" name="Previous Pregnancies">
+        <semantic:variable name="Previous Pregnancies" id="_05aeff8d-f6c1-40c4-b2fa-474f5e42730e" typeRef="Previous_Pregnancies"/>
+    </semantic:inputData>
+    <semantic:inputData id="_59c380d7-a221-4d5d-b7cd-f8646c3e3652" name="Patient Complaints">
+        <semantic:variable name="Patient Complaints" id="_2084eccc-36a1-4ade-bef9-d050dbb026b8" typeRef="Patient_Complaints"/>
+    </semantic:inputData>
+    <semantic:inputData id="_b4f2f9ed-2f75-453f-99ef-66933b229add" name="Vital Signs Measurements">
+        <semantic:variable name="Vital Signs Measurements" id="_b6c3adb7-9cdb-417d-9fbd-0bda0334be69" typeRef="Vital_Signs___Measurements"/>
+    </semantic:inputData>
+    <semantic:inputData id="_a2d30c31-d2cc-414b-bccc-bd9a2e15b87e" name="Social History">
+        <semantic:variable name="Social History" id="_a8b11735-1138-443b-86ec-5e4901c7f0a1" typeRef="Social_History"/>
+    </semantic:inputData>
+    <semantic:inputData id="_e6bcc198-edd9-447f-9e05-5dc758ae2126" name="Past GYN History">
+        <semantic:variable name="Past GYN History" id="_01fc749a-90c9-464e-9b53-99f13808eac3" typeRef="Past_GYN_History"/>
+    </semantic:inputData>
+    <dmndi:DMNDI>
+        <dmndi:DMNDiagram id="_45a4f945-b5c6-497b-a620-eded70b61c8b" triso:modelElementRef="_0800d267-92d3-4d1e-8381-3143bb72f536" name="Prevent PTD DRD" documentation="&lt;p&gt;Preterm labor occurs when regular contractions result in the opening of the cervix before 37 weeks of pregnancy. A full-term pregnancy should last about 40 weeks.&lt;/p&gt;&#xA;&lt;p&gt;If preterm contractions result in preterm labor, the baby will be born early. The earlier premature birth happens, the greater the health risks for the baby. Many premature babies (preemies) need special care in the neonatal intensive care unit. Preemies can also have long-term mental and physical disabilities.&lt;/p&gt;&#xA;&lt;p&gt;While the specific cause of preterm labor often isn't clear, certain risk factors may up the odds of early labor. But, preterm labor can also occur in pregnant women with no known risk factors.&amp;nbsp;&lt;/p&gt;&#xA;&lt;p&gt;Source:&amp;nbsp;http://www.mayoclinic.org/diseases-conditions/preterm-labor/basics/definition/con-20035359&lt;/p&gt;">
+            <di:extension/>
+            <dmndi:Size height="1050" width="1569.2323417663574"/>
+            <dmndi:DMNShape id="_23baa3fe-e163-40e3-b491-197c983f7837" dmnElementRef="_096c830b-5523-4dd5-97c2-5700a3e5460e">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="153"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="220.9911708831787" y="130" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_d0bb7c18-9d12-406d-8aa3-047a133fb8cd" dmnElementRef="_42ef4eb1-c0f7-4809-bdf5-f262af3d2301">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="153"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="50" y="300" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_60cd648d-b414-44c9-987f-845f2fb7569a" dmnElementRef="_c97e5398-f40a-4a5f-b2f8-e96793a39c64">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="153"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="690.4911708831787" y="477" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_11617cba-949b-4352-b665-9c317b64fdab" dmnElementRef="_7f0c35e8-0494-43f4-a643-6d747fc43078">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="204" blue="153"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="690.9911708831787" y="378.5" width="152" height="59"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_b47c0ca3-2147-413a-835a-8a06ab259f92" dmnElementRef="_83a3469b-f7ad-4557-bb37-1ce734460af2">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="153"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="1054.9911708831787" y="300" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_8fc74db2-6075-477b-9076-3582da9aa13e" dmnElementRef="_d6f7c7e1-7040-4ac4-9b59-40828c544f1b">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="153"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="871.4911708831787" y="477" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_c4f034c1-83a4-4bbc-84f5-00bdfa8baec6" dmnElementRef="_05159b60-200b-45ad-8d8a-49a29b1fe578">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="153"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="525.4911708831787" y="300" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_801600c5-c463-44b5-a07c-ce65a7f92594" dmnElementRef="_622f1264-914b-4b0a-b1d4-615c245ab902">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="153"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="1054.9911708831787" y="477" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_86289c6b-e18f-40cd-85fb-4c7fed510aa9" dmnElementRef="_6fa03841-69c0-40b6-a597-20338418261d">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="153"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="1054.9911708831787" y="130" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_9e04bd5b-f7e3-4f51-a51e-643bd235803c" dmnElementRef="_3a627bbf-87cd-46ef-abbf-2c7f6f32655e">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="153"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="456.25" y="130" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_739b2d16-705a-4d48-953e-01f487e927bb" dmnElementRef="_c51216cf-5f4a-45a6-997b-23812ea76181">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="153" green="204" blue="255"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="207.0088291168213" y="645.9999961853027" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_4906f618-8e59-4716-87f1-14976ac877a4" dmnElementRef="_d970c3b7-db38-4a70-9af3-c70791615cea">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="153" green="204" blue="255"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="534.25" y="645.9999961853027" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_6d8128d5-06d2-40e3-861a-0df9635082c4" dmnElementRef="_59c380d7-a221-4d5d-b7cd-f8646c3e3652">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="153" green="204" blue="255"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="50" y="645.9999961853027" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_8340980d-1b71-4fcc-983e-f11b6388f065" dmnElementRef="_b4f2f9ed-2f75-453f-99ef-66933b229add">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="153" green="204" blue="255"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="365.0088291168213" y="645.9999961853027" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_e90a4755-4256-49c2-a596-6fc6df744885" dmnElementRef="_a2d30c31-d2cc-414b-bccc-bd9a2e15b87e">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="204" green="153" blue="255"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="1229.75" y="476.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_a59e4d2f-5b5a-4f8e-8120-8f885ee880b6" dmnElementRef="_e6bcc198-edd9-447f-9e05-5dc758ae2126">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="204" green="153" blue="255"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="1386.75" y="476.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="_f3b84146-2935-443b-85f6-7e01117d3b1b" dmnElementRef="_8ae83307-0ecd-48f2-91c9-1dc87c8dd3cc" sourceElement="_d0bb7c18-9d12-406d-8aa3-047a133fb8cd" targetElement="_23baa3fe-e163-40e3-b491-197c983f7837">
+                <di:waypoint x="126.5" y="300"/>
+                <di:waypoint x="237.4911708831787" y="190"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_89174f6f-9434-4753-8696-12433aba49cd" dmnElementRef="_71b4d8a5-8c92-4b09-9f49-cb8c6ac1f446" sourceElement="_11617cba-949b-4352-b665-9c317b64fdab" targetElement="_60cd648d-b414-44c9-987f-845f2fb7569a">
+                <di:waypoint x="766.9911708831787" y="437.5"/>
+                <di:waypoint x="766.9911708831787" y="477"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_6efef9ec-b20d-44a3-ac9e-aaa2e0c6dc1b" dmnElementRef="_96ffa4d3-31ec-4234-9bb7-5bf823d80e5c" sourceElement="_60cd648d-b414-44c9-987f-845f2fb7569a" targetElement="_b47c0ca3-2147-413a-835a-8a06ab259f92">
+                <di:waypoint x="766.9911708831787" y="477"/>
+                <di:waypoint x="1071.4911708831787" y="360"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_09f6feb7-8377-4c95-916c-4146b0673567" dmnElementRef="_4ef74d71-4b21-4587-8341-c9e55a08febe" sourceElement="_8fc74db2-6075-477b-9076-3582da9aa13e" targetElement="_b47c0ca3-2147-413a-835a-8a06ab259f92">
+                <di:waypoint x="947.9911708831787" y="477"/>
+                <di:waypoint x="1101.4911708831787" y="360"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_890fe2c4-55cb-4a21-9c90-140ccc0f9166" dmnElementRef="_154262a9-9d4d-4a36-b3d6-d2e6b5b6f59d" sourceElement="_801600c5-c463-44b5-a07c-ce65a7f92594" targetElement="_b47c0ca3-2147-413a-835a-8a06ab259f92">
+                <di:waypoint x="1131.4911708831787" y="477"/>
+                <di:waypoint x="1131.4911708831787" y="360"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_e91a7ba9-0543-4ad1-b04a-a67db004be31" dmnElementRef="_f1abd66a-af85-4d7e-86ca-55c13127e3f2" sourceElement="_c4f034c1-83a4-4bbc-84f5-00bdfa8baec6" targetElement="_b47c0ca3-2147-413a-835a-8a06ab259f92">
+                <di:waypoint x="678.4911708831787" y="330"/>
+                <di:waypoint x="1054.9911708831787" y="330"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_0227c727-37b5-41c3-bae0-bb8c302768d7" dmnElementRef="_1135be1e-87af-45b1-8311-00cc94bb1141" sourceElement="_c4f034c1-83a4-4bbc-84f5-00bdfa8baec6" targetElement="_23baa3fe-e163-40e3-b491-197c983f7837">
+                <di:waypoint x="561.9911708831787" y="300"/>
+                <di:waypoint x="337.4911708831787" y="190"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_0568af12-c774-475f-914b-34e45ff2276b" dmnElementRef="_c52044b9-acf5-4e8e-8d3a-dd454bf82bc9" sourceElement="_b47c0ca3-2147-413a-835a-8a06ab259f92" targetElement="_86289c6b-e18f-40cd-85fb-4c7fed510aa9">
+                <di:waypoint x="1131.4911708831787" y="300"/>
+                <di:waypoint x="1131.4911708831787" y="190"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_cc31fff6-f170-4a12-804a-90b5cadb97a3" dmnElementRef="_15ae6659-283d-42f8-b743-4f99693844c1" sourceElement="_c4f034c1-83a4-4bbc-84f5-00bdfa8baec6" targetElement="_9e04bd5b-f7e3-4f51-a51e-643bd235803c">
+                <di:waypoint x="611.9911708831787" y="300"/>
+                <di:waypoint x="582.75" y="190"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_0697ca14-2588-4d49-a918-60de38b96711" dmnElementRef="_36d77fa4-c068-4317-9fbf-3d4119324477" sourceElement="_4906f618-8e59-4716-87f1-14976ac877a4" targetElement="_c4f034c1-83a4-4bbc-84f5-00bdfa8baec6">
+                <di:waypoint x="601.9879722595215" y="645.9999961853027"/>
+                <di:waypoint x="601.9911708831787" y="360"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_ccabf6e2-8820-4cad-adb7-0a9f1d6c035f" dmnElementRef="_6510c1aa-a34f-4ed5-a2b3-983cb581afc5" sourceElement="_6d8128d5-06d2-40e3-861a-0df9635082c4" targetElement="_d0bb7c18-9d12-406d-8aa3-047a133fb8cd">
+                <di:waypoint x="117.73797225952148" y="645.9999961853027"/>
+                <di:waypoint x="116.5" y="360"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_823327e5-44af-4f11-8404-276c3a0afefb" dmnElementRef="_84da2c00-e307-4680-9e99-50eb030ace64" sourceElement="_739b2d16-705a-4d48-953e-01f487e927bb" targetElement="_23baa3fe-e163-40e3-b491-197c983f7837">
+                <di:waypoint x="264.7468013763428" y="645.9999961853027"/>
+                <di:waypoint x="267.4911708831787" y="190"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_4377033d-97da-4b08-a824-94adca00c4cf" dmnElementRef="_9487270e-d7f8-4c24-bdd9-53bf138011b3" sourceElement="_4906f618-8e59-4716-87f1-14976ac877a4" targetElement="_801600c5-c463-44b5-a07c-ce65a7f92594">
+                <di:waypoint x="631.9879722595215" y="645.9999961853027"/>
+                <di:waypoint x="1131.4911708831787" y="537"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_eb69922f-ba99-4c2b-b7d3-eb6a1bed2fbd" dmnElementRef="_0943dc36-4891-45d9-9abf-68693923291e" sourceElement="_8340980d-1b71-4fcc-983e-f11b6388f065" targetElement="_23baa3fe-e163-40e3-b491-197c983f7837">
+                <di:waypoint x="402.7468013763428" y="645.9999961853027"/>
+                <di:waypoint x="317.4911708831787" y="190"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_88903077-3cb5-4306-a1a3-a2931bcf2b72" dmnElementRef="_000aa213-9817-4298-a8f0-ce4b35024292" sourceElement="_8340980d-1b71-4fcc-983e-f11b6388f065" targetElement="_9e04bd5b-f7e3-4f51-a51e-643bd235803c">
+                <di:waypoint x="432.7468013763428" y="645.9999961853027"/>
+                <di:waypoint x="532.75" y="190"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_937a07d7-4123-4fa4-bd94-4d02fda24c6d" dmnElementRef="_7d814893-e80a-431b-8db4-4776f23caea4" sourceElement="_739b2d16-705a-4d48-953e-01f487e927bb" targetElement="_9e04bd5b-f7e3-4f51-a51e-643bd235803c">
+                <di:waypoint x="304.7468013763428" y="645.9999961853027"/>
+                <di:waypoint x="482.75" y="190"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_e12bde98-53ab-4732-a2f4-374cd890fa65" dmnElementRef="_175cd26e-9078-4973-ac13-7b4a79b44b0e" sourceElement="_4906f618-8e59-4716-87f1-14976ac877a4" targetElement="_8fc74db2-6075-477b-9076-3582da9aa13e">
+                <di:waypoint x="601.9879722595215" y="645.9999961853027"/>
+                <di:waypoint x="947.9911708831787" y="537"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_4069e8a1-3513-49c7-8ac2-4518fadc9de9" dmnElementRef="_f77382f4-ae77-49c1-9b7c-8f87accc493a" sourceElement="_8340980d-1b71-4fcc-983e-f11b6388f065" targetElement="_60cd648d-b414-44c9-987f-845f2fb7569a">
+                <di:waypoint x="472.7468013763428" y="645.9999961853027"/>
+                <di:waypoint x="766.9911708831787" y="537"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_9256991e-92b0-40ec-a420-c09561c220c1" dmnElementRef="_3032bba7-0015-4971-9953-61a118d636a1" sourceElement="_e90a4755-4256-49c2-a596-6fc6df744885" targetElement="_b47c0ca3-2147-413a-835a-8a06ab259f92">
+                <di:waypoint x="1287.4879722595215" y="476.99999618530273"/>
+                <di:waypoint x="1161.4911708831787" y="360"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_858225d5-004b-4a25-a198-c2b9c6f87877" dmnElementRef="_1dde7c37-6ac8-406c-a59f-0616655e81ec" sourceElement="_a59e4d2f-5b5a-4f8e-8120-8f885ee880b6" targetElement="_b47c0ca3-2147-413a-835a-8a06ab259f92">
+                <di:waypoint x="1454.4879722595215" y="476.99999618530273"/>
+                <di:waypoint x="1191.4911708831787" y="360"/>
+                <dmndi:DMNLabel sharedStyle="LS_27188a19-403f-471c-8ac3-843c270f8065_0"/>
+            </dmndi:DMNEdge>
+        </dmndi:DMNDiagram>
+        <dmndi:DMNStyle id="LS_27188a19-403f-471c-8ac3-843c270f8065_0" fontFamily="arial,helvetica,sans-serif" fontSize="11" fontBold="false" fontItalic="false" fontUnderline="false" fontStrikeThrough="false"/>
+    </dmndi:DMNDI>
+</semantic:definitions>

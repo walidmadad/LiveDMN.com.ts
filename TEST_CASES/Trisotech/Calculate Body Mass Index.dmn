@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<semantic:definitions xmlns:semantic="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:feel="https://www.omg.org/spec/DMN/20191111/FEEL/" xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rss="http://purl.org/rss/2.0/" xmlns:trisofeed="http://trisotech.com/feed" xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:triso="http://www.trisotech.com/2015/triso/modeling" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"              xmlns:drools="http://www.drools.org/kie/dmn/1.1"  xmlns:openapi="https://openapis.org/omg/extension/1.0"  xmlns:boxedext="https://www.trisotech.com/spec/DMN/20191111/EXT/"   xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns="http://www.trisotech.com/definitions/_a12cb8e5-6e6f-4947-bab6-5f079a9bcee2" id="_a12cb8e5-6e6f-4947-bab6-5f079a9bcee2" name="Calculate Body Mass Index" namespace="http://www.trisotech.com/definitions/_a12cb8e5-6e6f-4947-bab6-5f079a9bcee2" exporter="Decision Modeler" exporterVersion="8.11.0" xml:lang="en" triso:logoChoice="Default" triso:version="1.0" triso:state="Published">
+    <semantic:description>&lt;p&gt;Calculates the Body Mass Index of a person given his Height and Weight based on the English system&lt;/p&gt;</semantic:description>
+    <semantic:extensionElements>
+        <tc:testCases>
+            <tc:testCase id="_bd16f4e2-0e42-447b-b024-8dff196f3776" name="Normal">
+                <tc:inputNode name="Height">
+                    <tc:value xsi:type="xsd:double">72</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Weight">
+                    <tc:value xsi:type="xsd:double">180</tc:value>
+                </tc:inputNode>
+                <tc:resultNode name="Determine BMI Category">
+                    <tc:expected>
+                        <tc:component name="BMI Score">
+                            <tc:value>24.4</tc:value>
+                        </tc:component>
+                        <tc:component name="BMI Category">
+                            <tc:value>Normal weight</tc:value>
+                        </tc:component>
+                    </tc:expected>
+                </tc:resultNode>
+            </tc:testCase>
+            <tc:testCase id="_f2659afd-b901-4f56-a969-232d641ccbd3" name="Fat">
+                <tc:inputNode name="Height">
+                    <tc:value xsi:type="xsd:double">72</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Weight">
+                    <tc:value xsi:type="xsd:double">200</tc:value>
+                </tc:inputNode>
+                <tc:resultNode name="Determine BMI Category">
+                    <tc:expected>
+                        <tc:component name="BMI Score">
+                            <tc:value>27.1</tc:value>
+                        </tc:component>
+                        <tc:component name="BMI Category">
+                            <tc:value>Overweight</tc:value>
+                        </tc:component>
+                    </tc:expected>
+                </tc:resultNode>
+            </tc:testCase>
+            <tc:testCase id="_330f1199-777f-48d4-be73-a67280d56b5e" name="Very Fat">
+                <tc:inputNode name="Height">
+                    <tc:value xsi:type="xsd:double">72</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Weight">
+                    <tc:value xsi:type="xsd:double">250</tc:value>
+                </tc:inputNode>
+                <tc:resultNode name="Determine BMI Category">
+                    <tc:expected>
+                        <tc:component name="BMI Score">
+                            <tc:value>33.9</tc:value>
+                        </tc:component>
+                        <tc:component name="BMI Category">
+                            <tc:value>Obese</tc:value>
+                        </tc:component>
+                    </tc:expected>
+                </tc:resultNode>
+            </tc:testCase>
+        </tc:testCases>
+        <triso:notes>&lt;p&gt;&lt;strong&gt;Challenges&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;/ul&gt;</triso:notes>
+        <triso:graphRelations/>
+    </semantic:extensionElements>
+    <semantic:itemDefinition name="BMI_Category" label="BMI Category" isCollection="false">
+        <semantic:typeRef>string</semantic:typeRef>
+        <semantic:allowedValues>
+            <semantic:extensionElements>
+                <triso:constraintDetails id="_b98fcce4-026a-4cc1-a37b-75a56a698bb2" constraintsType="enumeration">
+                    <triso:value>"Underweight","Normal weight","Overweight","Obese"</triso:value>
+                    <triso:display>"Underweight", "Normal weight", "Overweight", "Obese"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Underweight"</triso:value>
+                        <triso:display>"Underweight"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Normal weight"</triso:value>
+                        <triso:display>"Normal weight"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Overweight"</triso:value>
+                        <triso:display>"Overweight"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Obese"</triso:value>
+                        <triso:display>"Obese"</triso:display>
+                    </triso:choices>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>"Underweight","Normal weight","Overweight","Obese"</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:decisionService id="_a12cb8e5-6e6f-4947-bab6-5f079a9bcee2_DS" name="Whole Model Decision Service" triso:dynamicDecisionService="true" triso:wholeModelService="true">
+        <semantic:variable name="Whole Model Decision Service" id="_a12cb8e5-6e6f-4947-bab6-5f079a9bcee2_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_c97e5398-f40a-4a5f-b2f8-e96793a39c64"/>
+        <semantic:inputData href="#_b4f2f9ed-2f75-453f-99ef-66933b229add"/>
+        <semantic:inputData href="#_3b854e7e-44c0-4c49-bc44-9894262b45b4"/>
+    </semantic:decisionService>
+    <semantic:decisionService id="_45a4f945-b5c6-497b-a620-eded70b61c8b_DS" name="Diagram Prevent PTD DRD" triso:dynamicDecisionService="true">
+        <semantic:variable name="Diagram Prevent PTD DRD" id="_45a4f945-b5c6-497b-a620-eded70b61c8b_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_c97e5398-f40a-4a5f-b2f8-e96793a39c64"/>
+        <semantic:inputData href="#_b4f2f9ed-2f75-453f-99ef-66933b229add"/>
+        <semantic:inputData href="#_3b854e7e-44c0-4c49-bc44-9894262b45b4"/>
+    </semantic:decisionService>
+    <semantic:decision id="_c97e5398-f40a-4a5f-b2f8-e96793a39c64" name="Determine BMI Category">
+        <semantic:description>&lt;p&gt;BMI is a useful measure of overweight and obesity. It is calculated from your height and weight. BMI is an estimate of body fat and a good gauge of the risk for diseases that can occur with more body fat. The higher the BMI, the higher the risk for certain diseases such as heart disease, high blood pressure, type 2 diabetes, gallstones, breathing problems, and certain cancer.&lt;/p&gt;</semantic:description>
+        <semantic:question>What is the BMI Category of the patient?</semantic:question>
+        <semantic:allowedAnswers>Underweight
+            Normal weight 
+            Overweight
+            Obesity</semantic:allowedAnswers>
+        <semantic:variable name="Determine BMI Category" id="_371c8af5-e488-499d-904a-7cb2ff4f9f90" typeRef="BMI_Category"/>
+        <semantic:informationRequirement id="_f77382f4-ae77-49c1-9b7c-8f87accc493a">
+            <semantic:requiredInput href="#_b4f2f9ed-2f75-453f-99ef-66933b229add"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_15a7b7d2-4c1a-428a-8b32-7a5cd74c0128">
+            <semantic:requiredInput href="#_3b854e7e-44c0-4c49-bc44-9894262b45b4"/>
+        </semantic:informationRequirement>
+        <semantic:knowledgeRequirement id="_71b4d8a5-8c92-4b09-9f49-cb8c6ac1f446">
+            <semantic:requiredKnowledge href="#_7f0c35e8-0494-43f4-a643-6d747fc43078"/>
+        </semantic:knowledgeRequirement>
+        <semantic:context id="_356056a8-4e80-461e-a066-1f650717da1e" triso:descriptionVisible="false" typeRef="BMI_Category" triso:expressionId="_0fa42883-c85c-4236-8ad8-0e776322dc6b">
+            <semantic:contextEntry id="_5226d2ae-e832-491e-a6e5-3238e1b2dd1f">
+                <semantic:variable name="BMI Score" id="_3ec9b2b5-e72b-4460-b167-7b080da5a3ac" typeRef="number"/>
+                <semantic:invocation id="_ff6a40b7-91e4-4323-875a-1db2a1041257" triso:descriptionVisible="false">
+                    <semantic:literalExpression id="literal__ff6a40b7-91e4-4323-875a-1db2a1041257">
+                        <semantic:text>Determine English System Body Mass Index BMI</semantic:text>
+                    </semantic:literalExpression>
+                    <semantic:binding>
+                        <semantic:parameter id="_92032c02-c3b3-403b-b340-32e17181cf86" name="Height"/>
+                        <semantic:literalExpression id="_bf5342ab-6dc8-4788-8eaa-9f165a32d498" triso:descriptionVisible="false">
+                            <semantic:text>Height</semantic:text>
+                        </semantic:literalExpression>
+                    </semantic:binding>
+                    <semantic:binding>
+                        <semantic:parameter id="_790a0c6b-1a4d-42b4-834f-8d25aab8d7a3" name="Weight"/>
+                        <semantic:literalExpression id="_907545b9-2423-4106-85f0-0a56f41291b1" triso:descriptionVisible="false">
+                            <semantic:text>Weight</semantic:text>
+                        </semantic:literalExpression>
+                    </semantic:binding>
+                </semantic:invocation>
+            </semantic:contextEntry>
+            <semantic:contextEntry id="_a853118a-69be-4318-b595-9cde172b911a">
+                <semantic:variable name="BMI Category" id="_35807388-c381-4db6-a6a8-8d3b1206644e" typeRef="BMI_Category"/>
+                <semantic:decisionTable triso:descriptionVisible="false" id="_437d78a5-cabf-4848-8af3-b93e05bb2871" hitPolicy="UNIQUE" outputLabel="BMI Category">
+                    <semantic:input id="_1c9a818f-e0aa-40ee-a675-91ae8df8e95a" label="BMI Score">
+                        <semantic:inputExpression typeRef="number">
+                            <semantic:text>BMI Score</semantic:text>
+                        </semantic:inputExpression>
+                    </semantic:input>
+                    <semantic:output id="_6a961af5-dc5c-491a-9940-38d774a1f08b">
+                        <semantic:outputValues triso:constraintsType="enumeration">
+                            <semantic:text>"Underweight","Normal weight","Overweight","Obese"</semantic:text>
+                        </semantic:outputValues>
+                    </semantic:output>
+                    <semantic:annotation name="Description"/>
+                    <semantic:rule id="_0219a621-9883-4b34-b7ed-62101eca81cb">
+                        <semantic:inputEntry id="_58e9bd0d-8fb3-4b3f-9718-ca4af39811b4">
+                            <semantic:text>&lt;18.5</semantic:text>
+                        </semantic:inputEntry>
+                        <semantic:outputEntry id="_c995d30c-f690-48bf-9a07-9a9f727a7d2b">
+                            <semantic:text>"Underweight"</semantic:text>
+                        </semantic:outputEntry>
+                        <semantic:annotationEntry>
+                            <semantic:text/>
+                        </semantic:annotationEntry>
+                    </semantic:rule>
+                    <semantic:rule id="_af4c0dba-1774-4175-9155-bec3d69533f0">
+                        <semantic:inputEntry id="_39bd335d-3194-49c6-934a-fd93e2e446b2">
+                            <semantic:text>[18.5..25)</semantic:text>
+                        </semantic:inputEntry>
+                        <semantic:outputEntry id="_0cb66cc8-18ed-4b3d-91cb-a620dce63c43">
+                            <semantic:text>"Normal weight"</semantic:text>
+                        </semantic:outputEntry>
+                        <semantic:annotationEntry>
+                            <semantic:text/>
+                        </semantic:annotationEntry>
+                    </semantic:rule>
+                    <semantic:rule id="_737046da-10e3-4b24-869c-e0360f91ca20">
+                        <semantic:inputEntry id="_079231e6-a47f-4a01-a4b5-e924e471438d">
+                            <semantic:text>[25..30)</semantic:text>
+                        </semantic:inputEntry>
+                        <semantic:outputEntry id="_9e435195-6d81-4e92-a138-e2849cb488e8">
+                            <semantic:text>"Overweight"</semantic:text>
+                        </semantic:outputEntry>
+                        <semantic:annotationEntry>
+                            <semantic:text/>
+                        </semantic:annotationEntry>
+                    </semantic:rule>
+                    <semantic:rule id="_3d36e69d-6631-49d9-94c4-17f71c14681d">
+                        <semantic:inputEntry id="_b4cf409d-c2cf-4244-86b5-089784997673">
+                            <semantic:text>&gt;=30</semantic:text>
+                        </semantic:inputEntry>
+                        <semantic:outputEntry id="_4ddc03cb-ef17-4b75-84fc-b9684be4bee3">
+                            <semantic:text>"Obese"</semantic:text>
+                        </semantic:outputEntry>
+                        <semantic:annotationEntry>
+                            <semantic:text/>
+                        </semantic:annotationEntry>
+                    </semantic:rule>
+                </semantic:decisionTable>
+            </semantic:contextEntry>
+            <semantic:contextEntry id="_aa6999c2-c591-4ccb-a38d-66db3361cdb6">
+                <semantic:literalExpression id="_18eb844f-4fe4-4fa8-b9d1-c1649a2c04af">
+                    <semantic:text>BMI Category</semantic:text>
+                </semantic:literalExpression>
+            </semantic:contextEntry>
+        </semantic:context>
+    </semantic:decision>
+    <semantic:businessKnowledgeModel id="_7f0c35e8-0494-43f4-a643-6d747fc43078" name="Determine English System Body Mass Index BMI">
+        <semantic:description>&lt;p&gt;Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women.&amp;nbsp; This function uses the English system using Height in inches and Weight in lbs.&lt;/p&gt;</semantic:description>
+        <semantic:variable name="Determine English System Body Mass Index BMI" id="_ab27ce68-283b-4d8c-a6ff-416984ae16bf" typeRef="number"/>
+        <semantic:encapsulatedLogic id="_6a2d7cc9-2049-4b72-80e3-2a0ff220ef3d" kind="FEEL" triso:descriptionVisible="false" typeRef="number" triso:expressionId="_22b57ad2-04f4-460d-969b-b4944b22a214">
+            <semantic:formalParameter name="Height" typeRef="number" id="_c124b46a-756f-4270-a355-a3ee42c1e5d6"/>
+            <semantic:formalParameter name="Weight" typeRef="number" id="_20002ef2-9c14-4da4-ad86-adcc0f31aab9"/>
+            <semantic:literalExpression id="_e47ffb42-3704-4d36-afad-cff723b8e4ad" typeRef="number">
+                <semantic:text>decimal( ( Weight/Height**2 ) * 703, 1 )</semantic:text>
+            </semantic:literalExpression>
+        </semantic:encapsulatedLogic>
+    </semantic:businessKnowledgeModel>
+    <semantic:inputData id="_b4f2f9ed-2f75-453f-99ef-66933b229add" name="Height">
+        <semantic:variable name="Height" id="_b6c3adb7-9cdb-417d-9fbd-0bda0334be69" typeRef="number"/>
+    </semantic:inputData>
+    <semantic:inputData id="_3b854e7e-44c0-4c49-bc44-9894262b45b4" name="Weight">
+        <semantic:variable name="Weight" id="_b0ee39e0-2543-4161-88fd-c869b4f0e376" typeRef="number"/>
+    </semantic:inputData>
+    <dmndi:DMNDI>
+        <dmndi:DMNDiagram id="_45a4f945-b5c6-497b-a620-eded70b61c8b" triso:modelElementRef="_0800d267-92d3-4d1e-8381-3143bb72f536" name="Prevent PTD DRD">
+            <di:extension/>
+            <dmndi:Size height="316.00000381469727" width="982.9823417663574"/>
+            <dmndi:DMNShape id="_60cd648d-b414-44c9-987f-845f2fb7569a" dmnElementRef="_c97e5398-f40a-4a5f-b2f8-e96793a39c64">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="153"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="179.2411708831787" y="50" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_a12cb8e5-6e6f-4947-bab6-5f079a9bcee2_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_11617cba-949b-4352-b665-9c317b64fdab" dmnElementRef="_7f0c35e8-0494-43f4-a643-6d747fc43078">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="204" blue="153"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="480.9823417663574" y="50.5" width="152" height="59"/>
+                <dmndi:DMNLabel sharedStyle="LS_a12cb8e5-6e6f-4947-bab6-5f079a9bcee2_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_8340980d-1b71-4fcc-983e-f11b6388f065" dmnElementRef="_b4f2f9ed-2f75-453f-99ef-66933b229add">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="153" green="204" blue="255"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="50" y="205.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_a12cb8e5-6e6f-4947-bab6-5f079a9bcee2_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_87bc31bb-d87f-421f-8398-8f41dad19098" dmnElementRef="_3b854e7e-44c0-4c49-bc44-9894262b45b4">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="153" green="204" blue="255"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="272.859375" y="205.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_a12cb8e5-6e6f-4947-bab6-5f079a9bcee2_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="_89174f6f-9434-4753-8696-12433aba49cd" dmnElementRef="_71b4d8a5-8c92-4b09-9f49-cb8c6ac1f446" sourceElement="_11617cba-949b-4352-b665-9c317b64fdab" targetElement="_60cd648d-b414-44c9-987f-845f2fb7569a">
+                <di:waypoint x="480.9823417663574" y="79.5"/>
+                <di:waypoint x="332.2411708831787" y="80"/>
+                <dmndi:DMNLabel sharedStyle="LS_a12cb8e5-6e6f-4947-bab6-5f079a9bcee2_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_4069e8a1-3513-49c7-8ac2-4518fadc9de9" dmnElementRef="_f77382f4-ae77-49c1-9b7c-8f87accc493a" sourceElement="_8340980d-1b71-4fcc-983e-f11b6388f065" targetElement="_60cd648d-b414-44c9-987f-845f2fb7569a">
+                <di:waypoint x="117.73797225952148" y="205.99999618530273"/>
+                <di:waypoint x="255.7411708831787" y="110"/>
+                <dmndi:DMNLabel sharedStyle="LS_a12cb8e5-6e6f-4947-bab6-5f079a9bcee2_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_cdc3821e-555c-45a7-b3d0-813a0f07439f" dmnElementRef="_15a7b7d2-4c1a-428a-8b32-7a5cd74c0128" sourceElement="_87bc31bb-d87f-421f-8398-8f41dad19098" targetElement="_60cd648d-b414-44c9-987f-845f2fb7569a">
+                <di:waypoint x="340.5973472595215" y="205.99999618530273"/>
+                <di:waypoint x="265.7411708831787" y="110"/>
+                <dmndi:DMNLabel sharedStyle="LS_a12cb8e5-6e6f-4947-bab6-5f079a9bcee2_0"/>
+            </dmndi:DMNEdge>
+        </dmndi:DMNDiagram>
+        <dmndi:DMNStyle id="LS_a12cb8e5-6e6f-4947-bab6-5f079a9bcee2_0" fontFamily="arial,helvetica,sans-serif" fontSize="11" fontBold="false" fontItalic="false" fontUnderline="false" fontStrikeThrough="false"/>
+    </dmndi:DMNDI>
+</semantic:definitions>

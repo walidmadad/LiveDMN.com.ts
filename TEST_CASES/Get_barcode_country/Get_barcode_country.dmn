@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Get_barcode_EAN_13_country" name="Get barcode (EAN 13) country" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.19.0">
+    <decision id="decision_1ssfotj" name="Get barcode (EAN 13) country">
+        <informationRequirement id="InformationRequirement_1tka5z8">
+            <requiredInput href="#Barcode_EAN_13" />
+        </informationRequirement>
+        <decisionTable id="decisionTable_01leozv" hitPolicy="FIRST">
+            <input id="input1" label="Barcode (EAN 13)">
+                <inputExpression id="inputExpression1" typeRef="string">
+                    <text></text>
+                </inputExpression>
+            </input>
+            <output id="output1" label="Country" name="" typeRef="string">
+                <outputValues id="UnaryTests_02l74zr">
+                    <text>"France-Monaco","Portugal","Japan","Russia","Austria","AT"</text>
+                </outputValues>
+            </output>
+            <rule id="DecisionRule_0jz55mz">
+                <description>https://en.wikipedia.org/wiki/List_of_GS1_country_codes
+
+                    alternative FEEL formula: string length(?)=13 and starts with(?, "3") and not(starts with(?, "38")) and not(starts with(?, "39"))</description>
+                <inputEntry id="UnaryTests_1heotr2">
+                    <text>string length(?)=13 and starts with(?, "3") and not (matches(?, "^3[89]"))</text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_0n357ds">
+                    <text>"France-Monaco"</text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_17lwmto">
+                <description>https://en.wikipedia.org/wiki/List_of_GS1_country_codes</description>
+                <inputEntry id="UnaryTests_05tamb8">
+                    <text>matches(?, "^46\d{11}$")</text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_0igo4te">
+                    <text>"Russia"</text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_1dd4yek">
+                <description></description>
+                <inputEntry id="UnaryTests_1i7g6md">
+                    <text>string length(?)=13 and starts with(?, "560")</text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_1wnpj3d">
+                    <text>"Portugal"</text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_01z8rju">
+                <inputEntry id="UnaryTests_12b599r">
+                    <text>matches(?, "^9[0-1]{1}\d{10}$")</text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_11c8ort">
+                    <text>"AT"</text>
+                </outputEntry>
+            </rule>
+            <rule id="DecisionRule_132guif">
+                <inputEntry id="UnaryTests_047vd6x">
+                    <text>matches(?, "^9[0-1]{1}\d{10}$")</text>
+                </inputEntry>
+                <outputEntry id="LiteralExpression_11env8p">
+                    <text>"Austria"</text>
+                </outputEntry>
+            </rule>
+        </decisionTable>
+    </decision>
+    <inputData id="Barcode_EAN_13" name="Barcode (EAN 13)" />
+    <dmndi:DMNDI>
+        <dmndi:DMNDiagram id="DMNDiagram_1ql75bk">
+            <dmndi:DMNShape id="DMNShape_0cxwygc" dmnElementRef="decision_1ssfotj">
+                <dc:Bounds height="80" width="180" x="160" y="110" />
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="DMNShape_0uuvkw4" dmnElementRef="Barcode_EAN_13">
+                <dc:Bounds height="45" width="125" x="187" y="297" />
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="DMNEdge_0ohp7c2" dmnElementRef="InformationRequirement_1tka5z8">
+                <di:waypoint x="250" y="297" />
+                <di:waypoint x="250" y="210" />
+                <di:waypoint x="250" y="190" />
+            </dmndi:DMNEdge>
+        </dmndi:DMNDiagram>
+    </dmndi:DMNDI>
+</definitions>

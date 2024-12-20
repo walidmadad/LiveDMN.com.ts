@@ -1,0 +1,17 @@
+{
+  "action": "FEEL",
+  "data": [
+    {
+      "Eligibility": "INELIGIBLE",
+      "Bureau call type": "-"
+    },
+    {
+      "Eligibility": "ELIGIBLE",
+      "Bureau call type": "-"
+    },
+    {
+      "Eligibility": "ELIGIBLE",
+      "Bureau call type": "MINI"
+    }
+  ]
+}

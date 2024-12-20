@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<semantic:definitions xmlns:triso="http://www.trisotech.com/2015/triso/modeling" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn" xmlns:trisofeed="http://trisotech.com/feed" xmlns:feel="https://www.omg.org/spec/DMN/20191111/FEEL/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:rss="http://purl.org/rss/2.0/" xmlns:semantic="https://www.omg.org/spec/DMN/20191111/MODEL/"            xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase"  xmlns:drools="http://www.drools.org/kie/dmn/1.1"  xmlns:openapi="https://openapis.org/omg/extension/1.0"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:boxedext="https://www.trisotech.com/spec/DMN/20191111/EXT/"   xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns="http://www.trisotech.com/definitions/_a776a528-2018-4d3c-9379-b11c493d0b69" id="_a776a528-2018-4d3c-9379-b11c493d0b69" name="Port Clearance Rules - Solution 1" namespace="http://www.trisotech.com/definitions/_a776a528-2018-4d3c-9379-b11c493d0b69" exporter="Decision Modeler" exporterVersion="8.11.0" xml:lang="en" triso:logoChoice="Default" triso:version="1.1" triso:state="Published">
+    <semantic:description>&lt;p&gt;The Decision Management Community provides resources for DM practitioners, listing tools, news, providing examples and also giving a monthly challenge.&lt;br /&gt;&lt;br /&gt;As a vendor that always seek improvement, we took the March challenge using Trisotech DMN Modeler.&lt;/p&gt;</semantic:description>
+    <semantic:extensionElements>
+        <triso:scope>&lt;p&gt;&lt;img style="display: block; margin-left: auto; margin-right: auto;" src="https://dmcommunity.files.wordpress.com/2016/02/thegameofrules.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;The March challenge is to create a decision model capable to decide if a ship can enter a Dutch port on a certain date. The rules for this challenge are inspired by the international Ship and Port Facility Security Code. They were originally developed for The Game Of Rules, a publication of the Business Rules Platform Netherlands. The authors: Silvie Spreeuwenberg, LibRT; Charlotte Bouvy, Oelan; Martijn Zoet, Zuyd University of Applied Sciences.&lt;/p&gt;
+&lt;p&gt;The rule set is not intended to be complete for all possible cases. Here are the Port Clearance Rules:&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Rule #1. The hold of a ship must be considered clean if the hold does not contain remainders of cargo.&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Rule #2. An unloaded ship may only enter a Dutch port if the ship complies with the requirements of the Inspection for unloaded ships.&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Rule #3. A ship must comply with the requirements of the Inspection for unloaded ships if the ship complies with all of the following:&lt;/p&gt;
+&lt;p style="padding-left: 60px;"&gt;a) the ship meets the safety requirements for unloaded ships;&lt;/p&gt;
+&lt;p style="padding-left: 60px;"&gt;b) the ship has a certificate of registry that is valid.&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Rule #4. A ship must be categorized as large if the total length of the ship is at least 80 meters.&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Rule #5. A ship&amp;rsquo;s hold contains remainders of cargo if the residual cargo measurement is higher than 0.5 mg dry weight per cm&amp;sup2;.&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Rule #6. A ship only meets the safety requirements for unloaded ships if the ship complies with at least one of the following:&lt;/p&gt;
+&lt;p style="padding-left: 60px;"&gt;a) the ship meets the safety requirements for small unloaded ships;&lt;/p&gt;
+&lt;p style="padding-left: 60px;"&gt;b) the ship meets the safety requirements for large unloaded ships.&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Rule #7. A ship only meets the safety requirements for large unloaded ships if the ship complies with all of the following:&lt;/p&gt;
+&lt;p style="padding-left: 60px;"&gt;a) the ship is categorized as large;&lt;/p&gt;
+&lt;p style="padding-left: 60px;"&gt;b) the hold of the ship is clean;&lt;/p&gt;
+&lt;p style="padding-left: 60px;"&gt;c) the hold of the ship is double hulled.&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Rule #8. A ship only meets the safety requirements for small unloaded ships if the ship complies with all of the following:&lt;/p&gt;
+&lt;p style="padding-left: 60px;"&gt;a) the ship is categorized as small;&lt;/p&gt;
+&lt;p style="padding-left: 60px;"&gt;b) the hold of the ship is clean.&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Rule #9. A ship must be categorized as small if the total length of the ship is less than 80 meters.&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Rule #10. A ship&amp;rsquo;s certificate of registry must be considered valid if the date up to which the registration is valid of the certificate of registry is after the current date.&lt;/p&gt;</triso:scope>
+        <triso:graphRelations>
+            <triso:goalRef id="_d40a28ca-398a-4eb7-887c-3a4c8209cd3b" predicate="achieve">_8a9dbd55-6f31-485e-8a07-61d3fa1c5ed3</triso:goalRef>
+        </triso:graphRelations>
+        <triso:graphObjects>
+            <triso:goal name="Find the best possible DMN solution to determine if a ship can enter a Dutch port on a certain date." id="_8a9dbd55-6f31-485e-8a07-61d3fa1c5ed3"/>
+        </triso:graphObjects>
+    </semantic:extensionElements>
+    <semantic:itemDefinition name="tShipSize" label="tShipSize">
+        <semantic:typeRef>string</semantic:typeRef>
+        <semantic:allowedValues>
+            <semantic:extensionElements>
+                <triso:constraintDetails id="_ea4c4299-7ac7-4b32-8871-2ef538c5c1fc" constraintsType="enumeration">
+                    <triso:value>"Small","Large"</triso:value>
+                    <triso:display>"Small", "Large"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Small"</triso:value>
+                        <triso:display>"Small"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Large"</triso:value>
+                        <triso:display>"Large"</triso:display>
+                    </triso:choices>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>"Small","Large"</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:decisionService id="_a776a528-2018-4d3c-9379-b11c493d0b69_DS" name="Whole Model Decision Service" triso:dynamicDecisionService="true" triso:wholeModelService="true">
+        <semantic:variable name="Whole Model Decision Service" id="_a776a528-2018-4d3c-9379-b11c493d0b69_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_b1540d8b-e297-4dbb-a541-5d02331715eb"/>
+        <semantic:encapsulatedDecision href="#_dbf98322-5d1a-48ad-8d39-bc500e97a9ba"/>
+        <semantic:encapsulatedDecision href="#_69bbfcda-6523-4079-ac47-35c423289337"/>
+        <semantic:encapsulatedDecision href="#_c97d5e0b-2531-4021-aeb4-09180ac42fef"/>
+        <semantic:encapsulatedDecision href="#_aaa21dff-917a-4e51-bb43-33519a273e69"/>
+        <semantic:inputData href="#_181c0bc3-e8ee-4514-a9ad-ebdd8a224460"/>
+        <semantic:inputData href="#_6b5629f8-f6b5-4014-a3f9-cb21119b30b8"/>
+        <semantic:inputData href="#_7ed47e15-04e9-4c41-ba0a-92620b06cd2a"/>
+        <semantic:inputData href="#_044a17bb-a281-4f44-b94a-9faede15d2e8"/>
+    </semantic:decisionService>
+    <semantic:decisionService id="_bbfd62aa-a496-4c55-951e-f038ddb73f49_DS" name="Diagram Solution 1" triso:dynamicDecisionService="true">
+        <semantic:variable name="Diagram Solution 1" id="_bbfd62aa-a496-4c55-951e-f038ddb73f49_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_b1540d8b-e297-4dbb-a541-5d02331715eb"/>
+        <semantic:encapsulatedDecision href="#_dbf98322-5d1a-48ad-8d39-bc500e97a9ba"/>
+        <semantic:encapsulatedDecision href="#_69bbfcda-6523-4079-ac47-35c423289337"/>
+        <semantic:encapsulatedDecision href="#_c97d5e0b-2531-4021-aeb4-09180ac42fef"/>
+        <semantic:encapsulatedDecision href="#_aaa21dff-917a-4e51-bb43-33519a273e69"/>
+        <semantic:inputData href="#_181c0bc3-e8ee-4514-a9ad-ebdd8a224460"/>
+        <semantic:inputData href="#_6b5629f8-f6b5-4014-a3f9-cb21119b30b8"/>
+        <semantic:inputData href="#_7ed47e15-04e9-4c41-ba0a-92620b06cd2a"/>
+        <semantic:inputData href="#_044a17bb-a281-4f44-b94a-9faede15d2e8"/>
+    </semantic:decisionService>
+    <semantic:decision id="_dbf98322-5d1a-48ad-8d39-bc500e97a9ba" name="Ship Size">
+        <semantic:description>&lt;p&gt;This decision table is used to categorized the Ship following rules #4 et #9&lt;/p&gt;
+&lt;p style="margin-left: 30px;"&gt;Rule #4. A ship must be categorized as large if the total length of the ship is at least 80 meters.&lt;/p&gt;
+&lt;p style="margin-left: 30px;"&gt;Rule #9. A ship must be categorized as small if the total length of the ship is less than 80 meters.&lt;/p&gt;</semantic:description>
+        <semantic:question>What size category is the ship in ?</semantic:question>
+        <semantic:allowedAnswers>Small or Large</semantic:allowedAnswers>
+        <semantic:variable name="Ship Size" id="_c5092d16-3686-4285-bb53-6fe26fd27499" typeRef="tShipSize"/>
+        <semantic:informationRequirement id="_5ac99612-552a-409e-8da9-47bac565ead7">
+            <semantic:requiredInput href="#_181c0bc3-e8ee-4514-a9ad-ebdd8a224460"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_46631653-03b6-40cf-a3d5-0ac5b01343c0" hitPolicy="UNIQUE" outputLabel="Ship Size" typeRef="tShipSize" triso:expressionId="_00be7b40-5462-4278-b6d4-8fb1ff861098">
+            <semantic:input id="_a247838e-1e16-49df-aa46-e674a53daf78" label="Ship Length">
+                <semantic:inputExpression typeRef="number">
+                    <semantic:text>Ship Length</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:output id="_61617cfb-e78a-4070-bbfe-97590035a1e7">
+                <semantic:outputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Small","Large"</semantic:text>
+                </semantic:outputValues>
+            </semantic:output>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_ce3f4b57-9389-4f35-9f65-5a613785090c">
+                <semantic:inputEntry id="_d82f1c21-6cc0-4982-9646-d148015949a0">
+                    <semantic:text>&lt;80</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_30070c15-77fe-4018-84a3-e086d2d8037c">
+                    <semantic:text>"Small"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text>Length is in meters</semantic:text>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_2a094d5f-7fed-4f89-b16e-b60545cf287e">
+                <semantic:inputEntry id="_40edf6fa-dae9-43d8-bb95-cb643eda5a4f">
+                    <semantic:text>&gt;=80</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_06d0ba10-4716-4e8c-b324-82b83ff1a4fd">
+                    <semantic:text>"Large"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:decision id="_69bbfcda-6523-4079-ac47-35c423289337" name="Ship is clean">
+        <semantic:description>&lt;p&gt;Cleanliness of the ship is described in rule #1 and #5 that have been combined together.&lt;/p&gt;
+&lt;p style="margin-left: 30px;"&gt;Rule #1. The hold of a ship must be considered clean if the hold does not contain remainders of cargo.&lt;/p&gt;
+&lt;p class="p1" style="margin-left: 30px;"&gt;&lt;span class="s1"&gt;Rule #5. A ship&amp;rsquo;s hold contains remainders of cargo if the residual cargo measurement is higher than 0.5 mg dry weight per cm&amp;sup2;.&lt;/span&gt;&lt;/p&gt;</semantic:description>
+        <semantic:question>Is the ship clean ?</semantic:question>
+        <semantic:allowedAnswers>Yes (true) or No (false)</semantic:allowedAnswers>
+        <semantic:variable name="Ship is clean" id="_5e7d5075-92be-4ad1-99ee-9123c6f7f214" typeRef="boolean"/>
+        <semantic:informationRequirement id="_0445ed90-039d-47a0-b1ff-454bf90e790c">
+            <semantic:requiredInput href="#_6b5629f8-f6b5-4014-a3f9-cb21119b30b8"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_51ec94bb-b864-48ef-b8a1-fb5762ec7e96" hitPolicy="UNIQUE" outputLabel="Ship is clean" typeRef="boolean" triso:expressionId="_947a6d71-b968-4701-988d-8f3ce0faacc2">
+            <semantic:input id="_9d501816-8255-4620-854f-9220cd3b6e2d" label="Residual cargo measurement">
+                <semantic:inputExpression typeRef="number">
+                    <semantic:text>Residual cargo measurement</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:output id="_6c4ea0a1-e4dd-401a-a5a2-0b15b4695052"/>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_c22ae592-e8a3-4e34-93e9-093aae764e33">
+                <semantic:inputEntry id="_8ef5006c-e983-400f-84ec-d807aab2d281">
+                    <semantic:text>&lt;=0.5</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_4cc45ed2-9249-4f9b-a20e-cbac973028b2">
+                    <semantic:text>true</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_76d69db9-12c0-4afa-b9ce-889909cdde36">
+                <semantic:inputEntry id="_f34e6600-74ab-4f9a-bbe9-2c511275b247">
+                    <semantic:text>&gt;0.5</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_72825d83-fb31-4164-8b62-9eec4dd2a75b">
+                    <semantic:text>false</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:decision id="_b1540d8b-e297-4dbb-a541-5d02331715eb" name="Ship can enter a Dutch port">
+        <semantic:description>&lt;p&gt;This decision table is the top (final) decision that represents rule #2 which depends on rule #3 a and b. The result for rule 3a is taken for the &lt;em&gt;Complies with safety requirements&lt;/em&gt; decision table and the result of rule 3b depends on the &lt;em&gt;Certificate of registry is valid&lt;/em&gt; decision table.&lt;/p&gt;
+&lt;p style="margin-left: 30px;"&gt;Rule #2. An unloaded ship may only enter a Dutch port if the ship complies with the requirements of the Inspection for unloaded ships.&lt;/p&gt;
+&lt;p style="margin-left: 30px;"&gt;Rule #3. A ship must comply with the requirements of the Inspection for unloaded ships if the ship complies with all of the following:&lt;/p&gt;
+&lt;p style="margin-left: 60px;"&gt;a)&amp;nbsp;the ship meets the safety requirements for unloaded ships;&lt;br /&gt;b)&amp;nbsp;the ship has a certificate of registry that is valid.&lt;/p&gt;
+&lt;p&gt;Reading this decision table, we can see that only the rule on row #1 will allow the ship to enter.&lt;/p&gt;</semantic:description>
+        <semantic:question>Can the ship enter a Dutch port on a certain date?</semantic:question>
+        <semantic:allowedAnswers>Yes (true) or No (false)</semantic:allowedAnswers>
+        <semantic:variable name="Ship can enter a Dutch port" id="_9bee414d-9e47-45cf-8d97-34df344b65b6" typeRef="boolean"/>
+        <semantic:informationRequirement id="_79f0d91c-e442-4d6d-9444-52cf7f5ba7c3">
+            <semantic:requiredDecision href="#_c97d5e0b-2531-4021-aeb4-09180ac42fef"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_9a0c129f-262a-43d3-86d5-d1f9c28c22a7">
+            <semantic:requiredDecision href="#_aaa21dff-917a-4e51-bb43-33519a273e69"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_498352ab-f9bc-4a85-8a7d-026de56bc8e0" hitPolicy="UNIQUE" outputLabel="Ship can enter a Dutch port" typeRef="boolean" triso:expressionId="_a3e49e46-98bb-428e-b582-e5b58f2049a4">
+            <semantic:input id="_11081de7-916a-4ff2-a101-9fff85bce094" label="Complies with safety requirements">
+                <semantic:inputExpression typeRef="boolean">
+                    <semantic:text>Complies with safety requirements</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:input id="_28b417d2-1c39-424a-b967-86844aa82434" label="Certificate of registry is valid">
+                <semantic:inputExpression typeRef="boolean">
+                    <semantic:text>Certificate of registry is valid</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:output id="_1626546a-35d5-479f-8a81-06d2339959b1"/>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_423f268a-4875-437d-92f8-d0539f1870f4">
+                <semantic:inputEntry id="_88e3c037-f1b4-4a5b-a446-0af3b051fe1c">
+                    <semantic:text>true</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_dd5edbf0-a15f-422a-9562-569a6d608fbe">
+                    <semantic:text>true</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_136a1e67-f634-47f3-94a4-eaf8d4824f51">
+                    <semantic:text>true</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_7facb520-ce4f-4097-b785-db2fde6252aa">
+                <semantic:inputEntry id="_92559c0f-d1eb-4d82-ad0f-e629db40bc21">
+                    <semantic:text>true</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_f2926295-cf55-42fe-a578-a86492a47cb0">
+                    <semantic:text>false</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_d850cea5-515a-4b3d-ba16-f200c2197f7a">
+                    <semantic:text>false</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_c2670075-d72d-4924-9dc1-fcaa1ab79fe2">
+                <semantic:inputEntry id="_7999f76f-9259-491c-9387-396e7c637252">
+                    <semantic:text>false</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_ac2103f1-29bc-4fc6-98b8-08820f1a65e7">
+                    <semantic:text>true</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_ec84e83e-ecd4-4c41-ba6b-f7f4255343c0">
+                    <semantic:text>false</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_cc46fcae-1f7c-4cdf-ac05-658ac7941cf8">
+                <semantic:inputEntry id="_c50ff3e1-5509-40a3-ac27-31fab0830545">
+                    <semantic:text>false</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_f8d46bc9-e00c-4ceb-bd12-ee8a53f2a9ed">
+                    <semantic:text>false</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_05922526-a461-431f-858e-4d3bc726fde7">
+                    <semantic:text>false</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:decision id="_c97d5e0b-2531-4021-aeb4-09180ac42fef" name="Complies with safety requirements">
+        <semantic:description>&lt;p&gt;To simplify the decisions, Small and Large safety requirements have been grouped together in this decision table which covers rule #6, #7 and #8. The first part of the decision table covers rule #8 (which is the details of rule #6a) while the second part covers rule #7 (which is the details of rule #6b). This decision table uses the outputs of &lt;em&gt;Ship Size&lt;/em&gt; and &lt;em&gt;Ship is clean&lt;/em&gt; decision tables.&lt;/p&gt;
+&lt;p class="p1" style="margin-left: 30px;"&gt;&lt;span class="s1"&gt;Rule #6. A ship only meets the &lt;/span&gt;&lt;span class="s2"&gt;safety requirements&lt;/span&gt;&lt;span class="s1"&gt; for unloaded ships if the ship complies with &lt;/span&gt;&lt;span class="s3"&gt;at least one of the following&lt;/span&gt;&lt;span class="s1"&gt;:&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p class="p1" style="margin-left: 30px;"&gt;&lt;span class="s1"&gt;a)&amp;nbsp;the ship meets the safety requirements for small unloaded ships;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p class="p1" style="margin-left: 30px;"&gt;&lt;span class="s1"&gt;b)&amp;nbsp;the ship meets the safety requirements for large unloaded ships.&lt;/span&gt;&lt;/p&gt;
+&lt;p class="p1" style="margin-left: 30px;"&gt;&lt;span class="s1"&gt;Rule #7. A ship only meets the safety requirements for large unloaded ships if the ship complies &lt;/span&gt;&lt;span class="s4"&gt;with all of the following&lt;/span&gt;&lt;span class="s1"&gt;:&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p class="p1" style="margin-left: 60px;"&gt;&lt;span class="s1"&gt;a)&amp;nbsp;the ship is categorized as large;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p class="p1" style="margin-left: 60px;"&gt;&lt;span class="s1"&gt;b)&amp;nbsp;the hold of the ship is clean;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p class="p1" style="margin-left: 60px;"&gt;&lt;span class="s1"&gt;c)&amp;nbsp;the hold of the ship is double hulled.&lt;/span&gt;&lt;/p&gt;
+&lt;p class="p1" style="margin-left: 30px;"&gt;&lt;span class="s1"&gt;Rule #8. A ship only meets the safety requirements for small unloaded ships if the ship complies with all of the following:&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p class="p1" style="margin-left: 60px;"&gt;&lt;span class="s1"&gt;a)&amp;nbsp;the ship is categorized as small;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p class="p1" style="margin-left: 60px;"&gt;&lt;span class="s1"&gt;b)&amp;nbsp;the hold of the ship is clean.&lt;/span&gt;&lt;/p&gt;</semantic:description>
+        <semantic:question>Does the ship comply with the safety requirements ?</semantic:question>
+        <semantic:allowedAnswers>Yes (true) or No (false)</semantic:allowedAnswers>
+        <semantic:variable name="Complies with safety requirements" id="_052d5855-d230-4744-9ed2-63e98817be0d" typeRef="boolean"/>
+        <semantic:informationRequirement id="_0762ca74-9f9b-4687-a4c1-bf18f2405184">
+            <semantic:requiredDecision href="#_dbf98322-5d1a-48ad-8d39-bc500e97a9ba"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_c8caab35-98ee-4e5d-98b4-0ecabd65d28c">
+            <semantic:requiredDecision href="#_69bbfcda-6523-4079-ac47-35c423289337"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_19cceae5-1c21-4aef-9986-9f58aa93eaac">
+            <semantic:requiredInput href="#_044a17bb-a281-4f44-b94a-9faede15d2e8"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_2c049251-bfd1-4bf3-aba4-502e95e6d8ac" hitPolicy="UNIQUE" outputLabel="Complies with safety requirements" typeRef="boolean" triso:expressionId="_89d1f80a-6091-4f8a-8f12-72f9ae7887aa">
+            <semantic:input id="_fd9a0ecf-a15b-4568-82ac-c933defac308" label="Ship Size">
+                <semantic:inputExpression typeRef="tShipSize">
+                    <semantic:text>Ship Size</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Small","Large"</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:input id="_75f69628-7647-4a2f-a038-2907d8b0c1b1" label="Ship is clean">
+                <semantic:inputExpression typeRef="boolean">
+                    <semantic:text>Ship is clean</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:input id="_a1e26741-f6d5-4fad-ab29-5fd28fed35f4" label="Ship is double hulled">
+                <semantic:inputExpression typeRef="boolean">
+                    <semantic:text>Ship is double hulled</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:output id="_dd7d0a4d-5f33-4bb6-ae06-e23fd39f7068"/>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_62b3aa14-48ed-4a04-910f-32ffc8d1a496">
+                <semantic:inputEntry id="_0cc30aed-4aee-4ea2-816d-cf357575c76e">
+                    <semantic:text>"Small"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_3d5364c8-9bd6-43b2-adc8-b64fd682d532">
+                    <semantic:text>true</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_20a5776b-36e8-400c-8f94-fae0d4752ef4">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_83b8023f-0d8a-427b-8251-d65807fdc13e">
+                    <semantic:text>true</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_950a7218-0926-4ff5-84fd-a618b931666d">
+                <semantic:inputEntry id="_ce248b02-97e2-4992-a89a-6f0e2cb4a051">
+                    <semantic:text>"Small"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_da341af1-1de0-4c1c-b2a8-dc1e925991ac">
+                    <semantic:text>false</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_9dad3daa-2144-425a-a292-350f347866cd">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_73975e2c-452b-415b-996c-1decd0d59b43">
+                    <semantic:text>false</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_333fea3e-9cca-444c-ae2d-8fd3f9ca3bd6">
+                <semantic:inputEntry id="_c1f642f1-8ec9-4a5f-832d-8a793de53cde">
+                    <semantic:text>"Large"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_a05dd57d-2993-4102-b74c-f53dc99e65c3">
+                    <semantic:text>true</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_684e44b6-5e94-4e73-991a-21ac1cff8331">
+                    <semantic:text>true</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_e07e34f9-0cc2-4d4e-b8ea-e54f5449432d">
+                    <semantic:text>true</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_b5b16323-6e38-4ea2-bf92-2e6ea0c9a519">
+                <semantic:inputEntry id="_08d620c1-1afc-4075-a81c-7ebe27583126">
+                    <semantic:text>"Large"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_20165064-f6a8-461c-8ff9-18b8e5615af5">
+                    <semantic:text>true</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_53026741-0cf9-4ffc-badb-b9b5c4faf4c2">
+                    <semantic:text>false</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_b061fea3-fdce-4627-8cbf-89ab1a638349">
+                    <semantic:text>false</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_83641f58-51b3-4ff1-bb62-af0fbc043e45">
+                <semantic:inputEntry id="_ec422735-12fa-47e0-a203-b22e85386ea9">
+                    <semantic:text>"Large"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_e7b50292-8a44-4994-8a04-532b5fac85f6">
+                    <semantic:text>false</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_7508d0a2-8641-44ae-adc0-20638b56a763">
+                    <semantic:text>true</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_680f0bb9-e4d3-4c3c-961c-02f14fd0db17">
+                    <semantic:text>false</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_1535fb85-64a8-4efd-9e83-85d5cce0a94e">
+                <semantic:inputEntry id="_6f0494da-0e00-4261-8535-e66fa4d105eb">
+                    <semantic:text>"Large"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_6e2bd03e-a87f-4216-8ef6-fac9b45c3083">
+                    <semantic:text>false</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_75d9bb8f-a50c-4d30-b289-06c7efd49ddd">
+                    <semantic:text>false</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_cbadd470-1c0b-45e1-b37c-27447c6b955f">
+                    <semantic:text>false</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:decision id="_aaa21dff-917a-4e51-bb43-33519a273e69" name="Certificate of registry is valid">
+        <semantic:description>&lt;p&gt;This decision table is used to determine if the certificate of registry is valid. It covers rule #10.&lt;/p&gt;
+&lt;p style="margin-left: 30px;"&gt;Rule #10. A ship&amp;rsquo;s certificate of registry must be considered valid if the date up to which the registration is valid of the certificate of registry is after the current date.&lt;/p&gt;
+&lt;p&gt;today() is custom function that has been added to the default FEEL semantic to allow specifying condition related to the current date.&lt;/p&gt;</semantic:description>
+        <semantic:question> Is the certificate of registry presently valid ?</semantic:question>
+        <semantic:allowedAnswers>Yes (true) or No (false)</semantic:allowedAnswers>
+        <semantic:variable name="Certificate of registry is valid" id="_dcdd0ed7-e297-4aaf-a49a-fb3e05fca09e" typeRef="boolean"/>
+        <semantic:informationRequirement id="_27b08fab-c8ad-4eff-8502-eaa4c77d331d">
+            <semantic:requiredInput href="#_7ed47e15-04e9-4c41-ba0a-92620b06cd2a"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_d1869405-49bc-44c9-a989-bad8defd63ed" hitPolicy="UNIQUE" outputLabel="Certificate of registry is valid" typeRef="boolean" triso:expressionId="_cd792cd7-cdf2-4f4c-83d8-bba72a0384f2">
+            <semantic:input id="_aab85f69-740e-45d9-80c7-969949f3fe37" label="Certificate of Registry date">
+                <semantic:inputExpression typeRef="date">
+                    <semantic:text>Certificate of Registry date</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:output id="_7d2a0b62-f472-481f-a3fd-cbc558558ff5"/>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_1695b24a-11f1-47b1-8d24-77283889f9e7">
+                <semantic:inputEntry id="_e2ea8814-76ab-47fa-a5cf-151eb6ed599a" expressionLanguage="https://www.omg.org/spec/DMN/20191111/FEEL/" triso:unparsed="true">
+                    <semantic:text>&lt;=today()</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_f609637e-61d2-430d-a651-6141d9e3b19f">
+                    <semantic:text>false</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_a90dd791-7e9c-4f30-8994-5ea8bb41e716">
+                <semantic:inputEntry id="_41e348b1-8c0d-4587-a87e-ced20dd1147d" expressionLanguage="https://www.omg.org/spec/DMN/20191111/FEEL/" triso:unparsed="true">
+                    <semantic:text>&gt;today()</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_7b664cf5-4dc6-4ffd-8b0b-5cb9d010bcd9">
+                    <semantic:text>true</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:inputData id="_181c0bc3-e8ee-4514-a9ad-ebdd8a224460" name="Ship Length">
+        <semantic:description>&lt;p&gt;Total ship length of the boat, in meters.&lt;/p&gt;</semantic:description>
+        <semantic:variable name="Ship Length" id="_35e3f260-6170-45d8-aab4-aa656b8a6529" typeRef="number"/>
+    </semantic:inputData>
+    <semantic:inputData id="_6b5629f8-f6b5-4014-a3f9-cb21119b30b8" name="Residual cargo measurement">
+        <semantic:description>&lt;p&gt;The&amp;nbsp;residual cargo measurement&amp;nbsp;is in mg dry weight per cm&amp;sup2;.&lt;/p&gt;</semantic:description>
+        <semantic:variable name="Residual cargo measurement" id="_2973ed09-efe1-4d3d-83a4-dbf648b699c3" typeRef="number"/>
+    </semantic:inputData>
+    <semantic:inputData id="_7ed47e15-04e9-4c41-ba0a-92620b06cd2a" name="Certificate of Registry date">
+        <semantic:variable name="Certificate of Registry date" id="_23dad1be-bf68-4651-879e-03af9533f240" typeRef="date"/>
+    </semantic:inputData>
+    <semantic:inputData id="_044a17bb-a281-4f44-b94a-9faede15d2e8" name="Ship is double hulled">
+        <semantic:description>&lt;p&gt;A boolean value telling if the ship is double hulled or not.&lt;/p&gt;</semantic:description>
+        <semantic:variable name="Ship is double hulled" id="_fdf2d6ca-af39-4483-9393-a1f7d8f199be" typeRef="boolean"/>
+    </semantic:inputData>
+    <dmndi:DMNDI>
+        <dmndi:DMNDiagram id="_bbfd62aa-a496-4c55-951e-f038ddb73f49" triso:modelElementRef="_003662bb-26ea-4b1f-9f6f-89c27dd9db86" name="Solution 1" documentation="&lt;p&gt;This first solution uses multiple Unique Hit Policy decision tables and it follows the rules listing closely. Some rules are grouped together in order to provide easy to read decision tables. The disadvantage of Unique Hit Policy decision table is that it requires to &lt;span&gt;explicitly&amp;nbsp;&lt;/span&gt;detail all possible combinations in each table, which creates larger decision tables.&lt;/p&gt;&#xA;&lt;p&gt;After doing an overview of the rules we identified 4 Input Data:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;From Rule #4: Total length of the ship (Ship Length)&lt;/li&gt;&#xA;&lt;li&gt;From Rule #5: Residual cargo measurement (Residual cargo &lt;span lang=&quot;EN-US&quot;&gt;measurement&lt;/span&gt;)&lt;/li&gt;&#xA;&lt;li&gt;From Rule #7: If the hold of the ship is double hulled or not? (Ship is double hulled)&lt;/li&gt;&#xA;&lt;li&gt;From Rule #10: Date up to which the registration is valid (Certificate of Registry date)&lt;/li&gt;&#xA;&lt;/ul&gt;">
+            <di:extension/>
+            <dmndi:Size height="1050" width="1485"/>
+            <dmndi:DMNShape id="_9bfe3674-98f4-4eaf-addf-144a3d38e6e7" dmnElementRef="_dbf98322-5d1a-48ad-8d39-bc500e97a9ba">
+                <dc:Bounds x="126.5" y="383" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_a776a528-2018-4d3c-9379-b11c493d0b69_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_b4312b34-3929-419e-b087-a245db905156" dmnElementRef="_69bbfcda-6523-4079-ac47-35c423289337">
+                <dc:Bounds x="308.5" y="383" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_a776a528-2018-4d3c-9379-b11c493d0b69_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_bda7f63a-404e-4d18-98da-429d9495f7dd" dmnElementRef="_b1540d8b-e297-4dbb-a541-5d02331715eb">
+                <dc:Bounds x="467" y="156" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_a776a528-2018-4d3c-9379-b11c493d0b69_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_a0b0e5d2-c1ae-4578-ba79-f37f7b747b39" dmnElementRef="_c97d5e0b-2531-4021-aeb4-09180ac42fef">
+                <dc:Bounds x="308.5" y="285" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_a776a528-2018-4d3c-9379-b11c493d0b69_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_7a6e7688-380f-4749-8f7e-b5e0acea76f3" dmnElementRef="_aaa21dff-917a-4e51-bb43-33519a273e69">
+                <dc:Bounds x="646.5" y="285" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_a776a528-2018-4d3c-9379-b11c493d0b69_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_c5018a0a-7311-46a4-a064-2048e39daea2" dmnElementRef="_181c0bc3-e8ee-4514-a9ad-ebdd8a224460">
+                <dc:Bounds x="135.2588291168213" y="487.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_a776a528-2018-4d3c-9379-b11c493d0b69_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_a778a8a2-43cc-4c05-9259-a9e0b3a76a18" dmnElementRef="_6b5629f8-f6b5-4014-a3f9-cb21119b30b8">
+                <dc:Bounds x="317.2588291168213" y="487.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_a776a528-2018-4d3c-9379-b11c493d0b69_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_020e84fc-429a-4d89-933e-339fd42c51ad" dmnElementRef="_7ed47e15-04e9-4c41-ba0a-92620b06cd2a">
+                <dc:Bounds x="655.2588291168213" y="487.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_a776a528-2018-4d3c-9379-b11c493d0b69_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_5ffd5d36-a68f-4132-b2c9-b62c9aa3b191" dmnElementRef="_044a17bb-a281-4f44-b94a-9faede15d2e8">
+                <dc:Bounds x="491.7588291168213" y="487.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_a776a528-2018-4d3c-9379-b11c493d0b69_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="_60073792-5e0d-4308-8d0e-1885b10aa306" dmnElementRef="_0762ca74-9f9b-4687-a4c1-bf18f2405184" sourceElement="_9bfe3674-98f4-4eaf-addf-144a3d38e6e7" targetElement="_a0b0e5d2-c1ae-4578-ba79-f37f7b747b39">
+                <di:waypoint x="203" y="383"/>
+                <di:waypoint x="375" y="337"/>
+                <dmndi:DMNLabel sharedStyle="LS_a776a528-2018-4d3c-9379-b11c493d0b69_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_d9c8a342-2771-432e-9496-1b8eb6dbb7a6" dmnElementRef="_c8caab35-98ee-4e5d-98b4-0ecabd65d28c" sourceElement="_b4312b34-3929-419e-b087-a245db905156" targetElement="_a0b0e5d2-c1ae-4578-ba79-f37f7b747b39">
+                <di:waypoint x="385" y="383"/>
+                <di:waypoint x="385" y="345"/>
+                <dmndi:DMNLabel sharedStyle="LS_a776a528-2018-4d3c-9379-b11c493d0b69_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_fd29beb5-4215-49f9-8936-2462e96b37f6" dmnElementRef="_79f0d91c-e442-4d6d-9444-52cf7f5ba7c3" sourceElement="_a0b0e5d2-c1ae-4578-ba79-f37f7b747b39" targetElement="_bda7f63a-404e-4d18-98da-429d9495f7dd">
+                <di:waypoint x="385" y="285"/>
+                <di:waypoint x="533.5" y="216"/>
+                <dmndi:DMNLabel sharedStyle="LS_a776a528-2018-4d3c-9379-b11c493d0b69_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_2de9c401-1923-41bc-8b3f-f7396aab978d" dmnElementRef="_9a0c129f-262a-43d3-86d5-d1f9c28c22a7" sourceElement="_7a6e7688-380f-4749-8f7e-b5e0acea76f3" targetElement="_bda7f63a-404e-4d18-98da-429d9495f7dd">
+                <di:waypoint x="723" y="285"/>
+                <di:waypoint x="573.5" y="216"/>
+                <dmndi:DMNLabel sharedStyle="LS_a776a528-2018-4d3c-9379-b11c493d0b69_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_41615fe1-1fbc-407f-bbb9-7eb6ec9c4b27" dmnElementRef="_5ac99612-552a-409e-8da9-47bac565ead7" sourceElement="_c5018a0a-7311-46a4-a064-2048e39daea2" targetElement="_9bfe3674-98f4-4eaf-addf-144a3d38e6e7">
+                <di:waypoint x="202.99680137634277" y="487.99999618530273"/>
+                <di:waypoint x="203" y="443"/>
+                <dmndi:DMNLabel sharedStyle="LS_a776a528-2018-4d3c-9379-b11c493d0b69_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_cf4e58d7-67a9-4744-b256-bf929c13c77b" dmnElementRef="_0445ed90-039d-47a0-b1ff-454bf90e790c" sourceElement="_a778a8a2-43cc-4c05-9259-a9e0b3a76a18" targetElement="_b4312b34-3929-419e-b087-a245db905156">
+                <di:waypoint x="384.9968013763428" y="487.99999618530273"/>
+                <di:waypoint x="385" y="443"/>
+                <dmndi:DMNLabel sharedStyle="LS_a776a528-2018-4d3c-9379-b11c493d0b69_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_485ece1c-2e13-43d8-8098-14390032a180" dmnElementRef="_27b08fab-c8ad-4eff-8502-eaa4c77d331d" sourceElement="_020e84fc-429a-4d89-933e-339fd42c51ad" targetElement="_7a6e7688-380f-4749-8f7e-b5e0acea76f3">
+                <di:waypoint x="722.9968013763428" y="487.99999618530273"/>
+                <di:waypoint x="723" y="345"/>
+                <dmndi:DMNLabel sharedStyle="LS_a776a528-2018-4d3c-9379-b11c493d0b69_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_3563ceb6-ca0c-485e-bcdf-99646f2aaa62" dmnElementRef="_19cceae5-1c21-4aef-9986-9f58aa93eaac" sourceElement="_5ffd5d36-a68f-4132-b2c9-b62c9aa3b191" targetElement="_a0b0e5d2-c1ae-4578-ba79-f37f7b747b39">
+                <di:waypoint x="559.4968013763428" y="487.99999618530273"/>
+                <di:waypoint x="435" y="345"/>
+                <dmndi:DMNLabel sharedStyle="LS_a776a528-2018-4d3c-9379-b11c493d0b69_0"/>
+            </dmndi:DMNEdge>
+        </dmndi:DMNDiagram>
+        <dmndi:DMNStyle id="LS_a776a528-2018-4d3c-9379-b11c493d0b69_0" fontFamily="arial,helvetica,sans-serif" fontSize="11" fontBold="false" fontItalic="false" fontUnderline="false" fontStrikeThrough="false"/>
+    </dmndi:DMNDI>
+</semantic:definitions>

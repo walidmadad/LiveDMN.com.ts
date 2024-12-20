@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<semantic:definitions xmlns:semantic="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:feel="https://www.omg.org/spec/DMN/20191111/FEEL/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"       xmlns:triso="http://www.trisotech.com/2015/triso/modeling"  xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn"  xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase"  xmlns:drools="http://www.drools.org/kie/dmn/1.1"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:rss="http://purl.org/rss/2.0/"  xmlns:openapi="https://openapis.org/omg/extension/1.0"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:boxedext="https://www.trisotech.com/spec/DMN/20191111/EXT/"   xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns="http://www.trisotech.com/definitions/_17396034-163a-48aa-9a7f-c6eb17f9cc6c" id="_17396034-163a-48aa-9a7f-c6eb17f9cc6c" name="Car Damage Responsibility" namespace="http://www.trisotech.com/definitions/_17396034-163a-48aa-9a7f-c6eb17f9cc6c" exporter="Decision Modeler" exporterVersion="8.11.0" xml:lang="en" triso:logoChoice="Default" triso:version="1.3" triso:state="Published">
+    <semantic:extensionElements>
+        <tc:testCases>
+            <tc:testCase id="_3ae598ba-8dc5-415d-b965-7a0c9f660e3a" name="Gold never pay">
+                <tc:inputNode name="Damage Types">
+                    <tc:value xsi:type="xsd:string">Engine</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Membership Level">
+                    <tc:value xsi:type="xsd:string">Gold</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Responsibility">
+                    <tc:value xsi:type="xsd:string">Driver</tc:value>
+                </tc:inputNode>
+                <tc:resultNode name="Car Damage Responsibility">
+                    <tc:expected>
+                        <tc:component name="EU Rent">
+                            <tc:value xsi:type="xsd:double">100</tc:value>
+                        </tc:component>
+                        <tc:component name="Renter">
+                            <tc:value xsi:type="xsd:double">0</tc:value>
+                        </tc:component>
+                    </tc:expected>
+                </tc:resultNode>
+            </tc:testCase>
+            <tc:testCase id="_092b0ea4-f34c-4408-8603-787ca6f6e6b9" name="Silver 1">
+                <tc:inputNode name="Damage Types">
+                    <tc:value xsi:type="xsd:string">Tires</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Membership Level">
+                    <tc:value xsi:type="xsd:string">Silver</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Responsibility">
+                    <tc:value xsi:type="xsd:string">Driver</tc:value>
+                </tc:inputNode>
+                <tc:resultNode name="Car Damage Responsibility">
+                    <tc:expected>
+                        <tc:component name="EU Rent">
+                            <tc:value xsi:type="xsd:double">20</tc:value>
+                        </tc:component>
+                        <tc:component name="Renter">
+                            <tc:value xsi:type="xsd:double">80</tc:value>
+                        </tc:component>
+                    </tc:expected>
+                </tc:resultNode>
+            </tc:testCase>
+            <tc:testCase id="_9365be70-1c0e-41e0-9d76-2e2fed5fefc6" name="Silver 2">
+                <tc:inputNode name="Damage Types">
+                    <tc:value xsi:type="xsd:string">Tires</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Membership Level">
+                    <tc:value xsi:type="xsd:string">Silver</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Responsibility">
+                    <tc:value xsi:type="xsd:string">3rd Party</tc:value>
+                </tc:inputNode>
+                <tc:resultNode name="Car Damage Responsibility">
+                    <tc:expected>
+                        <tc:component name="EU Rent">
+                            <tc:value xsi:type="xsd:double">50</tc:value>
+                        </tc:component>
+                        <tc:component name="Renter">
+                            <tc:value xsi:type="xsd:double">50</tc:value>
+                        </tc:component>
+                    </tc:expected>
+                </tc:resultNode>
+            </tc:testCase>
+            <tc:testCase id="_cbacf6a7-4668-4c31-8ecc-10826d203da1" name="No Membership">
+                <tc:inputNode name="Damage Types">
+                    <tc:value xsi:type="xsd:string">Tires</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Membership Level">
+                    <tc:value xsi:type="xsd:string">None</tc:value>
+                </tc:inputNode>
+                <tc:inputNode name="Responsibility">
+                    <tc:value xsi:type="xsd:string">3rd Party</tc:value>
+                </tc:inputNode>
+                <tc:resultNode name="Car Damage Responsibility">
+                    <tc:expected>
+                        <tc:component name="EU Rent">
+                            <tc:value xsi:type="xsd:double">0</tc:value>
+                        </tc:component>
+                        <tc:component name="Renter">
+                            <tc:value xsi:type="xsd:double">100</tc:value>
+                        </tc:component>
+                    </tc:expected>
+                </tc:resultNode>
+            </tc:testCase>
+        </tc:testCases>
+        <triso:graphTerm id="_225dc7a1-f1f9-4b78-a3a3-8b0a41139b60" name="membership level" triso:linkedTermsId="_41bea0cf-e924-46be-a2c8-5e26b3c86764">
+            <semantic:description>&lt;p&gt;groupings that are used to classify individual memberships to the &lt;span id="_b49850a9-5515-429a-92c3-36b4eff25715" class="linked-term" title="" data-termid="_41bea0cf-e924-46be-a2c8-5e26b3c86764" data-original-title=""&gt;EU-Rent Club&lt;/span&gt;&amp;nbsp;&amp;nbsp;according to the amount and quality of business they generate.&lt;/p&gt;</semantic:description>
+            <semantic:extensionElements>
+                <triso:reuseLink id="_20179e02-5845-4d6b-aa0e-a358362c89e4" modelName="EU-Rent Knowledge" itemName="membership level" modelType="http://www.trisotech.com/graph/1.0/element#BusinessEntityModel" modelURI="http://www.trisotech.com/definitions/_6d908626-b956-42a2-ae54-012620fc239f" mimeType="application/vnd.triso-businessentity+json" uri="http://www.trisotech.com/definitions/_6d908626-b956-42a2-ae54-012620fc239f#_da1b5001-c069-4479-bbb3-473461e13ab0" graphType="http://www.trisotech.com/graph/1.0/element#Term" graphURI="http://trisotech.com/graph/1.0/graph#9b6b13d5-00e5-42fe-a844-51a1a4c78106"/>
+            </semantic:extensionElements>
+        </triso:graphTerm>
+        <triso:graphTerm id="_bda35068-e652-42a3-b8b7-9ebb30dc3886" name="Damage Type" alternatives="Damage Types" triso:linkedTermsId="_57349fbe-8a9d-464a-85b6-fed3ea272c82">
+            <semantic:description>&lt;p&gt;defines and describes a particular kind of damage or breakdown occurred by a &lt;span id="_1d4b8a2a-2de7-470f-9086-f6169d28a18b" class="linked-term" title="" data-termid="_57349fbe-8a9d-464a-85b6-fed3ea272c82" data-original-title=""&gt;Rental car being in need of repair&lt;/span&gt;&amp;nbsp;&amp;nbsp;&lt;/p&gt;</semantic:description>
+            <semantic:extensionElements>
+                <triso:reuseLink id="_a8ee143e-bca6-410b-9477-4056a6797259" modelName="EU-Rent Knowledge" itemName="Damage Type" modelType="http://www.trisotech.com/graph/1.0/element#BusinessEntityModel" modelURI="http://www.trisotech.com/definitions/_6d908626-b956-42a2-ae54-012620fc239f" mimeType="application/vnd.triso-businessentity+json" uri="http://www.trisotech.com/definitions/_6d908626-b956-42a2-ae54-012620fc239f#_62984205-848a-4b97-864f-63f3a19b1a3b" graphType="http://www.trisotech.com/graph/1.0/element#Term" graphURI="http://trisotech.com/graph/1.0/graph#9b6b13d5-00e5-42fe-a844-51a1a4c78106"/>
+            </semantic:extensionElements>
+        </triso:graphTerm>
+        <triso:graphTerm id="_97c3d7c9-73a4-4647-9d0b-59e8153e67d5" name="Responsibility" triso:linkedTermsId="_57349fbe-8a9d-464a-85b6-fed3ea272c82">
+            <semantic:description>&lt;p&gt;Party responsible for the &lt;span id="_ac303d11-4364-4d41-96e8-480b9103cd0f" class="linked-term" title="" data-termid="_57349fbe-8a9d-464a-85b6-fed3ea272c82" data-original-title=""&gt;Rental car being in need of repair.&lt;/span&gt;&amp;nbsp;&amp;nbsp;&lt;/p&gt;</semantic:description>
+            <semantic:extensionElements>
+                <triso:reuseLink id="_186245ed-26e3-4c1c-ae77-94c6ffdf4b2a" modelName="EU-Rent Knowledge" itemName="Responsibility" modelType="http://www.trisotech.com/graph/1.0/element#BusinessEntityModel" modelURI="http://www.trisotech.com/definitions/_6d908626-b956-42a2-ae54-012620fc239f" mimeType="application/vnd.triso-businessentity+json" uri="http://www.trisotech.com/definitions/_6d908626-b956-42a2-ae54-012620fc239f#_9384966c-b401-4a4e-b62b-922cbfe3fdd9" graphType="http://www.trisotech.com/graph/1.0/element#Term" graphURI="http://trisotech.com/graph/1.0/graph#9b6b13d5-00e5-42fe-a844-51a1a4c78106"/>
+            </semantic:extensionElements>
+        </triso:graphTerm>
+        <triso:graphTerm id="_41bea0cf-e924-46be-a2c8-5e26b3c86764" name="EU-Rent Club">
+            <semantic:description>&lt;p&gt;EU-Rent&amp;rsquo;s loyalty club.&lt;/p&gt;</semantic:description>
+            <semantic:extensionElements>
+                <triso:reuseLink id="_54dd575b-8d88-4411-8d4a-996376e0c92b" modelName="EU-Rent Knowledge" itemName="EU-Rent Club" modelType="http://www.trisotech.com/graph/1.0/element#BusinessEntityModel" modelURI="http://www.trisotech.com/definitions/_6d908626-b956-42a2-ae54-012620fc239f" mimeType="application/vnd.triso-businessentity+json" uri="http://www.trisotech.com/definitions/_6d908626-b956-42a2-ae54-012620fc239f#_0e54c804-8e32-4bb1-a948-720e1709abb8" graphType="http://www.trisotech.com/graph/1.0/element#Term" graphURI="http://trisotech.com/graph/1.0/graph#9b6b13d5-00e5-42fe-a844-51a1a4c78106"/>
+            </semantic:extensionElements>
+        </triso:graphTerm>
+        <triso:graphTerm id="_9a07a9f4-c4ea-44c9-924d-31b0fe79a084" name="Rental">
+            <semantic:description>&lt;p&gt;Contract for use of a rental car by a renter for an agreed period under EU-Rent&amp;rsquo;s [the Rental Company&amp;rsquo;s] terms and conditions for rental.&lt;/p&gt;</semantic:description>
+            <semantic:extensionElements>
+                <triso:reuseLink id="_36171577-7f6a-44a1-bd80-052556597ac8" modelName="EU-Rent Knowledge" itemName="Rental" modelType="http://www.trisotech.com/graph/1.0/element#BusinessEntityModel" modelURI="http://www.trisotech.com/definitions/_6d908626-b956-42a2-ae54-012620fc239f" mimeType="application/vnd.triso-businessentity+json" uri="http://www.trisotech.com/definitions/_6d908626-b956-42a2-ae54-012620fc239f#_f907298c-e51e-4763-b521-ba2e87e1ad73" graphType="http://www.trisotech.com/graph/1.0/element#Term" graphURI="http://trisotech.com/graph/1.0/graph#9b6b13d5-00e5-42fe-a844-51a1a4c78106"/>
+            </semantic:extensionElements>
+        </triso:graphTerm>
+        <triso:graphTerm id="_bbeec5ab-3475-4556-9d40-b1da227bfa7a" name="Rental Car">
+            <semantic:description>&lt;p&gt;Vehicle owned by EU-Rent for rental to its customers.&lt;/p&gt;
+&lt;p&gt;Each car has a country of registration&lt;/p&gt;</semantic:description>
+            <semantic:extensionElements>
+                <triso:reuseLink id="_8010ba8a-0e07-4dbb-a4a3-e4f9108c999b" modelName="EU-Rent Knowledge" itemName="Rental Car" modelType="http://www.trisotech.com/graph/1.0/element#BusinessEntityModel" modelURI="http://www.trisotech.com/definitions/_6d908626-b956-42a2-ae54-012620fc239f" mimeType="application/vnd.triso-businessentity+json" uri="http://www.trisotech.com/definitions/_6d908626-b956-42a2-ae54-012620fc239f#_0dadea4d-1097-4c3e-97e4-dd984ef9ccb1" graphType="http://www.trisotech.com/graph/1.0/element#Term" graphURI="http://trisotech.com/graph/1.0/graph#9b6b13d5-00e5-42fe-a844-51a1a4c78106"/>
+            </semantic:extensionElements>
+        </triso:graphTerm>
+        <triso:graphTerm id="_57349fbe-8a9d-464a-85b6-fed3ea272c82" name="Rental car being in need of repair" triso:linkedTermsId="_9a07a9f4-c4ea-44c9-924d-31b0fe79a084,_bbeec5ab-3475-4556-9d40-b1da227bfa7a">
+            <semantic:description>&lt;p&gt;&lt;span id="_70a15de4-5173-4cd3-92fe-45286917f884" class="linked-term" data-termid="_bbeec5ab-3475-4556-9d40-b1da227bfa7a"&gt;Rental car&lt;/span&gt;&amp;nbsp; that has damage or breakdown that renders it unusable for &lt;span id="_f3c3eec2-285a-4d2e-970c-0dacb7961f30" class="linked-term" title="" data-termid="_9a07a9f4-c4ea-44c9-924d-31b0fe79a084" data-original-title=""&gt;rental&lt;/span&gt;&amp;nbsp;.&lt;/p&gt;</semantic:description>
+            <semantic:extensionElements>
+                <triso:reuseLink id="_9ce428d6-f6d7-40b4-acce-9210c7adb089" modelName="EU-Rent Knowledge" itemName="Rental car being in need of repair" modelType="http://www.trisotech.com/graph/1.0/element#BusinessEntityModel" modelURI="http://www.trisotech.com/definitions/_6d908626-b956-42a2-ae54-012620fc239f" mimeType="application/vnd.triso-businessentity+json" uri="http://www.trisotech.com/definitions/_6d908626-b956-42a2-ae54-012620fc239f#_37aabf89-af8d-4ee3-b08e-b65bd6313dd4" graphType="http://www.trisotech.com/graph/1.0/element#Term" graphURI="http://trisotech.com/graph/1.0/graph#9b6b13d5-00e5-42fe-a844-51a1a4c78106"/>
+            </semantic:extensionElements>
+        </triso:graphTerm>
+        <triso:graphTerm id="_c2e4c3d4-6aa6-4bda-ad46-8091d37eb22f" name="Individual customer">
+            <semantic:description>&lt;p&gt;Renter who is not a corporate renter.&lt;/p&gt;</semantic:description>
+            <semantic:extensionElements>
+                <triso:reuseLink id="_d5728b41-cbf9-45be-b199-cf39b3e1ab91" modelName="EU-Rent Knowledge" itemName="Individual customer" modelType="http://www.trisotech.com/graph/1.0/element#BusinessEntityModel" modelURI="http://www.trisotech.com/definitions/_6d908626-b956-42a2-ae54-012620fc239f" mimeType="application/vnd.triso-businessentity+json" uri="http://www.trisotech.com/definitions/_6d908626-b956-42a2-ae54-012620fc239f#_3eff98ef-93e2-4192-b7c6-6dff5bda446b" graphType="http://www.trisotech.com/graph/1.0/element#Term" graphURI="http://trisotech.com/graph/1.0/graph#9b6b13d5-00e5-42fe-a844-51a1a4c78106"/>
+            </semantic:extensionElements>
+        </triso:graphTerm>
+        <triso:graphTerm id="_3bf747c3-245b-4919-aefc-8b21d2076548" name="Gold Member" triso:linkedTermsId="_41bea0cf-e924-46be-a2c8-5e26b3c86764,_c2e4c3d4-6aa6-4bda-ad46-8091d37eb22f,_225dc7a1-f1f9-4b78-a3a3-8b0a41139b60">
+            <semantic:description>&lt;p&gt;An &lt;span id="_f9720646-5d8e-4101-87d2-8afcb3658967" class="linked-term" title="" data-termid="_c2e4c3d4-6aa6-4bda-ad46-8091d37eb22f" data-original-title=""&gt;Individual customer&lt;/span&gt; who has achieved the highest &lt;span id="_429496b9-70ca-4289-918d-0660faea404c" class="linked-term" data-termid="_225dc7a1-f1f9-4b78-a3a3-8b0a41139b60"&gt;membership level&lt;/span&gt;&amp;nbsp; within the &lt;span id="_314262fa-442c-41ec-9356-b4e9770cb09b" class="linked-term" data-termid="_41bea0cf-e924-46be-a2c8-5e26b3c86764"&gt;EU-Rent Club.&lt;/span&gt;&lt;/p&gt;</semantic:description>
+            <semantic:extensionElements>
+                <triso:reuseLink id="_bc5c957a-21da-4316-8a5c-bbeda37283ca" modelName="EU-Rent Knowledge" itemName="Gold Member" modelType="http://www.trisotech.com/graph/1.0/element#BusinessEntityModel" modelURI="http://www.trisotech.com/definitions/_6d908626-b956-42a2-ae54-012620fc239f" mimeType="application/vnd.triso-businessentity+json" uri="http://www.trisotech.com/definitions/_6d908626-b956-42a2-ae54-012620fc239f#_d4722c50-a3df-484d-b5e9-ae6cebeb7778" graphType="http://www.trisotech.com/graph/1.0/element#Term" graphURI="http://trisotech.com/graph/1.0/graph#9b6b13d5-00e5-42fe-a844-51a1a4c78106"/>
+            </semantic:extensionElements>
+        </triso:graphTerm>
+    </semantic:extensionElements>
+    <semantic:itemDefinition name="tDamageTypes" label="tDamageTypes">
+        <semantic:typeRef>string</semantic:typeRef>
+        <semantic:allowedValues>
+            <semantic:extensionElements>
+                <triso:constraintDetails id="_f94dcd2e-ec95-4ae4-84cb-fc07187da162" constraintsType="enumeration">
+                    <triso:display>"Tires", "Glass", "Body", "Engine"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Tires"</triso:value>
+                        <triso:display>"Tires"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Glass"</triso:value>
+                        <triso:display>"Glass"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Body"</triso:value>
+                        <triso:display>"Body"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Engine"</triso:value>
+                        <triso:display>"Engine"</triso:display>
+                    </triso:choices>
+                    <triso:value>"Tires","Glass","Body","Engine"</triso:value>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>"Tires","Glass","Body","Engine"</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="tMembershipLevel" label="tMembershipLevel">
+        <semantic:typeRef>string</semantic:typeRef>
+        <semantic:allowedValues>
+            <semantic:extensionElements>
+                <triso:constraintDetails id="_3b7b2200-7c33-4011-98ea-eea7799abc3b" constraintsType="enumeration">
+                    <triso:display>"Gold", "Silver", "None"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Gold"</triso:value>
+                        <triso:display>"Gold"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Silver"</triso:value>
+                        <triso:display>"Silver"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"None"</triso:value>
+                        <triso:display>"None"</triso:display>
+                    </triso:choices>
+                    <triso:value>"Gold","Silver","None"</triso:value>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>"Gold","Silver","None"</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="tResponsibility" label="tResponsibility">
+        <semantic:typeRef>string</semantic:typeRef>
+        <semantic:allowedValues>
+            <semantic:extensionElements>
+                <triso:constraintDetails id="_16030765-c75c-40b2-93dd-22a7972e2b22" constraintsType="enumeration">
+                    <triso:display>"Driver", "3rd Party"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Driver"</triso:value>
+                        <triso:display>"Driver"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"3rd Party"</triso:value>
+                        <triso:display>"3rd Party"</triso:display>
+                    </triso:choices>
+                    <triso:value>"Driver","3rd Party"</triso:value>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>"Driver","3rd Party"</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="tPercent" label="tPercent">
+        <semantic:typeRef>number</semantic:typeRef>
+        <semantic:allowedValues>
+            <semantic:extensionElements>
+                <triso:constraintDetails min="0" minIncluded="true" max="100" maxIncluded="true" id="_4f1df494-3a1c-44d0-b023-12ec65bc7c26" constraintsType="simple">
+                    <triso:display>[0..100]</triso:display>
+                    <triso:value>[0..100]</triso:value>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>[0..100]</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="tCarDamageResponsibility" label="tCarDamageResponsibility">
+        <semantic:itemComponent id="_b8bbf07b-da22-4624-84a9-25071ab07051" name="EU Rent">
+            <semantic:typeRef>tPercent</semantic:typeRef>
+        </semantic:itemComponent>
+        <semantic:itemComponent id="_02c5857e-0985-4966-a0fa-cf2d8f456d34" name="Renter">
+            <semantic:typeRef>tPercent</semantic:typeRef>
+        </semantic:itemComponent>
+    </semantic:itemDefinition>
+    <semantic:decisionService id="_17396034-163a-48aa-9a7f-c6eb17f9cc6c_DS" name="Whole Model Decision Service" triso:dynamicDecisionService="true" triso:wholeModelService="true">
+        <semantic:variable name="Whole Model Decision Service" id="_17396034-163a-48aa-9a7f-c6eb17f9cc6c_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_5693fada-33cb-4a9e-bcfa-6fc343505538"/>
+        <semantic:inputData href="#_90aab494-9458-4b43-bdf4-0a82c22761b3"/>
+        <semantic:inputData href="#_46252761-a3a1-4628-ae06-4b3652116f61"/>
+        <semantic:inputData href="#_e6ef89a8-1ad7-4791-aabe-c668d6bb56c4"/>
+    </semantic:decisionService>
+    <semantic:decisionService id="_c371bacd-168a-45c4-9552-cceee2da23ef_DS" name="Diagram Car Damage Responsibility DRD" triso:dynamicDecisionService="true">
+        <semantic:variable name="Diagram Car Damage Responsibility DRD" id="_c371bacd-168a-45c4-9552-cceee2da23ef_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_5693fada-33cb-4a9e-bcfa-6fc343505538"/>
+        <semantic:inputData href="#_90aab494-9458-4b43-bdf4-0a82c22761b3"/>
+        <semantic:inputData href="#_46252761-a3a1-4628-ae06-4b3652116f61"/>
+        <semantic:inputData href="#_e6ef89a8-1ad7-4791-aabe-c668d6bb56c4"/>
+    </semantic:decisionService>
+    <semantic:decision id="_5693fada-33cb-4a9e-bcfa-6fc343505538" name="Car Damage Responsibility">
+        <semantic:variable name="Car Damage Responsibility" id="_1aedbc56-e4eb-4636-8a24-2742bf1fda8e" typeRef="tCarDamageResponsibility"/>
+        <semantic:informationRequirement id="_a77039f2-58a4-4c5e-b94b-157559b5a325">
+            <semantic:requiredInput href="#_46252761-a3a1-4628-ae06-4b3652116f61"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_15f3f920-7e7d-49b9-a9ae-8685c89fde94">
+            <semantic:requiredInput href="#_90aab494-9458-4b43-bdf4-0a82c22761b3"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_e7c350d9-ab1f-474b-8565-9994c2e98a63">
+            <semantic:requiredInput href="#_e6ef89a8-1ad7-4791-aabe-c668d6bb56c4"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_6cf54e3d-2a90-4302-a440-10e700f3dd69" hitPolicy="UNIQUE" outputLabel="Car Damage Responsibility" typeRef="tCarDamageResponsibility" triso:expressionId="_a6c08eaf-915c-472d-90ec-3a4849d74c4a">
+            <semantic:input id="_4748b3dc-069d-4f82-9dfe-c6430792f73e" label="Membership Level">
+                <semantic:inputExpression typeRef="tMembershipLevel">
+                    <semantic:text>Membership Level</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Gold","Silver","None"</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:input id="_f20b7ae7-5aba-4604-afca-36683faae5fa" label="Responsibility">
+                <semantic:inputExpression typeRef="tResponsibility">
+                    <semantic:text>Responsibility</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Driver","3rd Party"</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:input id="_328f5891-d798-45de-a9b2-4f39112dc46f" label="Damage Types">
+                <semantic:inputExpression typeRef="tDamageTypes">
+                    <semantic:text>Damage Types</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Tires","Glass","Body","Engine"</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:output id="_0afbdd3a-07c3-4c67-b576-c858dcf469b6" name="EU Rent" typeRef="tPercent">
+                <semantic:outputValues triso:constraintsType="simple">
+                    <semantic:text>[0..100]</semantic:text>
+                </semantic:outputValues>
+            </semantic:output>
+            <semantic:output id="_c0b8bcba-9a47-477d-829c-a2bb100be3d9" name="Renter" typeRef="tPercent">
+                <semantic:outputValues triso:constraintsType="simple">
+                    <semantic:text>[0..100]</semantic:text>
+                </semantic:outputValues>
+            </semantic:output>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_4c243a90-5dbc-495d-8760-0875defd5b41">
+                <semantic:inputEntry id="_8f5756f7-8211-4662-aebf-8998d29a7d2d">
+                    <semantic:text>"Gold"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_d542ef1e-6823-4e14-bfcf-da086a65397f">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_7988cfeb-159d-40d1-bdf0-0112219ed864">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_a92e9d05-38ef-415f-a2f2-232c5f339417">
+                    <semantic:text>100</semantic:text>
+                </semantic:outputEntry>
+                <semantic:outputEntry id="_df7b7b8b-639b-4fb3-a964-024c1b5cb66b">
+                    <semantic:text>0</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_9b07f426-782a-46e4-9430-0d74039fab78">
+                <semantic:inputEntry id="_ecee5a99-8d3e-4f62-89f3-3e814b47f9bb" triso:mergeKey="_9c6a447e-23a3-45ef-a265-fef0cd38d8cd">
+                    <semantic:text>"Silver"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_70f64f17-c7dd-4c3a-af7d-760a5a556883" triso:mergeKey="_a30ecf48-941a-41bb-850f-72b697306997">
+                    <semantic:text>"3rd Party"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_b7ca01c5-ccdc-4cd5-a907-c1231738b544">
+                    <semantic:text>"Tires", "Glass"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_4e728918-529d-4873-bdeb-d3b592dfb521">
+                    <semantic:text>50</semantic:text>
+                </semantic:outputEntry>
+                <semantic:outputEntry id="_faacc003-71a8-4979-8f8a-cfb0f3b455b6">
+                    <semantic:text>50</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_e729f425-4220-4932-ba52-e311a2af3d43">
+                <semantic:inputEntry id="_9eb37a88-cfec-4519-a1dd-2798a1ff459f" triso:mergeKey="_9c6a447e-23a3-45ef-a265-fef0cd38d8cd">
+                    <semantic:text>"Silver"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_846a388b-6ebf-4396-a5f7-bd36f0a15c59" triso:mergeKey="_a30ecf48-941a-41bb-850f-72b697306997">
+                    <semantic:text>"3rd Party"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_1a771b17-5a91-4d7b-a6d1-e2a4d495bd5c">
+                    <semantic:text>"Body","Engine"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_faa9d138-3a45-43ea-a00c-cedb57241af0">
+                    <semantic:text>80</semantic:text>
+                </semantic:outputEntry>
+                <semantic:outputEntry id="_f71e769f-c719-4c91-8555-2444e976f50b">
+                    <semantic:text>20</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_16dba1fd-f74a-4d61-a879-f882ea452d49">
+                <semantic:inputEntry id="_35ab8105-a9c4-46bd-af18-c64ec434be29" triso:mergeKey="_9c6a447e-23a3-45ef-a265-fef0cd38d8cd">
+                    <semantic:text>"Silver"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_e6f6c53c-76d0-44cf-94a7-7840cfa66117" triso:mergeKey="_9220f92f-7592-489b-b63f-1c6b6e8a31f9">
+                    <semantic:text>"Driver"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_de541df6-fc30-4db8-9109-8454f80e91b3">
+                    <semantic:text>"Tires", "Glass"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_54514341-3358-4d40-ad0a-c0566b21ffee">
+                    <semantic:text>20</semantic:text>
+                </semantic:outputEntry>
+                <semantic:outputEntry id="_f5697952-e30d-4cbd-808c-223fe641b40f">
+                    <semantic:text>80</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_e1d06e21-9acf-4f01-9f89-573652f2a53a">
+                <semantic:inputEntry id="_fd44898b-75f9-44be-b1d1-04ab7cdb6721" triso:mergeKey="_9c6a447e-23a3-45ef-a265-fef0cd38d8cd">
+                    <semantic:text>"Silver"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_67a76609-07b1-437f-9c35-58b03d573bb9" triso:mergeKey="_9220f92f-7592-489b-b63f-1c6b6e8a31f9">
+                    <semantic:text>"Driver"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_f8b0d324-0488-40c6-b013-3025f8a7e54e">
+                    <semantic:text>"Body", "Engine"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_fe30c65c-08d9-4ab7-a849-ac7c91863c5d">
+                    <semantic:text>40</semantic:text>
+                </semantic:outputEntry>
+                <semantic:outputEntry id="_e5558beb-1461-4c65-a944-a0ce0d473ccf">
+                    <semantic:text>60</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_2de91b5a-3ee2-4659-bb01-76fd144cb63f">
+                <semantic:inputEntry id="_2b9e904c-ad14-4cf2-ae22-d5a2e239432d" triso:mergeKey="_909ac3c2-e04c-439f-a3d1-e121463cf9b5">
+                    <semantic:text>"None"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_b59da147-6ea9-4e90-93ee-a2b07848b56a" triso:mergeKey="_b3725cdf-5819-42b6-878c-a3638d7a0f57">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_7676c357-3249-467e-8b65-ce03b3432c64">
+                    <semantic:text>"Engine"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_7e232972-2cdf-4c74-8025-23ed7cce1e52">
+                    <semantic:text>15</semantic:text>
+                </semantic:outputEntry>
+                <semantic:outputEntry id="_fbfdf21c-4e48-4f87-9fd2-11cefad692cd">
+                    <semantic:text>85</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_6c0cecf9-9838-41fb-80c4-faf2469a45e8">
+                <semantic:inputEntry id="_fe934077-b73a-4d59-85f6-862b4e9cc644" triso:mergeKey="_909ac3c2-e04c-439f-a3d1-e121463cf9b5">
+                    <semantic:text>"None"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_54cee9c6-0e78-4dc1-8313-19eeaad11f58" triso:mergeKey="_b3725cdf-5819-42b6-878c-a3638d7a0f57">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_0fe47282-2399-46c6-9d23-bf550767b457">
+                    <semantic:text>"Body","Tires","Glass"</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_071544c0-8d6f-4717-949c-4f086d2ed142">
+                    <semantic:text>0</semantic:text>
+                </semantic:outputEntry>
+                <semantic:outputEntry id="_5587fde9-f259-4239-bae6-751f6974d206">
+                    <semantic:text>100</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:inputData id="_90aab494-9458-4b43-bdf4-0a82c22761b3" name="Membership Level" triso:linkedTermsId="_225dc7a1-f1f9-4b78-a3a3-8b0a41139b60" triso:displayName-html="&lt;span id=&quot;_0e7e922e-98f5-4018-ac8e-54b8a7e9f17d&quot; class=&quot;linked-term&quot; data-termid=&quot;_225dc7a1-f1f9-4b78-a3a3-8b0a41139b60&quot; data-graph=&quot;http://trisotech.com/graph/1.0/graph#9b6b13d5-00e5-42fe-a844-51a1a4c78106&quot;&gt;Membership Level&lt;/span&gt;">
+        <semantic:variable name="Membership Level" id="_231079a9-c20d-4772-9748-a63025a37898" typeRef="tMembershipLevel"/>
+    </semantic:inputData>
+    <semantic:knowledgeSource id="_48fa7a11-feea-4fbc-843d-ddba575cb43e" name="Membership Database">
+        <semantic:authorityRequirement id="_ce2569d7-2b1c-45c4-9148-2dcedab0dbd2">
+            <semantic:requiredInput href="#_90aab494-9458-4b43-bdf4-0a82c22761b3"/>
+        </semantic:authorityRequirement>
+    </semantic:knowledgeSource>
+    <semantic:inputData id="_46252761-a3a1-4628-ae06-4b3652116f61" name="Damage Types" triso:linkedTermsId="_bda35068-e652-42a3-b8b7-9ebb30dc3886" triso:displayName-html="&lt;span id=&quot;_fa3a8cce-d2dc-41c6-8b30-1aa55e7f2ec7&quot; class=&quot;linked-term&quot; data-termid=&quot;_bda35068-e652-42a3-b8b7-9ebb30dc3886&quot; data-graph=&quot;http://trisotech.com/graph/1.0/graph#9b6b13d5-00e5-42fe-a844-51a1a4c78106&quot;&gt;Damage Types&lt;/span&gt;">
+        <semantic:variable name="Damage Types" id="_72b9a541-6594-4d0b-b77f-cfbecbe708ac" typeRef="tDamageTypes"/>
+    </semantic:inputData>
+    <semantic:knowledgeSource id="_08793113-0699-46bc-b9ea-101caafae621" name="Reservation System">
+        <semantic:authorityRequirement id="_25c52bdb-8084-4262-b9e3-3ab8bc54b76b">
+            <semantic:requiredInput href="#_46252761-a3a1-4628-ae06-4b3652116f61"/>
+        </semantic:authorityRequirement>
+    </semantic:knowledgeSource>
+    <semantic:inputData id="_e6ef89a8-1ad7-4791-aabe-c668d6bb56c4" name="Responsibility" triso:linkedTermsId="_97c3d7c9-73a4-4647-9d0b-59e8153e67d5" triso:displayName-html="&lt;span id=&quot;_ba19df93-4c69-454f-b3a6-cd36c9c148b9&quot; class=&quot;linked-term&quot; data-termid=&quot;_97c3d7c9-73a4-4647-9d0b-59e8153e67d5&quot; data-graph=&quot;http://trisotech.com/graph/1.0/graph#9b6b13d5-00e5-42fe-a844-51a1a4c78106&quot;&gt;Responsibility&lt;/span&gt;">
+        <semantic:variable name="Responsibility" id="_6db69b20-cb67-454f-afc4-4c4f98dbcd16" typeRef="tResponsibility"/>
+    </semantic:inputData>
+    <semantic:knowledgeSource id="_b5bfeccc-1f14-401f-bc1f-817ab0b49192" name="A gold member never pay any fees for a rental car being in need of repair" triso:readOnly="false" triso:linkedTermsId="_57349fbe-8a9d-464a-85b6-fed3ea272c82,_3bf747c3-245b-4919-aefc-8b21d2076548">
+        <semantic:extensionElements>
+            <triso:reuseLink id="_de3bc1d2-392c-4179-b86b-8ec857c4e62d" modelName="EU-Rent Knowledge" itemName="A gold member never pay any fees for a rental car being in need of repair" modelType="http://www.trisotech.com/graph/1.0/element#BusinessEntityModel" modelURI="http://www.trisotech.com/definitions/_6d908626-b956-42a2-ae54-012620fc239f" mimeType="application/vnd.triso-businessentity+json" uri="http://www.trisotech.com/definitions/_6d908626-b956-42a2-ae54-012620fc239f#_cebc1cac-2fa7-481d-93d2-1dfac773169a" graphType="http://www.trisotech.com/graph/1.0/businessentity/element#BusinessRule" graphURI="http://trisotech.com/graph/1.0/graph#9b6b13d5-00e5-42fe-a844-51a1a4c78106"/>
+        </semantic:extensionElements>
+        <semantic:authorityRequirement id="_c378eb06-9297-4097-a296-594b9f262907" triso:readOnly="false">
+            <semantic:requiredDecision href="#_5693fada-33cb-4a9e-bcfa-6fc343505538"/>
+        </semantic:authorityRequirement>
+    </semantic:knowledgeSource>
+    <semantic:textAnnotation id="_2be598cb-09bc-43c4-af77-646ca21eae45">
+        <semantic:text>Question: Repair cost split
+Answers: Renter %, EU-Rent %</semantic:text>
+    </semantic:textAnnotation>
+    <semantic:association id="_dacfeefd-7fe2-4dfd-8d0c-d99d963a785c">
+        <semantic:sourceRef href="#_5693fada-33cb-4a9e-bcfa-6fc343505538"/>
+        <semantic:targetRef href="#_2be598cb-09bc-43c4-af77-646ca21eae45"/>
+    </semantic:association>
+    <dmndi:DMNDI>
+        <dmndi:DMNDiagram id="_c371bacd-168a-45c4-9552-cceee2da23ef" triso:modelElementRef="_76c4d0cf-663b-40c1-a01b-8739ca4364a7" name="Car Damage Responsibility DRD">
+            <di:extension/>
+            <dmndi:Size height="411.9786796569824" width="869"/>
+            <dmndi:DMNShape id="_58bb6ba4-2079-49f9-873d-b7f05d6ac67c" dmnElementRef="_5693fada-33cb-4a9e-bcfa-6fc343505538">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="153"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="337.5" y="128.5" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_17396034-163a-48aa-9a7f-c6eb17f9cc6c_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_5c3b25ee-3a0f-4eb0-9e09-c1850e3332f1" dmnElementRef="_90aab494-9458-4b43-bdf4-0a82c22761b3">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="255"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="446" y="296.5" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_17396034-163a-48aa-9a7f-c6eb17f9cc6c_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_14b015e0-049e-45c9-ad63-2ad69cb05fcc" dmnElementRef="_48fa7a11-feea-4fbc-843d-ddba575cb43e">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="204" green="255" blue="255"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="668" y="292.0213203430176" width="100" height="69.95735931396484"/>
+                <dmndi:DMNLabel sharedStyle="LS_17396034-163a-48aa-9a7f-c6eb17f9cc6c_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_3ac0b839-4a78-4f5e-b0ec-ac4c51a21529" dmnElementRef="_46252761-a3a1-4628-ae06-4b3652116f61">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="255"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="247.2588291168213" y="296.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_17396034-163a-48aa-9a7f-c6eb17f9cc6c_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_64ec13a0-d48f-4df9-9578-bba9c24764e5" dmnElementRef="_08793113-0699-46bc-b9ea-101caafae621">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="204" green="255" blue="255"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="50" y="292.0213203430176" width="100" height="69.95735931396484"/>
+                <dmndi:DMNLabel sharedStyle="LS_17396034-163a-48aa-9a7f-c6eb17f9cc6c_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_0883b142-5e94-44bd-a08d-27f93e49cd4b" dmnElementRef="_2be598cb-09bc-43c4-af77-646ca21eae45">
+                <dc:Bounds x="605" y="163.5" width="226" height="36.80000305175781"/>
+                <dmndi:DMNLabel sharedStyle="LS_17396034-163a-48aa-9a7f-c6eb17f9cc6c_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_2a22bf81-0640-4161-a730-1f3b65360e25" dmnElementRef="_e6ef89a8-1ad7-4791-aabe-c668d6bb56c4">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="255"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="80.5" y="129" width="152" height="59"/>
+                <dmndi:DMNLabel sharedStyle="LS_17396034-163a-48aa-9a7f-c6eb17f9cc6c_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_72132733-52bc-410f-bce0-c753ed1a4497" dmnElementRef="_b5bfeccc-1f14-401f-bc1f-817ab0b49192">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="204" green="255" blue="255"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="500.5" y="22.338803024292048" width="141" height="98.63987663269037"/>
+                <dmndi:DMNLabel sharedStyle="LS_17396034-163a-48aa-9a7f-c6eb17f9cc6c_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="_ce58e85b-c9dd-4b17-8ea0-3390954ac339" dmnElementRef="_ce2569d7-2b1c-45c4-9148-2dcedab0dbd2" sourceElement="_5c3b25ee-3a0f-4eb0-9e09-c1850e3332f1" targetElement="_14b015e0-049e-45c9-ad63-2ad69cb05fcc">
+                <di:waypoint x="581.4823417663574" y="326.50000381469727"/>
+                <di:waypoint x="668" y="326.42132034301756"/>
+                <dmndi:DMNLabel sharedStyle="LS_17396034-163a-48aa-9a7f-c6eb17f9cc6c_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_8d5342a3-d9b1-4ce5-ac7c-016386705cca" dmnElementRef="_25c52bdb-8084-4262-b9e3-3ab8bc54b76b" sourceElement="_3ac0b839-4a78-4f5e-b0ec-ac4c51a21529" targetElement="_64ec13a0-d48f-4df9-9578-bba9c24764e5">
+                <di:waypoint x="247.2588291168213" y="327"/>
+                <di:waypoint x="150" y="326.5213203430176"/>
+                <dmndi:DMNLabel sharedStyle="LS_17396034-163a-48aa-9a7f-c6eb17f9cc6c_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_e3fbb289-7f94-4601-9a13-00f07fe1083b" dmnElementRef="_a77039f2-58a4-4c5e-b94b-157559b5a325" sourceElement="_3ac0b839-4a78-4f5e-b0ec-ac4c51a21529" targetElement="_58bb6ba4-2079-49f9-873d-b7f05d6ac67c">
+                <di:waypoint x="315" y="296.99999618530273"/>
+                <di:waypoint x="377.5" y="188.5"/>
+                <dmndi:DMNLabel sharedStyle="LS_17396034-163a-48aa-9a7f-c6eb17f9cc6c_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_d719def5-2507-4d6d-b313-d759116a0539" dmnElementRef="_15f3f920-7e7d-49b9-a9ae-8685c89fde94" sourceElement="_5c3b25ee-3a0f-4eb0-9e09-c1850e3332f1" targetElement="_58bb6ba4-2079-49f9-873d-b7f05d6ac67c">
+                <di:waypoint x="513.7411708831787" y="296.5"/>
+                <di:waypoint x="457.5" y="188.5"/>
+                <dmndi:DMNLabel sharedStyle="LS_17396034-163a-48aa-9a7f-c6eb17f9cc6c_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_3c94ca79-176e-4466-9d75-a8ba4cbe664b" dmnElementRef="_dacfeefd-7fe2-4dfd-8d0c-d99d963a785c" sourceElement="_58bb6ba4-2079-49f9-873d-b7f05d6ac67c" targetElement="_0883b142-5e94-44bd-a08d-27f93e49cd4b">
+                <di:waypoint x="490.5" y="148.5"/>
+                <di:waypoint x="607" y="191.25"/>
+                <dmndi:DMNLabel sharedStyle="LS_17396034-163a-48aa-9a7f-c6eb17f9cc6c_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_48e13e21-6327-4016-afa4-2b674f7e70ea" dmnElementRef="_e7c350d9-ab1f-474b-8565-9994c2e98a63" sourceElement="_2a22bf81-0640-4161-a730-1f3b65360e25" targetElement="_58bb6ba4-2079-49f9-873d-b7f05d6ac67c">
+                <di:waypoint x="232.5" y="158"/>
+                <di:waypoint x="337.5" y="158.5"/>
+                <dmndi:DMNLabel sharedStyle="LS_17396034-163a-48aa-9a7f-c6eb17f9cc6c_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_cc04db9e-1053-41fa-b4b4-4cb0ba8b701b" dmnElementRef="_c378eb06-9297-4097-a296-594b9f262907" sourceElement="_58bb6ba4-2079-49f9-873d-b7f05d6ac67c" targetElement="_72132733-52bc-410f-bce0-c753ed1a4497">
+                <di:waypoint x="454" y="128.5"/>
+                <di:waypoint x="500.5" y="70.84280302429201"/>
+                <dmndi:DMNLabel sharedStyle="LS_17396034-163a-48aa-9a7f-c6eb17f9cc6c_0"/>
+            </dmndi:DMNEdge>
+        </dmndi:DMNDiagram>
+        <dmndi:DMNStyle id="LS_17396034-163a-48aa-9a7f-c6eb17f9cc6c_0" fontFamily="arial,helvetica,sans-serif" fontSize="11" fontBold="false" fontItalic="false" fontUnderline="false" fontStrikeThrough="false"/>
+    </dmndi:DMNDI>
+</semantic:definitions>

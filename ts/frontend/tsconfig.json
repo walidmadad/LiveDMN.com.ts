@@ -1,0 +1,13 @@
+{ // frontend
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "ES6",
+    "moduleResolution": "Node",
+    "outDir": "../../dist",
+    "rootDir": "..", // ".." pour récuperer des fichiers source en dehors du rép. 'frontend'
+    "strict": true
+  },
+  "include": [
+    "./**/*"
+  ]
+}

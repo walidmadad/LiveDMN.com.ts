@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_1d6qbsi" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.19.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.4.0">
+  <decision id="Decision_0cdxxbt" name="Get product Nutri-Score">
+    <decisionTable id="DecisionTable_0gkk3e8">
+      <input id="Input_1" label="URL" biodi:width="264">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>"https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv.gz"</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_19oi63m" label="image_nutrition_url">
+        <inputExpression id="LiteralExpression_1d9ceoa" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="nutriscore_grade" typeRef="string" biodi:width="440">
+        <outputValues id="UnaryTests_1d4yddx">
+          <text>"A","B","C","D","E","UNKNOWN"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_0s1ocyt">
+        <description>https://nikku.github.io/feel-playground/?e=%7E3YCAkICngYCAgICAgICyGwgxA%2FSbLq2lG4S%2BLEIqYkJk5DXO7KSE9SI4GrjkHbRmNF86ULSf1tU8eZYDTZL3uY4OZdVWgpNoCpUgsnuYD%2F1WTzxGdn4f7QLCtlBntEaHdiH2drj9M51D7ptpassR5i2vlRWmeB66%2BC2V9mO1ZVBMJITJSlc3Wp50hEm5lTEYnl1qw%2BavgSuM7o3QDy4SFu0W6u0dANQ3YMgvb3rbECIyxFPCorWL6%2FOF53Sf%2BwenO8nXf5EYIIA%3D&amp;c=%7E3YCAkIBwgICAgICAgIC9AgCXnKKJZKm0HunHpbrnHsAy2GU6yik9ulwHIbN2IgO4%2BD7kVcBC6IK17OYk7jLOLnhLNNNUqKXB8Mo78vCQFgJ7%2FzcPrayOoUqigQVzjx64YzZ0gDdOcMFi6GYOKXEIIPC%2BdKKB2EPLVn%2BHqV6pc5t3%2BpTzXoaE7C8n15c2NBWCJZGINzxztT7Bn8zX2Jg0uTeSSAN%2BATyA&amp;t=expression&amp;st=true</description>
+        <inputEntry id="UnaryTests_03lcdot">
+          <text>ends with(?,"https://static.openfoodfacts.org/data/en.openfoodfacts.org.products.csv.gz")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_100lyq9">
+          <text>starts with(?, "https://") and (ends with(?, ".jpg") or ends with(?, ".png"))</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1rkcr1j">
+          <text>upper case(?) in ["A","B","C","D","E","UNKNOWN"]</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0cdxxbt">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

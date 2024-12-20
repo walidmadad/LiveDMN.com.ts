@@ -1,0 +1,11 @@
+{
+  "action": "FEEL",
+  "data": [
+    {
+      "Admitted via Emergency department": true
+    },
+    {
+      "Admitted via Emergency department": false
+    }
+  ]
+}

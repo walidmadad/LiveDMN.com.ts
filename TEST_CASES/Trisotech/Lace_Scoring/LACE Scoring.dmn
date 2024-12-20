@@ -1,0 +1,854 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<semantic:definitions xmlns:semantic="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:rss="http://purl.org/rss/2.0/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:feel="https://www.omg.org/spec/DMN/20191111/FEEL/" xmlns:trisofeed="http://trisotech.com/feed" xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:triso="http://www.trisotech.com/2015/triso/modeling" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"            xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase"  xmlns:drools="http://www.drools.org/kie/dmn/1.1"  xmlns:openapi="https://openapis.org/omg/extension/1.0"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:boxedext="https://www.trisotech.com/spec/DMN/20191111/EXT/"   xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns="http://www.trisotech.com/definitions/_351c3446-58de-4588-a5b5-7daa976ff541" id="_351c3446-58de-4588-a5b5-7daa976ff541" name="LACE Scoring" namespace="http://www.trisotech.com/definitions/_351c3446-58de-4588-a5b5-7daa976ff541" exporter="Decision Modeler" exporterVersion="8.11.0" xml:lang="en" triso:logoChoice="Default" triso:version="1.1" triso:state="Published">
+    <semantic:extensionElements/>
+    <semantic:itemDefinition name="tConditions" label="tConditions" isCollection="false">
+        <semantic:typeRef>string</semantic:typeRef>
+        <semantic:allowedValues>
+            <semantic:extensionElements>
+                <triso:constraintDetails id="_5d19b4cb-a093-44a2-9975-35f2f32303f6" constraintsType="enumeration">
+                    <triso:value>"Previous Myocardial Infarction","Cerebrovascular Disease","Peripheral Vascular Disease","Diabetes without Complications","Congestive Heart Failure","Diabetes with End Organ Damage","Chronic Pulmonary Disease","Mild Liver Disease","Renal Disease","Tumor","Dementia","Connective Tissue Disease","AIDS","Moderate or Severe Liver Disease","Metastatic Solid Tumor"</triso:value>
+                    <triso:display>"Previous Myocardial Infarction", "Cerebrovascular Disease", "Peripheral Vascular Disease", "Diabetes without Complications", "Congestive Heart Failure", "Diabetes with End Organ Damage", "Chronic Pulmonary Disease", "Mild Liver Disease", "Renal Disease", "Tumor", "Dementia", "Connective Tissue Disease", "AIDS", "Moderate or Severe Liver Disease", "Metastatic Solid Tumor"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Previous Myocardial Infarction"</triso:value>
+                        <triso:display>"Previous Myocardial Infarction"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Cerebrovascular Disease"</triso:value>
+                        <triso:display>"Cerebrovascular Disease"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Peripheral Vascular Disease"</triso:value>
+                        <triso:display>"Peripheral Vascular Disease"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Diabetes without Complications"</triso:value>
+                        <triso:display>"Diabetes without Complications"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Congestive Heart Failure"</triso:value>
+                        <triso:display>"Congestive Heart Failure"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Diabetes with End Organ Damage"</triso:value>
+                        <triso:display>"Diabetes with End Organ Damage"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Chronic Pulmonary Disease"</triso:value>
+                        <triso:display>"Chronic Pulmonary Disease"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Mild Liver Disease"</triso:value>
+                        <triso:display>"Mild Liver Disease"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Renal Disease"</triso:value>
+                        <triso:display>"Renal Disease"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Tumor"</triso:value>
+                        <triso:display>"Tumor"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Dementia"</triso:value>
+                        <triso:display>"Dementia"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Connective Tissue Disease"</triso:value>
+                        <triso:display>"Connective Tissue Disease"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"AIDS"</triso:value>
+                        <triso:display>"AIDS"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Moderate or Severe Liver Disease"</triso:value>
+                        <triso:display>"Moderate or Severe Liver Disease"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Metastatic Solid Tumor"</triso:value>
+                        <triso:display>"Metastatic Solid Tumor"</triso:display>
+                    </triso:choices>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>"Previous Myocardial Infarction","Cerebrovascular Disease","Peripheral Vascular Disease","Diabetes without Complications","Congestive Heart Failure","Diabetes with End Organ Damage","Chronic Pulmonary Disease","Mild Liver Disease","Renal Disease","Tumor","Dementia","Connective Tissue Disease","AIDS","Moderate or Severe Liver Disease","Metastatic Solid Tumor"</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:itemDefinition name="tListofConditions" label="tListofConditions" isCollection="true">
+        <semantic:typeRef>tConditions</semantic:typeRef>
+    </semantic:itemDefinition>
+    <semantic:decisionService id="_351c3446-58de-4588-a5b5-7daa976ff541_DS" name="Whole Model Decision Service" triso:dynamicDecisionService="true" triso:wholeModelService="true">
+        <semantic:variable name="Whole Model Decision Service" id="_351c3446-58de-4588-a5b5-7daa976ff541_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_b4edcc55-1c34-45f3-863d-951597da310b"/>
+        <semantic:encapsulatedDecision href="#_0acce398-d29d-43a6-ad65-12791b63def2"/>
+        <semantic:encapsulatedDecision href="#_c46fde95-5dcc-4629-ac28-5c16f1195021"/>
+        <semantic:encapsulatedDecision href="#_7efeb518-fbdf-4faa-81e6-a6efd98c9ee9"/>
+        <semantic:encapsulatedDecision href="#_0cce81a4-c52c-48a1-8cc9-5c6e30a02cf0"/>
+        <semantic:encapsulatedDecision href="#_11813a07-e5b2-43bd-b2d4-e7d125be7e0c"/>
+        <semantic:encapsulatedDecision href="#_2f428a36-360f-4d1d-a84b-3aaef3ef5242"/>
+        <semantic:inputData href="#_508276cb-4b23-4db0-b11e-73ea5e3e274a"/>
+        <semantic:inputData href="#_85a0b269-aa7f-41ab-bf34-6f2b5f407a50"/>
+        <semantic:inputData href="#_7183a5af-2a7a-4fe1-9ac4-98a99eac9ff4"/>
+        <semantic:inputData href="#_bfb80cb6-4d76-4ac8-8cc3-75a4dd4d8743"/>
+    </semantic:decisionService>
+    <semantic:decisionService id="_5b56b6f2-acfd-414d-b63f-d5398806152d_DS" name="Diagram LACE DRD" triso:dynamicDecisionService="true">
+        <semantic:variable name="Diagram LACE DRD" id="_5b56b6f2-acfd-414d-b63f-d5398806152d_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_b4edcc55-1c34-45f3-863d-951597da310b"/>
+        <semantic:encapsulatedDecision href="#_0acce398-d29d-43a6-ad65-12791b63def2"/>
+        <semantic:encapsulatedDecision href="#_c46fde95-5dcc-4629-ac28-5c16f1195021"/>
+        <semantic:encapsulatedDecision href="#_7efeb518-fbdf-4faa-81e6-a6efd98c9ee9"/>
+        <semantic:encapsulatedDecision href="#_0cce81a4-c52c-48a1-8cc9-5c6e30a02cf0"/>
+        <semantic:encapsulatedDecision href="#_11813a07-e5b2-43bd-b2d4-e7d125be7e0c"/>
+        <semantic:encapsulatedDecision href="#_2f428a36-360f-4d1d-a84b-3aaef3ef5242"/>
+        <semantic:inputData href="#_508276cb-4b23-4db0-b11e-73ea5e3e274a"/>
+        <semantic:inputData href="#_85a0b269-aa7f-41ab-bf34-6f2b5f407a50"/>
+        <semantic:inputData href="#_7183a5af-2a7a-4fe1-9ac4-98a99eac9ff4"/>
+        <semantic:inputData href="#_bfb80cb6-4d76-4ac8-8cc3-75a4dd4d8743"/>
+    </semantic:decisionService>
+    <semantic:inputData id="_508276cb-4b23-4db0-b11e-73ea5e3e274a" name="List of Conditions">
+        <semantic:variable name="List of Conditions" id="_5e6abf3e-fc0b-4cba-b13d-ead923114f6d" typeRef="tListofConditions"/>
+    </semantic:inputData>
+    <semantic:businessKnowledgeModel id="_ef961523-5ca9-48fe-8ac5-53e5919bba51" name="Comorbidity Score">
+        <semantic:description>&lt;p&gt;The Charlson Co-Morbidity Index&lt;/p&gt;</semantic:description>
+        <semantic:variable name="Comorbidity Score" id="_6ed1dadb-0331-43c2-8f30-6c58209cbdc8" typeRef="number"/>
+        <semantic:encapsulatedLogic typeRef="number" triso:descriptionVisible="false" triso:expressionId="_d57cad3c-8424-4c44-9b40-fc55d3157e79">
+            <semantic:formalParameter name="Conditions" typeRef="tConditions"/>
+            <semantic:decisionTable id="_c290d156-6d98-4ebc-9733-ed91de4f085b" hitPolicy="COLLECT" outputLabel="Comorbidity Score" aggregation="SUM" typeRef="number">
+                <semantic:input id="_e445d148-fdbd-47df-a896-d99671c41fee" label="Conditions">
+                    <semantic:inputExpression typeRef="tConditions">
+                        <semantic:text>Conditions</semantic:text>
+                    </semantic:inputExpression>
+                    <semantic:inputValues triso:constraintsType="enumeration">
+                        <semantic:text>"Previous Myocardial Infarction","Cerebrovascular Disease","Peripheral Vascular Disease","Diabetes without Complications","Congestive Heart Failure","Diabetes with End Organ Damage","Chronic Pulmonary Disease","Mild Liver Disease","Renal Disease","Tumor","Dementia","Connective Tissue Disease","AIDS","Moderate or Severe Liver Disease","Metastatic Solid Tumor"</semantic:text>
+                    </semantic:inputValues>
+                </semantic:input>
+                <semantic:output id="_e1bcada7-eab9-4c6e-b2ed-faea8d6ca683"/>
+                <semantic:annotation name="Description"/>
+                <semantic:rule id="_139bd224-412f-47bb-8016-0d8cf6a42d21">
+                    <semantic:inputEntry id="_46dba350-62b8-4efb-9533-1c8d3185d58d">
+                        <semantic:text>"Previous Myocardial Infarction"</semantic:text>
+                    </semantic:inputEntry>
+                    <semantic:outputEntry id="_fba4f588-a4c6-450f-8886-7475e16ca69a">
+                        <semantic:text>1</semantic:text>
+                    </semantic:outputEntry>
+                    <semantic:annotationEntry>
+                        <semantic:text/>
+                    </semantic:annotationEntry>
+                </semantic:rule>
+                <semantic:rule id="_891f1e56-1323-41a0-8e1b-cb2a9d42a6a5">
+                    <semantic:inputEntry id="_3db33a28-9f5e-4216-8eca-62e05a8869cf">
+                        <semantic:text>"Cerebrovascular Disease"</semantic:text>
+                    </semantic:inputEntry>
+                    <semantic:outputEntry id="_ec12ea9e-512a-4400-adae-26efa3d5210c">
+                        <semantic:text>1</semantic:text>
+                    </semantic:outputEntry>
+                    <semantic:annotationEntry>
+                        <semantic:text/>
+                    </semantic:annotationEntry>
+                </semantic:rule>
+                <semantic:rule id="_1ffd9a4e-e0e9-48ab-be68-b6ce2dea8284">
+                    <semantic:inputEntry id="_b3c4e644-7c7f-43c3-bdf6-12512e3f792c">
+                        <semantic:text>"Peripheral Vascular Disease"</semantic:text>
+                    </semantic:inputEntry>
+                    <semantic:outputEntry id="_0204ef64-efe4-433a-a81f-6ea2f336af6e">
+                        <semantic:text>1</semantic:text>
+                    </semantic:outputEntry>
+                    <semantic:annotationEntry>
+                        <semantic:text/>
+                    </semantic:annotationEntry>
+                </semantic:rule>
+                <semantic:rule id="_07874512-d301-481a-87f7-4443c1075fd6">
+                    <semantic:inputEntry id="_7f897d6d-c9de-485d-af24-e66d44efd1d4">
+                        <semantic:text>"Diabetes without Complications"</semantic:text>
+                    </semantic:inputEntry>
+                    <semantic:outputEntry id="_38aec780-59e3-4422-9f4a-a008aeb61a47">
+                        <semantic:text>1</semantic:text>
+                    </semantic:outputEntry>
+                    <semantic:annotationEntry>
+                        <semantic:text/>
+                    </semantic:annotationEntry>
+                </semantic:rule>
+                <semantic:rule id="_d10b54b2-44cd-4d9f-933d-855134a8afb0">
+                    <semantic:inputEntry id="_911eeb6b-fb09-4e57-8fc2-28f588e51154">
+                        <semantic:text>"Congestive Heart Failure"</semantic:text>
+                    </semantic:inputEntry>
+                    <semantic:outputEntry id="_1ef4ac64-03b5-4d1d-aa67-6f27d8afc479">
+                        <semantic:text>2</semantic:text>
+                    </semantic:outputEntry>
+                    <semantic:annotationEntry>
+                        <semantic:text/>
+                    </semantic:annotationEntry>
+                </semantic:rule>
+                <semantic:rule id="_1ebaa1e7-bd1b-4b61-8a2e-5e1b21be8052">
+                    <semantic:inputEntry id="_3a0f7a42-e476-4819-a120-d49ddf330e75">
+                        <semantic:text>"Diabetes with End Organ Damage"</semantic:text>
+                    </semantic:inputEntry>
+                    <semantic:outputEntry id="_29ae9c6d-4a6d-41b4-8c07-f1af9400028b">
+                        <semantic:text>2</semantic:text>
+                    </semantic:outputEntry>
+                    <semantic:annotationEntry>
+                        <semantic:text/>
+                    </semantic:annotationEntry>
+                </semantic:rule>
+                <semantic:rule id="_e9acfb0f-2659-4c13-bede-c9e4fdcfc77b">
+                    <semantic:inputEntry id="_49ad67b8-4943-41cd-8ffb-29626c175957">
+                        <semantic:text>"Chronic Pulmonary Disease"</semantic:text>
+                    </semantic:inputEntry>
+                    <semantic:outputEntry id="_f4a610be-8f3c-42bf-923b-5d34257c18bd">
+                        <semantic:text>2</semantic:text>
+                    </semantic:outputEntry>
+                    <semantic:annotationEntry>
+                        <semantic:text/>
+                    </semantic:annotationEntry>
+                </semantic:rule>
+                <semantic:rule id="_5e9d03b0-b609-45d2-85d6-5fd15390549f">
+                    <semantic:inputEntry id="_d827152e-aee7-410e-b2c1-993f9a518d08">
+                        <semantic:text>"Mild Liver Disease"</semantic:text>
+                    </semantic:inputEntry>
+                    <semantic:outputEntry id="_04e4d131-60f3-4340-b625-0489475f40ad">
+                        <semantic:text>2</semantic:text>
+                    </semantic:outputEntry>
+                    <semantic:annotationEntry>
+                        <semantic:text/>
+                    </semantic:annotationEntry>
+                </semantic:rule>
+                <semantic:rule id="_b23d44a1-11a2-487a-8ef1-d32677eba1d8">
+                    <semantic:inputEntry id="_120110a7-05f7-44ef-9d1a-a7a8df0faaa5">
+                        <semantic:text>"Renal Disease"</semantic:text>
+                    </semantic:inputEntry>
+                    <semantic:outputEntry id="_c5fac85e-6864-42ae-bd27-837cbbadc1d6">
+                        <semantic:text>2</semantic:text>
+                    </semantic:outputEntry>
+                    <semantic:annotationEntry>
+                        <semantic:text/>
+                    </semantic:annotationEntry>
+                </semantic:rule>
+                <semantic:rule id="_c3867d7e-05c1-436b-ad0d-c56d42690c32">
+                    <semantic:inputEntry id="_651db9a0-c464-4123-bda6-75b500ff18d9">
+                        <semantic:text>"Tumor"</semantic:text>
+                    </semantic:inputEntry>
+                    <semantic:outputEntry id="_fc07f577-d3d9-43c0-9f0c-cd63f3dfd098">
+                        <semantic:text>2</semantic:text>
+                    </semantic:outputEntry>
+                    <semantic:annotationEntry>
+                        <semantic:text/>
+                    </semantic:annotationEntry>
+                </semantic:rule>
+                <semantic:rule id="_2c4e4e10-5fc9-49fa-9f5e-90f5f1ac0565">
+                    <semantic:inputEntry id="_8bec9cc7-6523-4319-8513-b63334283361">
+                        <semantic:text>"Dementia"</semantic:text>
+                    </semantic:inputEntry>
+                    <semantic:outputEntry id="_eb84f83b-14ba-4d68-882f-336783ba55aa">
+                        <semantic:text>3</semantic:text>
+                    </semantic:outputEntry>
+                    <semantic:annotationEntry>
+                        <semantic:text/>
+                    </semantic:annotationEntry>
+                </semantic:rule>
+                <semantic:rule id="_2bebd275-996f-4fe1-a914-62eb3253cf4d">
+                    <semantic:inputEntry id="_7eb0b0b6-2f57-4eb9-9ebf-ba227e1b26d6">
+                        <semantic:text>"Connective Tissue Disease"</semantic:text>
+                    </semantic:inputEntry>
+                    <semantic:outputEntry id="_74ce275c-344b-4b53-9cdd-518de3075161">
+                        <semantic:text>3</semantic:text>
+                    </semantic:outputEntry>
+                    <semantic:annotationEntry>
+                        <semantic:text/>
+                    </semantic:annotationEntry>
+                </semantic:rule>
+                <semantic:rule id="_56c47e60-aae7-49d5-9556-09b9061be944">
+                    <semantic:inputEntry id="_f0dc7fa9-f8c4-4a9a-b592-35241b01f3df">
+                        <semantic:text>"AIDS"</semantic:text>
+                    </semantic:inputEntry>
+                    <semantic:outputEntry id="_d1bdfed8-a7a7-47ae-8962-4ae07b2b6df2">
+                        <semantic:text>4</semantic:text>
+                    </semantic:outputEntry>
+                    <semantic:annotationEntry>
+                        <semantic:text/>
+                    </semantic:annotationEntry>
+                </semantic:rule>
+                <semantic:rule id="_72e89eb8-d2dc-4f1c-9d41-7f82a19faa10">
+                    <semantic:inputEntry id="_5bffc119-96ed-4434-bdda-049362a6cded">
+                        <semantic:text>"Moderate or Severe Liver Disease"</semantic:text>
+                    </semantic:inputEntry>
+                    <semantic:outputEntry id="_b7e96b4c-3aa2-4a48-b5d7-daf928790b34">
+                        <semantic:text>4</semantic:text>
+                    </semantic:outputEntry>
+                    <semantic:annotationEntry>
+                        <semantic:text/>
+                    </semantic:annotationEntry>
+                </semantic:rule>
+                <semantic:rule id="_f4f5c6ca-295d-4609-b700-333b23383f82">
+                    <semantic:inputEntry id="_60085970-c98a-4a46-a7b2-5099ff5030c7">
+                        <semantic:text>"Metastatic Solid Tumor"</semantic:text>
+                    </semantic:inputEntry>
+                    <semantic:outputEntry id="_ac00e5ab-28e7-45a9-ae9e-28a961a1770d">
+                        <semantic:text>6</semantic:text>
+                    </semantic:outputEntry>
+                    <semantic:annotationEntry>
+                        <semantic:text/>
+                    </semantic:annotationEntry>
+                </semantic:rule>
+            </semantic:decisionTable>
+        </semantic:encapsulatedLogic>
+    </semantic:businessKnowledgeModel>
+    <semantic:decision id="_0acce398-d29d-43a6-ad65-12791b63def2" name="C Score">
+        <semantic:description>&lt;p&gt;&amp;ldquo;C&amp;rdquo; stands for co-morbidities, incorporating the Charlson Co-Morbidity Index.&lt;/p&gt;
+&lt;p&gt;If the Total is between 0 and 3 enter the total into the score. If total is 5 or higher, enter 5 into the score.&lt;/p&gt;</semantic:description>
+        <semantic:question>What is the C Score (Comorbidities) of the patient?</semantic:question>
+        <semantic:allowedAnswers>0
+1
+2
+3
+5</semantic:allowedAnswers>
+        <semantic:variable name="C Score" id="_c20e9e9a-2cf1-4010-959e-e803473c9b1c" typeRef="number"/>
+        <semantic:informationRequirement id="_5d13471a-1782-4ef9-9200-5426df373db2">
+            <semantic:requiredDecision href="#_c46fde95-5dcc-4629-ac28-5c16f1195021"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_c1b1b48f-5b59-42d2-987a-a30ec811d5ee" hitPolicy="UNIQUE" outputLabel="C Score" typeRef="number" triso:expressionId="_bc582140-5d7c-44be-ac06-b306e89585af">
+            <semantic:input id="_0fe88af5-b85a-452a-98a8-367bef567eb9" label="Comorbidity Score for Listed Conditions">
+                <semantic:inputExpression typeRef="number">
+                    <semantic:text>Comorbidity Score for Listed Conditions</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="expression">
+                    <semantic:text>&gt;=0</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:output id="_e54b5e61-ba90-4c7f-9205-f1c5c8f0d1a8">
+                <semantic:outputValues triso:constraintsType="enumeration">
+                    <semantic:text>0,1,2,3,5</semantic:text>
+                </semantic:outputValues>
+                <semantic:defaultOutputEntry>
+                    <semantic:text>0</semantic:text>
+                </semantic:defaultOutputEntry>
+            </semantic:output>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_f2300b0f-4ff5-4ea4-a443-0265f256314f">
+                <semantic:inputEntry id="_e39df81b-6b66-477f-8c8c-05518a4e212e" expressionLanguage="https://www.omg.org/spec/DMN/20191111/FEEL/" triso:unparsed="false">
+                    <semantic:text>0</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_41ff0551-a08b-4d5b-bd6e-9ba3100150dc">
+                    <semantic:text>0</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_c2a4bd6f-869d-4639-b13f-936977acb989">
+                <semantic:inputEntry id="_3b968701-fe76-450e-a132-f27c4f0721e8">
+                    <semantic:text>1</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_50e4a2e2-6727-4fae-bae0-3d7f132d9a63">
+                    <semantic:text>1</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_ef0a93d0-b772-4fec-9395-95ace5c3853d">
+                <semantic:inputEntry id="_8a7cdb52-0d49-4e1a-8e61-931bd3dd3dea">
+                    <semantic:text>2</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_59d8b5d8-96ac-40c3-a555-dc49b54303af">
+                    <semantic:text>2</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_84190538-c52a-4564-b6b0-fcd3b6d05fb5">
+                <semantic:inputEntry id="_9edc67f8-a7e4-44dd-aadd-49b2a60a6067">
+                    <semantic:text>3</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_25314b18-c10d-4e0c-afd2-27f5af59de58">
+                    <semantic:text>3</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_fae2c590-6b53-4e15-9f9b-a2d64481698b">
+                <semantic:inputEntry id="_9bf5ba81-34ce-4e88-ac92-f09843873a82">
+                    <semantic:text>&gt;= 4</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_018e04ad-edca-46ef-a34b-60e63b7ad638">
+                    <semantic:text>5</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:decision id="_c46fde95-5dcc-4629-ac28-5c16f1195021" name="Comorbidity Score for Listed Conditions">
+        <semantic:description>&lt;p&gt;Given a provided "List of Conditions" determine the Comorbidity Score.&lt;/p&gt;
+&lt;p&gt;The Comorbidity Score is obtained by iterating though the list of conditions and accumulating a value based on the&amp;nbsp;Charlson Co-Morbidity Index.&lt;/p&gt;</semantic:description>
+        <semantic:variable name="Comorbidity Score for Listed Conditions" id="_2587bc73-e416-418a-b196-4b2240b8c1a2" typeRef="number"/>
+        <semantic:informationRequirement id="_b58032b4-bcc4-4984-96cf-6f35889960e9">
+            <semantic:requiredInput href="#_508276cb-4b23-4db0-b11e-73ea5e3e274a"/>
+        </semantic:informationRequirement>
+        <semantic:knowledgeRequirement id="_3f865c1c-9536-4056-8220-009cd47f60c7">
+            <semantic:requiredKnowledge href="#_ef961523-5ca9-48fe-8ac5-53e5919bba51"/>
+        </semantic:knowledgeRequirement>
+        <semantic:literalExpression id="_c3118c9e-c1c4-463d-a16f-a09e7f54b5e6" triso:descriptionVisible="false" typeRef="number" triso:expressionId="_99b8622d-1ad1-48c1-b94d-8be21d9e3d7e">
+            <semantic:text>if count(List of Conditions) &gt; 0 then sum(for i in List of Conditions return Comorbidity Score(i)) else 0</semantic:text>
+        </semantic:literalExpression>
+    </semantic:decision>
+    <semantic:decision id="_7efeb518-fbdf-4faa-81e6-a6efd98c9ee9" name="LACE Score">
+        <semantic:description>&lt;p&gt;The LACE index identifies patients that are at risk for readmission or death within thirty days of discharge. It incorporates four parameters.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;L&amp;rdquo; stands for the length of stay of the index admission.&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;A&amp;rdquo; stands for the acuity of the admission. Specifically, if the patient is admitted through the Emergency Department vs. an elective admission.&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;C&amp;rdquo; stands for co-morbidities, incorporating the Charlson Co-Morbidity Index.&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;E&amp;rdquo; stands for the number of Emergency Department visits within the last 6 months.&lt;/li&gt;
+&lt;/ul&gt;</semantic:description>
+        <semantic:question>What is the LACE score of the patient?</semantic:question>
+        <semantic:allowedAnswers>A number between 1 and 19</semantic:allowedAnswers>
+        <semantic:variable name="LACE Score" id="_617c55c8-f6f3-45bf-b78b-bf9a82ba2881" typeRef="number"/>
+        <semantic:informationRequirement id="_067c42f2-e64b-4445-94b4-e4d563f00c02">
+            <semantic:requiredDecision href="#_0cce81a4-c52c-48a1-8cc9-5c6e30a02cf0"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_17cf4751-73af-4799-971f-c297d61bb43e">
+            <semantic:requiredDecision href="#_11813a07-e5b2-43bd-b2d4-e7d125be7e0c"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_16a11012-85ca-40ea-a49a-b179b52ed2ce">
+            <semantic:requiredDecision href="#_2f428a36-360f-4d1d-a84b-3aaef3ef5242"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_5311ca16-a3c7-4082-8a2a-9eb05071925a">
+            <semantic:requiredDecision href="#_0acce398-d29d-43a6-ad65-12791b63def2"/>
+        </semantic:informationRequirement>
+        <semantic:literalExpression id="_2b298a23-8eed-44e1-b106-278e4e745900" triso:descriptionVisible="false" typeRef="number" triso:expressionId="_06987aa4-49bd-4238-ab77-c721c0afd195">
+            <semantic:text>L Score + A Score + C Score + E Score</semantic:text>
+        </semantic:literalExpression>
+    </semantic:decision>
+    <semantic:decision id="_0cce81a4-c52c-48a1-8cc9-5c6e30a02cf0" name="L Score">
+        <semantic:description>&lt;p&gt;&amp;ldquo;L&amp;rdquo; stands for the length of stay of the index admission.&lt;/p&gt;</semantic:description>
+        <semantic:question>What is the L Score (Length of Stay) of the Patient?</semantic:question>
+        <semantic:allowedAnswers>1
+2
+3
+4
+5
+7</semantic:allowedAnswers>
+        <semantic:variable name="L Score" id="_cc4cc775-bc99-4323-b42e-222ac097e84f" typeRef="number"/>
+        <semantic:informationRequirement id="_4e6042a0-e0c1-408f-bb4e-a9a1492b9ce2">
+            <semantic:requiredInput href="#_85a0b269-aa7f-41ab-bf34-6f2b5f407a50"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_8023c22d-4654-4956-80ff-bfa524acde48" hitPolicy="UNIQUE" outputLabel="L Score" typeRef="number" triso:expressionId="_47f08b10-2f8d-41a1-8a22-161058f9bd0a">
+            <semantic:input id="_4a16460c-8121-44ac-8c9a-0acef06655e6" label="Length of Stay">
+                <semantic:inputExpression typeRef="number">
+                    <semantic:text>Length of Stay</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="expression">
+                    <semantic:text>&gt;=0</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:output id="_9b1687a6-3f15-451e-871b-9a76633dbf60">
+                <semantic:outputValues triso:constraintsType="enumeration">
+                    <semantic:text>1,2,3,4,5,7</semantic:text>
+                </semantic:outputValues>
+                <semantic:defaultOutputEntry>
+                    <semantic:text>1</semantic:text>
+                </semantic:defaultOutputEntry>
+            </semantic:output>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_bff9331b-8fcf-4233-847c-0e70d3e4a348">
+                <semantic:inputEntry id="_7006fa08-c0bb-49dc-a142-d86760505b3e">
+                    <semantic:text>[1..1]</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_bae0cdc2-549e-49eb-b740-e9efd5d8acfa">
+                    <semantic:text>1</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_e803ba13-0e48-48e1-a18d-9fe43397d175">
+                <semantic:inputEntry id="_c219ac02-981d-490e-b9d3-5b1cd6cf8178">
+                    <semantic:text>[2..2]</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_48b3e0d9-cb00-463a-98a9-72b17557c58f">
+                    <semantic:text>2</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_3436caaa-2d3c-4fd2-9191-8d3450a1c7f0">
+                <semantic:inputEntry id="_092c95f7-eb20-4321-8ca2-a9c180019301">
+                    <semantic:text>[3..3]</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_92c815d8-f133-4fc0-9db2-eb704b8592a3">
+                    <semantic:text>3</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_2cf64c89-8fb7-4456-9b8a-ce60fca73eb3">
+                <semantic:inputEntry id="_252810d9-f50e-4b6b-a87c-b255c71e1ffb">
+                    <semantic:text>[4..6]</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_fb8e8162-e477-4bdd-a1cd-c22707ea23fa">
+                    <semantic:text>4</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_73152972-2b7b-4373-9e01-5d3e8bde459c">
+                <semantic:inputEntry id="_cd39cba4-a168-463d-8a7c-effec6832637">
+                    <semantic:text>[7..13]</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_9e37d688-b9b0-4a91-ab02-8582e618f968">
+                    <semantic:text>5</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_99e259f7-46b8-4743-85e1-c608f71a207f">
+                <semantic:inputEntry id="_c44a0cf3-717e-49a9-9c6b-127ef5ff483c">
+                    <semantic:text>&gt;= 14</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_cc5471bc-5bfc-41ae-ac70-8ce481156ade">
+                    <semantic:text>7</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:decision id="_11813a07-e5b2-43bd-b2d4-e7d125be7e0c" name="A Score">
+        <semantic:description>&lt;p&gt;&amp;ldquo;A&amp;rdquo; stands for the acuity of the admission. Specifically, if the patient is admitted through the Emergency Department vs. an elective admission.&lt;/p&gt;</semantic:description>
+        <semantic:question>What is the A Score (Acuity of Admission) of the patient?</semantic:question>
+        <semantic:allowedAnswers>0
+3</semantic:allowedAnswers>
+        <semantic:variable name="A Score" id="_0470ae99-2215-4891-922a-5da1934cc31b" typeRef="number"/>
+        <semantic:informationRequirement id="_2564ef2b-3b09-46a0-9f0e-5051066eb3ac">
+            <semantic:requiredInput href="#_7183a5af-2a7a-4fe1-9ac4-98a99eac9ff4"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_d3fb45fd-51a8-458b-83e9-6331b54c61cb" hitPolicy="UNIQUE" outputLabel="A Score" typeRef="number" triso:expressionId="_1a8b0cf2-47b1-4b87-afa4-5299865b9ec1">
+            <semantic:input id="_f1ddaab7-e954-4d6c-a297-3820c3cfcde6" label="Admitted via Emergency department">
+                <semantic:inputExpression typeRef="boolean">
+                    <semantic:text>Admitted via Emergency department</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:output id="_fb33b50e-9c9d-4821-96a5-53c39374ef24">
+                <semantic:outputValues triso:constraintsType="enumeration">
+                    <semantic:text>0,3</semantic:text>
+                </semantic:outputValues>
+                <semantic:defaultOutputEntry>
+                    <semantic:text>0</semantic:text>
+                </semantic:defaultOutputEntry>
+            </semantic:output>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_7c290a77-489d-4bce-9b37-40947cc363e6">
+                <semantic:inputEntry id="_ef111f6b-bd4c-455e-bed0-86e2ab920043">
+                    <semantic:text>false</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_00be92b2-ecd5-4556-a2b1-48c262fb0090">
+                    <semantic:text>0</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_27f0a0f9-effb-401a-b99c-56cf00f986b4">
+                <semantic:inputEntry id="_be735a9e-e7ce-4319-9c2a-22fd4ca8fb88">
+                    <semantic:text>true</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_02e99cf2-a0df-41ca-a283-1cf774de0eb1">
+                    <semantic:text>3</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:inputData id="_85a0b269-aa7f-41ab-bf34-6f2b5f407a50" name="Length of Stay">
+        <semantic:description>&lt;p&gt;Length of stay (including day of admission and discharge)&lt;/p&gt;</semantic:description>
+        <semantic:variable name="Length of Stay" id="_ca482f48-309c-4d0d-ac33-6cac2dbcf808" typeRef="number"/>
+    </semantic:inputData>
+    <semantic:inputData id="_7183a5af-2a7a-4fe1-9ac4-98a99eac9ff4" name="Admitted via Emergency department">
+        <semantic:variable name="Admitted via Emergency department" id="_0b7a579e-900e-49e7-96aa-b175b94af935" typeRef="boolean"/>
+    </semantic:inputData>
+    <semantic:decision id="_2f428a36-360f-4d1d-a84b-3aaef3ef5242" name="E Score">
+        <semantic:description>&lt;p&gt;&amp;ldquo;E&amp;rdquo; stands for the number of Emergency Department visits within the last 6 months.&lt;/p&gt;</semantic:description>
+        <semantic:question>What is the E Score (Emergency Department Visits) of the patient?</semantic:question>
+        <semantic:allowedAnswers>0
+1
+2
+3
+4</semantic:allowedAnswers>
+        <semantic:variable name="E Score" id="_50506739-a74c-49f7-8a92-6ec63f1c3ceb" typeRef="number"/>
+        <semantic:informationRequirement id="_0efe891b-52fa-4130-b205-a42aa8ffb1e8">
+            <semantic:requiredInput href="#_bfb80cb6-4d76-4ac8-8cc3-75a4dd4d8743"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_ec2d158c-0fcf-48c4-99c7-e68a334bdda2" hitPolicy="UNIQUE" outputLabel="E Score" typeRef="number" triso:expressionId="_2ffb26bf-2c59-4ef6-8de8-1b994e062376">
+            <semantic:input id="_b05f5de4-f324-43fe-9c75-0ce9038f060c" label="Number of Emergency Visits within the last 6 Months">
+                <semantic:inputExpression typeRef="number">
+                    <semantic:text>Number of Emergency Visits within the last 6 Months</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="expression">
+                    <semantic:text>&gt;=0</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:output id="_55c2dc04-659f-4b1e-a627-8a5b147beeda">
+                <semantic:outputValues triso:constraintsType="enumeration">
+                    <semantic:text>0,1,2,3,4</semantic:text>
+                </semantic:outputValues>
+                <semantic:defaultOutputEntry>
+                    <semantic:text>0</semantic:text>
+                </semantic:defaultOutputEntry>
+            </semantic:output>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_2eb58b42-e6d6-4498-9e03-70311a554e5a">
+                <semantic:inputEntry id="_03ea5d08-ad65-4175-ab0a-e42a7c88a9ca">
+                    <semantic:text>[0..1)</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_c32d603d-172e-4338-9a6e-2d975a650239">
+                    <semantic:text>0</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_7cdb27ea-105b-4ed7-a76f-0dca73ec7c0d">
+                <semantic:inputEntry id="_1842df4b-c74f-4c15-9e4a-7370be0fa83e">
+                    <semantic:text>[1..2)</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_af64b0e5-6bf3-4ea9-8fed-77b61361ec7e">
+                    <semantic:text>1</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_83ff3450-cab4-4713-b67b-c50559bbc405">
+                <semantic:inputEntry id="_988d4019-2dbb-42d2-b043-4ea9e9fe8e19">
+                    <semantic:text>[2..3)</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_f969e8b0-d70d-4545-94ee-d377bdc9f50d">
+                    <semantic:text>2</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_9f8e97e1-2050-4584-88fa-911ace333abc">
+                <semantic:inputEntry id="_d4eb6f3d-40ed-4bab-ad40-ad85d1870cbd">
+                    <semantic:text>[3..4)</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_bcfed8b7-8d68-4b5a-848d-d082a2f21333">
+                    <semantic:text>3</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_ec2829dd-db7c-435a-a2f0-eb3d26b3dd02">
+                <semantic:inputEntry id="_c6ee1270-8502-4525-96f4-de7e577bf303">
+                    <semantic:text>&gt;= 4</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_5e297798-e65f-4d2a-b85f-fc8fa771b189">
+                    <semantic:text>4</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:inputData id="_bfb80cb6-4d76-4ac8-8cc3-75a4dd4d8743" name="Number of Emergency Visits within the last 6 Months">
+        <semantic:description>&lt;p&gt;The number of times the patient visited an emergency department in the last six months prior to admission (not including the emergency department visit immediately preceding the current admission.&lt;/p&gt;</semantic:description>
+        <semantic:variable name="Number of Emergency Visits within the last 6 Months" id="_ab645df2-b7d4-494e-8560-9f1273407e5b" typeRef="number"/>
+    </semantic:inputData>
+    <semantic:decision id="_b4edcc55-1c34-45f3-863d-951597da310b" name="Risk of Re-Admission">
+        <semantic:description>&lt;p&gt;LACE scores range from 1-19 and predict the rate of readmission or death within thirty days of discharge.&amp;nbsp; A score of 0 &amp;ndash; 4 = Low; 5 &amp;ndash; 9 = Moderate; and a score of &amp;ge; 10 = High risk of readmission.&lt;/p&gt;</semantic:description>
+        <semantic:question>What are at risk for readmission or death of a patient within thirty days of discharge?</semantic:question>
+        <semantic:allowedAnswers>Low
+Moderate
+High</semantic:allowedAnswers>
+        <semantic:variable name="Risk of Re-Admission" id="_8559e3a0-ca7c-40a7-a3cc-4e4affbcba9b" typeRef="string"/>
+        <semantic:informationRequirement id="_9e36601a-700f-4d1a-b8d0-59cbbab83647">
+            <semantic:requiredDecision href="#_7efeb518-fbdf-4faa-81e6-a6efd98c9ee9"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_827c0d44-9c4b-429c-8935-30e779e7497e" hitPolicy="UNIQUE" outputLabel="Risk of Re-Admission" typeRef="string" triso:expressionId="_336379e1-09f0-420b-bb1f-cb9b600f2b79">
+            <semantic:input id="_563fc01c-76cc-45ff-a22c-63482a6ce04e" label="LACE Score">
+                <semantic:inputExpression typeRef="number">
+                    <semantic:text>LACE Score</semantic:text>
+                </semantic:inputExpression>
+                <semantic:inputValues triso:constraintsType="expression">
+                    <semantic:text>&gt;=0</semantic:text>
+                </semantic:inputValues>
+            </semantic:input>
+            <semantic:output id="_a7454fce-908b-4b98-8ff7-6686859811a8">
+                <semantic:outputValues triso:constraintsType="enumeration">
+                    <semantic:text>"Low","Moderate","High"</semantic:text>
+                </semantic:outputValues>
+            </semantic:output>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_314ebc45-c32a-482a-9b0f-502e43623f4f">
+                <semantic:inputEntry id="_6ee0ffad-70a7-459f-9bfa-4fadd615f0c5">
+                    <semantic:text>[0..4]</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_f2e9370a-cb2b-4c45-9a79-b989507a5aac">
+                    <semantic:text>"Low"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_155db086-e3fb-483c-9353-92a344817a87">
+                <semantic:inputEntry id="_6c86e3e9-f93a-4c63-afd7-facac58339c1">
+                    <semantic:text>[5..9]</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_3954fe92-eb97-4aba-b3d7-569e5e5e1c61">
+                    <semantic:text>"Moderate"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_908d871e-b966-4e27-b1b3-55b872041ab0">
+                <semantic:inputEntry id="_ad19eab9-e272-4a71-9f54-cb25315fe23a">
+                    <semantic:text>&gt;=10</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_8dd70f89-1562-4b00-b926-9a07f2b0b5cc">
+                    <semantic:text>"High"</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text/>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <dmndi:DMNDI>
+        <dmndi:DMNDiagram id="_5b56b6f2-acfd-414d-b63f-d5398806152d" triso:modelElementRef="_ab5ea647-567c-463f-99e4-235a17acbe68" name="LACE DRD" documentation="&lt;p&gt;The LACE index identifies patients that are at risk for readmission or death within thirty days of discharge. It incorporates four parameters.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&amp;ldquo;L&amp;rdquo; stands for the length of stay of the index admission.&lt;/li&gt;&#xA;&lt;li&gt;&amp;ldquo;A&amp;rdquo; stands for the acuity of the admission. Specifically, if the patient is admitted through the Emergency Department vs. an elective admission.&lt;/li&gt;&#xA;&lt;li&gt;&amp;ldquo;C&amp;rdquo; stands for co-morbidities, incorporating the Charlson Co-Morbidity Index.&lt;/li&gt;&#xA;&lt;li&gt;&amp;ldquo;E&amp;rdquo; stands for the number of Emergency Department visits within the last 6 months.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;LACE scores range from 1-19 and as mentioned above predict the rate of readmission or death within thirty days of discharge.&lt;/p&gt;&#xA;&lt;p&gt;Source:&amp;nbsp;http://www.besler.com/lace-risk-score/&lt;/p&gt;">
+            <di:extension/>
+            <dmndi:Size height="1060" width="1792.8794145584106"/>
+            <dmndi:DMNShape id="_cd9e0f3d-a459-4eeb-8660-8f5031a0887f" dmnElementRef="_508276cb-4b23-4db0-b11e-73ea5e3e274a">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="153"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="1103.638243675232" y="706.9999961853027" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_8aa8fbfe-72d2-46c3-81f3-b37737fa834d" dmnElementRef="_ef961523-5ca9-48fe-8ac5-53e5919bba51">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="204" green="255" blue="255"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="1329.9731645584106" y="591" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_85443f9d-af3f-4c7f-abf6-a9e59f517270" dmnElementRef="_0acce398-d29d-43a6-ad65-12791b63def2">
+                <dc:Bounds x="1094.8794145584106" y="435" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_5d73a123-781b-4507-aaca-326ecd119887" dmnElementRef="_c46fde95-5dcc-4629-ac28-5c16f1195021">
+                <dc:Bounds x="1094.8794145584106" y="591" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_de1791dc-7905-490e-989f-f6af6829e461" dmnElementRef="_7efeb518-fbdf-4faa-81e6-a6efd98c9ee9">
+                <dc:Bounds x="1043.2411708831787" y="255" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_2aee0978-b717-4de7-829d-90cb19081d6d" dmnElementRef="_0cce81a4-c52c-48a1-8cc9-5c6e30a02cf0">
+                <dc:Bounds x="545.5" y="435" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_403ff88b-7372-4879-b30e-73eba230c80f" dmnElementRef="_11813a07-e5b2-43bd-b2d4-e7d125be7e0c">
+                <dc:Bounds x="797.2411708831787" y="435" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_42b3ba62-d195-4a4b-80c5-06ffdc6a8027" dmnElementRef="_85a0b269-aa7f-41ab-bf34-6f2b5f407a50">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="153"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="545.5" y="552.9999961853027" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_0029204d-c391-414a-bab7-789226395df7" dmnElementRef="_7183a5af-2a7a-4fe1-9ac4-98a99eac9ff4">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="153"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="806" y="552.9999961853027" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_74471c25-43a3-454d-8db9-c10ba417ad60" dmnElementRef="_2f428a36-360f-4d1d-a84b-3aaef3ef5242">
+                <dc:Bounds x="1513.8794145584106" y="435" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_067449e5-df87-494f-a816-b0c0f82b2f21" dmnElementRef="_bfb80cb6-4d76-4ac8-8cc3-75a4dd4d8743">
+                <dmndi:DMNStyle>
+                    <dmndi:FillColor red="255" green="255" blue="153"/>
+                </dmndi:DMNStyle>
+                <dc:Bounds x="1522.638243675232" y="552.9999961853027" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_fbef51a9-9169-4f9e-b7fe-9538748585d6" dmnElementRef="_b4edcc55-1c34-45f3-863d-951597da310b">
+                <dc:Bounds x="1043.2411708831787" y="162" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="_f49e8d56-ca3f-41fe-b5fc-cccbd6f6b6e6" dmnElementRef="_5d13471a-1782-4ef9-9200-5426df373db2" sourceElement="_5d73a123-781b-4507-aaca-326ecd119887" targetElement="_85443f9d-af3f-4c7f-abf6-a9e59f517270">
+                <di:waypoint x="1171.3794145584106" y="591"/>
+                <di:waypoint x="1171.3794145584106" y="495"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_5f2f7d9a-fc08-42a6-80e6-ac6d532d0593" dmnElementRef="_3f865c1c-9536-4056-8220-009cd47f60c7" sourceElement="_8aa8fbfe-72d2-46c3-81f3-b37737fa834d" targetElement="_5d73a123-781b-4507-aaca-326ecd119887">
+                <di:waypoint x="1329.9731645584106" y="620.4915254237288"/>
+                <di:waypoint x="1247.8794145584106" y="621"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_1"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_0a589b67-f5b1-4037-a5f8-3e909aebf50b" dmnElementRef="_067c42f2-e64b-4445-94b4-e4d563f00c02" sourceElement="_2aee0978-b717-4de7-829d-90cb19081d6d" targetElement="_de1791dc-7905-490e-989f-f6af6829e461">
+                <di:waypoint x="602" y="435"/>
+                <di:waypoint x="1069.7411708831787" y="315"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_5203972a-328f-4787-b834-ac4f457cb749" dmnElementRef="_4e6042a0-e0c1-408f-bb4e-a9a1492b9ce2" sourceElement="_42b3ba62-d195-4a4b-80c5-06ffdc6a8027" targetElement="_2aee0978-b717-4de7-829d-90cb19081d6d">
+                <di:waypoint x="613.2379722595215" y="552.9999961853027"/>
+                <di:waypoint x="612" y="495"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_1e58a757-8c86-4325-956b-a0e90e33cc4b" dmnElementRef="_17cf4751-73af-4799-971f-c297d61bb43e" sourceElement="_403ff88b-7372-4879-b30e-73eba230c80f" targetElement="_de1791dc-7905-490e-989f-f6af6829e461">
+                <di:waypoint x="893.7411708831787" y="435"/>
+                <di:waypoint x="1119.7411708831787" y="315"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_2429cd0e-285a-4650-bea6-8c7f2fccae6d" dmnElementRef="_16a11012-85ca-40ea-a49a-b179b52ed2ce" sourceElement="_74471c25-43a3-454d-8db9-c10ba417ad60" targetElement="_de1791dc-7905-490e-989f-f6af6829e461">
+                <di:waypoint x="1580.3794145584106" y="435"/>
+                <di:waypoint x="1159.7411708831787" y="315"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_3b0db88d-dc01-4200-803a-db92c09ab24e" dmnElementRef="_0efe891b-52fa-4130-b205-a42aa8ffb1e8" sourceElement="_067449e5-df87-494f-a816-b0c0f82b2f21" targetElement="_74471c25-43a3-454d-8db9-c10ba417ad60">
+                <di:waypoint x="1590.3762159347534" y="552.9999961853027"/>
+                <di:waypoint x="1590.3794145584106" y="495"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_0f9eb272-f841-4d2d-8419-b7efd15165b0" dmnElementRef="_5311ca16-a3c7-4082-8a2a-9eb05071925a" sourceElement="_85443f9d-af3f-4c7f-abf6-a9e59f517270" targetElement="_de1791dc-7905-490e-989f-f6af6829e461">
+                <di:waypoint x="1171.3794145584106" y="435"/>
+                <di:waypoint x="1139.7411708831787" y="315"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_1"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_a74c02d4-d2bb-457e-bbdd-d22fa6bd0335" dmnElementRef="_9e36601a-700f-4d1a-b8d0-59cbbab83647" sourceElement="_de1791dc-7905-490e-989f-f6af6829e461" targetElement="_fbef51a9-9169-4f9e-b7fe-9538748585d6">
+                <di:waypoint x="1119.7411708831787" y="255"/>
+                <di:waypoint x="1119.7411708831787" y="222"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_1d526469-effc-4a30-9f44-8cb162dea902" dmnElementRef="_2564ef2b-3b09-46a0-9f0e-5051066eb3ac" sourceElement="_0029204d-c391-414a-bab7-789226395df7" targetElement="_403ff88b-7372-4879-b30e-73eba230c80f">
+                <di:waypoint x="873.7379722595215" y="552.9999961853027"/>
+                <di:waypoint x="873.7411708831787" y="495"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_4ac3ac38-550b-459b-a9af-593b7c80a5da" dmnElementRef="_b58032b4-bcc4-4984-96cf-6f35889960e9" sourceElement="_cd9e0f3d-a459-4eeb-8660-8f5031a0887f" targetElement="_5d73a123-781b-4507-aaca-326ecd119887">
+                <di:waypoint x="1171.3762159347534" y="706.9999961853027"/>
+                <di:waypoint x="1171.3794145584106" y="651"/>
+                <dmndi:DMNLabel sharedStyle="LS_351c3446-58de-4588-a5b5-7daa976ff541_0"/>
+            </dmndi:DMNEdge>
+        </dmndi:DMNDiagram>
+        <dmndi:DMNStyle id="LS_351c3446-58de-4588-a5b5-7daa976ff541_0" fontFamily="arial,helvetica,sans-serif" fontSize="11" fontBold="false" fontItalic="false" fontUnderline="false" fontStrikeThrough="false"/>
+        <dmndi:DMNStyle id="LS_351c3446-58de-4588-a5b5-7daa976ff541_1" fontFamily="arial,helvetica,sans-serif" fontSize="8" fontBold="false" fontItalic="false" fontUnderline="false" fontStrikeThrough="false"/>
+    </dmndi:DMNDI>
+</semantic:definitions>

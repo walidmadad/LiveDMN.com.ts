@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="definitions_1tlp3k7" name="heacC" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.9.0">
+  <decision id="decision_1mvq9of" name="Kotlin cache">
+    <informationRequirement id="InformationRequirement_0ncclul">
+      <requiredInput href="#InputData_0wyfmf6" />
+    </informationRequirement>
+    <decisionTable id="decisionTable_1xi82ak" biodi:annotationsWidth="467">
+      <input id="InputClause_1vyaejy" label="Android API level">
+        <inputExpression id="LiteralExpression_1008hgu" typeRef="integer">
+          <text>android_API_level</text>
+        </inputExpression>
+      </input>
+      <input id="input1" label="Using Kotlin &#34;Deferred&#34; interface (or inheritors, e.g., &#34;CompletableDeferred&#34;)">
+        <inputExpression id="inputExpression1" typeRef="boolean">
+          <text>count(split(code_listing , "Deferred&lt;" )) &gt; 1</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_19nwm8t" label="Using &#34;cach&#34; (case-insensitive) in variable naming" biodi:width="275">
+        <inputExpression id="LiteralExpression_1w45efd" typeRef="boolean">
+          <text>matches(code_listing, "^\w[Cc][Aa][Cc][Hh]\w+")</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1xak202" label="Using local storage facilities (Room, SharedPreferences, SQLite...)" biodi:width="150">
+        <inputExpression id="LiteralExpression_1plhbuq" typeRef="boolean">
+          <text>contains(?,"androidx.room.RoomDatabase")</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1qvolru" label="Using dedicated libraries (&#34;Disk LRU Cache&#34;...)" biodi:width="150">
+        <inputExpression id="LiteralExpression_075if1v" typeRef="boolean">
+          <text>contains(?,"Disk LRU Cache")</text>
+        </inputExpression>
+      </input>
+      <output id="output1" label="Kotlin cache likelihood" name="" typeRef="double" biodi:width="380" />
+      <rule id="DecisionRule_0tbpwwj">
+        <description>https://appmattus.medium.com/caching-made-simple-on-android-d6e024e3726b</description>
+        <inputEntry id="UnaryTests_0mgtvxx">
+          <text>33</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cg2e2w">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06s4gmb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_138s94m">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_011ddcu">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04wbr4x">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02p7iu0">
+        <inputEntry id="UnaryTests_12soovc">
+          <text>32</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rlyiu2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yyx3tf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06kh1nt">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vhc3ph">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1d6n9vn">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ud93v9">
+        <inputEntry id="UnaryTests_19k2lyg">
+          <text>31</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yj5x13">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jgywa6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zoh42z">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0se09np">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07nua37">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0uaozlj">
+        <inputEntry id="UnaryTests_0r8dveh">
+          <text>30</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09ruyhz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12bxhvb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0medu3q">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yolh49">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11lf5hr">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0b5gu20">
+        <inputEntry id="UnaryTests_00vawvl">
+          <text>29</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qu30e3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09v6e6y">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08v2am0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pzeouu">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1efakml">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0rb15ue">
+        <inputEntry id="UnaryTests_02jrny3">
+          <text>28</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04evw7r">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02hl964">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xosom5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dow2g2">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06otxzi">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1vn2beq">
+        <inputEntry id="UnaryTests_167ovcl">
+          <text>27</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kcx854">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10dl3dc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_024jlkc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xpa374">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vg6cj5">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ldlc8r">
+        <inputEntry id="UnaryTests_0or2unr">
+          <text>26</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ev4s10">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c5oeqg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lk2fs6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13jsxgp">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04f77o1">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0fnyakk">
+        <inputEntry id="UnaryTests_0ihzmuy">
+          <text>25</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yc1a8w">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1i2q7k5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dgg5sh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ajgtnz">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ngl46p">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1645380">
+        <inputEntry id="UnaryTests_0whs0p8">
+          <text>24</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f7oys8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y665xo">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10beu82">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wall21">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1660bv5">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1yp07lj">
+        <inputEntry id="UnaryTests_0q2vj02">
+          <text>23</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17mn74f">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jdzjek">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18hr283">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11etfbl">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ajfuhm">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1s8jz9x">
+        <inputEntry id="UnaryTests_0ay8yg1">
+          <text>22</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1v3hkt2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18do76w">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d042gg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00lqyqg">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1gb8igl">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_0wyfmf6" name="Code listing" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="DMNDiagram_0onu8xx">
+      <dmndi:DMNShape id="DMNShape_0l37i0p" dmnElementRef="decision_1mvq9of">
+        <dc:Bounds height="80" width="180" x="150" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0dvmbb0" dmnElementRef="InputData_0wyfmf6">
+        <dc:Bounds height="45" width="125" x="177" y="237" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1u2d20k" dmnElementRef="InformationRequirement_0ncclul">
+        <di:waypoint x="240" y="237" />
+        <di:waypoint x="240" y="180" />
+        <di:waypoint x="240" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

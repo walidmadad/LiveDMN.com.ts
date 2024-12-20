@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<semantic:definitions xmlns:semantic="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:feel="https://www.omg.org/spec/DMN/20191111/FEEL/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"       xmlns:triso="http://www.trisotech.com/2015/triso/modeling"  xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn"  xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase"  xmlns:drools="http://www.drools.org/kie/dmn/1.1"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns:rss="http://purl.org/rss/2.0/"  xmlns:openapi="https://openapis.org/omg/extension/1.0"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:boxedext="https://www.trisotech.com/spec/DMN/20191111/EXT/"   xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns="http://www.trisotech.com/definitions/_6d0d054d-2881-4ac4-af7d-cae392f81753" id="_6d0d054d-2881-4ac4-af7d-cae392f81753" name="Vacation Day Count - Solution 2" namespace="http://www.trisotech.com/definitions/_6d0d054d-2881-4ac4-af7d-cae392f81753" exporter="Decision Modeler" exporterVersion="8.11.0" xml:lang="en" triso:logoChoice="Default" triso:version="1.1" triso:state="Published">
+    <semantic:description>&lt;p&gt;&lt;span style="color: #000000; text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; font-weight: normal; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: #ffffff; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"&gt;The Decision Management Community (DMCommunity.org) provides resources for DM practitioners, listing tools, news, providing examples and also giving monthly challenge. As a vendor that always seek improvement, Trisotech took January challenge using Trisotech DMN Modeler (Trisotech.com)&lt;/span&gt;&lt;/p&gt;</semantic:description>
+    <semantic:extensionElements>
+        <triso:scope>&lt;p style="color: #000000; text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"&gt;The January challenge is to create the best possible decision tables to represent the following statements, provided by Prof. Jan Vanthienen who is one of the best known experts in decision tables and a member of the DMN Task Force.&lt;/p&gt;
+&lt;p style="color: #000000; text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-style: normal; font-weight: normal; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px;"&gt;&lt;img src="https://dmcommunity.files.wordpress.com/2016/01/vacationdaysproblem.jpg?w=640" alt="VacationDaysProblem" /&gt;&lt;/p&gt;</triso:scope>
+        <triso:notes>&lt;p&gt;&lt;strong&gt;Challenges&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;/ul&gt;</triso:notes>
+        <triso:graphRelations/>
+    </semantic:extensionElements>
+    <semantic:decisionService id="_6d0d054d-2881-4ac4-af7d-cae392f81753_DS" name="Whole Model Decision Service" triso:dynamicDecisionService="true" triso:wholeModelService="true">
+        <semantic:variable name="Whole Model Decision Service" id="_6d0d054d-2881-4ac4-af7d-cae392f81753_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_200fa063-94b1-4c27-8c2a-edbeb97fef58"/>
+        <semantic:inputData href="#_158db039-e580-429b-8952-8271c55b8163"/>
+        <semantic:inputData href="#_1ccc2711-bd20-4936-9c6d-9a406def8081"/>
+    </semantic:decisionService>
+    <semantic:decisionService id="_e52189d8-626d-4e82-8613-8b0358d7d20f_DS" name="Diagram Solution 2" triso:dynamicDecisionService="true">
+        <semantic:variable name="Diagram Solution 2" id="_e52189d8-626d-4e82-8613-8b0358d7d20f_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_200fa063-94b1-4c27-8c2a-edbeb97fef58"/>
+        <semantic:inputData href="#_158db039-e580-429b-8952-8271c55b8163"/>
+        <semantic:inputData href="#_1ccc2711-bd20-4936-9c6d-9a406def8081"/>
+    </semantic:decisionService>
+    <semantic:decision id="_200fa063-94b1-4c27-8c2a-edbeb97fef58" name="Vacation Days Count Second Solution Unique Hit Policy">
+        <semantic:variable name="Vacation Days Count Second Solution Unique Hit Policy" id="_b34ee4ca-284a-43e0-9ba6-495fbebc21af" typeRef="number"/>
+        <semantic:informationRequirement id="_b875feb4-8992-4537-aadc-65460f19c2d4">
+            <semantic:requiredInput href="#_158db039-e580-429b-8952-8271c55b8163"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_61e75666-6b2c-415f-8417-f75765b4fd2c">
+            <semantic:requiredInput href="#_1ccc2711-bd20-4936-9c6d-9a406def8081"/>
+        </semantic:informationRequirement>
+        <semantic:decisionTable triso:descriptionVisible="false" id="_9312afd4-3525-46c6-9f46-6b3460a1ae3e" hitPolicy="UNIQUE" outputLabel="Vacation Days Count Second Solution Unique Hit Policy" typeRef="number" triso:expressionId="_741f5864-29be-4624-bf9d-85e6bfd99d28">
+            <semantic:input id="_e63dee87-23e1-4953-aea6-b5011788cc39" label="Age">
+                <semantic:inputExpression typeRef="number">
+                    <semantic:text>Age</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:input id="_e219d724-98e5-423a-ba92-82515ac8db0e" label="Years of Service">
+                <semantic:inputExpression typeRef="number">
+                    <semantic:text>Years of Service</semantic:text>
+                </semantic:inputExpression>
+            </semantic:input>
+            <semantic:output id="_fc51bbe2-2027-45c3-abf2-b109afafa76f">
+                <semantic:outputValues triso:constraintsType="simple">
+                    <semantic:text>&gt;=22</semantic:text>
+                </semantic:outputValues>
+            </semantic:output>
+            <semantic:annotation name="Description"/>
+            <semantic:rule id="_77e525ff-628c-48dc-9ec9-771adb4cbb6f">
+                <semantic:inputEntry id="_ea57633c-5cf7-4b7a-8069-489da94cbb5a">
+                    <semantic:text>&lt;18</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_d74bf92a-0771-42bc-b56e-40edf86d1b22">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_e7ec3391-5312-460b-ac16-19873fd9090c">
+                    <semantic:text>22+5</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text>Basic days + rule #1 People younger than 18 cannot have 30 years of experience and this is the only case that would have changed their holidays count so this information is irrelevant</semantic:text>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_da7f1303-7961-477a-a3c2-59cbc005fb6f">
+                <semantic:inputEntry id="_01ccac80-cab8-450c-8f20-602ba5069861" triso:mergeKey="_1c47d4c5-5d02-403a-9b88-8bd0fd51fafa">
+                    <semantic:text>[18..45)</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_f3229eb2-2a93-40c4-899e-8c4d510fc66b">
+                    <semantic:text>&lt;15</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_8a0ae3ec-c2ce-4832-8deb-4dfa40002a00">
+                    <semantic:text>22</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text>Basic days</semantic:text>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_c8c31b0d-159d-411d-a1ec-d668c29f7f06">
+                <semantic:inputEntry id="_0b1882d6-6e65-4d83-9a22-d0870c98c066" triso:mergeKey="_1c47d4c5-5d02-403a-9b88-8bd0fd51fafa">
+                    <semantic:text>[18..45)</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_295c1088-b20a-4ffb-929f-717ce70aa0eb">
+                    <semantic:text>[15..30)</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_c3e4c955-1336-48ce-99a7-3c5e49f5ccf3">
+                    <semantic:text>22+2</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text>Basic days + rule #3</semantic:text>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_561ea217-b820-457f-a263-5fcd8ca3bc33">
+                <semantic:inputEntry id="_0be54eee-5bd7-460d-8ee9-dd877464ba28" triso:mergeKey="_1c47d4c5-5d02-403a-9b88-8bd0fd51fafa">
+                    <semantic:text>[18..45)</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_4fbae111-a3c6-4625-8280-8178e4cfd2fe">
+                    <semantic:text>&gt;=30</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_263cba1c-3fb5-4888-a676-33dc45fd0301">
+                    <semantic:text>22+5+3</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text>Basic days + rule #1 + rule #2</semantic:text>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_d7139250-49cd-420c-80e4-dd28fc44c982">
+                <semantic:inputEntry id="_aad13bca-ef81-4dd3-a0b5-f6b3c6aea245" triso:mergeKey="_48efebbf-9f60-4647-9c5c-4a629e0edfd9">
+                    <semantic:text>[45..60)</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_e27ea4e4-6572-413b-8a83-2a515ff6277b">
+                    <semantic:text>&lt;30</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_a02fd505-7131-4f56-b067-8c18bd238eb4">
+                    <semantic:text>22+2</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text>Basic days + rule #3</semantic:text>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_a3335795-2f3d-416c-be17-4972458c39b9">
+                <semantic:inputEntry id="_ef3d97ad-2206-43cb-8a50-3cd85d1b6092" triso:mergeKey="_48efebbf-9f60-4647-9c5c-4a629e0edfd9">
+                    <semantic:text>[45..60)</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_339001df-3452-4543-b0ab-4b402b901ae8">
+                    <semantic:text>&gt;=30</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_1b57a34a-0bb4-48b7-8dc9-1ef86f95fa9b">
+                    <semantic:text>22+5+3</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text>Basic days + rule #1 + rule #2</semantic:text>
+                </semantic:annotationEntry>
+            </semantic:rule>
+            <semantic:rule id="_2f95f7fb-2ecb-4c80-b854-c5a58f7307df">
+                <semantic:inputEntry id="_82b69edc-7930-4c27-805c-ea9922931a6b">
+                    <semantic:text>&gt;=60</semantic:text>
+                </semantic:inputEntry>
+                <semantic:inputEntry id="_7a4eb602-7ee0-416f-9ba3-00153de00f99">
+                    <semantic:text>-</semantic:text>
+                </semantic:inputEntry>
+                <semantic:outputEntry id="_bd77a20e-c7e5-4a3f-b14e-0f291243bd19">
+                    <semantic:text>22+5+3</semantic:text>
+                </semantic:outputEntry>
+                <semantic:annotationEntry>
+                    <semantic:text>Basic days + rule #1 + rule #2</semantic:text>
+                </semantic:annotationEntry>
+            </semantic:rule>
+        </semantic:decisionTable>
+    </semantic:decision>
+    <semantic:inputData id="_158db039-e580-429b-8952-8271c55b8163" name="Age">
+        <semantic:description>&lt;p&gt;Four age ranges are important:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Younger 18&lt;/li&gt;
+&lt;li&gt;18 to younger than 45&lt;/li&gt;
+&lt;li&gt;45 to younger than 60&lt;/li&gt;
+&lt;li&gt;60 or older&lt;/li&gt;
+&lt;/ul&gt;</semantic:description>
+        <semantic:variable name="Age" id="_36dbcf8f-21ae-4dd6-9a94-11586409c2c2" typeRef="number"/>
+    </semantic:inputData>
+    <semantic:inputData id="_1ccc2711-bd20-4936-9c6d-9a406def8081" name="Years of Service">
+        <semantic:description>&lt;p&gt;Three years of service intervals are important:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Less than 15 years&lt;/li&gt;
+&lt;li&gt;15 years to less than 30 years&lt;/li&gt;
+&lt;li&gt;30 years or more&lt;/li&gt;
+&lt;/ul&gt;</semantic:description>
+        <semantic:variable name="Years of Service" id="_c112e152-84b1-4316-a930-3824ffaeed14" typeRef="number"/>
+    </semantic:inputData>
+    <semantic:textAnnotation id="_11302b28-a3e3-4d37-9965-01bda836fb73">
+        <semantic:text>Four age ranges are important:
+- Younger 18
+- 18 to younger than 45
+- 45 to younger than 60
+- 60 or older</semantic:text>
+    </semantic:textAnnotation>
+    <semantic:textAnnotation id="_ce9808d2-4e81-41f3-b971-b6a9d4637fbc">
+        <semantic:text>Three years of service intervals are important:
+- Less than 15 years
+- 15 years to less than 30 years
+- 30 years or more</semantic:text>
+    </semantic:textAnnotation>
+    <semantic:association id="_eacd5675-9332-4962-acd2-3dc834dd41d2">
+        <semantic:sourceRef href="#_11302b28-a3e3-4d37-9965-01bda836fb73"/>
+        <semantic:targetRef href="#_158db039-e580-429b-8952-8271c55b8163"/>
+    </semantic:association>
+    <semantic:association id="_b43e76b0-ac73-439d-b473-fa655e60eba3">
+        <semantic:sourceRef href="#_ce9808d2-4e81-41f3-b971-b6a9d4637fbc"/>
+        <semantic:targetRef href="#_1ccc2711-bd20-4936-9c6d-9a406def8081"/>
+    </semantic:association>
+    <dmndi:DMNDI>
+        <dmndi:DMNDiagram id="_e52189d8-626d-4e82-8613-8b0358d7d20f" triso:modelElementRef="_826fe0d8-6649-402a-a6ac-cd4b3edea035" name="Solution 2" documentation="&lt;p&gt;&lt;span&gt;There must be a simpler way&lt;/span&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;span&gt;To find it, we need to read the statements to properly determine what inputs affects the number of vacation days&lt;/span&gt;&lt;span&gt;. &lt;/span&gt;&lt;span&gt;Basically structuring simpler rules from the policy.&lt;/span&gt;&lt;/p&gt;&#xA;&lt;p&gt;Pro:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li class=&quot;O1&quot;&gt;Unique hit policy decision tables are easier to validate for completeness (no rules overlapped)&lt;/li&gt;&#xA;&lt;li class=&quot;O1&quot;&gt;This table is easy to read since values are ordered&lt;/li&gt;&#xA;&lt;li class=&quot;O1&quot;&gt;Every case is depicted&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Con:&lt;/p&gt;&#xA;&lt;div class=&quot;O1&quot;&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;More complex to edit if the rules change&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;&lt;span&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;">
+            <di:extension/>
+            <dmndi:Size height="583.0000076293945" width="1267.5"/>
+            <dmndi:DMNShape id="_643432f9-42dc-47e7-9afe-7b2789b7d26f" dmnElementRef="_200fa063-94b1-4c27-8c2a-edbeb97fef58">
+                <dc:Bounds x="528" y="162" width="153" height="68"/>
+                <dmndi:DMNLabel sharedStyle="LS_6d0d054d-2881-4ac4-af7d-cae392f81753_0" trisodmn:defaultBounds="true">
+                    <dmndi:Text>Vacation Days Count 
+Second Solution 
+Unique Hit Policy</dmndi:Text>
+                </dmndi:DMNLabel>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_0a041897-2ecb-403c-b645-d509ed4c12c9" dmnElementRef="_11302b28-a3e3-4d37-9965-01bda836fb73">
+                <dc:Bounds x="249" y="183" width="176" height="83"/>
+                <dmndi:DMNLabel sharedStyle="LS_6d0d054d-2881-4ac4-af7d-cae392f81753_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_869c79a8-30ac-406b-883d-871de2eb21dc" dmnElementRef="_158db039-e580-429b-8952-8271c55b8163">
+                <dc:Bounds x="401.2588291168213" y="286" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_6d0d054d-2881-4ac4-af7d-cae392f81753_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_f8198a66-2578-43d4-ae2e-4182f63aa4f3" dmnElementRef="_1ccc2711-bd20-4936-9c6d-9a406def8081">
+                <dc:Bounds x="630" y="286" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_6d0d054d-2881-4ac4-af7d-cae392f81753_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_024c2f76-78f2-49c3-bed4-68646e458fcd" dmnElementRef="_ce9808d2-4e81-41f3-b971-b6a9d4637fbc">
+                <dc:Bounds x="831" y="183" width="176" height="83"/>
+                <dmndi:DMNLabel sharedStyle="LS_6d0d054d-2881-4ac4-af7d-cae392f81753_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="_7e0f198e-fe3a-4b71-a72e-caabe4501504" dmnElementRef="_b875feb4-8992-4537-aadc-65460f19c2d4" sourceElement="_869c79a8-30ac-406b-883d-871de2eb21dc" targetElement="_643432f9-42dc-47e7-9afe-7b2789b7d26f">
+                <di:waypoint x="469" y="286"/>
+                <di:waypoint x="584.5" y="230"/>
+                <dmndi:DMNLabel sharedStyle="LS_6d0d054d-2881-4ac4-af7d-cae392f81753_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_b132e5ed-2364-4a5b-ad34-d17ecdb88fc3" dmnElementRef="_61e75666-6b2c-415f-8417-f75765b4fd2c" sourceElement="_f8198a66-2578-43d4-ae2e-4182f63aa4f3" targetElement="_643432f9-42dc-47e7-9afe-7b2789b7d26f">
+                <di:waypoint x="697.7379722595215" y="286"/>
+                <di:waypoint x="634.5" y="230"/>
+                <dmndi:DMNLabel sharedStyle="LS_6d0d054d-2881-4ac4-af7d-cae392f81753_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_ed076944-20bb-4e0a-8797-37773f53848f" dmnElementRef="_eacd5675-9332-4962-acd2-3dc834dd41d2" sourceElement="_0a041897-2ecb-403c-b645-d509ed4c12c9" targetElement="_869c79a8-30ac-406b-883d-871de2eb21dc">
+                <di:waypoint x="251" y="225.12"/>
+                <di:waypoint x="403.4968013763428" y="306"/>
+                <dmndi:DMNLabel sharedStyle="LS_6d0d054d-2881-4ac4-af7d-cae392f81753_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_0be98062-5ff0-4517-8621-47a91dd014bd" dmnElementRef="_b43e76b0-ac73-439d-b473-fa655e60eba3" sourceElement="_024c2f76-78f2-49c3-bed4-68646e458fcd" targetElement="_f8198a66-2578-43d4-ae2e-4182f63aa4f3">
+                <di:waypoint x="833" y="225.12"/>
+                <di:waypoint x="759.2379722595215" y="296"/>
+                <dmndi:DMNLabel sharedStyle="LS_6d0d054d-2881-4ac4-af7d-cae392f81753_0"/>
+            </dmndi:DMNEdge>
+        </dmndi:DMNDiagram>
+        <dmndi:DMNStyle id="LS_6d0d054d-2881-4ac4-af7d-cae392f81753_0" fontFamily="arial,helvetica,sans-serif" fontSize="11" fontBold="false" fontItalic="false" fontUnderline="false" fontStrikeThrough="false"/>
+    </dmndi:DMNDI>
+</semantic:definitions>

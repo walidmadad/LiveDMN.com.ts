@@ -1,0 +1,10 @@
+{
+  "action": "FEEL",
+  "data": [
+    {
+      "Issuer.industry": "BANK",
+      "Issuer.issuerClass": "AGENCY-BANK-ISSUER",
+      "Issuer.country": "DE"
+    }
+  ]
+}

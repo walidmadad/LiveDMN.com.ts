@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_0iveoyx" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.26.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.4.0">
+  <decision id="Decision_1h7nlw3" name="Get barcode (EAN 13) country">
+    <decisionTable id="DecisionTable_08nmjry">
+      <input id="Input_1" label="Web service">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>"FranckBarbier.com/API/nudger.fr/opendata/gtin-open-data.zip"</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1omktya" label="Barcode (EAN 13)">
+        <inputExpression id="LiteralExpression_15dlmv4" typeRef="string">
+          <text>code</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_19egwlj" label="Country" name="country" typeRef="string" biodi:width="269">
+        <outputValues id="UnaryTests_080ocy5">
+          <text>"AT","BE","FR","GB","IT"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_0f2hcg4">
+        <inputEntry id="UnaryTests_18lx8k7">
+          <text>ends with(?,"FranckBarbier.com/API/nudger.fr/opendata/gtin-open-data.zip")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pim6qg">
+          <text>matches(?, "^\d{13}$")</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11iysvp">
+          <text>? in ["AT","BE,"FR","GB","IT"]</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04vs7dh">
+        <inputEntry id="UnaryTests_1xbgvx2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18c84w4">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08nt6pw">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1h7nlw3">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

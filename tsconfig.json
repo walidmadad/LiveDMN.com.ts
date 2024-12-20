@@ -1,0 +1,24 @@
+{
+  // Shared by sub-projects:
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "target": "ES2021",
+    "typeRoots": [
+      "./ts/typings",
+      "./node_modules/@types"
+    ]
+  },
+  "files": [],
+  // To stop accidental compilation without '--build' -> everything is compiled in the root directory...
+  "references": [
+    // https://stackoverflow.com/questions/64626846/typescript-tsc-not-picking-up-tsconfig-json-inside-a-subdirectory
+    // https://dev.to/jameswallis/using-typescript-project-references-to-share-common-code-p8o
+    {
+      "path": "./ts/backend"
+    },
+    {
+      "path": "./ts/frontend"
+    }
+  ]
+}

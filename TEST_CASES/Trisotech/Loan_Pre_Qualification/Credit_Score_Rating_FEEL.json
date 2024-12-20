@@ -1,0 +1,19 @@
+{
+  "action": "FEEL",
+  "data": [
+    {
+      "Credit Score.FICO": 100
+    },
+    {
+      "Credit Score": {
+        "FICO": 500
+      }
+    },
+    {
+      "Credit Score.FICO": 600
+    },
+    {
+      "Credit Score.FICO": 800
+    }
+  ]
+}

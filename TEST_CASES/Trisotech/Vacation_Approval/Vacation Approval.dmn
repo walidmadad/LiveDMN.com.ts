@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn11:definitions xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:dmn11="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:triso="http://www.trisotech.com/2015/triso/modeling" xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn" xmlns:feel="https://www.omg.org/spec/DMN/20191111/FEEL/" xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase" xmlns:drools="http://www.drools.org/kie/dmn/1.1" xmlns:openapi="https://openapis.org/omg/extension/1.0" xmlns:rss="http://purl.org/rss/2.0/" xmlns:trisofeed="http://trisotech.com/feed" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:boxedext="https://www.trisotech.com/spec/DMN/20191111/EXT/" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns="http://www.trisotech.com/definitions/_195db244-42dd-4beb-ac9e-cc8a9b2b8643" id="_195db244-42dd-4beb-ac9e-cc8a9b2b8643" name="Vacation Approval" namespace="http://www.trisotech.com/definitions/_195db244-42dd-4beb-ac9e-cc8a9b2b8643" exporter="Decision Modeler" exporterVersion="8.11.0" xml:lang="en" triso:decisionServiceName="Whole Model Decision Service" triso:logoChoice="Default">
+    <dmn11:description>&lt;p&gt;Automatic vacation approval rules for EU-Rent&lt;/p&gt;</dmn11:description>
+    <dmn11:extensionElements>
+        <triso:notes>&lt;p&gt;&lt;strong&gt;Challenges&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;/ul&gt;</triso:notes>
+        <triso:graphRelations />
+    </dmn11:extensionElements>
+    <dmn11:itemDefinition id="ItemDefinition_0wu0z5l" label="Approval" name="Approval" isCollection="false">
+        <dmn11:typeRef>string</dmn11:typeRef>
+        <dmn11:allowedValues id="UnaryTests_06lw4ec">
+            <dmn11:extensionElements>
+                <triso:constraintDetails id="_255fd070-93a9-4abd-b088-7cf7fcd7f9c8" constraintsType="enumeration">
+                    <triso:display>"Approved", "Refused", "Manual Validation Required"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Approved"</triso:value>
+                        <triso:display>"Approved"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Refused"</triso:value>
+                        <triso:display>"Refused"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Manual Validation Required"</triso:value>
+                        <triso:display>"Manual Validation Required"</triso:display>
+                    </triso:choices>
+                    <triso:value>"Approved","Refused","Manual Validation Required"</triso:value>
+                </triso:constraintDetails>
+            </dmn11:extensionElements>
+            <dmn11:text>"Approved","Refused","Manual Validation Required"</dmn11:text>
+        </dmn11:allowedValues>
+    </dmn11:itemDefinition>
+    <dmn11:itemDefinition id="ItemDefinition_1b3jyys" label="Vacation Approval" name="Vacation_Approval" isCollection="false">
+        <dmn11:itemComponent id="_b328882e-9b59-4382-83bb-640eb6551309" name="Approval" isCollection="false">
+            <dmn11:typeRef>Approval</dmn11:typeRef>
+            <dmn11:allowedValues id="UnaryTests_1rrbpio">
+                <dmn11:extensionElements>
+                    <triso:constraintDetails id="_61499afa-618a-4023-be21-f9c4506c12e7" constraintsType="enumeration">
+                        <triso:display>"Approved", "Refused", "Manual Validation Required"</triso:display>
+                        <triso:choices>
+                            <triso:value>"Approved"</triso:value>
+                            <triso:display>"Approved"</triso:display>
+                        </triso:choices>
+                        <triso:choices>
+                            <triso:value>"Refused"</triso:value>
+                            <triso:display>"Refused"</triso:display>
+                        </triso:choices>
+                        <triso:choices>
+                            <triso:value>"Manual Validation Required"</triso:value>
+                            <triso:display>"Manual Validation Required"</triso:display>
+                        </triso:choices>
+                        <triso:value>"Approved","Refused","Manual Validation Required"</triso:value>
+                    </triso:constraintDetails>
+                </dmn11:extensionElements>
+                <dmn11:text>"Approved","Refused","Manual Validation Required"</dmn11:text>
+            </dmn11:allowedValues>
+        </dmn11:itemComponent>
+        <dmn11:itemComponent id="_4dc033ad-8616-4db6-a679-0a33f547d2f7" name="Reason" isCollection="false">
+            <dmn11:typeRef>string</dmn11:typeRef>
+        </dmn11:itemComponent>
+    </dmn11:itemDefinition>
+    <dmn11:decisionService id="_195db244-42dd-4beb-ac9e-cc8a9b2b8643_DS" name="Whole Model Decision Service" triso:dynamicDecisionService="true" triso:wholeModelService="true">
+        <dmn11:variable id="_195db244-42dd-4beb-ac9e-cc8a9b2b8643_DS_VAR" name="Whole Model Decision Service" typeRef="Any" />
+        <dmn11:outputDecision href="#_9ba1b7b0-c84d-484f-9203-3792edc6dcbd" />
+        <dmn11:encapsulatedDecision href="#_f3b7578e-ab9e-461f-9438-dc9d466f0d99" />
+        <dmn11:inputData href="#_c8169d21-b1b6-4e97-9891-7bda071cb38b" />
+        <dmn11:inputData href="#_568a7704-dbb4-4750-a01b-3144d56acf24" />
+        <dmn11:inputData href="#_2fc2b314-570f-4fb6-aa34-0fa7a2e35e27" />
+    </dmn11:decisionService>
+    <dmn11:decisionService id="_166800f2-c429-434b-815b-6ae3d77fc0db_DS" name="Diagram Vacation Approval" triso:dynamicDecisionService="true">
+        <dmn11:variable id="_166800f2-c429-434b-815b-6ae3d77fc0db_DS_VAR" name="Diagram Vacation Approval" typeRef="Any" />
+        <dmn11:outputDecision href="#_9ba1b7b0-c84d-484f-9203-3792edc6dcbd" />
+        <dmn11:encapsulatedDecision href="#_f3b7578e-ab9e-461f-9438-dc9d466f0d99" />
+        <dmn11:inputData href="#_c8169d21-b1b6-4e97-9891-7bda071cb38b" />
+        <dmn11:inputData href="#_568a7704-dbb4-4750-a01b-3144d56acf24" />
+        <dmn11:inputData href="#_2fc2b314-570f-4fb6-aa34-0fa7a2e35e27" />
+    </dmn11:decisionService>
+    <dmn11:decision id="_9ba1b7b0-c84d-484f-9203-3792edc6dcbd" name="Vacation Approval Status" triso:useOutputTypeAsAnswer="false">
+        <dmn11:variable id="_78018588-f35a-44e5-ba49-8634d17adfd5" name="Vacation Approval Status" typeRef="Vacation_Approval" />
+        <dmn11:informationRequirement id="_79f1cecf-bab2-41f8-ba3d-c4769a5ad486">
+            <dmn11:requiredInput href="#_2fc2b314-570f-4fb6-aa34-0fa7a2e35e27" />
+        </dmn11:informationRequirement>
+        <dmn11:informationRequirement id="_40fbfc9d-73f6-4616-8936-92afd3d952e8">
+            <dmn11:requiredDecision href="#_f3b7578e-ab9e-461f-9438-dc9d466f0d99" />
+        </dmn11:informationRequirement>
+        <dmn11:informationRequirement id="_68002aff-2225-40cb-a2e5-070589411a00">
+            <dmn11:requiredInput href="#_568a7704-dbb4-4750-a01b-3144d56acf24" />
+        </dmn11:informationRequirement>
+        <dmn11:informationRequirement id="_59eb14f0-8e40-4607-a603-fd012e627396">
+            <dmn11:requiredInput href="#_c8169d21-b1b6-4e97-9891-7bda071cb38b" />
+        </dmn11:informationRequirement>
+        <dmn11:decisionTable id="_bcc020c6-47e4-4e10-a339-bcf99c935edd" typeRef="Vacation_Approval" hitPolicy="FIRST" outputLabel="Vacation Approval Status" triso:descriptionVisible="false" triso:expressionId="_e52ccb69-9604-4b56-855b-b0a83ed199f8">
+            <dmn11:input id="_1db4e1fc-e573-471d-bf2a-ef50441f8246" label="Days Remaining">
+                <dmn11:inputExpression id="LiteralExpression_0re597j" typeRef="number">
+                    <dmn11:text>Days Remaining</dmn11:text>
+                </dmn11:inputExpression>
+            </dmn11:input>
+            <dmn11:input id="_9a010045-5de1-4151-9980-28b277799457" label="Number of days">
+                <dmn11:inputExpression id="LiteralExpression_0e8zuk0" typeRef="number">
+                    <dmn11:text>Number of days</dmn11:text>
+                </dmn11:inputExpression>
+            </dmn11:input>
+            <dmn11:input id="_f82874eb-79a5-49d1-ad52-848c18e79c90" label="From" triso:allowNull="true">
+                <dmn11:inputExpression id="LiteralExpression_0obg5lx" typeRef="date">
+                    <dmn11:text>From</dmn11:text>
+                </dmn11:inputExpression>
+            </dmn11:input>
+            <dmn11:input id="_ae4551b2-5f8a-4ce5-9a18-4c8dfc09fbe0" label="To" triso:allowNull="true">
+                <dmn11:inputExpression id="LiteralExpression_18clhqc" typeRef="date">
+                    <dmn11:text>To</dmn11:text>
+                </dmn11:inputExpression>
+            </dmn11:input>
+            <dmn11:output id="_3f4025a4-165b-4711-b267-942266623962" name="Approval" typeRef="Approval" triso:allowNull="true">
+                <dmn11:outputValues id="UnaryTests_1u8hay0" triso:constraintsType="enumeration">
+                    <dmn11:text>"Approved","Refused","Manual Validation Required"</dmn11:text>
+                </dmn11:outputValues>
+            </dmn11:output>
+            <dmn11:output id="_45a31d48-aba5-475b-b5d3-d6b42ba17719" name="Reason" typeRef="string" triso:allowNull="true" />
+            <dmn11:annotation name="Description" />
+            <dmn11:rule id="_06f39b6a-caeb-448c-8904-a7622f214124">
+                <dmn11:inputEntry id="_8d26607b-0126-4b19-894b-0e34fbb15fa5">
+                    <dmn11:text>-</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:inputEntry id="_5e30934b-37ab-4b86-8707-66e7399504ea">
+                    <dmn11:text>-</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:inputEntry id="_ff7cb7af-e42f-491a-be4b-83a8802e9107">
+                    <dmn11:text>&gt;= To</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:inputEntry id="_8026a3d2-4adc-435d-9f0c-5a3390d79de5">
+                    <dmn11:text>-</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:outputEntry id="_9bc81315-9f53-49df-a847-d5940b25d240">
+                    <dmn11:text>"Refused"</dmn11:text>
+                </dmn11:outputEntry>
+                <dmn11:outputEntry id="_b5912d3c-91d1-490f-b627-19c007b1973c">
+                    <dmn11:text>"Begining date is after the end date"</dmn11:text>
+                </dmn11:outputEntry>
+                <dmn11:annotationEntry>
+                    <dmn11:text>Error on date range</dmn11:text>
+                </dmn11:annotationEntry>
+            </dmn11:rule>
+            <dmn11:rule id="_447aff51-64df-4750-8f1d-72d236dbd804">
+                <dmn11:inputEntry id="_d9f3d075-92ca-42da-917d-17cd0fdadba2">
+                    <dmn11:text>-</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:inputEntry id="_43ce48b1-8c02-4e7f-a5d3-c02a87319cbb">
+                    <dmn11:text>-</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:inputEntry id="_c84b2e59-7c1a-4060-bc96-778f4f12be6a">
+                    <dmn11:text>date (?) &lt;= date(now() + duration("P7D"))</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:inputEntry id="_79984cb4-3bce-4bee-8020-b18fb8fb982f">
+                    <dmn11:text>-</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:outputEntry id="_15d58702-b45b-4b69-b305-a91675d8d664">
+                    <dmn11:text>"Refused"</dmn11:text>
+                </dmn11:outputEntry>
+                <dmn11:outputEntry id="_1c522342-777a-47f8-b8b6-c06bf593277e">
+                    <dmn11:text>"Vacation Requests need to be done at least 1 week prior to the start date"</dmn11:text>
+                </dmn11:outputEntry>
+                <dmn11:annotationEntry>
+                    <dmn11:text>Dates too close</dmn11:text>
+                </dmn11:annotationEntry>
+            </dmn11:rule>
+            <dmn11:rule id="_f9894ec8-82b1-4ed6-8f43-544e5a0e8d73">
+                <dmn11:inputEntry id="_8232a136-c91e-43f2-8023-0860fec3d0ee">
+                    <dmn11:text>&gt;= 2</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:inputEntry id="_f1fbc659-611d-4f28-8446-1cebe51e969e">
+                    <dmn11:text>&lt;= 2</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:inputEntry id="_d3ecc89b-e240-42bd-9ee5-e9f52677dd1e">
+                    <dmn11:text>-</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:inputEntry id="_ab20cc23-f9ab-494d-b050-2b7170da5613">
+                    <dmn11:text>-</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:outputEntry id="_8ef13258-a3bb-44d3-8a4b-6a2ee482b3d5">
+                    <dmn11:text>"Approved"</dmn11:text>
+                </dmn11:outputEntry>
+                <dmn11:outputEntry id="_67d8dc9e-04a2-4f39-a89a-27c14f498e10">
+                    <dmn11:text>"Approved Automatically"</dmn11:text>
+                </dmn11:outputEntry>
+                <dmn11:annotationEntry>
+                    <dmn11:text>If two days or less and the employee has enough vacation time</dmn11:text>
+                </dmn11:annotationEntry>
+            </dmn11:rule>
+            <dmn11:rule id="_dac6bcad-0905-4c3c-9c79-999763070e3b">
+                <dmn11:inputEntry id="_d891a21f-b66f-4abf-a83a-44ccbf4076c3">
+                    <dmn11:text>&gt;= Number of days</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:inputEntry id="_d2148ce8-9619-49c1-a4fd-b5e1bc0f7184">
+                    <dmn11:text>&gt; 2</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:inputEntry id="_854a8c58-b12c-4ae0-9ec9-fb96e01ff020">
+                    <dmn11:text>-</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:inputEntry id="_6cf9ed9f-6886-4ec8-a1e8-b149bde4b0a9">
+                    <dmn11:text>-</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:outputEntry id="_6c75a6d8-f6d9-4895-bab0-aeee46359dae">
+                    <dmn11:text>"Manual Validation Required"</dmn11:text>
+                </dmn11:outputEntry>
+                <dmn11:outputEntry id="_a78c6b13-1358-4596-8cd0-e19bd389904e">
+                    <dmn11:text>"Manual Validation Required"</dmn11:text>
+                </dmn11:outputEntry>
+                <dmn11:annotationEntry>
+                    <dmn11:text>Approval required for more than two days</dmn11:text>
+                </dmn11:annotationEntry>
+            </dmn11:rule>
+            <dmn11:rule id="_b59afe0d-5b42-4423-8e70-d2ec8f0d64fc">
+                <dmn11:inputEntry id="_a3b27c3a-9813-417b-9efa-b7f8d18c7b6f">
+                    <dmn11:text>&lt;= Number of days</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:inputEntry id="_ed9266b6-6b5c-4f42-99b7-8e4055b78696">
+                    <dmn11:text>&gt; 2</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:inputEntry id="_544f2a21-efce-48aa-af1e-ee0bf23814e2">
+                    <dmn11:text>-</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:inputEntry id="_1d837cd6-7102-496f-aaa2-663a5065178b">
+                    <dmn11:text>-</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:outputEntry id="_48e793e4-9b30-4157-a65d-e7fbad7d5160">
+                    <dmn11:text>"Refused"</dmn11:text>
+                </dmn11:outputEntry>
+                <dmn11:outputEntry id="_560c14d2-075d-4fe0-b0e3-b0d22b1b1a04">
+                    <dmn11:text>"Not enough days available in the vacation day bank ("  + string(Days Remaining )+ ")"</dmn11:text>
+                </dmn11:outputEntry>
+                <dmn11:annotationEntry>
+                    <dmn11:text>Not enough vacation remaining</dmn11:text>
+                </dmn11:annotationEntry>
+            </dmn11:rule>
+            <dmn11:rule id="_96d35e20-0072-4364-b91e-44f03e57af23">
+                <dmn11:inputEntry id="_1d08df8f-9d8c-43bb-b594-6ede88162e1a">
+                    <dmn11:text>-</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:inputEntry id="_37971b5e-b3e4-4360-88b7-74e80ce2dae3">
+                    <dmn11:text>-</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:inputEntry id="_f5917b39-7bfe-47cc-b751-08499ef7fbfd">
+                    <dmn11:text>-</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:inputEntry id="_c36104bd-92b2-43fa-965d-76de4a402881">
+                    <dmn11:text>-</dmn11:text>
+                </dmn11:inputEntry>
+                <dmn11:outputEntry id="_d268e4d8-4e8f-4e78-9ad8-20f211f01d10">
+                    <dmn11:text>"Refused"</dmn11:text>
+                </dmn11:outputEntry>
+                <dmn11:outputEntry id="_18e87d39-2993-4498-8863-b4e8a02f8b47">
+                    <dmn11:text>"Refused"</dmn11:text>
+                </dmn11:outputEntry>
+                <dmn11:annotationEntry>
+                    <dmn11:text>Catch All</dmn11:text>
+                </dmn11:annotationEntry>
+            </dmn11:rule>
+        </dmn11:decisionTable>
+    </dmn11:decision>
+    <dmn11:inputData id="_c8169d21-b1b6-4e97-9891-7bda071cb38b" name="From">
+        <dmn11:variable id="_18cb221f-c1dc-4def-80e3-185fe30c5ffe" name="From" typeRef="date" />
+    </dmn11:inputData>
+    <dmn11:inputData id="_568a7704-dbb4-4750-a01b-3144d56acf24" name="To">
+        <dmn11:variable id="_ced0379a-716f-4567-9059-84b92b0ae340" name="To" typeRef="date" />
+    </dmn11:inputData>
+    <dmn11:decision id="_f3b7578e-ab9e-461f-9438-dc9d466f0d99" name="Number of days" triso:useOutputTypeAsAnswer="false">
+        <dmn11:variable id="_df5e920f-52bd-41af-963a-241674501bff" name="Number of days" typeRef="number" />
+        <dmn11:informationRequirement id="_41c55d6f-dba2-4771-a659-0d8c21d9987d">
+            <dmn11:requiredInput href="#_c8169d21-b1b6-4e97-9891-7bda071cb38b" />
+        </dmn11:informationRequirement>
+        <dmn11:informationRequirement id="_4c9aee94-f08e-4ed3-ac08-98801ab6e868">
+            <dmn11:requiredInput href="#_568a7704-dbb4-4750-a01b-3144d56acf24" />
+        </dmn11:informationRequirement>
+        <dmn11:context id="_24209c43-7c49-4627-b00c-5f6bdec7121b" typeRef="number" triso:descriptionVisible="false" triso:expressionId="_f7ad5ac1-24a0-498c-9c7c-a9473a4ac96f">
+            <dmn11:contextEntry id="_cbda604a-1ab3-40d8-83fa-57f1abc2124a">
+                <dmn11:variable id="_2818cfdd-7e7f-4aa2-8e71-34eb6d9987b3" name="Vacation Duration" typeRef="dayTimeDuration" />
+                <dmn11:literalExpression id="_f036ae6a-65f2-4fe8-8c61-7b652c9a6600" triso:descriptionVisible="false">
+                    <dmn11:text>To - From</dmn11:text>
+                </dmn11:literalExpression>
+            </dmn11:contextEntry>
+            <dmn11:contextEntry id="_0ac500dd-2e18-4751-af32-d23529a67839">
+                <dmn11:variable id="_d1a2b494-a725-4f5b-8638-5102db0480c6" name="Number of days" typeRef="Any" />
+                <dmn11:literalExpression id="_a33372ed-c4a9-4c49-ae49-85ca62afbfd2" triso:descriptionVisible="false">
+                    <dmn11:text>Vacation Duration.days</dmn11:text>
+                </dmn11:literalExpression>
+            </dmn11:contextEntry>
+            <dmn11:contextEntry id="_367ef119-9ca7-462c-bc8e-62e56e7c838d">
+                <dmn11:literalExpression id="_21081502-447c-48e3-9de7-7c010f61d7c9">
+                    <dmn11:text>floor(Number of days) + 1</dmn11:text>
+                </dmn11:literalExpression>
+            </dmn11:contextEntry>
+        </dmn11:context>
+    </dmn11:decision>
+    <dmn11:inputData id="_2fc2b314-570f-4fb6-aa34-0fa7a2e35e27" name="Days Remaining">
+        <dmn11:variable id="_9afdbc72-b484-4237-85d6-662b6e49e86d" name="Days Remaining" typeRef="number" />
+    </dmn11:inputData>
+    <dmn11:decisionService id="_0e313393-2d5b-4531-8000-bea6ccd31e0f" name="Vacation Approval Decision Service" triso:readOnly="false">
+        <dmn11:variable id="_5edfb059-d316-4ca5-91a8-e08bde0a2322" name="Vacation Approval Decision Service" typeRef="Any" />
+        <dmn11:outputDecision href="#_f3b7578e-ab9e-461f-9438-dc9d466f0d99" />
+        <dmn11:outputDecision href="#_9ba1b7b0-c84d-484f-9203-3792edc6dcbd" />
+        <dmn11:inputData href="#_c8169d21-b1b6-4e97-9891-7bda071cb38b" />
+        <dmn11:inputData href="#_568a7704-dbb4-4750-a01b-3144d56acf24" />
+        <dmn11:inputData href="#_2fc2b314-570f-4fb6-aa34-0fa7a2e35e27" />
+    </dmn11:decisionService>
+    <dmndi:DMNDI>
+        <dmndi:DMNDiagram id="_166800f2-c429-434b-815b-6ae3d77fc0db" name="Vacation Approval" triso:modelElementRef="_8299dd03-a901-415e-95f5-b75a2b8fe734">
+            <dmndi:Size width="1485" height="1050" />
+            <dmndi:DMNShape id="_28b4a070-f847-4c20-8e86-52b103292a89" dmnElementRef="_9ba1b7b0-c84d-484f-9203-3792edc6dcbd">
+                <dc:Bounds height="60" width="153" x="527" y="170" />
+                <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_41ac670a-e7f5-40b6-8b6a-d16f4f0559e0" dmnElementRef="_c8169d21-b1b6-4e97-9891-7bda071cb38b">
+                <dc:Bounds height="60.00000762939453" width="135.48234176635742" x="324.7588291168213" y="461.99999618530273" />
+                <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_8330dc74-98e4-4f80-8d72-dcf03199abb9" dmnElementRef="_568a7704-dbb4-4750-a01b-3144d56acf24">
+                <dc:Bounds height="60.00000762939453" width="135.48234176635742" x="500.5" y="461.99999618530273" />
+                <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_fe0b94d8-7cf9-45c9-b22c-31321021e118" dmnElementRef="_f3b7578e-ab9e-461f-9438-dc9d466f0d99">
+                <dc:Bounds height="60" width="153" x="280" y="280" />
+                <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_5e7119f8-de29-49c5-8953-5b253c34c144" dmnElementRef="_2fc2b314-570f-4fb6-aa34-0fa7a2e35e27">
+                <dc:Bounds height="60.00000762939453" width="135.48234176635742" x="725.7588291168213" y="461.99999618530273" />
+                <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="_88fdaa16-fede-4322-827b-4bb88a84eb4f" dmnElementRef="_41c55d6f-dba2-4771-a659-0d8c21d9987d" sourceElement="_41ac670a-e7f5-40b6-8b6a-d16f4f0559e0" targetElement="_fe0b94d8-7cf9-45c9-b22c-31321021e118">
+                <di:waypoint x="392.4968013763428" y="461.99999618530273" />
+                <di:waypoint x="336.5" y="340" />
+                <dmndi:DMNLabel />
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_57443b0e-2a10-45ad-97d4-0fecb1e40910" dmnElementRef="_4c9aee94-f08e-4ed3-ac08-98801ab6e868" sourceElement="_8330dc74-98e4-4f80-8d72-dcf03199abb9" targetElement="_fe0b94d8-7cf9-45c9-b22c-31321021e118">
+                <di:waypoint x="568.2379722595215" y="461.99999618530273" />
+                <di:waypoint x="406.5" y="340" />
+                <dmndi:DMNLabel />
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_6867239f-28e1-4539-ab6c-17caa73fc409" dmnElementRef="_79f1cecf-bab2-41f8-ba3d-c4769a5ad486" sourceElement="_5e7119f8-de29-49c5-8953-5b253c34c144" targetElement="_28b4a070-f847-4c20-8e86-52b103292a89">
+                <di:waypoint x="793.4968013763428" y="461.99999618530273" />
+                <di:waypoint x="643.5" y="230" />
+                <dmndi:DMNLabel />
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_2939124b-4243-4a72-9082-a2661e77b324" dmnElementRef="_40fbfc9d-73f6-4616-8936-92afd3d952e8" sourceElement="_fe0b94d8-7cf9-45c9-b22c-31321021e118" targetElement="_28b4a070-f847-4c20-8e86-52b103292a89">
+                <di:waypoint x="356.5" y="280" />
+                <di:waypoint x="553.5" y="230" />
+                <dmndi:DMNLabel />
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_0b36be6d-ad9a-460c-90b2-7ff5152f6052" dmnElementRef="_68002aff-2225-40cb-a2e5-070589411a00" sourceElement="_8330dc74-98e4-4f80-8d72-dcf03199abb9" targetElement="_28b4a070-f847-4c20-8e86-52b103292a89">
+                <di:waypoint x="635.9823417663574" y="491.99999618530273" />
+                <di:waypoint x="623.5" y="230" />
+                <dmndi:DMNLabel />
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_4ddfb073-7077-4006-9680-7faf56b11d4d" dmnElementRef="_59eb14f0-8e40-4607-a603-fd012e627396" sourceElement="_41ac670a-e7f5-40b6-8b6a-d16f4f0559e0" targetElement="_28b4a070-f847-4c20-8e86-52b103292a89">
+                <di:waypoint x="458.9968013763428" y="481.99999618530273" />
+                <di:waypoint x="573.5" y="230" />
+                <dmndi:DMNLabel />
+            </dmndi:DMNEdge>
+        </dmndi:DMNDiagram>
+        <dmndi:DMNStyle id="LS_195db244-42dd-4beb-ac9e-cc8a9b2b8643_0" fontSize="11" fontFamily="arial,helvetica,sans-serif" fontItalic="false" fontBold="false" fontUnderline="false" fontStrikeThrough="false" />
+    </dmndi:DMNDI>
+</dmn11:definitions>

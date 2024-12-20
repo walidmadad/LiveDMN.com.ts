@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Developer_Annual_Salary" name="Developer annual salary" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.19.0">
+  <inputData id="developer_knowledge_and_skill" name="Developer knowledge and skill">
+    <variable id="developer_knowledge_and_skill_var" name="VAR. Developer knowledge and skill" typeRef="string" />
+  </inputData>
+  <inputData id="code_listing" name="Code listing">
+    <variable id="code_listing_var" name="VAR. Code listing" typeRef="string" />
+  </inputData>
+  <decision id="developer_annual_salary" name="Developer annual salary">
+    <informationRequirement id="InformationRequirement_05tgz9d">
+      <requiredDecision href="#_developer_medal" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1r8doop">
+      <requiredDecision href="#_programming_language" />
+    </informationRequirement>
+    <decisionTable id="developer_annual_salaryDecisionTable">
+      <input id="input1" label="Programming language">
+        <inputExpression id="programming_languageInputExpression" typeRef="string">
+          <text>programming_language</text>
+        </inputExpression>
+        <inputValues>
+          <text>"C++","Java","TypeScript"</text>
+        </inputValues>
+      </input>
+      <input id="input2" label="Version">
+        <inputExpression id="versionInputExpression" typeRef="integer">
+          <text>version</text>
+        </inputExpression>
+        <inputValues>
+          <text>[1..20]</text>
+        </inputValues>
+      </input>
+      <input id="input3" label="Developer medal">
+        <inputExpression id="developer_medalInputExpression" typeRef="string">
+          <text>developer_medal</text>
+        </inputExpression>
+        <inputValues>
+          <text>"Gold","Silver","Bronze"</text>
+        </inputValues>
+      </input>
+      <output id="output1" label="Developer annual salary ($ US)" typeRef="integer" biodi:width="495">
+        <outputValues>
+          <text>60000,67000,70000,71000,72000,75000,76000,77000,78000,80000,81000</text>
+        </outputValues>
+      </output>
+      <rule id="row-495762709-1">
+        <inputEntry id="UnaryTests_1nxcsjr">
+          <text>"C++"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1bvh60z">
+          <text>&lt; 11</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r9yorj">
+          <text>"Gold"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1mtwzqz">
+          <text>78000</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-495762709-2">
+        <inputEntry id="UnaryTests_1lxjbif">
+          <text>"C++"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0joe9i3">
+          <text>&gt;= 11</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nhiedb">
+          <text>"Gold"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1h30r12">
+          <text>81000</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-495762709-3">
+        <inputEntry id="UnaryTests_0ifgmfm">
+          <text>"C++"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18d9tsi">
+          <text>&lt; 11</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12cib9m">
+          <text>"Silver"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wgaegy">
+          <text>75000</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-495762709-7">
+        <inputEntry id="UnaryTests_0ozm9s7">
+          <text>"C++"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ytcmu3">
+          <text>&gt;= 11</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sesgov">
+          <text>"Silver"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1dvc5x3">
+          <text>78000</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-445981423-3">
+        <inputEntry id="UnaryTests_1er0je1">
+          <text>"C++"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03x3f1n">
+          <text>&lt; 11</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uzqner">
+          <text>"Bronze"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pxy4g1">
+          <text>71000</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-445981423-4">
+        <description></description>
+        <inputEntry id="UnaryTests_06or48g">
+          <text>"C++"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0onmqeb">
+          <text>&gt;= 11</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wa71sy">
+          <text>"Bronze"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_09ggol9">
+          <text>75000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jnkqer">
+        <inputEntry id="UnaryTests_0jvdx98">
+          <text>"Java"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_145ap18">
+          <text>&lt; 8</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vpsqrb">
+          <text>"Gold"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11hl2ny">
+          <text>78000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xtjvvq">
+        <inputEntry id="UnaryTests_1gycsyg">
+          <text>"Java"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0128oeq">
+          <text>&gt;= 8</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14npzid">
+          <text>"Gold"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0y6w9oc">
+          <text>80000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0eofksb">
+        <inputEntry id="UnaryTests_09b9i96">
+          <text>"Java"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hunvro">
+          <text>&lt; 8</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zn5dum">
+          <text>"Silver"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1a3oub8">
+          <text>70000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ak83sd">
+        <inputEntry id="UnaryTests_0ghrw0j">
+          <text>"Java"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_02s1xb0">
+          <text>&gt;= 8</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08y806h">
+          <text>"Silver"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0a17gpp">
+          <text>72000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_14b8wcb">
+        <inputEntry id="UnaryTests_0g4wyg0">
+          <text>"Java"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kyg9xa">
+          <text>&lt; 8</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ufinsv">
+          <text>"Bronze"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0lz8odn">
+          <text>60000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0x1vd2k">
+        <inputEntry id="UnaryTests_11bssr0">
+          <text>"Java"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vqnkmz">
+          <text>&gt;= 8</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vt6nmr">
+          <text>"Bronze"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0nwscyi">
+          <text>67000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1k3d7xe">
+        <inputEntry id="UnaryTests_1mhq6ai">
+          <text>"TypeScript"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dp5raw">
+          <text>&lt; 5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07arknc">
+          <text>"Gold"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1t0t19z">
+          <text>77000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0z903km">
+        <description>https://devblogs.microsoft.com/typescript/announcing-typescript-5-0</description>
+        <inputEntry id="UnaryTests_1c788f9">
+          <text>"TypeScript"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q5moff">
+          <text>&gt;= 5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ml7bow">
+          <text>"Gold"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0sokfjs">
+          <text>78000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_027z1k3">
+        <inputEntry id="UnaryTests_0siinvx">
+          <text>"TypeScript"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kjgbl2">
+          <text>&lt; 5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13l4jjz">
+          <text>"Silver"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13xnz2l">
+          <text>76000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cic1c8">
+        <inputEntry id="UnaryTests_0j70t6s">
+          <text>"TypeScript"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wouild">
+          <text>&gt;= 5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12djfbm">
+          <text>"Silver"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1f5lomo">
+          <text>77000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04ef1c6">
+        <inputEntry id="UnaryTests_11two3o">
+          <text>"TypeScript"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xn3llh">
+          <text>&lt; 5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11coklb">
+          <text>"Bronze"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11peyld">
+          <text>75000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1dkaecu">
+        <inputEntry id="UnaryTests_0jj4hyn">
+          <text>"TypeScript"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0laij0v">
+          <text>&gt;= 5</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dboxis">
+          <text>"Bronze"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1kywewe">
+          <text>76000</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="_programming_language" name="Programming language">
+    <informationRequirement id="InformationRequirement_1vzoh7s">
+      <requiredInput href="#code_listing" />
+    </informationRequirement>
+    <decisionTable id="programming_languageDecisionTable">
+      <input id="temperatureInput" label="Code listing">
+        <inputExpression id="temperatureInputExpression" typeRef="string">
+          <text>code_listing</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0xj9gvu">
+          <text>"C++","Java","TypeScript"</text>
+        </inputValues>
+      </input>
+      <output id="programming_languageOutput" label="Programming language" name="programming_language" typeRef="string">
+        <outputValues id="UnaryTests_1t7brii">
+          <text>"C++","Java","TypeScript"</text>
+        </outputValues>
+      </output>
+      <rule id="row-495762709-5">
+        <description>Identity function for the sake of simplicity!</description>
+        <inputEntry id="UnaryTests_1fd0eqo">
+          <text>"C++"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0l98klb">
+          <text>"C++"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-445981423-2">
+        <description>Identity function for the sake of simplicity!</description>
+        <inputEntry id="UnaryTests_1a0imxy">
+          <text>"Java"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1poftw4">
+          <text>"Java"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1o1cb3a">
+        <description>Identity function for the sake of simplicity!</description>
+        <inputEntry id="UnaryTests_09t46oh">
+          <text>"TypeScript"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pgn8ov">
+          <text>"TypeScript"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="_developer_medal" name="Developer medal">
+    <informationRequirement id="InformationRequirement_038230q">
+      <requiredInput href="#developer_knowledge_and_skill" />
+    </informationRequirement>
+    <decisionTable id="developer_medalDecisionTable">
+      <input id="typeOfDayInput" label="Developer knowledge and skill ">
+        <inputExpression id="typeOfDayInputExpression" typeRef="string">
+          <text>developer_knowledge_and_skill</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0c7bjyb">
+          <text>"Gold","Silver","Bronze"</text>
+        </inputValues>
+      </input>
+      <output id="developer_medalOutput" label="Developer medal" name="developer_medal" typeRef="string">
+        <outputValues id="UnaryTests_1nq3h87">
+          <text>"Gold","Silver","Bronze"</text>
+        </outputValues>
+      </output>
+      <rule id="row-495762709-8">
+        <description>Identity function for the sake of simplicity!</description>
+        <inputEntry id="UnaryTests_0l72u8n">
+          <text>"Gold"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wuwqaz">
+          <text>"Gold"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-495762709-9">
+        <description>Identity function for the sake of simplicity!</description>
+        <inputEntry id="UnaryTests_03a73o9">
+          <text>"Silver"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1whn119">
+          <text>"Silver"</text>
+        </outputEntry>
+      </rule>
+      <rule id="row-495762709-10">
+        <description>Identity function for the sake of simplicity!</description>
+        <inputEntry id="UnaryTests_12tygwt">
+          <text>"Bronze"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1b5k9t8">
+          <text>"Bronze"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="DMNDiagram_1ejukud">
+      <dmndi:DMNShape id="DMNShape_1pny77l" dmnElementRef="developer_knowledge_and_skill">
+        <dc:Bounds height="45" width="125" x="407" y="316" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1b88mi9" dmnElementRef="code_listing">
+        <dc:Bounds height="45" width="125" x="187" y="316" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1f9xq97" dmnElementRef="developer_annual_salary">
+        <dc:Bounds height="80" width="180" x="350" y="70" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0wk9owu" dmnElementRef="InformationRequirement_05tgz9d">
+        <di:waypoint x="470" y="186" />
+        <di:waypoint x="470" y="170" />
+        <di:waypoint x="470" y="150" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0glygnk" dmnElementRef="InformationRequirement_1r8doop">
+        <di:waypoint x="250" y="186" />
+        <di:waypoint x="410" y="170" />
+        <di:waypoint x="410" y="150" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1dlhv62" dmnElementRef="_programming_language">
+        <dc:Bounds height="80" width="180" x="160" y="186" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_01c572k" dmnElementRef="InformationRequirement_1vzoh7s">
+        <di:waypoint x="250" y="316" />
+        <di:waypoint x="250" y="286" />
+        <di:waypoint x="250" y="266" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0tndkvg" dmnElementRef="_developer_medal">
+        <dc:Bounds height="80" width="180" x="380" y="186" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0m045nr" dmnElementRef="InformationRequirement_038230q">
+        <di:waypoint x="470" y="316" />
+        <di:waypoint x="470" y="286" />
+        <di:waypoint x="470" y="266" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

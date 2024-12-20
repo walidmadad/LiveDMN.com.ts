@@ -1,0 +1,8 @@
+{
+  "action": "PREDICT",
+  "data": [
+    {
+      "X": 80
+    }
+  ]
+}

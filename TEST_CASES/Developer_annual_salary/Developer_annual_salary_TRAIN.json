@@ -1,0 +1,617 @@
+{
+  "action": "TRAIN",
+  "data": [
+    {
+      "DDeveloper medal": "Error in key",
+      "Programming language": "TypeScript",
+      "Version": 5,
+      "Developer annual salary ($ US)": 0
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "TypeScript",
+      "Version": "Error in type",
+      "Developer annual salary ($ US)": 0
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "TypeScript",
+      "Version": 5,
+      "Developer annual salary ($ US)": 75405
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "TypeScript",
+      "Version": 3,
+      "Developer annual salary ($ US)": 76975
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "C++",
+      "Version": 7,
+      "Developer annual salary ($ US)": 79211
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "C++",
+      "Version": 2,
+      "Developer annual salary ($ US)": 78043
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "C++",
+      "Version": 10,
+      "Developer annual salary ($ US)": 75519
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "C++",
+      "Version": 11,
+      "Developer annual salary ($ US)": 78114
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "Java",
+      "Version": 8,
+      "Developer annual salary ($ US)": 70977
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "Java",
+      "Version": 8,
+      "Developer annual salary ($ US)": 79327
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "Java",
+      "Version": 1,
+      "Developer annual salary ($ US)": 70360
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "Java",
+      "Version": 1,
+      "Developer annual salary ($ US)": 62220
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "C++",
+      "Version": 3,
+      "Developer annual salary ($ US)": 73650
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "C++",
+      "Version": 1,
+      "Developer annual salary ($ US)": 73288
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "Java",
+      "Version": 4,
+      "Developer annual salary ($ US)": 71601
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "TypeScript",
+      "Version": 5,
+      "Developer annual salary ($ US)": 75711
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "Java",
+      "Version": 7,
+      "Developer annual salary ($ US)": 64142
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "C++",
+      "Version": 6,
+      "Developer annual salary ($ US)": 75298
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "TypeScript",
+      "Version": 3,
+      "Developer annual salary ($ US)": 76624
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "C++",
+      "Version": 2,
+      "Developer annual salary ($ US)": 73745
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "C++",
+      "Version": 11,
+      "Developer annual salary ($ US)": 78410
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "TypeScript",
+      "Version": 1,
+      "Developer annual salary ($ US)": 76781
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "TypeScript",
+      "Version": 5,
+      "Developer annual salary ($ US)": 75989
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "Java",
+      "Version": 1,
+      "Developer annual salary ($ US)": 70443
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "TypeScript",
+      "Version": 5,
+      "Developer annual salary ($ US)": 75978
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "TypeScript",
+      "Version": 4,
+      "Developer annual salary ($ US)": 77527
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "TypeScript",
+      "Version": 4,
+      "Developer annual salary ($ US)": 75544
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "C++",
+      "Version": 11,
+      "Developer annual salary ($ US)": 73355
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "C++",
+      "Version": 11,
+      "Developer annual salary ($ US)": 77567
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "Java",
+      "Version": 2,
+      "Developer annual salary ($ US)": 78347
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "Java",
+      "Version": 8,
+      "Developer annual salary ($ US)": 71817
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "C++",
+      "Version": 9,
+      "Developer annual salary ($ US)": 75736
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "TypeScript",
+      "Version": 5,
+      "Developer annual salary ($ US)": 76952
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "C++",
+      "Version": 5,
+      "Developer annual salary ($ US)": 73306
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "C++",
+      "Version": 10,
+      "Developer annual salary ($ US)": 76768
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "C++",
+      "Version": 4,
+      "Developer annual salary ($ US)": 77922
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "C++",
+      "Version": 11,
+      "Developer annual salary ($ US)": 80711
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "C++",
+      "Version": 2,
+      "Developer annual salary ($ US)": 80548
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "TypeScript",
+      "Version": 2,
+      "Developer annual salary ($ US)": 76885
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "TypeScript",
+      "Version": 5,
+      "Developer annual salary ($ US)": 76895
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "C++",
+      "Version": 3,
+      "Developer annual salary ($ US)": 75136
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "C++",
+      "Version": 11,
+      "Developer annual salary ($ US)": 71763
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "TypeScript",
+      "Version": 5,
+      "Developer annual salary ($ US)": 77667
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "TypeScript",
+      "Version": 5,
+      "Developer annual salary ($ US)": 77458
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "C++",
+      "Version": 1,
+      "Developer annual salary ($ US)": 75379
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "C++",
+      "Version": 4,
+      "Developer annual salary ($ US)": 71050
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "C++",
+      "Version": 11,
+      "Developer annual salary ($ US)": 78941
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "C++",
+      "Version": 11,
+      "Developer annual salary ($ US)": 71351
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "Java",
+      "Version": 8,
+      "Developer annual salary ($ US)": 79253
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "C++",
+      "Version": 11,
+      "Developer annual salary ($ US)": 77531
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "C++",
+      "Version": 11,
+      "Developer annual salary ($ US)": 78084
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "Java",
+      "Version": 8,
+      "Developer annual salary ($ US)": 63373
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "Java",
+      "Version": 5,
+      "Developer annual salary ($ US)": 70266
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "C++",
+      "Version": 1,
+      "Developer annual salary ($ US)": 78494
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "C++",
+      "Version": 11,
+      "Developer annual salary ($ US)": 78277
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "C++",
+      "Version": 6,
+      "Developer annual salary ($ US)": 75521
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "C++",
+      "Version": 3,
+      "Developer annual salary ($ US)": 79277
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "TypeScript",
+      "Version": 5,
+      "Developer annual salary ($ US)": 75875
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "C++",
+      "Version": 11,
+      "Developer annual salary ($ US)": 74789
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "Java",
+      "Version": 5,
+      "Developer annual salary ($ US)": 63492
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "C++",
+      "Version": 11,
+      "Developer annual salary ($ US)": 74005
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "TypeScript",
+      "Version": 5,
+      "Developer annual salary ($ US)": 75228
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "C++",
+      "Version": 7,
+      "Developer annual salary ($ US)": 79162
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "Java",
+      "Version": 4,
+      "Developer annual salary ($ US)": 71549
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "C++",
+      "Version": 8,
+      "Developer annual salary ($ US)": 77196
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "Java",
+      "Version": 1,
+      "Developer annual salary ($ US)": 70410
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "Java",
+      "Version": 5,
+      "Developer annual salary ($ US)": 70284
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "Java",
+      "Version": 2,
+      "Developer annual salary ($ US)": 79121
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "Java",
+      "Version": 4,
+      "Developer annual salary ($ US)": 79201
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "C++",
+      "Version": 2,
+      "Developer annual salary ($ US)": 76227
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "Java",
+      "Version": 5,
+      "Developer annual salary ($ US)": 62645
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "C++",
+      "Version": 11,
+      "Developer annual salary ($ US)": 79831
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "TypeScript",
+      "Version": 5,
+      "Developer annual salary ($ US)": 77572
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "C++",
+      "Version": 7,
+      "Developer annual salary ($ US)": 78809
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "C++",
+      "Version": 11,
+      "Developer annual salary ($ US)": 72907
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "C++",
+      "Version": 11,
+      "Developer annual salary ($ US)": 73433
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "Java",
+      "Version": 8,
+      "Developer annual salary ($ US)": 70746
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "Java",
+      "Version": 3,
+      "Developer annual salary ($ US)": 79352
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "C++",
+      "Version": 1,
+      "Developer annual salary ($ US)": 77100
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "Java",
+      "Version": 8,
+      "Developer annual salary ($ US)": 70630
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "C++",
+      "Version": 11,
+      "Developer annual salary ($ US)": 75066
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "TypeScript",
+      "Version": 1,
+      "Developer annual salary ($ US)": 75804
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "Java",
+      "Version": 3,
+      "Developer annual salary ($ US)": 79183
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "Java",
+      "Version": 6,
+      "Developer annual salary ($ US)": 65051
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "Java",
+      "Version": 5,
+      "Developer annual salary ($ US)": 79623
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "TypeScript",
+      "Version": 2,
+      "Developer annual salary ($ US)": 77849
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "C++",
+      "Version": 11,
+      "Developer annual salary ($ US)": 71203
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "C++",
+      "Version": 4,
+      "Developer annual salary ($ US)": 79995
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "TypeScript",
+      "Version": 5,
+      "Developer annual salary ($ US)": 75415
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "Java",
+      "Version": 7,
+      "Developer annual salary ($ US)": 78039
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "Java",
+      "Version": 2,
+      "Developer annual salary ($ US)": 79131
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "TypeScript",
+      "Version": 5,
+      "Developer annual salary ($ US)": 77416
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "C++",
+      "Version": 20,
+      "Developer annual salary ($ US)": 82000
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "TypeScript",
+      "Version": 5,
+      "Developer annual salary ($ US)": 76139
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "C++",
+      "Version": 11,
+      "Developer annual salary ($ US)": 72684
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "Java",
+      "Version": 8,
+      "Developer annual salary ($ US)": 79562
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "Java",
+      "Version": 8,
+      "Developer annual salary ($ US)": 65308
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "Java",
+      "Version": 1,
+      "Developer annual salary ($ US)": 70734
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "Java",
+      "Version": 6,
+      "Developer annual salary ($ US)": 71201
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "Java",
+      "Version": 5,
+      "Developer annual salary ($ US)": 78549
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "TypeScript",
+      "Version": 3,
+      "Developer annual salary ($ US)": 76528
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "Java",
+      "Version": 8,
+      "Developer annual salary ($ US)": 79735
+    }
+  ]
+}

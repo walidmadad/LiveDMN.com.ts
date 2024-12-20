@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<semantic:definitions xmlns:triso="http://www.trisotech.com/2015/triso/modeling" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn" xmlns:trisofeed="http://trisotech.com/feed" xmlns:feel="https://www.omg.org/spec/DMN/20191111/FEEL/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:rss="http://purl.org/rss/2.0/" xmlns:semantic="https://www.omg.org/spec/DMN/20191111/MODEL/"            xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase"  xmlns:drools="http://www.drools.org/kie/dmn/1.1"  xmlns:openapi="https://openapis.org/omg/extension/1.0"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:boxedext="https://www.trisotech.com/spec/DMN/20191111/EXT/"   xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns="http://www.trisotech.com/definitions/_036488f8-5cca-4da4-9d43-5074858720cb" id="_036488f8-5cca-4da4-9d43-5074858720cb" name="Port Clearance Rules - Solution 3" namespace="http://www.trisotech.com/definitions/_036488f8-5cca-4da4-9d43-5074858720cb" exporter="Decision Modeler" exporterVersion="8.11.0" xml:lang="en" triso:logoChoice="Default" triso:version="1.1" triso:state="Published">
+    <semantic:description>&lt;p&gt;The Decision Management Community provides resources for DM practitioners, listing tools, news, providing examples and also giving a monthly challenge.&lt;br /&gt;&lt;br /&gt;As a vendor that always seek improvement, we took the March challenge using Trisotech DMN Modeler.&lt;/p&gt;</semantic:description>
+    <semantic:extensionElements>
+        <triso:scope>&lt;p&gt;&lt;img style="display: block; margin-left: auto; margin-right: auto;" src="https://dmcommunity.files.wordpress.com/2016/02/thegameofrules.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;The March challenge is to create a decision model capable to decide if a ship can enter a Dutch port on a certain date. The rules for this challenge are inspired by the international Ship and Port Facility Security Code. They were originally developed for The Game Of Rules, a publication of the Business Rules Platform Netherlands. The authors: Silvie Spreeuwenberg, LibRT; Charlotte Bouvy, Oelan; Martijn Zoet, Zuyd University of Applied Sciences.&lt;/p&gt;
+&lt;p&gt;The rule set is not intended to be complete for all possible cases. Here are the Port Clearance Rules:&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Rule #1. The hold of a ship must be considered clean if the hold does not contain remainders of cargo.&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Rule #2. An unloaded ship may only enter a Dutch port if the ship complies with the requirements of the Inspection for unloaded ships.&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Rule #3. A ship must comply with the requirements of the Inspection for unloaded ships if the ship complies with all of the following:&lt;/p&gt;
+&lt;p style="padding-left: 60px;"&gt;a) the ship meets the safety requirements for unloaded ships;&lt;/p&gt;
+&lt;p style="padding-left: 60px;"&gt;b) the ship has a certificate of registry that is valid.&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Rule #4. A ship must be categorized as large if the total length of the ship is at least 80 meters.&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Rule #5. A ship&amp;rsquo;s hold contains remainders of cargo if the residual cargo measurement is higher than 0.5 mg dry weight per cm&amp;sup2;.&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Rule #6. A ship only meets the safety requirements for unloaded ships if the ship complies with at least one of the following:&lt;/p&gt;
+&lt;p style="padding-left: 60px;"&gt;a) the ship meets the safety requirements for small unloaded ships;&lt;/p&gt;
+&lt;p style="padding-left: 60px;"&gt;b) the ship meets the safety requirements for large unloaded ships.&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Rule #7. A ship only meets the safety requirements for large unloaded ships if the ship complies with all of the following:&lt;/p&gt;
+&lt;p style="padding-left: 60px;"&gt;a) the ship is categorized as large;&lt;/p&gt;
+&lt;p style="padding-left: 60px;"&gt;b) the hold of the ship is clean;&lt;/p&gt;
+&lt;p style="padding-left: 60px;"&gt;c) the hold of the ship is double hulled.&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Rule #8. A ship only meets the safety requirements for small unloaded ships if the ship complies with all of the following:&lt;/p&gt;
+&lt;p style="padding-left: 60px;"&gt;a) the ship is categorized as small;&lt;/p&gt;
+&lt;p style="padding-left: 60px;"&gt;b) the hold of the ship is clean.&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Rule #9. A ship must be categorized as small if the total length of the ship is less than 80 meters.&lt;/p&gt;
+&lt;p style="padding-left: 30px;"&gt;Rule #10. A ship&amp;rsquo;s certificate of registry must be considered valid if the date up to which the registration is valid of the certificate of registry is after the current date.&lt;/p&gt;</triso:scope>
+        <triso:graphRelations>
+            <triso:goalRef id="_6f5657a9-2061-4d9b-8a28-a16e6a5b59b0" predicate="achieve">_8a9dbd55-6f31-485e-8a07-61d3fa1c5ed3</triso:goalRef>
+        </triso:graphRelations>
+        <triso:graphObjects>
+            <triso:goal name="Find the best possible DMN solution to determine if a ship can enter a Dutch port on a certain date." id="_8a9dbd55-6f31-485e-8a07-61d3fa1c5ed3"/>
+        </triso:graphObjects>
+    </semantic:extensionElements>
+    <semantic:itemDefinition name="tShipSize" label="tShipSize">
+        <semantic:typeRef>string</semantic:typeRef>
+        <semantic:allowedValues>
+            <semantic:extensionElements>
+                <triso:constraintDetails id="_a97ba9e2-3148-47e8-8ae4-ff4b18a234ea" constraintsType="enumeration">
+                    <triso:value>"Small","Large"</triso:value>
+                    <triso:display>"Small", "Large"</triso:display>
+                    <triso:choices>
+                        <triso:value>"Small"</triso:value>
+                        <triso:display>"Small"</triso:display>
+                    </triso:choices>
+                    <triso:choices>
+                        <triso:value>"Large"</triso:value>
+                        <triso:display>"Large"</triso:display>
+                    </triso:choices>
+                </triso:constraintDetails>
+            </semantic:extensionElements>
+            <semantic:text>"Small","Large"</semantic:text>
+        </semantic:allowedValues>
+    </semantic:itemDefinition>
+    <semantic:decisionService id="_036488f8-5cca-4da4-9d43-5074858720cb_DS" name="Whole Model Decision Service" triso:dynamicDecisionService="true" triso:wholeModelService="true">
+        <semantic:variable name="Whole Model Decision Service" id="_036488f8-5cca-4da4-9d43-5074858720cb_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_42806504-8ed5-488f-b274-de98c1bc67b9"/>
+        <semantic:inputData href="#_85786fda-102a-4576-9d7b-7190cbc8e3ac"/>
+        <semantic:inputData href="#_27aaa05f-df3a-44f0-8c09-efd78d6c7242"/>
+        <semantic:inputData href="#_e7fb51b3-6fbe-4418-b5ae-4d993976ba5a"/>
+        <semantic:inputData href="#_3bbb5a7a-9371-4dd3-890d-cf5e48f68661"/>
+    </semantic:decisionService>
+    <semantic:decisionService id="_04a275df-4b66-4163-afa3-0c9423af0077_DS" name="Diagram Solution 3" triso:dynamicDecisionService="true">
+        <semantic:variable name="Diagram Solution 3" id="_04a275df-4b66-4163-afa3-0c9423af0077_DS_VAR" typeRef="Any"/>
+        <semantic:outputDecision href="#_42806504-8ed5-488f-b274-de98c1bc67b9"/>
+        <semantic:inputData href="#_85786fda-102a-4576-9d7b-7190cbc8e3ac"/>
+        <semantic:inputData href="#_27aaa05f-df3a-44f0-8c09-efd78d6c7242"/>
+        <semantic:inputData href="#_e7fb51b3-6fbe-4418-b5ae-4d993976ba5a"/>
+        <semantic:inputData href="#_3bbb5a7a-9371-4dd3-890d-cf5e48f68661"/>
+    </semantic:decisionService>
+    <semantic:decision id="_42806504-8ed5-488f-b274-de98c1bc67b9" name="Ship can enter a Dutch port">
+        <semantic:question>Can the ship enter a Dutch port on a certain date?</semantic:question>
+        <semantic:allowedAnswers>Yes (true) or No (false)</semantic:allowedAnswers>
+        <semantic:variable name="Ship can enter a Dutch port" id="_cadcab16-6708-4595-97c1-68dd321d92f9" typeRef="boolean"/>
+        <semantic:informationRequirement id="_0f8db529-0827-4d84-834c-ddaff6729670">
+            <semantic:requiredInput href="#_85786fda-102a-4576-9d7b-7190cbc8e3ac"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_d7367ae6-41f2-4358-8727-43ff18cad421">
+            <semantic:requiredInput href="#_27aaa05f-df3a-44f0-8c09-efd78d6c7242"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_d6ca6ed4-4417-42bb-b9cb-4d40e241e0b0">
+            <semantic:requiredInput href="#_3bbb5a7a-9371-4dd3-890d-cf5e48f68661"/>
+        </semantic:informationRequirement>
+        <semantic:informationRequirement id="_1e0e9f16-e17f-4b80-b5ff-74d4c143ebe3">
+            <semantic:requiredInput href="#_e7fb51b3-6fbe-4418-b5ae-4d993976ba5a"/>
+        </semantic:informationRequirement>
+        <semantic:literalExpression id="_72d8a8f6-4ad3-45da-b88d-3ff73613f9f6" triso:descriptionVisible="false" typeRef="boolean" triso:expressionId="_53aa7ace-4715-483d-a3c5-655df0e599c9">
+            <semantic:text>if Ship Length &lt; 80 and Residual cargo measurement &lt;0.5 and Certificate of Registry date &gt; today()
+    then true
+else
+    if Ship Length &gt;= 80 and Residual cargo measurement &lt;0.5 and Certificate of Registry date &gt; today() and Ship is double hulled
+    then true
+else false</semantic:text>
+        </semantic:literalExpression>
+    </semantic:decision>
+    <semantic:inputData id="_85786fda-102a-4576-9d7b-7190cbc8e3ac" name="Ship Length">
+        <semantic:description>&lt;p&gt;Total ship length of the boat, in meters.&lt;/p&gt;</semantic:description>
+        <semantic:variable name="Ship Length" id="_7e77b652-3f7b-4bc3-9a74-6c36144b4149" typeRef="number"/>
+    </semantic:inputData>
+    <semantic:inputData id="_27aaa05f-df3a-44f0-8c09-efd78d6c7242" name="Residual cargo measurement">
+        <semantic:description>&lt;p&gt;The &lt;span&gt;residual cargo measurement&amp;nbsp;&lt;/span&gt;is in mg dry weight per cm&amp;sup2;.&lt;/p&gt;</semantic:description>
+        <semantic:variable name="Residual cargo measurement" id="_ffc5e461-a9bd-442d-a635-cbbf2d81a7df" typeRef="number"/>
+    </semantic:inputData>
+    <semantic:inputData id="_e7fb51b3-6fbe-4418-b5ae-4d993976ba5a" name="Certificate of Registry date">
+        <semantic:variable name="Certificate of Registry date" id="_8b0aa16d-e3f1-492c-9ef5-a7d2241b63b5" typeRef="date"/>
+    </semantic:inputData>
+    <semantic:inputData id="_3bbb5a7a-9371-4dd3-890d-cf5e48f68661" name="Ship is double hulled">
+        <semantic:description>&lt;p&gt;A boolean value telling if the ship is double hulled or not.&lt;/p&gt;</semantic:description>
+        <semantic:variable name="Ship is double hulled" id="_11445d08-3d7d-4023-9b4e-84500af82b9d" typeRef="boolean"/>
+    </semantic:inputData>
+    <dmndi:DMNDI>
+        <dmndi:DMNDiagram id="_04a275df-4b66-4163-afa3-0c9423af0077" triso:modelElementRef="_2180bfae-330b-46b0-af48-a25987eee9ea" name="Solution 3" documentation="&lt;p&gt;For solution 3, it was decided to use another element of DMN decision logic: the literal expression. Based on the required inputs (Ship Size, Residual Cargo Size, Certificate date and isDoubleHulled), this expression determines if the ship can enter the port. The if then else format makes it readable by a human and by a machine.&lt;/p&gt;&#xA;&lt;p&gt;Again doing an overview of the rules we identified 4 Input Data:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;From Rule #4: Total length of the ship (Ship Length)&lt;/li&gt;&#xA;&lt;li&gt;From Rule #5: Residual cargo measurement (Residual cargo &lt;span lang=&quot;EN-US&quot;&gt;measurement&lt;/span&gt;)&lt;/li&gt;&#xA;&lt;li&gt;From Rule #7: If the hold of the ship is double hulled or not? (Ship is double hulled)&lt;/li&gt;&#xA;&lt;li&gt;From Rule #10: Date up to which the registration is valid (Certificate of Registry date)&lt;/li&gt;&#xA;&lt;/ul&gt;">
+            <di:extension/>
+            <dmndi:Size height="1050" width="1485"/>
+            <dmndi:DMNShape id="_4d2baa3e-22f5-4d4f-9834-813835b193c6" dmnElementRef="_42806504-8ed5-488f-b274-de98c1bc67b9">
+                <dc:Bounds x="496" y="234" width="153" height="60"/>
+                <dmndi:DMNLabel sharedStyle="LS_036488f8-5cca-4da4-9d43-5074858720cb_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_3d1e807a-2dd7-4921-a730-0daa102f8603" dmnElementRef="_85786fda-102a-4576-9d7b-7190cbc8e3ac">
+                <dc:Bounds x="274.2588291168213" y="364.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_036488f8-5cca-4da4-9d43-5074858720cb_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_205e4d23-04ff-463f-8bbf-24264a43cca8" dmnElementRef="_27aaa05f-df3a-44f0-8c09-efd78d6c7242">
+                <dc:Bounds x="427.2588291168213" y="364.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_036488f8-5cca-4da4-9d43-5074858720cb_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_157f4c82-d770-4dfa-8dc8-25a1217fa4b9" dmnElementRef="_e7fb51b3-6fbe-4418-b5ae-4d993976ba5a">
+                <dc:Bounds x="739.2588291168213" y="364.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_036488f8-5cca-4da4-9d43-5074858720cb_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNShape id="_ec3b1a19-d4ac-4079-9dd3-3e1784cf66dd" dmnElementRef="_3bbb5a7a-9371-4dd3-890d-cf5e48f68661">
+                <dc:Bounds x="585.7588291168213" y="364.99999618530273" width="135.48234176635742" height="60.00000762939453"/>
+                <dmndi:DMNLabel sharedStyle="LS_036488f8-5cca-4da4-9d43-5074858720cb_0" trisodmn:defaultBounds="true"/>
+            </dmndi:DMNShape>
+            <dmndi:DMNEdge id="_39e257fc-d913-4a85-8ceb-3419b38e5eec" dmnElementRef="_0f8db529-0827-4d84-834c-ddaff6729670" sourceElement="_3d1e807a-2dd7-4921-a730-0daa102f8603" targetElement="_4d2baa3e-22f5-4d4f-9834-813835b193c6">
+                <di:waypoint x="341.9968013763428" y="364.99999618530273"/>
+                <di:waypoint x="542.5" y="294"/>
+                <dmndi:DMNLabel sharedStyle="LS_036488f8-5cca-4da4-9d43-5074858720cb_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_5f6ea61e-7288-4e9a-9acc-35c4faa63876" dmnElementRef="_d7367ae6-41f2-4358-8727-43ff18cad421" sourceElement="_205e4d23-04ff-463f-8bbf-24264a43cca8" targetElement="_4d2baa3e-22f5-4d4f-9834-813835b193c6">
+                <di:waypoint x="494.9968013763428" y="364.99999618530273"/>
+                <di:waypoint x="562.5" y="294"/>
+                <dmndi:DMNLabel sharedStyle="LS_036488f8-5cca-4da4-9d43-5074858720cb_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_d06da6e5-5680-48d4-b15a-2d082b3e71b6" dmnElementRef="_d6ca6ed4-4417-42bb-b9cb-4d40e241e0b0" sourceElement="_ec3b1a19-d4ac-4079-9dd3-3e1784cf66dd" targetElement="_4d2baa3e-22f5-4d4f-9834-813835b193c6">
+                <di:waypoint x="653.4968013763428" y="364.99999618530273"/>
+                <di:waypoint x="582.5" y="294"/>
+                <dmndi:DMNLabel sharedStyle="LS_036488f8-5cca-4da4-9d43-5074858720cb_0"/>
+            </dmndi:DMNEdge>
+            <dmndi:DMNEdge id="_f248dd01-f919-4bbe-8a10-e56423c104f7" dmnElementRef="_1e0e9f16-e17f-4b80-b5ff-74d4c143ebe3" sourceElement="_157f4c82-d770-4dfa-8dc8-25a1217fa4b9" targetElement="_4d2baa3e-22f5-4d4f-9834-813835b193c6">
+                <di:waypoint x="806.9968013763428" y="364.99999618530273"/>
+                <di:waypoint x="602.5" y="294"/>
+                <dmndi:DMNLabel sharedStyle="LS_036488f8-5cca-4da4-9d43-5074858720cb_0"/>
+            </dmndi:DMNEdge>
+        </dmndi:DMNDiagram>
+        <dmndi:DMNStyle id="LS_036488f8-5cca-4da4-9d43-5074858720cb_0" fontFamily="arial,helvetica,sans-serif" fontSize="11" fontBold="false" fontItalic="false" fontUnderline="false" fontStrikeThrough="false"/>
+    </dmndi:DMNDI>
+</semantic:definitions>

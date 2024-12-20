@@ -1,0 +1,12 @@
+{
+  "action": "FEEL",
+  "data": [
+    {
+      "Unused function": "function(x) x",
+      "Standardize and Rank Rating": "function(x) x + \"?\"",
+      "Instrument": {
+        "externalRatings": ["Is it correct"]
+      }
+    }
+  ]
+}

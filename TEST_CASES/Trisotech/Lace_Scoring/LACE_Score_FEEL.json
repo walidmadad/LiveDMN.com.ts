@@ -1,0 +1,17 @@
+{
+  "action": "FEEL",
+  "data": [
+    {
+      "L Score": 0,
+      "A Score": 0,
+      "C Score": 0,
+      "E Score": 0
+    },
+    {
+      "L Score": 1,
+      "A Score": 1,
+      "C Score": 1,
+      "E Score": 1
+    }
+  ]
+}

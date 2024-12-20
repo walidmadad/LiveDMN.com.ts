@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn11:definitions xmlns:dmn11="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rss="http://purl.org/rss/2.0/" xmlns:trisofeed="http://trisotech.com/feed" xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn" xmlns:triso="http://www.trisotech.com/2015/triso/modeling" xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase" xmlns:feel="https://www.omg.org/spec/DMN/20191111/FEEL/" xmlns:drools="http://www.drools.org/kie/dmn/1.1" xmlns:openapi="https://openapis.org/omg/extension/1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:boxedext="https://www.trisotech.com/spec/DMN/20191111/EXT/" xmlns:i18n="http://www.omg.org/spec/BPMN/non-normative/extensions/i18n/1.0" xmlns="http://www.trisotech.com/definitions/_ceaf902e-c7fe-4c1f-9740-f5f10f278086" id="_ceaf902e-c7fe-4c1f-9740-f5f10f278086" name="EU-Rent Pricing" namespace="http://www.trisotech.com/definitions/_ceaf902e-c7fe-4c1f-9740-f5f10f278086" exporter="Decision Modeler" exporterVersion="8.11.0" xml:lang="en" triso:logoChoice="Default" triso:version="1.3" triso:state="Published">
+  <dmn11:description>&lt;p&gt;This decision model calculate the&amp;nbsp;rental price of a vehicle based on&amp;nbsp;a&amp;nbsp;&lt;em&gt;Rental Request&lt;/em&gt; and the &lt;em&gt;Customer&lt;/em&gt; history.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;The final price is obtained by calculating the rental price using different methods and then sorting them by price.&lt;/p&gt;
+&lt;p&gt;This method is quite flexible because&amp;nbsp;alternative way of calculating the price (promotions, new business models) can be easily integrated.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</dmn11:description>
+  <dmn11:extensionElements>
+    <triso:graphRelations />
+  </dmn11:extensionElements>
+  <dmn11:itemDefinition id="ItemDefinition_0b7lup6" label="tRental" name="tRental" isCollection="false">
+    <dmn11:itemComponent id="_74506c1e-0f8d-4b78-8fbd-0a7605856aa3" name="Start" isCollection="false">
+      <dmn11:typeRef>dateTime</dmn11:typeRef>
+    </dmn11:itemComponent>
+    <dmn11:itemComponent id="_179e61fb-578d-4f39-af06-49c5bf450a75" name="End" isCollection="false">
+      <dmn11:typeRef>dateTime</dmn11:typeRef>
+    </dmn11:itemComponent>
+    <dmn11:itemComponent id="_f0f83331-9afe-41f0-bc7f-ab205e90d983" name="CarType" isCollection="false">
+      <dmn11:typeRef>tCarType</dmn11:typeRef>
+    </dmn11:itemComponent>
+  </dmn11:itemDefinition>
+  <dmn11:itemDefinition id="ItemDefinition_0wux8cr" label="tCarType" name="tCarType" isCollection="false">
+    <dmn11:typeRef>string</dmn11:typeRef>
+    <dmn11:allowedValues id="UnaryTests_0y2ljge">
+      <dmn11:extensionElements>
+        <triso:constraintDetails id="_94ad1dff-76c8-4014-affd-4ba4a491d196" constraintsType="enumeration">
+          <triso:value>"Economy","Compact","Full Size"</triso:value>
+          <triso:display>"Economy", "Compact", "Full Size"</triso:display>
+          <triso:choices>
+            <triso:value>"Economy"</triso:value>
+            <triso:display>"Economy"</triso:display>
+          </triso:choices>
+          <triso:choices>
+            <triso:value>"Compact"</triso:value>
+            <triso:display>"Compact"</triso:display>
+          </triso:choices>
+          <triso:choices>
+            <triso:value>"Full Size"</triso:value>
+            <triso:display>"Full Size"</triso:display>
+          </triso:choices>
+        </triso:constraintDetails>
+      </dmn11:extensionElements>
+      <dmn11:text>"Economy","Compact","Full Size"</dmn11:text>
+    </dmn11:allowedValues>
+  </dmn11:itemDefinition>
+  <dmn11:itemDefinition id="ItemDefinition_1n4shsw" label="tPromotion" name="tPromotion" isCollection="false">
+    <dmn11:itemComponent id="_76b0ec3d-7d31-4018-90de-c73374a620c1" name="Description" isCollection="false">
+      <dmn11:typeRef>string</dmn11:typeRef>
+    </dmn11:itemComponent>
+    <dmn11:itemComponent id="_3de5d202-3492-4962-9215-a63d489174af" name="Price" isCollection="false">
+      <dmn11:typeRef>number</dmn11:typeRef>
+    </dmn11:itemComponent>
+  </dmn11:itemDefinition>
+  <dmn11:itemDefinition id="ItemDefinition_1e1t0px" label="tPromotiions" name="tPromotiions" isCollection="true">
+    <dmn11:typeRef>tPromotion</dmn11:typeRef>
+  </dmn11:itemDefinition>
+  <dmn11:itemDefinition id="ItemDefinition_0orp4ri" label="tCustomer" name="tCustomer" isCollection="false">
+    <dmn11:itemComponent id="_CustomerID20" name="CustomerID" isCollection="false">
+      <dmn11:typeRef>string</dmn11:typeRef>
+    </dmn11:itemComponent>
+    <dmn11:itemComponent id="_ContactName1" name="ContactName" isCollection="false">
+      <dmn11:typeRef>string</dmn11:typeRef>
+    </dmn11:itemComponent>
+    <dmn11:itemComponent id="_CompanyName2" name="CompanyName" isCollection="false">
+      <dmn11:typeRef>string</dmn11:typeRef>
+    </dmn11:itemComponent>
+    <dmn11:itemComponent id="_Phone3" name="Phone" isCollection="false">
+      <dmn11:typeRef>string</dmn11:typeRef>
+    </dmn11:itemComponent>
+    <dmn11:itemComponent id="_Email4" name="Email" isCollection="false">
+      <dmn11:typeRef>string</dmn11:typeRef>
+    </dmn11:itemComponent>
+    <dmn11:itemComponent id="_f290e11f-693f-4f00-b962-eb418fad5a3d" name="PastRentals" isCollection="false">
+      <dmn11:typeRef>tRentals</dmn11:typeRef>
+    </dmn11:itemComponent>
+  </dmn11:itemDefinition>
+  <dmn11:itemDefinition id="ItemDefinition_0dqym56" label="tPercent" name="tPercent" isCollection="false">
+    <dmn11:typeRef>number</dmn11:typeRef>
+  </dmn11:itemDefinition>
+  <dmn11:itemDefinition id="ItemDefinition_0am4gjy" label="tRentals" name="tRentals" isCollection="true">
+    <dmn11:typeRef>tRental</dmn11:typeRef>
+  </dmn11:itemDefinition>
+  <dmn11:decisionService id="_ceaf902e-c7fe-4c1f-9740-f5f10f278086_DS" name="Whole Model Decision Service" triso:dynamicDecisionService="true" triso:wholeModelService="true">
+    <dmn11:variable id="_ceaf902e-c7fe-4c1f-9740-f5f10f278086_DS_VAR" name="Whole Model Decision Service" typeRef="Any" />
+    <dmn11:outputDecision href="#_c51faaac-3b03-4574-9116-49d2d36b2c5f" />
+    <dmn11:encapsulatedDecision href="#_d7dc62e8-e99d-438c-bd58-376cd367a39c" />
+    <dmn11:encapsulatedDecision href="#_55ef6b13-9945-4532-b552-73e119ccad7c" />
+    <dmn11:encapsulatedDecision href="#_190b1d96-53b2-4d73-b0b4-aad3c40c6c01" />
+    <dmn11:encapsulatedDecision href="#_97531eae-67a1-48b1-bce5-31aabd7e8c24" />
+    <dmn11:inputData href="#_f69b97ef-53cb-4581-865e-01dfaba37c5b" />
+    <dmn11:inputData href="#_4cb50ccb-8d54-4a10-8198-a1f93459923f" />
+  </dmn11:decisionService>
+  <dmn11:decisionService id="_4606d007-0d5a-4ac8-9efd-fb082bfe90a7_DS" name="Diagram Best Pricing Offer DRD" triso:dynamicDecisionService="true">
+    <dmn11:variable id="_4606d007-0d5a-4ac8-9efd-fb082bfe90a7_DS_VAR" name="Diagram Best Pricing Offer DRD" typeRef="Any" />
+    <dmn11:outputDecision href="#_c51faaac-3b03-4574-9116-49d2d36b2c5f" />
+    <dmn11:encapsulatedDecision href="#_d7dc62e8-e99d-438c-bd58-376cd367a39c" />
+    <dmn11:encapsulatedDecision href="#_55ef6b13-9945-4532-b552-73e119ccad7c" />
+    <dmn11:encapsulatedDecision href="#_190b1d96-53b2-4d73-b0b4-aad3c40c6c01" />
+    <dmn11:encapsulatedDecision href="#_97531eae-67a1-48b1-bce5-31aabd7e8c24" />
+    <dmn11:inputData href="#_f69b97ef-53cb-4581-865e-01dfaba37c5b" />
+    <dmn11:inputData href="#_4cb50ccb-8d54-4a10-8198-a1f93459923f" />
+  </dmn11:decisionService>
+  <dmn11:businessKnowledgeModel id="_a0fd1e97-2765-44ed-99a2-425cae2dba97" name="Daily Type Price">
+    <dmn11:description>&lt;p&gt;This knowledge model contains the base&amp;nbsp;daily rental price for each type of vehicle.&lt;/p&gt;</dmn11:description>
+    <dmn11:variable id="_268516e9-3b0c-4681-8edb-7c043045046f" name="Daily Type Price" typeRef="number" />
+  </dmn11:businessKnowledgeModel>
+  <dmn11:decision id="_d7dc62e8-e99d-438c-bd58-376cd367a39c" name="Daily Price" triso:useOutputTypeAsAnswer="false">
+    <dmn11:description>&lt;p&gt;Calculate the rental price based on the&amp;nbsp;daily price for the category. Short rentals will yield&amp;nbsp;lower prices while long rental will yield&amp;nbsp;higher price than calculating it using the&amp;nbsp;weekly&amp;nbsp;price.&lt;/p&gt;</dmn11:description>
+    <dmn11:variable id="_8911322d-c244-46d3-af17-7f5e1d674d7d" name="Daily Price" typeRef="number" />
+    <dmn11:informationRequirement id="_2e21ca6b-5adc-479c-8ce6-adceb7ec2989">
+      <dmn11:requiredInput href="#_f69b97ef-53cb-4581-865e-01dfaba37c5b" />
+    </dmn11:informationRequirement>
+    <dmn11:knowledgeRequirement id="_919393b9-fe68-466d-b568-c152371e6bcf">
+      <dmn11:requiredKnowledge href="#_a0fd1e97-2765-44ed-99a2-425cae2dba97" />
+    </dmn11:knowledgeRequirement>
+    <dmn11:context id="_7d592e51-80d3-4d39-9ead-d9b49aede07e" typeRef="number" triso:descriptionVisible="false" triso:expressionId="_901d87b4-838a-42a6-8cd6-8d0d30b69b00">
+      <dmn11:contextEntry id="_089c4192-0999-4546-a483-8a2d25619aea">
+        <dmn11:variable id="_4cf9414f-38a8-4634-ab0f-67d134270d7a" name="Days count" typeRef="number" />
+        <dmn11:literalExpression id="_a86492d1-ec3a-4722-92e9-5d1ee8b64fe6" triso:descriptionVisible="false">
+          <dmn11:text>ceiling((Rental Request.End - Rental Request.Start)/duration("PT24H"))</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry id="_a078629a-02ad-42f4-9ba3-3a4c4e6307d4">
+        <dmn11:literalExpression id="_7e9c2f4d-a9f9-401d-b435-24314c5504c9">
+          <dmn11:text>Days count*Daily Type Price(Rental Request.CarType)</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+    </dmn11:context>
+  </dmn11:decision>
+  <dmn11:inputData id="_f69b97ef-53cb-4581-865e-01dfaba37c5b" name="Rental Request">
+    <dmn11:variable id="_46175625-cfd6-4b71-b921-01cf465fb50a" name="Rental Request" typeRef="tRental" />
+  </dmn11:inputData>
+  <dmn11:decision id="_55ef6b13-9945-4532-b552-73e119ccad7c" name="Weekly Price" triso:useOutputTypeAsAnswer="false">
+    <dmn11:description>&lt;p&gt;Calculate the rental price based on the weekly price for the category. Short rentals will yield high prices while long rental will yield lower price than calculating it using the daily price.&lt;/p&gt;</dmn11:description>
+    <dmn11:variable id="_a06e1f16-b5eb-4c99-9ada-cd76f4d1581b" name="Weekly Price" typeRef="number" />
+    <dmn11:informationRequirement id="_c7ca752b-d728-4ab7-bb86-207275cf9db0">
+      <dmn11:requiredInput href="#_f69b97ef-53cb-4581-865e-01dfaba37c5b" />
+    </dmn11:informationRequirement>
+    <dmn11:knowledgeRequirement id="_bccca565-b5ca-4a22-b035-5dfd696aacbb">
+      <dmn11:requiredKnowledge href="#_9aca5317-da68-4977-b831-f39d5ff7a76f" />
+    </dmn11:knowledgeRequirement>
+    <dmn11:context id="_dfad43e4-4b77-422a-8ec9-4b944ae481f0" typeRef="number" triso:descriptionVisible="false" triso:expressionId="_2f822120-b929-475f-96d7-effac31d7430">
+      <dmn11:contextEntry id="_94408a40-96e4-462d-8cd1-a8ad0c2ff5d4">
+        <dmn11:variable id="_c2704606-1795-4c4b-970a-afb5b8187b74" name="Weeks count" typeRef="number" />
+        <dmn11:literalExpression id="_d47bb007-4b14-4911-9798-deac2e268659" triso:descriptionVisible="false">
+          <dmn11:text>ceiling((Rental Request.End - Rental Request.Start)/duration("PT168H"))</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry id="_45c45716-c413-4d00-9067-2533883544e6">
+        <dmn11:literalExpression id="_ad8b4c50-e9de-4eb1-8404-06ff0be527cc">
+          <dmn11:text>Weeks count*Weekly Type Price(Rental Request.CarType)</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+    </dmn11:context>
+  </dmn11:decision>
+  <dmn11:businessKnowledgeModel id="_9aca5317-da68-4977-b831-f39d5ff7a76f" name="Weekly Type Price">
+    <dmn11:description>&lt;p&gt;This knowledge model contains the base weekly rental price for each type of vehicle.&lt;/p&gt;</dmn11:description>
+    <dmn11:variable id="_7afba1ba-5d0f-43d3-817d-9bb9e874892c" name="Weekly Type Price" typeRef="number" />
+  </dmn11:businessKnowledgeModel>
+  <dmn11:inputData id="_4cb50ccb-8d54-4a10-8198-a1f93459923f" name="Customer">
+    <dmn11:variable id="_6583ca29-3124-49e7-b05d-d65d9711fba5" name="Customer" typeRef="tCustomer" />
+  </dmn11:inputData>
+  <dmn11:decision id="_190b1d96-53b2-4d73-b0b4-aad3c40c6c01" name="Discount Percent" triso:useOutputTypeAsAnswer="false">
+    <dmn11:description>&lt;p&gt;Calculate a percentage discount price to be applied on base price based on customer history.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;The percentage granted is greater based on the number of times the customer rented a similar car in the last 6 months.&lt;/p&gt;</dmn11:description>
+    <dmn11:variable id="_92283888-6b3a-4820-91b9-3dd1482734f1" name="Discount Percent" typeRef="tPercent" />
+    <dmn11:informationRequirement id="_694f9a05-9b56-4dfe-a120-916ba35da6e6">
+      <dmn11:requiredInput href="#_4cb50ccb-8d54-4a10-8198-a1f93459923f" />
+    </dmn11:informationRequirement>
+    <dmn11:informationRequirement id="_aa409a81-3f18-4b77-8078-3b2a11f08e08">
+      <dmn11:requiredInput href="#_f69b97ef-53cb-4581-865e-01dfaba37c5b" />
+    </dmn11:informationRequirement>
+    <dmn11:context id="_dc41e8a2-910a-4ed5-99c8-1b5a407d2476" typeRef="tPercent" triso:descriptionVisible="false" triso:expressionId="_0af12175-3c4c-4e7d-a2a4-aad4f19944c4">
+      <dmn11:contextEntry id="_ebb47781-55ee-46a8-b3ef-0a565f8e7054">
+        <dmn11:variable id="_9aaecb83-84ab-4fb3-8cd5-ac4a0787675a" name="Previous Rentals" typeRef="tRentals" />
+        <dmn11:literalExpression id="_e846cac0-3ecf-4091-b445-64a3b3da4cdf" triso:descriptionVisible="false">
+          <dmn11:text>Customer.PastRentals</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry id="_31724b48-228b-43b5-9f31-6e758421cf64">
+        <dmn11:variable id="_b3850642-2e3f-48a8-89e6-dcc80b719def" name="Previous Similar Rentals" typeRef="tRentals" />
+        <dmn11:literalExpression id="_179c6807-1546-4365-88d9-f0f42f9898f8" triso:descriptionVisible="false">
+          <dmn11:text>Previous Rentals[CarType = Rental Request.CarType]</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry id="_bf982d3b-b0c4-4640-a48a-461309ddc794">
+        <dmn11:variable id="_211e44c7-5a68-4ecd-947a-2128bfd73b3a" name="Previous Similar Recent Rentals" typeRef="tRentals" />
+        <dmn11:literalExpression id="_9fe043ba-7967-4062-b842-5fe387c0524f" triso:descriptionVisible="false">
+          <dmn11:text>Previous Similar Rentals[now() - End &lt; duration("P182D")]</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry id="_fb3aae9d-7332-4f55-8684-3482cc0566c4">
+        <dmn11:variable id="_82253807-d773-4690-aa6f-3cff96cb51b7" name="Qualifying Rentals Count" typeRef="number" />
+        <dmn11:literalExpression id="_c9acd24d-fe6c-4fab-9f5c-fba89143662d" triso:descriptionVisible="false">
+          <dmn11:text>count(Previous Similar Recent Rentals)</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry id="_8be0818c-e469-4a46-93d1-606da2574220">
+        <dmn11:variable id="_9190a76d-f00d-41eb-8558-3f8626f9ce19" name="Discount" typeRef="tPercent" />
+        <dmn11:decisionTable id="_163e59db-6834-4c5c-8dd1-0081dfc9f537" outputLabel="Discount" triso:descriptionVisible="false">
+          <dmn11:input id="_63fbecf8-848d-4cb4-9ea8-9684498f4bd8" label="Qualifying Rentals Count">
+            <dmn11:inputExpression id="LiteralExpression_0basogi" typeRef="number">
+              <dmn11:text>Qualifying Rentals Count</dmn11:text>
+            </dmn11:inputExpression>
+          </dmn11:input>
+          <dmn11:output id="_61f45c6c-e2ca-4f5e-a335-8fdbedf495ec" />
+          <dmn11:annotation name="Description" />
+          <dmn11:rule id="_6ac25f61-81d1-455f-80ae-d6c26fe4c58e">
+            <dmn11:inputEntry id="_e44332c4-e606-4972-b13e-16b56b9d7f3f">
+              <dmn11:text>&lt;=0</dmn11:text>
+            </dmn11:inputEntry>
+            <dmn11:outputEntry id="_b729c64e-b1ac-4dca-8653-3f3dd7d1dd69">
+              <dmn11:text>0</dmn11:text>
+            </dmn11:outputEntry>
+            <dmn11:annotationEntry>
+              <dmn11:text>No discount</dmn11:text>
+            </dmn11:annotationEntry>
+          </dmn11:rule>
+          <dmn11:rule id="_7f95110f-bd56-4ba2-94c0-e42d4a333456">
+            <dmn11:inputEntry id="_f7695453-be2d-4c2b-85ac-4ee25e120629">
+              <dmn11:text>1</dmn11:text>
+            </dmn11:inputEntry>
+            <dmn11:outputEntry id="_1b8429d8-ad5f-4ebb-9932-7b67dfa6a252">
+              <dmn11:text>10</dmn11:text>
+            </dmn11:outputEntry>
+            <dmn11:annotationEntry>
+              <dmn11:text>10% discount</dmn11:text>
+            </dmn11:annotationEntry>
+          </dmn11:rule>
+          <dmn11:rule id="_eadab06e-f529-43f4-adbc-987f0db2e91d">
+            <dmn11:inputEntry id="_ceccbc3c-bca9-4b98-bf21-50ee6e759431">
+              <dmn11:text>2</dmn11:text>
+            </dmn11:inputEntry>
+            <dmn11:outputEntry id="_e2e7bcd0-c218-4334-94f3-1eca8550f473">
+              <dmn11:text>20</dmn11:text>
+            </dmn11:outputEntry>
+            <dmn11:annotationEntry>
+              <dmn11:text>20% discount</dmn11:text>
+            </dmn11:annotationEntry>
+          </dmn11:rule>
+          <dmn11:rule id="_d205bff0-0fac-42e5-87e8-81b04b9bf304">
+            <dmn11:inputEntry id="_89339d88-6f11-4776-9b75-d58b6cf6b808">
+              <dmn11:text>&gt;=3</dmn11:text>
+            </dmn11:inputEntry>
+            <dmn11:outputEntry id="_945d9400-eef1-4a79-9518-d08c63abe885">
+              <dmn11:text>30</dmn11:text>
+            </dmn11:outputEntry>
+            <dmn11:annotationEntry>
+              <dmn11:text>30% discount</dmn11:text>
+            </dmn11:annotationEntry>
+          </dmn11:rule>
+        </dmn11:decisionTable>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry id="_6a24c6f6-c3a0-4673-a6a4-17ba962057e7">
+        <dmn11:literalExpression id="_b10e2f91-cadc-4227-b59c-cd0e824619af">
+          <dmn11:text>Discount</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+    </dmn11:context>
+  </dmn11:decision>
+  <dmn11:decision id="_97531eae-67a1-48b1-bce5-31aabd7e8c24" name="Applicable Promotions" triso:useOutputTypeAsAnswer="false">
+    <dmn11:description>&lt;p&gt;Filter the date based promotions to keep only the ones that apply for the &lt;em&gt;Rental Request&lt;/em&gt;&lt;/p&gt;</dmn11:description>
+    <dmn11:variable id="_baa0c864-a4ea-4361-87fd-6b7531eb19a6" name="Applicable Promotions" typeRef="tPromotiions" />
+    <dmn11:informationRequirement id="_eb7339ea-12b3-4775-90b8-ce662253d5b6">
+      <dmn11:requiredInput href="#_f69b97ef-53cb-4581-865e-01dfaba37c5b" />
+    </dmn11:informationRequirement>
+    <dmn11:knowledgeRequirement id="_b20f5bd0-03de-462a-a429-841d3aebbc05">
+      <dmn11:requiredKnowledge href="#_aad42876-2f71-403e-a029-9bf8dd1a2675" />
+    </dmn11:knowledgeRequirement>
+    <dmn11:context id="_d79c2a21-c231-40a9-810f-b01dae3b050e" typeRef="tPromotiions" triso:descriptionVisible="false" triso:expressionId="_8f3968ec-9cb2-456e-941d-38d13551dc97">
+      <dmn11:contextEntry id="_e1c061d7-8074-41cb-9c98-55e69d904b98">
+        <dmn11:variable id="_3c1f5f08-60cc-4169-8b95-07ba73b0f905" name="From Month" typeRef="number" />
+        <dmn11:literalExpression id="_21652d77-f4ce-4aa9-9137-0588cc389474" triso:descriptionVisible="false">
+          <dmn11:text>Rental Request.Start.month</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry id="_e171a720-6bc2-4393-9dd6-406434525825">
+        <dmn11:variable id="_575b3838-a459-47cc-a69f-b49f467d93fe" name="From Day" typeRef="number" />
+        <dmn11:literalExpression id="_de21f41b-26eb-476b-b5e4-28f0887424b0" triso:descriptionVisible="false">
+          <dmn11:text>Rental Request.Start.day</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry id="_798a363f-70d7-4bbb-b030-100aaa6eb326">
+        <dmn11:variable id="_9e36b2e1-2acf-47f5-a3fa-9d515436cbe4" name="To Month" typeRef="number" />
+        <dmn11:literalExpression id="_c30f2d3d-2bb5-4f06-90cc-99e273e33a8d" triso:descriptionVisible="false">
+          <dmn11:text>Rental Request.End.month</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry id="_c211b8d7-09fa-4788-930d-086d316a85df">
+        <dmn11:variable id="_262014ff-75eb-405c-8324-ff9c5c01079f" name="To Day" typeRef="number" />
+        <dmn11:literalExpression id="_6e0a0f79-1851-4626-949d-9fe433708554" triso:descriptionVisible="false">
+          <dmn11:text>Rental Request.End.day</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry id="_e6b2630d-3894-49c7-b880-1ae6b8f284f4">
+        <dmn11:variable id="_1ff19015-9fb1-4eba-a233-c5de29fb1ea7" name="Rental Duration Days" typeRef="number" />
+        <dmn11:literalExpression id="_2ef21f29-14f6-42e2-be22-7ef667b20865" triso:descriptionVisible="false">
+          <dmn11:text>ceiling((Rental Request.End - Rental Request.Start) / duration("P1D"))</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+      <dmn11:contextEntry id="_34eea576-2f18-4f18-ace0-53ccada83c0e">
+        <dmn11:literalExpression id="_41ad70d0-18c4-4c42-a51c-92435782a859">
+          <dmn11:text>Date Based Promotions(From Month, From Day,To Month,To Day,Rental Duration Days,Rental Request.CarType)</dmn11:text>
+        </dmn11:literalExpression>
+      </dmn11:contextEntry>
+    </dmn11:context>
+  </dmn11:decision>
+  <dmn11:businessKnowledgeModel id="_aad42876-2f71-403e-a029-9bf8dd1a2675" name="Date Based Promotions">
+    <dmn11:description>&lt;p&gt;This knowledge model contains various date based promotions. They are promotions that are ran every year at specific period of time. More can be easily added.&lt;/p&gt;</dmn11:description>
+    <dmn11:variable id="_90ace88d-0add-4e71-82a9-c6c5a209ff2b" name="Date Based Promotions" typeRef="tPromotiions" />
+    <dmn11:knowledgeRequirement id="_2189b312-6ef5-4366-95de-4f5a191a8b4d">
+      <dmn11:requiredKnowledge href="#_a0fd1e97-2765-44ed-99a2-425cae2dba97" />
+    </dmn11:knowledgeRequirement>
+  </dmn11:businessKnowledgeModel>
+  <dmn11:decision id="_c51faaac-3b03-4574-9116-49d2d36b2c5f" name="Best Price" triso:useOutputTypeAsAnswer="false">
+    <dmn11:variable id="_ed8bec8e-ebd1-4fa8-9876-b7a440851c69" name="Best Price" typeRef="number" />
+    <dmn11:informationRequirement id="_4651fb50-bc1e-4d4e-a259-37a3db9bc423">
+      <dmn11:requiredDecision href="#_55ef6b13-9945-4532-b552-73e119ccad7c" />
+    </dmn11:informationRequirement>
+    <dmn11:informationRequirement id="_e8db54e6-578e-4059-a26e-eb79adb38d12">
+      <dmn11:requiredDecision href="#_d7dc62e8-e99d-438c-bd58-376cd367a39c" />
+    </dmn11:informationRequirement>
+    <dmn11:informationRequirement id="_289fd9d4-cfdd-4fea-b3dc-dc343a82a8ef">
+      <dmn11:requiredDecision href="#_190b1d96-53b2-4d73-b0b4-aad3c40c6c01" />
+    </dmn11:informationRequirement>
+    <dmn11:informationRequirement id="_b218281c-01e6-499e-bca8-d289eee81f2d">
+      <dmn11:requiredDecision href="#_97531eae-67a1-48b1-bce5-31aabd7e8c24" />
+    </dmn11:informationRequirement>
+    <dmn11:literalExpression id="_1233c4a1-5de8-4932-884c-cda87d6d8871" typeRef="number" triso:expressionId="_7c08893b-9195-4ddc-bb58-ff0d1764e7a2" triso:descriptionVisible="false">
+      <dmn11:text>decimal(min(append(Applicable Promotions.Price[item&gt;0], Weekly Price*(1-.01*Discount Percent), Daily Price*(1-.01*Discount Percent))),2)</dmn11:text>
+    </dmn11:literalExpression>
+  </dmn11:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_4606d007-0d5a-4ac8-9efd-fb082bfe90a7" name="Best Pricing Offer DRD" triso:modelElementRef="_4606d007-0d5a-4ac8-9efd-fb082bfe90a7">
+      <dmndi:Size width="1198" height="657.9921869487735" />
+      <dmndi:DMNShape id="_9ea78465-cde3-4bc0-b054-044de6ce9436" dmnElementRef="_a0fd1e97-2765-44ed-99a2-425cae2dba97">
+        <dc:Bounds height="59" width="152" x="618.5" y="388.99218694877345" />
+        <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_e3fafb6b-6426-4933-9d54-486424969a57" dmnElementRef="_d7dc62e8-e99d-438c-bd58-376cd367a39c">
+        <dc:Bounds height="60" width="153" x="425" y="243.99218694877345" />
+        <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_fcd480b0-b0c3-406e-9769-4af36267d6fe" dmnElementRef="_f69b97ef-53cb-4581-865e-01dfaba37c5b">
+        <dc:Bounds height="60.00000762939453" width="135.48234176635742" x="591" y="503.9921831340762" />
+        <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_3e4eb70c-5f7e-44f4-927f-01295b72b557" dmnElementRef="_55ef6b13-9945-4532-b552-73e119ccad7c">
+        <dc:Bounds height="60" width="153" x="243" y="243.99218694877345" />
+        <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_9c9848b9-c888-464d-8896-0e5e93c2b18f" dmnElementRef="_9aca5317-da68-4977-b831-f39d5ff7a76f">
+        <dc:Bounds height="59" width="152" x="50" y="244.49218694877345" />
+        <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_0a6bb02a-9d35-4906-9651-8fbe728da466" dmnElementRef="_4cb50ccb-8d54-4a10-8198-a1f93459923f">
+        <dc:Bounds height="60.00000762939453" width="135.48234176635742" x="1003.7588291168213" y="513.9921831340762" />
+        <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_ce20e2bc-550b-4781-88db-92a5bb73d798" dmnElementRef="_190b1d96-53b2-4d73-b0b4-aad3c40c6c01">
+        <dc:Bounds height="60" width="153" x="995" y="280.49218694877345" />
+        <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_036ffe9d-fd7e-488c-b918-f0e6e5844394" dmnElementRef="_97531eae-67a1-48b1-bce5-31aabd7e8c24">
+        <dc:Bounds height="60" width="153" x="676" y="177.49218694877345" />
+        <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_3a266760-eafd-41ea-9974-8d693692f57a" dmnElementRef="_aad42876-2f71-403e-a029-9bf8dd1a2675">
+        <dc:Bounds height="59" width="152" x="618.5" y="280.99218694877345" />
+        <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_f26904dc-bb8a-4f21-8dba-cc4175bcf8ed" dmnElementRef="_c51faaac-3b03-4574-9116-49d2d36b2c5f">
+        <dc:Bounds height="60" width="153" x="618" y="50" />
+        <dmndi:DMNLabel trisodmn:defaultBounds="true" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_73d66218-87f4-4de1-906c-cddba2f010e6" dmnElementRef="_919393b9-fe68-466d-b568-c152371e6bcf" sourceElement="_9ea78465-cde3-4bc0-b054-044de6ce9436" targetElement="_e3fafb6b-6426-4933-9d54-486424969a57">
+        <di:waypoint x="618.5" y="417.99218694877345" />
+        <di:waypoint x="541.5" y="303.99218694877345" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_dddad9d0-6c69-41ca-9c53-8a75e1436e1a" dmnElementRef="_2e21ca6b-5adc-479c-8ce6-adceb7ec2989" sourceElement="_fcd480b0-b0c3-406e-9769-4af36267d6fe" targetElement="_e3fafb6b-6426-4933-9d54-486424969a57">
+        <di:waypoint x="648.7379722595215" y="503.9921831340762" />
+        <di:waypoint x="498.38596331754957" y="406.9921850414248" />
+        <di:waypoint x="491.5" y="303.99218694877345" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_51762810-102b-4a16-a409-cebb29e02bf5" dmnElementRef="_bccca565-b5ca-4a22-b035-5dfd696aacbb" sourceElement="_9c9848b9-c888-464d-8896-0e5e93c2b18f" targetElement="_3e4eb70c-5f7e-44f4-927f-01295b72b557">
+        <di:waypoint x="202" y="273.49218694877345" />
+        <di:waypoint x="243" y="273.99218694877345" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_49efd8f5-e651-41af-ac5d-0438d4ead661" dmnElementRef="_c7ca752b-d728-4ab7-bb86-207275cf9db0" sourceElement="_fcd480b0-b0c3-406e-9769-4af36267d6fe" targetElement="_3e4eb70c-5f7e-44f4-927f-01295b72b557">
+        <di:waypoint x="593.2379722595215" y="523.9921831340762" />
+        <di:waypoint x="349.5" y="438.9921850414248" />
+        <di:waypoint x="349.5" y="303.99218694877345" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_698a8405-48e4-4da1-82cb-69ed2ead9c69" dmnElementRef="_694f9a05-9b56-4dfe-a120-916ba35da6e6" sourceElement="_0a6bb02a-9d35-4906-9651-8fbe728da466" targetElement="_ce20e2bc-550b-4781-88db-92a5bb73d798">
+        <di:waypoint x="1071.4968013763428" y="513.9921831340762" />
+        <di:waypoint x="1071.5" y="340.49218694877345" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_5a838753-0fed-4b7a-93b8-9ada7eb9df8d" dmnElementRef="_aa409a81-3f18-4b77-8078-3b2a11f08e08" sourceElement="_fcd480b0-b0c3-406e-9769-4af36267d6fe" targetElement="_ce20e2bc-550b-4781-88db-92a5bb73d798">
+        <di:waypoint x="725.2379722595215" y="523.9921831340762" />
+        <di:waypoint x="1011.5" y="340.49218694877345" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_bbfdaee6-11b8-4d58-a2f0-f2c0c6b2eac6" dmnElementRef="_eb7339ea-12b3-4775-90b8-ce662253d5b6" sourceElement="_fcd480b0-b0c3-406e-9769-4af36267d6fe" targetElement="_036ffe9d-fd7e-488c-b918-f0e6e5844394">
+        <di:waypoint x="698.7379722595215" y="503.9921831340762" />
+        <di:waypoint x="812.5" y="430.7421850414248" />
+        <di:waypoint x="812.5" y="237.49218694877345" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_bbee1f4c-ce45-4d73-a20b-a51cb53fcf73" dmnElementRef="_2189b312-6ef5-4366-95de-4f5a191a8b4d" sourceElement="_9ea78465-cde3-4bc0-b054-044de6ce9436" targetElement="_3a266760-eafd-41ea-9974-8d693692f57a">
+        <di:waypoint x="694.0032679738562" y="389.99218694877345" />
+        <di:waypoint x="694.9967320261438" y="339.99218694877345" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_3f1e7a30-5aa6-4451-abf6-cb65ec502f24" dmnElementRef="_b20f5bd0-03de-462a-a429-841d3aebbc05" sourceElement="_3a266760-eafd-41ea-9974-8d693692f57a" targetElement="_036ffe9d-fd7e-488c-b918-f0e6e5844394">
+        <di:waypoint x="694.0032679738562" y="281.99218694877345" />
+        <di:waypoint x="742.5" y="237.49218694877345" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_52dff6a7-634a-4792-82d4-3aff643c6962" dmnElementRef="_4651fb50-bc1e-4d4e-a259-37a3db9bc423" sourceElement="_3e4eb70c-5f7e-44f4-927f-01295b72b557" targetElement="_f26904dc-bb8a-4f21-8dba-cc4175bcf8ed">
+        <di:waypoint x="319.5" y="243.99218694877345" />
+        <di:waypoint x="684.5" y="110" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_83863cf3-9842-4538-843a-c69620ccbf0a" dmnElementRef="_e8db54e6-578e-4059-a26e-eb79adb38d12" sourceElement="_e3fafb6b-6426-4933-9d54-486424969a57" targetElement="_f26904dc-bb8a-4f21-8dba-cc4175bcf8ed">
+        <di:waypoint x="481.5" y="243.99218694877345" />
+        <di:waypoint x="694.5" y="110" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_385b5a1a-7921-4ac9-bd6e-5456b8ffbe14" dmnElementRef="_289fd9d4-cfdd-4fea-b3dc-dc343a82a8ef" sourceElement="_ce20e2bc-550b-4781-88db-92a5bb73d798" targetElement="_f26904dc-bb8a-4f21-8dba-cc4175bcf8ed">
+        <di:waypoint x="1041.5" y="280.49218694877345" />
+        <di:waypoint x="744.5" y="110" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_da8b40ea-3d99-463f-b569-6a8e6816809a" dmnElementRef="_b218281c-01e6-499e-bca8-d289eee81f2d" sourceElement="_036ffe9d-fd7e-488c-b918-f0e6e5844394" targetElement="_f26904dc-bb8a-4f21-8dba-cc4175bcf8ed">
+        <di:waypoint x="752.5" y="177.49218694877345" />
+        <di:waypoint x="704.5" y="110" />
+        <dmndi:DMNLabel />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+    <dmndi:DMNStyle id="LS_ceaf902e-c7fe-4c1f-9740-f5f10f278086_0" fontSize="11" fontFamily="arial,helvetica,sans-serif" fontItalic="false" fontBold="false" fontUnderline="false" fontStrikeThrough="false" />
+  </dmndi:DMNDI>
+</dmn11:definitions>

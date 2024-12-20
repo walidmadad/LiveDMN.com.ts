@@ -1,0 +1,60 @@
+{
+  "action": "PREDICT",
+  "data": [
+    {
+      "Developer medal": "Gold",
+      "Programming language": "TypeScript",
+      "Version": 4
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "TypeScript",
+      "Version": 1
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "TypeScript",
+      "Version": 5
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "TypeScript",
+      "Version": 16
+    },
+    {
+      "Developer medal": "Gold",
+      "Programming language": "C++",
+      "Version": 16
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "TypeScript",
+      "Version": 5
+    },
+    {
+      "Developer medal": "Bronze",
+      "Programming language": "TypeScript",
+      "Version": 2
+    },
+    {
+      "Version": 2,
+      "Developer medal": "Silver",
+      "Programming language": "TypeScript"
+    },
+    {
+      "Version": 3,
+      "Developer medal": "Silver",
+      "Programming language": "TypeScript"
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "TypeScript",
+      "Version": 5
+    },
+    {
+      "Developer medal": "Silver",
+      "Programming language": "TypeScript",
+      "Version": 18
+    }
+  ]
+}
